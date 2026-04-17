@@ -37,15 +37,17 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
     console.warn('Falha ao adicionar logo Kessler:', e);
   }
 
-  // Company name next to logo
+  // Company info block next to logo
   doc.setTextColor(...NAVY);
   doc.setFont('helvetica', 'bold');
-  doc.setFontSize(14);
-  doc.text('KESSLER GROUP', margin + 22, 12);
+  doc.setFontSize(12);
+  doc.text('Kessler Group', margin + 22, 9);
+
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.setTextColor(...GRAY);
-  doc.text('ProcureFlow · Sistema de Procurement', margin + 22, 17);
+  doc.setTextColor(60, 60, 60);
+  doc.text('Av Brasil, 4577, Sala 2, Rio de Janeiro', margin + 22, 14);
+  doc.text('compras@kessleroffshore.com.br', margin + 22, 19);
 
   // Navy band with PO title below
   doc.setFillColor(...NAVY);
