@@ -33,9 +33,17 @@ export const STATUS_CONFIG: Record<RCStatus, StatusConfig> = {
     label: 'Fatura Recebida', color: '#1e3a8a', bg: '#dbeafe',
     border: '#60a5fa', icon: '🧾',
   },
+  enviado_contabilidade: {
+    label: 'Enviado à Contabilidade', color: '#3730a3', bg: '#eef2ff',
+    border: '#a5b4fc', icon: '📤',
+  },
   pago: {
     label: 'Pago', color: '#166534', bg: '#dcfce7',
     border: '#4ade80', icon: '💰',
+  },
+  conciliado: {
+    label: 'Conciliado', color: '#134e4a', bg: '#ccfbf1',
+    border: '#5eead4', icon: '🏦',
   },
 };
 
@@ -68,9 +76,10 @@ export function generateRCId(): string {
 export const RC_STATUS_FLOW: RCStatus[] = [
   'aguardando_aprovacao',
   'aprovado',
-  'pedido_emitido',
   'aguardando_entrega',
   'entregue',
   'fatura_recebida',
+  'enviado_contabilidade',
   'pago',
+  'conciliado',
 ];

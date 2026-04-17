@@ -42,7 +42,9 @@ export type RCStatus =
   | 'aguardando_entrega'
   | 'entregue'
   | 'fatura_recebida'
-  | 'pago';
+  | 'enviado_contabilidade'
+  | 'pago'
+  | 'conciliado';
 
 export interface Invoice {
   name: string;
