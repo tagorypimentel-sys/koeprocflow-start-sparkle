@@ -65,10 +65,11 @@ export function UsuariosPage() {
       return;
     }
 
+    const data = result.data as FormState;
     if (editingId) {
-      updateUser(editingId, result.data);
+      updateUser(editingId, data);
     } else {
-      addUser(result.data);
+      addUser(data);
     }
     resetForm();
   };
