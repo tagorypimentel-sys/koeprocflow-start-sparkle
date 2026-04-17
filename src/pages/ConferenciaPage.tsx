@@ -1,136 +1,106 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useApp } from '@/context/AppContext';
-import { PurchaseRequest, RCStatus } from '@/types';
+import { PurchaseRequest } from '@/types';
 import { StatusBadge, Button, EmptyState } from '@/components/ui-pf';
 
 interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;
 }
 
-const NEXT_ACTION: Partial<Record<RCStatus, { label: string; nextStatus: RCStatus; variant: 'primary' | 'success' }>> = {
-  aprovado: { label: 'Confirmar Emissão do Pedido', nextStatus: 'pedido_emitido', variant: 'primary' },
-  pedido_emitido: { label: 'Confirmar Envio ao Fornecedor', nextStatus: 'aguardando_entrega', variant: 'primary' },
-  aguardando_entrega: { label: 'Confirmar Entrega', nextStatus: 'entregue', variant: 'success' },
-};
-
 export function ConferenciaPage({ onSelectRC }: Props) {
   const { rcs, calcRC, updateRC } = useApp();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [uploadingId, setUploadingId] = React.useState<string | null>(null);
 
-  const active = rcs.filter((r) =>
-    ['aprovado', 'pedido_emitido', 'aguardando_entrega', 'entregue'].includes(r.status)
-  );
+  const pending = rcs.filter((r) => r.status === 'fatura_recebida');
+  const recent = rcs.filter((r) => r.status === 'enviado_contabilidade').slice(0, 5);
 
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
-  const handleUploadInvoice = (rcId: string) => {
-    setUploadingId(rcId);
-    // Simulate file upload — in production connect to Supabase Storage
-    setTimeout(() => {
-      updateRC(rcId, {
-        status: 'fatura_recebida',
-        invoice: {
-          name: `NF-${Math.floor(Math.random() * 90000 + 10000)}.pdf`,
-          date: new Date().toISOString().split('T')[0],
-        },
-      });
-      setUploadingId(null);
-    }, 1200);
+  const handleSendToAccounting = (rcId: string) => {
+    updateRC(rcId, { status: 'enviado_contabilidade' });
   };
 
   return (
     <div className="p-6 max-w-5xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Conferência de Entregas</h1>
-        <p className="text-sm text-gray-500 mt-1">{active.length} pedido(s) em acompanhamento</p>
+        <h1 className="text-2xl font-bold text-gray-900">Conferência — Envio à Contabilidade</h1>
+        <p className="text-sm text-gray-500 mt-1">{pending.length} fatura(s) aguardando envio ao portal contábil</p>
       </div>
 
-      {active.length === 0 ? (
-        <div className="bg-white rounded-xl border border-gray-200">
-          <EmptyState message="Nenhum pedido para conferir no momento" icon="📦" />
+      <h2 className="text-sm font-bold text-gray-700 mb-3">Faturas Pendentes</h2>
+      {pending.length === 0 ? (
+        <div className="bg-white rounded-xl border border-gray-200 mb-6">
+          <EmptyState message="Nenhuma fatura para enviar à contabilidade" icon="📤" />
         </div>
       ) : (
-        active.map((rc) => {
-          const { total } = calcRC(rc);
-          const action = NEXT_ACTION[rc.status];
-          return (
-            <div key={rc.id} className="bg-white rounded-xl border border-gray-200 shadow-sm mb-4 overflow-hidden">
-              <div className="bg-gray-50 px-5 py-3 border-b border-gray-100 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <span className="font-bold text-blue-900">{rc.poNumber || rc.id}</span>
-                  <StatusBadge status={rc.status} />
+        <div className="space-y-4 mb-8">
+          {pending.map((rc) => {
+            const { total } = calcRC(rc);
+            return (
+              <div key={rc.id} className="bg-white rounded-xl border border-indigo-200 shadow-sm overflow-hidden">
+                <div className="bg-indigo-50 px-5 py-3 border-b border-indigo-100 flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="font-bold text-blue-900">{rc.poNumber || rc.id}</span>
+                    <StatusBadge status={rc.status} />
+                  </div>
+                  <span className="font-bold text-gray-800">R$ {fmt(total)}</span>
                 </div>
-                <span className="font-bold text-gray-800">R$ {fmt(total)}</span>
-              </div>
-
-              <div className="p-5">
-                <div className="grid grid-cols-4 gap-4 mb-4">
-                  {[
-                    { l: 'Projeto', v: rc.projectNumber },
-                    { l: 'Cliente', v: rc.projectClient },
-                    { l: 'Fornecedor', v: rc.supplier.name },
-                    { l: 'Aprovado em', v: rc.approvedAt || rc.createdAt },
-                  ].map((f) => (
-                    <div key={f.l}>
-                      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1">{f.l}</p>
-                      <p className="text-sm font-medium text-gray-800">{f.v}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="text-xs text-gray-500 mb-4">
-                  {rc.lineItems.length} item(ns) · Total R$ {fmt(total)}
-                </div>
-
-                {/* Steps indicator */}
-                <div className="flex items-center gap-2 mb-4 text-xs">
-                  {(['aprovado', 'pedido_emitido', 'aguardando_entrega', 'entregue', 'fatura_recebida'] as RCStatus[]).map((s, i) => {
-                    const done = ['aprovado', 'pedido_emitido', 'aguardando_entrega', 'entregue', 'fatura_recebida', 'pago'].indexOf(rc.status) >= i;
-                    return (
-                      <React.Fragment key={s}>
-                        <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-semibold ${done ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-400'}`}>
-                          {done ? '✓' : (i + 1)} {['Aprovado', 'PO Emitido', 'Aguardando', 'Entregue', 'Fatura'][i]}
-                        </div>
-                        {i < 4 && <div className="h-px w-4 bg-gray-200" />}
-                      </React.Fragment>
-                    );
-                  })}
-                </div>
-
-                <div className="flex gap-3 justify-between items-center">
-                  <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver Detalhes</Button>
-                  <div className="flex gap-2">
-                    {action && (
-                      <Button
-                        size="sm"
-                        variant={action.variant}
-                        onClick={() => updateRC(rc.id, { status: action.nextStatus })}
-                      >
-                        {action.label}
-                      </Button>
-                    )}
-                    {rc.status === 'entregue' && !rc.invoice && (
-                      <Button
-                        size="sm"
-                        variant="primary"
-                        disabled={uploadingId === rc.id}
-                        onClick={() => handleUploadInvoice(rc.id)}
-                      >
-                        {uploadingId === rc.id ? '⏳ Enviando...' : '📎 Anexar Nota Fiscal'}
-                      </Button>
-                    )}
-                    {rc.invoice && (
-                      <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-800">
-                        <span>📄</span> {rc.invoice.name}
+                <div className="p-5">
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    {[
+                      { l: 'Projeto', v: rc.projectNumber },
+                      { l: 'Cliente', v: rc.projectClient },
+                      { l: 'Fornecedor', v: rc.supplier.name },
+                      { l: 'Nota Fiscal', v: rc.invoice?.name || '—' },
+                    ].map((f) => (
+                      <div key={f.l}>
+                        <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1">{f.l}</p>
+                        <p className="text-sm font-medium text-gray-800 break-all">{f.v}</p>
                       </div>
-                    )}
+                    ))}
+                  </div>
+                  <div className="flex gap-3 justify-end">
+                    <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver Detalhes</Button>
+                    <Button size="sm" variant="primary" onClick={() => handleSendToAccounting(rc.id)}>
+                      📤 Enviar Fatura à Contabilidade
+                    </Button>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })
+            );
+          })}
+        </div>
+      )}
+
+      {recent.length > 0 && (
+        <>
+          <h2 className="text-sm font-bold text-gray-700 mb-3">Enviadas Recentemente</h2>
+          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-gray-50 border-b border-gray-100">
+                  {['Pedido', 'Projeto', 'Fornecedor', 'NF', 'Valor', 'Status'].map((h) => (
+                    <th key={h} className="px-4 py-2.5 text-left text-xs font-semibold text-gray-400">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {recent.map((rc) => {
+                  const { total } = calcRC(rc);
+                  return (
+                    <tr key={rc.id} className="border-b border-gray-50 hover:bg-gray-50 cursor-pointer" onClick={() => onSelectRC(rc)}>
+                      <td className="px-4 py-3 font-bold text-xs text-blue-900">{rc.poNumber}</td>
+                      <td className="px-4 py-3 text-xs text-gray-600">{rc.projectNumber}</td>
+                      <td className="px-4 py-3 text-xs font-medium">{rc.supplier.name}</td>
+                      <td className="px-4 py-3 text-xs text-gray-400">{rc.invoice?.name || '—'}</td>
+                      <td className="px-4 py-3 text-xs font-bold">R$ {fmt(total)}</td>
+                      <td className="px-4 py-3"><StatusBadge status={rc.status} /></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
     </div>
   );

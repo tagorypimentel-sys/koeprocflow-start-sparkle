@@ -8,11 +8,12 @@ import { generatePOPdf } from '@/lib/generatePO';
 const TIMELINE_LABELS: Partial<Record<RCStatus, string>> = {
   aguardando_aprovacao: 'Aguardando Aprovação',
   aprovado: 'Aprovada',
-  pedido_emitido: 'Pedido Emitido',
   aguardando_entrega: 'Aguardando Entrega',
   entregue: 'Entregue',
   fatura_recebida: 'Fatura Recebida',
+  enviado_contabilidade: 'Enviado à Contabilidade',
   pago: 'Pagamento Realizado',
+  conciliado: 'Conciliado',
 };
 
 interface Props {
@@ -21,9 +22,25 @@ interface Props {
 }
 
 export function RCDetailPanel({ rc, onClose }: Props) {
-  const { calcRC, resubmitRC, currentUser } = useApp();
+  const { calcRC, resubmitRC, updateRC, currentUser } = useApp();
   const { subtotal, taxAmt, total } = calcRC(rc);
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+  const isOwnerSolicitante = currentUser.role === 'solicitante' && rc.requester.id === currentUser.id;
+
+  const handleConfirmDelivery = () => {
+    updateRC(rc.id, { status: 'entregue' });
+  };
+
+  const handleAttachInvoice = () => {
+    updateRC(rc.id, {
+      status: 'fatura_recebida',
+      invoice: {
+        name: `NF-${Math.floor(Math.random() * 90000 + 10000)}.pdf`,
+        date: new Date().toISOString().split('T')[0],
+      },
+    });
+  };
 
   const currentIdx = RC_STATUS_FLOW.indexOf(rc.status);
 
