@@ -54,6 +54,8 @@ export const MOCK_RCS: PurchaseRequest[] = [
     poNumber: null,
     invoice: null,
     paid: false,
+    deliveryMode: 'entrega',
+    deliveryCarrier: 'fornecedor',
     notes: 'Equipamentos para novo colaborador do time de engenharia.',
     lineItems: [
       { id: 1, item: MOCK_ITEMS[0], qty: 2, unitPrice: 4500, discount: 5 },
@@ -77,6 +79,8 @@ export const MOCK_RCS: PurchaseRequest[] = [
     poNumber: 'PRJ-2024-038_01',
     invoice: { name: 'NF-12345.pdf', date: '2024-01-18' },
     paid: true,
+    deliveryMode: 'entrega',
+    deliveryCarrier: 'fornecedor',
     lineItems: [
       { id: 4, item: MOCK_ITEMS[5], qty: 10, unitPrice: 28, discount: 0 },
       { id: 5, item: MOCK_ITEMS[6], qty: 5, unitPrice: 15, discount: 0 },
@@ -97,6 +101,8 @@ export const MOCK_RCS: PurchaseRequest[] = [
     poNumber: 'PRJ-2024-045_01',
     invoice: null,
     paid: false,
+    deliveryMode: 'entrega',
+    deliveryCarrier: 'fornecedor',
     lineItems: [
       { id: 6, item: MOCK_ITEMS[8], qty: 5, unitPrice: 1300, discount: 10 },
       { id: 7, item: MOCK_ITEMS[7], qty: 3, unitPrice: 850, discount: 10 },
@@ -117,6 +123,8 @@ export const MOCK_RCS: PurchaseRequest[] = [
     poNumber: 'PRJ-2024-041_01',
     invoice: { name: 'NF-67890.pdf', date: '2024-01-22' },
     paid: false,
+    deliveryMode: 'entrega',
+    deliveryCarrier: 'fornecedor',
     lineItems: [
       { id: 8, item: MOCK_ITEMS[9], qty: 10, unitPrice: 380, discount: 0 },
       { id: 9, item: MOCK_ITEMS[4], qty: 10, unitPrice: 320, discount: 0 },
