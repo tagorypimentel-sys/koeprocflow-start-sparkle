@@ -22,6 +22,8 @@ interface AppContextType {
   calcRC: (rc: PurchaseRequest) => { subtotal: number; taxAmt: number; total: number };
   approveRC: (id: string) => void;
   rejectRC: (id: string, reason?: string) => void;
+  returnRC: (id: string, reason?: string) => void;
+  resubmitRC: (id: string) => void;
   selectedRC: PurchaseRequest | null;
   setSelectedRC: (rc: PurchaseRequest | null) => void;
 }
@@ -82,8 +84,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const approveRC = (id: string) => {
     const rc = rcs.find((r) => r.id === id);
     if (!rc) return;
-    const poCount = rcs.filter((r) => r.poNumber && r.projectNumber === rc.projectNumber).length;
-    const poNumber = `${rc.projectNumber}_${String(poCount + 1).padStart(2, '0')}`;
+    const poPrefix = `PO#${rc.projectNumber}-`;
+    const poCount = rcs.filter((r) => r.poNumber && r.poNumber.startsWith(poPrefix)).length;
+    const poNumber = `${poPrefix}${String(poCount + 1).padStart(2, '0')}`;
     const approvedAt = new Date().toISOString().split('T')[0];
     const updatedRC: PurchaseRequest = {
       ...rc,
@@ -107,13 +110,29 @@ export function AppProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const returnRC = (id: string, reason?: string) => {
+    updateRC(id, {
+      status: 'devolvido',
+      rejectedAt: new Date().toISOString().split('T')[0],
+      rejectionReason: reason,
+    });
+  };
+
+  const resubmitRC = (id: string) => {
+    updateRC(id, {
+      status: 'aguardando_aprovacao',
+      rejectionReason: undefined,
+      rejectedAt: undefined,
+    });
+  };
+
   return (
     <AppContext.Provider
       value={{
         currentUser, setCurrentUser, users, setUsers,
         addUser, updateUser, deleteUser,
         items, setItems, suppliers, setSuppliers, rcs, setRcs, updateRC, addRC,
-        calcRC, approveRC, rejectRC, selectedRC, setSelectedRC,
+        calcRC, approveRC, rejectRC, returnRC, resubmitRC, selectedRC, setSelectedRC,
       }}
     >
       {children}

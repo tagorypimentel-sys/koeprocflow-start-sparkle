@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function AprovacoesPage({ onSelectRC }: Props) {
-  const { rcs, calcRC, approveRC, rejectRC } = useApp();
+  const { rcs, calcRC, approveRC, returnRC } = useApp();
   const [rejectingId, setRejectingId] = useState<string | null>(null);
   const [rejectReason, setRejectReason] = useState('');
 
@@ -16,7 +16,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
   const handleReject = (id: string) => {
-    rejectRC(id, rejectReason);
+    returnRC(id, rejectReason);
     setRejectingId(null);
     setRejectReason('');
   };
@@ -101,19 +101,19 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                   </div>
                 )}
 
-                {/* Reject form */}
+                {/* Return form */}
                 {rejectingId === rc.id && (
-                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <p className="text-xs font-semibold text-red-700 mb-2">Motivo da rejeição (opcional)</p>
+                  <div className="mt-4 p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                    <p className="text-xs font-semibold text-orange-700 mb-2">Motivo da devolução (opcional)</p>
                     <textarea
                       value={rejectReason}
                       onChange={(e) => setRejectReason(e.target.value)}
                       rows={2}
-                      placeholder="Descreva o motivo..."
-                      className="w-full px-3 py-2 border border-red-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-400 bg-white resize-none"
+                      placeholder="Descreva o motivo da devolução ao solicitante..."
+                      className="w-full px-3 py-2 border border-orange-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white resize-none"
                     />
                     <div className="flex gap-2 mt-2">
-                      <Button size="sm" variant="danger" onClick={() => handleReject(rc.id)}>Confirmar Rejeição</Button>
+                      <Button size="sm" variant="danger" onClick={() => handleReject(rc.id)}>Confirmar Devolução</Button>
                       <Button size="sm" variant="secondary" onClick={() => setRejectingId(null)}>Cancelar</Button>
                     </div>
                   </div>
@@ -122,7 +122,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                 {/* Actions */}
                 <div className="flex gap-3 justify-end mt-4">
                   <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver Detalhes</Button>
-                  <Button size="sm" variant="danger" onClick={() => setRejectingId(rc.id)}>✕ Rejeitar</Button>
+                  <Button size="sm" variant="danger" onClick={() => setRejectingId(rc.id)}>↩ Devolver ao Solicitante</Button>
                   <Button size="sm" variant="success" onClick={() => approveRC(rc.id)}>✓ Aprovar</Button>
                 </div>
               </div>

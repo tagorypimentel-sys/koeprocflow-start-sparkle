@@ -37,6 +37,7 @@ export type RCStatus =
   | 'aguardando_aprovacao'
   | 'aprovado'
   | 'rejeitado'
+  | 'devolvido'
   | 'pedido_emitido'
   | 'aguardando_entrega'
   | 'entregue'
