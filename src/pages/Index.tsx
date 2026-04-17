@@ -1,16 +1,56 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { AppProvider, useApp } from '@/context/AppContext';
+import { Layout } from '@/components/layout/Layout';
+import { RCDetailPanel } from '@/components/rc/RCDetailPanel';
+import { DashboardPage } from '@/pages/DashboardPage';
+import { RCListPage } from '@/pages/RCListPage';
+import { NovaRCPage } from '@/pages/NovaRCPage';
+import { AprovacoesPage } from '@/pages/AprovacoesPage';
+import { ConferenciaPage } from '@/pages/ConferenciaPage';
+import { FinanceiroPage } from '@/pages/FinanceiroPage';
+import { ItemsPage } from '@/pages/ItemsPage';
+import { SuppliersPage } from '@/pages/SuppliersPage';
+import { PurchaseRequest } from '@/types';
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+type Page =
+  | 'dashboard' | 'rcs' | 'nova_rc'
+  | 'aprovacoes' | 'conferencia' | 'financeiro'
+  | 'items' | 'suppliers';
+
+function AppInner() {
+  const [page, setPage] = useState<Page>('dashboard');
+  const { selectedRC, setSelectedRC } = useApp();
+
+  const handleSelectRC = (rc: PurchaseRequest) => setSelectedRC(rc);
+  const handleClosePanel = () => setSelectedRC(null);
+  const navigateTo = (p: Page) => {
+    setPage(p);
+    setSelectedRC(null);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <Layout currentPage={page} setPage={navigateTo}>
+      <div className="flex h-full">
+        <div className="flex-1 overflow-y-auto">
+          {page === 'dashboard' && <DashboardPage onSelectRC={handleSelectRC} />}
+          {page === 'rcs' && <RCListPage onSelectRC={handleSelectRC} onNewRC={() => navigateTo('nova_rc')} />}
+          {page === 'nova_rc' && <NovaRCPage onSave={() => navigateTo('rcs')} onCancel={() => navigateTo('rcs')} />}
+          {page === 'aprovacoes' && <AprovacoesPage onSelectRC={handleSelectRC} />}
+          {page === 'conferencia' && <ConferenciaPage onSelectRC={handleSelectRC} />}
+          {page === 'financeiro' && <FinanceiroPage onSelectRC={handleSelectRC} />}
+          {page === 'items' && <ItemsPage />}
+          {page === 'suppliers' && <SuppliersPage />}
+        </div>
+        {selectedRC && <RCDetailPanel rc={selectedRC} onClose={handleClosePanel} />}
+      </div>
+    </Layout>
   );
-};
+}
 
-const Index = PlaceholderIndex;
-
-export default Index;
+export default function Index() {
+  return (
+    <AppProvider>
+      <AppInner />
+    </AppProvider>
+  );
+}
