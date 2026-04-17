@@ -3,6 +3,7 @@ import { PurchaseRequest, RCStatus } from '@/types';
 import { StatusBadge, Avatar, Button } from '@/components/ui-pf';
 import { RC_STATUS_FLOW } from '@/lib/constants';
 import { useApp } from '@/context/AppContext';
+import { generatePOPdf } from '@/lib/generatePO';
 
 const TIMELINE_LABELS: Partial<Record<RCStatus, string>> = {
   aguardando_aprovacao: 'Aguardando Aprovação',
@@ -149,7 +150,13 @@ export function RCDetailPanel({ rc, onClose }: Props) {
           <div className="p-4 bg-blue-900 rounded-xl text-white">
             <p className="text-[10px] font-bold opacity-60 uppercase tracking-widest mb-1">Pedido de Compra</p>
             <p className="text-xl font-bold">{rc.poNumber}</p>
-            <p className="text-[10px] opacity-60 mt-1">PDF gerado · E-mail enviado ao solicitante</p>
+            <p className="text-[10px] opacity-60 mt-1 mb-3">PDF gerado · E-mail enviado ao solicitante</p>
+            <button
+              onClick={() => generatePOPdf(rc, { subtotal, taxAmt, total })}
+              className="w-full bg-white text-blue-900 font-semibold text-xs py-2 rounded-lg hover:bg-blue-50 transition-colors"
+            >
+              ⬇ Baixar PDF
+            </button>
           </div>
         )}
       </div>
