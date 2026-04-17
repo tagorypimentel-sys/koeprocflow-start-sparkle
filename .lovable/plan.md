@@ -1,60 +1,38 @@
 
-## Análise
+## Plano: Opção de Entrega + Ajustes no PDF do PO
 
-Fluxo atual:
-`aguardando_aprovacao → aprovado → pedido_emitido → aguardando_entrega → entregue → fatura_recebida → pago`
+### 1. Tipos (`src/types/index.ts`)
+Adicionar ao `PurchaseRequest`:
+- `deliveryMode: 'entrega' | 'retirada'`
+- `deliveryCarrier?: 'transportadora' | 'fornecedor'` (só quando `deliveryMode === 'entrega'`)
 
-Hoje o **Conferente** faz: confirmar emissão do pedido, confirmar envio ao fornecedor, confirmar entrega e anexar nota fiscal. **Financeiro** registra o pagamento.
+### 2. Formulário Nova RC (`src/pages/NovaRCPage.tsx`)
+Adicionar nova seção "Modo de Entrega" no card de Informações do Projeto, com dois toggles estilo "switch/segmented":
+- **Toggle 1**: `Entrega` ↔ `Retirada na loja` (default: Entrega)
+- **Toggle 2** (condicional, só aparece se `Entrega`): `Transportadora` ↔ `Fornecedor entrega` (default: Fornecedor)
 
-## Novo fluxo proposto
+Salvar `deliveryMode` e `deliveryCarrier` na RC criada. Componentes feitos com `button`s estilizados (Tailwind) — sem nova lib.
 
-```text
-1. Solicitante:   cria RC                    → aguardando_aprovacao
-2. Aprovador:     aprova                     → aprovado (PO gerado automaticamente)
-                                             → pedido_emitido (auto, junto com aprovação)
-                                             → aguardando_entrega (auto)
-3. Solicitante:   confirma entrega           → entregue
-4. Solicitante:   anexa Nota Fiscal          → fatura_recebida
-5. Conferente:    envia fatura à Contabilidade → enviado_contabilidade  (NOVO)
-6. Financeiro:    registra pagamento         → pago
-7. Financeiro:    confirma conciliação       → conciliado  (NOVO — etapa final)
-```
+### 3. PDF do Pedido de Compra (`src/lib/generatePO.ts`)
+**Remover do PDF** (conforme pedido):
+- Linha "Cliente"
+- Linha "Projeto"
+- Linha "Aprovador"
+- Linha "Criado em" (data de solicitação)
 
-Mudanças-chave:
-- Conferente sai do início do fluxo. Aprovação já dispara PO e marca `aguardando_entrega` direto.
-- Solicitante passa a confirmar entrega e anexar NF (movido de Conferente).
-- Conferente ganha nova responsabilidade única: enviar a fatura ao portal da Contabilidade.
-- Financeiro ganha etapa final de Conciliação Bancária após o pagamento.
+**Manter**: Solicitante, Aprovado em, número do projeto vinculado já implícito no PO#.
 
-## Arquivos a alterar
+**Adicionar bloco "MODALIDADE DE ENTREGA"** (logo abaixo do bloco do Fornecedor), exibindo um dos textos:
+- "Retirada na loja pelo solicitante"
+- "Entrega pelo fornecedor"
+- "Entrega via transportadora (a contratar pelo solicitante)"
 
-1. **`src/types/index.ts`** — adicionar status `enviado_contabilidade` e `conciliado` ao `RCStatus`.
+### 4. Painel de detalhes (`src/components/rc/RCDetailPanel.tsx`)
+Adicionar linha "Modo de entrega" no grid de "Dados da RC" para visualização in-app (sem afetar PDF).
 
-2. **`src/lib/constants.ts`** — config visual dos dois novos status (cores/ícones) e atualizar `RC_STATUS_FLOW`.
+### 5. Mock data (`src/data/mock.ts`)
+Adicionar `deliveryMode: 'entrega'` + `deliveryCarrier: 'fornecedor'` às RCs existentes para evitar `undefined`.
 
-3. **`src/context/AppContext.tsx`** — em `approveRC`, ao aprovar já setar status final como `aguardando_entrega` (em vez de `aprovado`), mantendo `approvedAt` e `poNumber`.
-
-4. **`src/pages/ConferenciaPage.tsx`** — refatorar:
-   - Remover etapas "Confirmar Emissão" e "Confirmar Envio".
-   - Remover ações de "Confirmar Entrega" e "Anexar NF" (vão para o solicitante).
-   - Listar apenas RCs com status `fatura_recebida`.
-   - Botão único: **"📤 Enviar Fatura à Contabilidade"** → muda status para `enviado_contabilidade`.
-   - Atualizar indicador de etapas para refletir novo fluxo.
-
-5. **`src/pages/RCListPage.tsx`** (ou onde o solicitante vê suas RCs) — adicionar ações para o solicitante quando status for:
-   - `aguardando_entrega` → botão **"✓ Confirmar Entrega"** (status → `entregue`).
-   - `entregue` → botão **"📎 Anexar Nota Fiscal"** (status → `fatura_recebida` + popula `invoice`).
-   
-   Verificar se existe componente apropriado (RCDetailPanel) para colocar essas ações; usar lá se for o caso.
-
-6. **`src/pages/FinanceiroPage.tsx`**:
-   - Listar pendências como RCs com status `enviado_contabilidade` (em vez de `fatura_recebida`).
-   - Após "Registrar Pagamento" (status → `pago`), exibir nova seção/botão **"🏦 Confirmar Conciliação Bancária"** para RCs `pago` → status `conciliado`.
-   - Histórico passa a mostrar RCs `conciliado`.
-
-7. **`src/pages/DashboardPage.tsx`** — se houver contadores por status, incluir os novos.
-
-## Fora de escopo
-- Integração real com portal de contabilidade (apenas mudança de status).
-- Upload real de arquivo de NF (mantém simulação atual).
-- Migração de RCs mock existentes para o novo fluxo (ficam nos status antigos).
+### Fora de escopo
+- Edição do modo de entrega após criação da RC.
+- Cadastro de transportadoras.
