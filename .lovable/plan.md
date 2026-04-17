@@ -1,44 +1,42 @@
 
-## Plano: Geração de PDF do Pedido de Compra
+## Análise do estado atual
 
-### Objetivo
-Ao aprovar uma RC, gerar automaticamente um PDF profissional do Pedido de Compra (PO) e disparar download. Também permitir baixar o PDF posteriormente a partir do painel de detalhes da RC aprovada.
+Verificando o que já existe vs. o que falta:
 
-### Abordagem técnica
-Usar **jsPDF + jspdf-autotable** (client-side, sem backend). É leve, funciona no browser, e não requer Lovable Cloud.
+**Já implementado:**
+- `AprovacoesPage.tsx` tem botões **"✓ Aprovar"** e **"✕ Rejeitar"** (com motivo opcional) — atende "aprovar ou devolver".
+- `approveRC` no `AppContext.tsx` já gera PDF automaticamente via `generatePOPdf`.
+- Numeração de PO já existe: `${rc.projectNumber}_${NN}` (ex: `7025_01`).
 
-### Arquivos a criar/editar
+**Gap vs. pedido:**
+- Formato do PO: hoje é `7025_01`, o usuário pede **`PO#7025-01`** (prefixo `PO#` + separador `-`).
+- Terminologia "devolver" vs. "rejeitar" — o botão atual diz "Rejeitar". Pedido fala em **"devolver ao solicitante"**, o que sugere que a RC volte para um estado editável pelo solicitante (não um "rejeitado" terminal).
 
-1. **`src/lib/generatePO.ts`** (novo)
-   - Função `generatePOPdf(rc, totals)` que monta o PDF e dispara `doc.save(...)`.
-   - Layout corporativo:
-     - **Cabeçalho**: faixa azul-marinho (`#1e3a8a`) com "PEDIDO DE COMPRA" + número do PO à direita.
-     - **Bloco de metadados** (2 colunas): Projeto, Cliente, Data emissão, Data aprovação, Solicitante, Aprovador.
-     - **Bloco Fornecedor**: nome, CNPJ, contato, telefone, endereço.
-     - **Tabela de itens** (autoTable): Código, Descrição, Qtd, Unit., Desc.%, Total. Cabeçalho com fill azul-marinho e texto branco.
-     - **Totais** alinhados à direita: Subtotal, Impostos (X%), **Total** em destaque.
-     - **Observações** (se houver).
-     - **Rodapé**: "Documento gerado automaticamente por ProcureFlow" + paginação.
-   - Valores formatados pt-BR.
+## Decisões de design
 
-2. **`src/context/AppContext.tsx`** (editar)
-   - Em `approveRC`: após atualizar status, chamar `generatePOPdf(updatedRC, calcRC(updatedRC))` para download automático.
+1. **Formato PO**: trocar geração para `PO#${projectNumber}-${NN}` (ex: `PO#7025-01`). Atualizar contagem para considerar o novo prefixo ao calcular sequência.
+2. **Devolver ≠ Rejeitar**: renomear ação para **"Devolver ao Solicitante"**. Adicionar novo status `devolvido` que:
+   - Aparece para o solicitante numa lista (RCListPage filtra por status do usuário) e pode ser editado/reenviado.
+   - Mantém o motivo de devolução visível.
+   - Manteremos `rejeitado` no enum para compatibilidade, mas a ação do aprovador agora usa `devolvido`.
+3. **Reenvio pelo solicitante**: quando RC está `devolvido`, o solicitante poderá reabrir/editar e mudar status de volta para `aguardando_aprovacao`. Para escopo mínimo, adicionar botão **"Reenviar para Aprovação"** no `RCDetailPanel` quando status = `devolvido` e usuário = solicitante.
 
-3. **`src/components/rc/RCDetailPanel.tsx`** (editar)
-   - No bloco "Pedido de Compra" (quando `rc.poNumber` existe), adicionar botão **"Baixar PDF"** que chama `generatePOPdf`.
+## Arquivos a editar
 
-4. **`src/pages/AprovacoesPage.tsx`** (sem mudança de lógica — `approveRC` já cuida do download).
+1. **`src/types/index.ts`** — adicionar `'devolvido'` ao `RCStatus`.
+2. **`src/lib/constants.ts`** — adicionar config visual do status `devolvido` (cor laranja/âmbar, ícone ↩).
+3. **`src/context/AppContext.tsx`**:
+   - `approveRC`: trocar formato do PO para `PO#${projectNumber}-${NN}`. Ajustar contagem (`rcs.filter(r => r.poNumber?.startsWith('PO#' + rc.projectNumber))`).
+   - Adicionar `returnRC(id, reason)` que seta status `devolvido` + `rejectionReason`.
+   - Adicionar `resubmitRC(id)` que volta status para `aguardando_aprovacao` e limpa `rejectionReason`.
+4. **`src/pages/AprovacoesPage.tsx`**:
+   - Renomear botão "✕ Rejeitar" → "↩ Devolver ao Solicitante".
+   - Trocar chamada `rejectRC` → `returnRC`.
+   - Textos: "Motivo da devolução" em vez de "rejeição".
+5. **`src/components/rc/RCDetailPanel.tsx`**:
+   - Quando status = `devolvido` e usuário = solicitante, mostrar botão **"Reenviar para Aprovação"** + alerta com motivo.
+6. **`src/lib/generatePO.ts`** — sem mudança estrutural (já recebe `rc.poNumber`); apenas usará o novo formato automaticamente.
 
-### Dependências
-- `jspdf`
-- `jspdf-autotable`
-
-### Detalhes de design do PDF
-- Fonte: Helvetica (default jsPDF, sem necessidade de embed).
-- Margens: 15mm.
-- Cores: azul-marinho `#1e3a8a` para faixas/cabeçalhos, cinza `#6b7280` para labels, preto para valores.
-- Tamanho A4 retrato.
-
-### Fora de escopo
-- Envio de PDF por e-mail (apenas simulado em texto, como já consta no painel).
-- Armazenamento do PDF no servidor (sem backend nesta versão).
+## Fora de escopo
+- Edição completa da RC após devolução (abriria refatoração grande do `NovaRCPage`). Reenvio será simples (volta direto para aprovação com mesmos dados, opcionalmente o solicitante pode editar via tela de nova RC numa próxima iteração).
+- Migração das RCs mock existentes para o novo formato `PO#…` (ficam com o formato antigo no histórico).
