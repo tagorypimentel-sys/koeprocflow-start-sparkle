@@ -19,6 +19,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   });
   const [deliveryMode, setDeliveryMode] = useState<'entrega' | 'retirada'>('entrega');
   const [deliveryCarrier, setDeliveryCarrier] = useState<'transportadora' | 'fornecedor'>('fornecedor');
+  const [deliveryAddress, setDeliveryAddress] = useState('');
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
   const [addingItem, setAddingItem] = useState(false);
   const [newLine, setNewLine] = useState({ itemId: '', qty: '1', discount: '0' });
@@ -57,6 +58,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
     if (!form.supplierId) e.supplierId = 'Obrigatório';
     if (!form.approverId) e.approverId = 'Obrigatório';
     if (lineItems.length === 0) e.items = 'Adicione pelo menos um item';
+    if (deliveryMode === 'entrega' && !deliveryAddress.trim()) e.deliveryAddress = 'Informe o endereço de entrega';
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -81,6 +83,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       lineItems,
       deliveryMode,
       deliveryCarrier: deliveryMode === 'entrega' ? deliveryCarrier : undefined,
+      deliveryAddress: deliveryMode === 'entrega' ? deliveryAddress.trim() : undefined,
     };
     addRC(rc);
     onSave();
@@ -205,6 +208,21 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                     {opt.l}
                   </button>
                 ))}
+              </div>
+
+              <div className="mt-3 max-w-2xl">
+                <label className="block text-xs font-bold text-gray-500 mb-1">
+                  Endereço de Entrega <span className="text-red-500">*</span>
+                </label>
+                <Textarea
+                  value={deliveryAddress}
+                  onChange={(e) => setDeliveryAddress(e.target.value)}
+                  placeholder="Rua, número, complemento, bairro, cidade/UF, CEP"
+                  className={errors.deliveryAddress ? 'border-red-400' : ''}
+                />
+                {errors.deliveryAddress && (
+                  <p className="text-xs text-red-500 mt-1">{errors.deliveryAddress}</p>
+                )}
               </div>
             </div>
           )}
