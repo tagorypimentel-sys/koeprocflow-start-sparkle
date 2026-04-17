@@ -17,6 +17,8 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
     projectNumber: '', projectClient: '', supplierId: '',
     approverId: '', tax: '0', notes: '',
   });
+  const [deliveryMode, setDeliveryMode] = useState<'entrega' | 'retirada'>('entrega');
+  const [deliveryCarrier, setDeliveryCarrier] = useState<'transportadora' | 'fornecedor'>('fornecedor');
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
   const [addingItem, setAddingItem] = useState(false);
   const [newLine, setNewLine] = useState({ itemId: '', qty: '1', discount: '0' });
@@ -77,6 +79,8 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       paid: false,
       notes: form.notes,
       lineItems,
+      deliveryMode,
+      deliveryCarrier: deliveryMode === 'entrega' ? deliveryCarrier : undefined,
     };
     addRC(rc);
     onSave();
