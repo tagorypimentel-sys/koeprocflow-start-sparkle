@@ -1,7 +1,7 @@
 import React from 'react';
-import { useApp } from '../../context/AppContext';
-import { StatusBadge, StatCard } from '../ui';
-import { PurchaseRequest } from '../../types';
+import { useApp } from '@/context/AppContext';
+import { StatusBadge, StatCard } from '@/components/ui-pf';
+import { PurchaseRequest } from '@/types';
 
 interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;

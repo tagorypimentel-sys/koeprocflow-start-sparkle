@@ -1,7 +1,7 @@
 import React from 'react';
-import { useApp } from '../../context/AppContext';
-import { ROLE_LABELS } from '../../lib/constants';
-import { Avatar } from '../ui';
+import { useApp } from '@/context/AppContext';
+import { ROLE_LABELS } from '@/lib/constants';
+import { Avatar } from '@/components/ui-pf';
 
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc'

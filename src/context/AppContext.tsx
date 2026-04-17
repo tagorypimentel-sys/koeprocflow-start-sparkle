@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { User, Item, Supplier, PurchaseRequest, RCStatus } from '../types';
-import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '../data/mock';
+import { User, Item, Supplier, PurchaseRequest, RCStatus } from '@/types';
+import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
 
 interface AppContextType {
   currentUser: User;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { PurchaseRequest, RCStatus } from '../../types';
-import { StatusBadge, Avatar, Button } from '../ui';
-import { RC_STATUS_FLOW } from '../../lib/constants';
-import { useApp } from '../../context/AppContext';
+import { PurchaseRequest, RCStatus } from '@/types';
+import { StatusBadge, Avatar, Button } from '@/components/ui-pf';
+import { RC_STATUS_FLOW } from '@/lib/constants';
+import { useApp } from '@/context/AppContext';
 
 const TIMELINE_LABELS: Partial<Record<RCStatus, string>> = {
   aguardando_aprovacao: 'Aguardando Aprovação',

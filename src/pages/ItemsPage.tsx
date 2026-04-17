@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useApp } from '../../context/AppContext';
-import { Item } from '../../types';
-import { FormField, Input, Select, Button, SectionHeader, Card } from '../ui';
+import { useApp } from '@/context/AppContext';
+import { Item } from '@/types';
+import { FormField, Input, Select, Button, SectionHeader, Card } from '@/components/ui-pf';
 
 export function ItemsPage() {
   const { items, setItems } = useApp();

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useApp } from '../../context/AppContext';
-import { LineItem, PurchaseRequest } from '../../types';
-import { FormField, Input, Select, Textarea, Button, TotalsBox } from '../ui';
-import { generateRCId } from '../../lib/constants';
+import { useApp } from '@/context/AppContext';
+import { LineItem, PurchaseRequest } from '@/types';
+import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
+import { generateRCId } from '@/lib/constants';
 
 interface Props {
   onSave: () => void;

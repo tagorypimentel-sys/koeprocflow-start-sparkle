@@ -1,4 +1,4 @@
-import { RCStatus, StatusConfig, UserRole } from '../types';
+import { RCStatus, StatusConfig, UserRole } from '@/types';
 
 export const STATUS_CONFIG: Record<RCStatus, StatusConfig> = {
   aguardando_aprovacao: {

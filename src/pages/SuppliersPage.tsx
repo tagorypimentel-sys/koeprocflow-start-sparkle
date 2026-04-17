@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useApp } from '../../context/AppContext';
-import { Supplier } from '../../types';
-import { FormField, Input, Button, SectionHeader, Card } from '../ui';
+import { useApp } from '@/context/AppContext';
+import { Supplier } from '@/types';
+import { FormField, Input, Button, SectionHeader, Card } from '@/components/ui-pf';
 
 export function SuppliersPage() {
   const { suppliers, setSuppliers } = useApp();

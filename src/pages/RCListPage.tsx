@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useApp } from '../../context/AppContext';
-import { StatusBadge, Button, EmptyState } from '../ui';
-import { STATUS_CONFIG } from '../../lib/constants';
-import { PurchaseRequest, RCStatus } from '../../types';
+import { useApp } from '@/context/AppContext';
+import { StatusBadge, Button, EmptyState } from '@/components/ui-pf';
+import { STATUS_CONFIG } from '@/lib/constants';
+import { PurchaseRequest, RCStatus } from '@/types';
 
 interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;
