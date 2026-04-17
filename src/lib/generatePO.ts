@@ -1,6 +1,7 @@
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { PurchaseRequest } from '@/types';
+import koeLogo from '@/assets/koe-logo.png';
 
 const NAVY: [number, number, number] = [30, 58, 138]; // #1e3a8a
 const GRAY: [number, number, number] = [107, 114, 128]; // #6b7280
@@ -26,29 +27,36 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
 
   // ===== Header band =====
   doc.setFillColor(...NAVY);
-  doc.rect(0, 0, pageW, 26, 'F');
+  doc.rect(0, 0, pageW, 30, 'F');
+
+  // KOE logo (top-left)
+  try {
+    doc.addImage(koeLogo, 'PNG', margin, 6, 18, 18);
+  } catch (e) {
+    console.warn('Falha ao adicionar logo KOE:', e);
+  }
 
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(16);
-  doc.text('PEDIDO DE COMPRA', margin, 13);
+  doc.text('PEDIDO DE COMPRA', margin + 22, 14);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
-  doc.text('ProcureFlow · Sistema de Procurement', margin, 19);
+  doc.text('KOE · ProcureFlow · Sistema de Procurement', margin + 22, 20);
 
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(14);
   const poText = rc.poNumber || '—';
   const poW = doc.getTextWidth(poText);
-  doc.text(poText, pageW - margin - poW, 13);
+  doc.text(poText, pageW - margin - poW, 14);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
   const dateLabel = `Emitido em ${today()}`;
   const dW = doc.getTextWidth(dateLabel);
-  doc.text(dateLabel, pageW - margin - dW, 19);
+  doc.text(dateLabel, pageW - margin - dW, 20);
 
-  let y = 36;
+  let y = 40;
 
   // ===== Metadata block (2 columns) =====
   const labelValue = (label: string, value: string, x: number, yy: number, maxW = 80) => {
@@ -203,7 +211,7 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(7.5);
     doc.setTextColor(...GRAY);
-    doc.text('Documento gerado automaticamente por ProcureFlow', margin, pageH - 9);
+    doc.text('Documento gerado automaticamente por KOE ProcureFlow', margin, pageH - 9);
     const pg = `Página ${i} de ${pageCount}`;
     const pgW = doc.getTextWidth(pg);
     doc.text(pg, pageW - margin - pgW, pageH - 9);
