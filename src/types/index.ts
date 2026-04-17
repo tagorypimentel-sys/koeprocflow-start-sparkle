@@ -72,6 +72,8 @@ export interface PurchaseRequest {
   paid: boolean;
   lineItems: LineItem[];
   notes?: string;
+  deliveryMode: 'entrega' | 'retirada';
+  deliveryCarrier?: 'transportadora' | 'fornecedor';
 }
 
 export interface StatusConfig {
