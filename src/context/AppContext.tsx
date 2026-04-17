@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { User, Item, Supplier, PurchaseRequest, RCStatus } from '@/types';
 import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
+import { generatePOPdf } from '@/lib/generatePO';
 
 interface AppContextType {
   currentUser: User;
@@ -53,11 +54,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!rc) return;
     const poCount = rcs.filter((r) => r.poNumber && r.projectNumber === rc.projectNumber).length;
     const poNumber = `${rc.projectNumber}_${String(poCount + 1).padStart(2, '0')}`;
-    updateRC(id, {
+    const approvedAt = new Date().toISOString().split('T')[0];
+    const updatedRC: PurchaseRequest = {
+      ...rc,
       status: 'aprovado',
       poNumber,
-      approvedAt: new Date().toISOString().split('T')[0],
-    });
+      approvedAt,
+    };
+    updateRC(id, { status: 'aprovado', poNumber, approvedAt });
+    try {
+      generatePOPdf(updatedRC, calcRC(updatedRC));
+    } catch (e) {
+      console.error('Erro ao gerar PDF do PO:', e);
+    }
   };
 
   const rejectRC = (id: string, reason?: string) => {
