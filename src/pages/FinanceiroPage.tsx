@@ -9,8 +9,9 @@ interface Props {
 
 export function FinanceiroPage({ onSelectRC }: Props) {
   const { rcs, calcRC, updateRC } = useApp();
-  const pending = rcs.filter((r) => r.status === 'fatura_recebida');
-  const paid = rcs.filter((r) => r.status === 'pago').slice(0, 5);
+  const pending = rcs.filter((r) => r.status === 'enviado_contabilidade');
+  const toReconcile = rcs.filter((r) => r.status === 'pago');
+  const reconciled = rcs.filter((r) => r.status === 'conciliado').slice(0, 5);
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
   const handlePay = (id: string) => {
@@ -21,17 +22,21 @@ export function FinanceiroPage({ onSelectRC }: Props) {
     });
   };
 
+  const handleReconcile = (id: string) => {
+    updateRC(id, { status: 'conciliado' });
+  };
+
   const totalPending = pending.reduce((s, r) => s + calcRC(r).total, 0);
 
   return (
     <div className="p-6 max-w-5xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Financeiro — Pagamentos</h1>
-        <p className="text-sm text-gray-500 mt-1">{pending.length} fatura(s) pendentes · R$ {fmt(totalPending)} a pagar</p>
+        <h1 className="text-2xl font-bold text-gray-900">Financeiro — Pagamentos & Conciliação</h1>
+        <p className="text-sm text-gray-500 mt-1">{pending.length} fatura(s) pendentes · R$ {fmt(totalPending)} a pagar · {toReconcile.length} a conciliar</p>
       </div>
 
-      {/* Pending */}
-      <h2 className="text-sm font-bold text-gray-700 mb-3">Faturas Pendentes</h2>
+      {/* Pending Payment */}
+      <h2 className="text-sm font-bold text-gray-700 mb-3">Faturas Pendentes de Pagamento</h2>
       {pending.length === 0 ? (
         <div className="bg-white rounded-xl border border-gray-200 mb-6">
           <EmptyState message="Nenhum pagamento pendente" icon="💰" />
@@ -82,10 +87,40 @@ export function FinanceiroPage({ onSelectRC }: Props) {
         </div>
       )}
 
-      {/* Paid History */}
-      {paid.length > 0 && (
+      {/* Bank Reconciliation */}
+      <h2 className="text-sm font-bold text-gray-700 mb-3">Aguardando Conciliação Bancária</h2>
+      {toReconcile.length === 0 ? (
+        <div className="bg-white rounded-xl border border-gray-200 mb-6">
+          <EmptyState message="Nenhuma conciliação pendente" icon="🏦" />
+        </div>
+      ) : (
+        <div className="space-y-3 mb-8">
+          {toReconcile.map((rc) => {
+            const { total } = calcRC(rc);
+            return (
+              <div key={rc.id} className="bg-white rounded-xl border border-teal-200 shadow-sm p-4 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <span className="font-bold text-blue-900">{rc.poNumber}</span>
+                  <span className="text-xs text-gray-500">{rc.supplier.name} · Pago em {rc.paidAt}</span>
+                  <StatusBadge status={rc.status} />
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold text-gray-800">R$ {fmt(total)}</span>
+                  <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver</Button>
+                  <Button size="sm" variant="primary" onClick={() => handleReconcile(rc.id)}>
+                    🏦 Confirmar Conciliação
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Reconciled History */}
+      {reconciled.length > 0 && (
         <>
-          <h2 className="text-sm font-bold text-gray-700 mb-3">Histórico Recente de Pagamentos</h2>
+          <h2 className="text-sm font-bold text-gray-700 mb-3">Histórico de Conciliações</h2>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <table className="w-full text-sm border-collapse">
               <thead>
@@ -96,7 +131,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                 </tr>
               </thead>
               <tbody>
-                {paid.map((rc) => {
+                {reconciled.map((rc) => {
                   const { total } = calcRC(rc);
                   return (
                     <tr key={rc.id} className="border-b border-gray-50 hover:bg-gray-50 cursor-pointer" onClick={() => onSelectRC(rc)}>

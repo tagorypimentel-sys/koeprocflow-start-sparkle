@@ -90,11 +90,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const approvedAt = new Date().toISOString().split('T')[0];
     const updatedRC: PurchaseRequest = {
       ...rc,
-      status: 'aprovado',
+      status: 'aguardando_entrega',
       poNumber,
       approvedAt,
     };
-    updateRC(id, { status: 'aprovado', poNumber, approvedAt });
+    updateRC(id, { status: 'aguardando_entrega', poNumber, approvedAt });
     try {
       generatePOPdf(updatedRC, calcRC(updatedRC));
     } catch (e) {
