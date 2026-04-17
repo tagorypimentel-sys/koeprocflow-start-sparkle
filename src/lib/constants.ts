@@ -13,6 +13,10 @@ export const STATUS_CONFIG: Record<RCStatus, StatusConfig> = {
     label: 'Rejeitado', color: '#991b1b', bg: '#fef2f2',
     border: '#fca5a5', icon: '✕',
   },
+  devolvido: {
+    label: 'Devolvido ao Solicitante', color: '#9a3412', bg: '#fff7ed',
+    border: '#fdba74', icon: '↩',
+  },
   pedido_emitido: {
     label: 'Pedido Emitido', color: '#1e3a8a', bg: '#eff6ff',
     border: '#93c5fd', icon: '📋',

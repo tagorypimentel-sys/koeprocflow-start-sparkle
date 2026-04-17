@@ -21,7 +21,7 @@ interface Props {
 }
 
 export function RCDetailPanel({ rc, onClose }: Props) {
-  const { calcRC } = useApp();
+  const { calcRC, resubmitRC, currentUser } = useApp();
   const { subtotal, taxAmt, total } = calcRC(rc);
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
@@ -76,6 +76,21 @@ export function RCDetailPanel({ rc, onClose }: Props) {
           <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
             <p className="text-xs font-bold text-red-700 mb-1">Requisição Rejeitada</p>
             {rc.rejectionReason && <p className="text-xs text-red-600">{rc.rejectionReason}</p>}
+          </div>
+        )}
+
+        {rc.status === 'devolvido' && (
+          <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
+            <p className="text-xs font-bold text-orange-700 mb-1">↩ Devolvida pelo Aprovador</p>
+            {rc.rejectionReason && <p className="text-xs text-orange-700 mb-2">{rc.rejectionReason}</p>}
+            {currentUser.role === 'solicitante' && (
+              <button
+                onClick={() => resubmitRC(rc.id)}
+                className="w-full mt-1 bg-orange-600 text-white font-semibold text-xs py-2 rounded-lg hover:bg-orange-700 transition-colors"
+              >
+                Reenviar para Aprovação
+              </button>
+            )}
           </div>
         )}
 
