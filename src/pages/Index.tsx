@@ -10,12 +10,13 @@ import { ConferenciaPage } from '@/pages/ConferenciaPage';
 import { FinanceiroPage } from '@/pages/FinanceiroPage';
 import { ItemsPage } from '@/pages/ItemsPage';
 import { SuppliersPage } from '@/pages/SuppliersPage';
+import { UsuariosPage } from '@/pages/UsuariosPage';
 import { PurchaseRequest } from '@/types';
 
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
-  | 'items' | 'suppliers';
+  | 'items' | 'suppliers' | 'usuarios';
 
 function AppInner() {
   const [page, setPage] = useState<Page>('dashboard');
@@ -40,6 +41,7 @@ function AppInner() {
           {page === 'financeiro' && <FinanceiroPage onSelectRC={handleSelectRC} />}
           {page === 'items' && <ItemsPage />}
           {page === 'suppliers' && <SuppliersPage />}
+          {page === 'usuarios' && <UsuariosPage />}
         </div>
         {selectedRC && <RCDetailPanel rc={selectedRC} onClose={handleClosePanel} />}
       </div>
