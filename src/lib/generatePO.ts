@@ -90,11 +90,7 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
   const rightX = margin + colW;
 
   const meta: Array<[string, string]> = [
-    ['Projeto', rc.projectNumber],
-    ['Cliente', rc.projectClient],
     ['Solicitante', rc.requester.name],
-    ['Aprovador', rc.approver.name],
-    ['Criado em', rc.createdAt],
     ['Aprovado em', rc.approvedAt || today()],
   ];
 
@@ -136,6 +132,27 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
   }
 
   y += 32;
+
+  // ===== Delivery mode block =====
+  const deliveryText =
+    rc.deliveryMode === 'retirada'
+      ? 'Retirada na loja pelo solicitante'
+      : rc.deliveryCarrier === 'transportadora'
+      ? 'Entrega via transportadora (a contratar pelo solicitante)'
+      : 'Entrega pelo fornecedor';
+
+  doc.setFillColor(...LIGHT);
+  doc.rect(margin, y, pageW - margin * 2, 14, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(8);
+  doc.setTextColor(...NAVY);
+  doc.text('MODALIDADE DE ENTREGA', margin + 3, y + 5);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(10);
+  doc.setTextColor(20, 20, 20);
+  doc.text(deliveryText, margin + 3, y + 11);
+
+  y += 20;
 
   // ===== Items table =====
   autoTable(doc, {

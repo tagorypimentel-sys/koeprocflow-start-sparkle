@@ -17,6 +17,8 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
     projectNumber: '', projectClient: '', supplierId: '',
     approverId: '', tax: '0', notes: '',
   });
+  const [deliveryMode, setDeliveryMode] = useState<'entrega' | 'retirada'>('entrega');
+  const [deliveryCarrier, setDeliveryCarrier] = useState<'transportadora' | 'fornecedor'>('fornecedor');
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
   const [addingItem, setAddingItem] = useState(false);
   const [newLine, setNewLine] = useState({ itemId: '', qty: '1', discount: '0' });
@@ -77,6 +79,8 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       paid: false,
       notes: form.notes,
       lineItems,
+      deliveryMode,
+      deliveryCarrier: deliveryMode === 'entrega' ? deliveryCarrier : undefined,
     };
     addRC(rc);
     onSave();
@@ -159,6 +163,51 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
               placeholder="Informações adicionais..."
             />
           </FormField>
+        </div>
+
+        {/* Modo de Entrega */}
+        <div className="mt-4 pt-4 border-t border-gray-100">
+          <p className="text-xs font-bold text-gray-500 mb-2">Modo de Entrega</p>
+          <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
+            {([
+              { v: 'entrega', l: '🚚 Entrega' },
+              { v: 'retirada', l: '🏬 Retirada na loja' },
+            ] as const).map((opt) => (
+              <button
+                key={opt.v}
+                type="button"
+                onClick={() => setDeliveryMode(opt.v)}
+                className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-colors ${
+                  deliveryMode === opt.v ? 'bg-blue-900 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                {opt.l}
+              </button>
+            ))}
+          </div>
+
+          {deliveryMode === 'entrega' && (
+            <div className="mt-3">
+              <p className="text-xs font-bold text-gray-500 mb-2">Quem realizará a entrega?</p>
+              <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
+                {([
+                  { v: 'fornecedor', l: 'Fornecedor entrega' },
+                  { v: 'transportadora', l: 'Transportadora' },
+                ] as const).map((opt) => (
+                  <button
+                    key={opt.v}
+                    type="button"
+                    onClick={() => setDeliveryCarrier(opt.v)}
+                    className={`px-4 py-1.5 text-xs font-semibold rounded-md transition-colors ${
+                      deliveryCarrier === opt.v ? 'bg-blue-900 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    {opt.l}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

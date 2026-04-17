@@ -147,6 +147,15 @@ export function RCDetailPanel({ rc, onClose }: Props) {
             { l: 'Fornecedor', v: rc.supplier.name },
             { l: 'Aprovador', v: rc.approver.name },
             { l: 'Solicitante', v: rc.requester.name },
+            {
+              l: 'Modo de entrega',
+              v:
+                rc.deliveryMode === 'retirada'
+                  ? 'Retirada na loja'
+                  : rc.deliveryCarrier === 'transportadora'
+                  ? 'Entrega via transportadora'
+                  : 'Entrega pelo fornecedor',
+            },
             { l: 'Criada em', v: rc.createdAt },
             ...(rc.approvedAt ? [{ l: 'Aprovada em', v: rc.approvedAt }] : []),
             ...(rc.paidAt ? [{ l: 'Pago em', v: rc.paidAt }] : []),
