@@ -59,7 +59,7 @@ export function Layout({ currentPage, setPage, children }: LayoutProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 10a4 4 0 01-8 0" />
             </svg>
           </div>
-          <span className="font-bold text-blue-900 text-base tracking-tight">ProcureFlow</span>
+          <span className="font-bold text-blue-900 text-base tracking-tight">Draft KOE Syst Compras</span>
         </div>
 
         {/* Nav */}
