@@ -74,6 +74,7 @@ export interface PurchaseRequest {
   notes?: string;
   deliveryMode: 'entrega' | 'retirada';
   deliveryCarrier?: 'transportadora' | 'fornecedor';
+  deliveryAddress?: string;
 }
 
 export interface StatusConfig {
