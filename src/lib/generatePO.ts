@@ -141,8 +141,14 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
       ? 'Entrega via transportadora (a contratar pelo solicitante)'
       : 'Entrega pelo fornecedor';
 
+  const addrLines =
+    rc.deliveryMode === 'entrega' && rc.deliveryAddress
+      ? doc.splitTextToSize(`Endereço: ${rc.deliveryAddress}`, pageW - margin * 2 - 6)
+      : [];
+  const blockH = 14 + (addrLines.length ? addrLines.length * 4 + 2 : 0);
+
   doc.setFillColor(...LIGHT);
-  doc.rect(margin, y, pageW - margin * 2, 14, 'F');
+  doc.rect(margin, y, pageW - margin * 2, blockH, 'F');
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(...NAVY);
@@ -152,7 +158,14 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
   doc.setTextColor(20, 20, 20);
   doc.text(deliveryText, margin + 3, y + 11);
 
-  y += 20;
+  if (addrLines.length) {
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(60, 60, 60);
+    doc.text(addrLines, margin + 3, y + 16);
+  }
+
+  y += blockH + 6;
 
   // ===== Items table =====
   autoTable(doc, {
