@@ -7,6 +7,10 @@ interface AppContextType {
   currentUser: User;
   setCurrentUser: (u: User) => void;
   users: User[];
+  setUsers: (users: User[]) => void;
+  addUser: (u: { name: string; email: string; role: User['role']; avatar?: string }) => User;
+  updateUser: (id: number, updates: Partial<User>) => void;
+  deleteUser: (id: number) => void;
   items: Item[];
   setItems: (items: Item[]) => void;
   suppliers: Supplier[];
@@ -26,11 +30,37 @@ const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User>(MOCK_USERS[0]);
-  const [users] = useState<User[]>(MOCK_USERS);
+  const [users, setUsers] = useState<User[]>(MOCK_USERS);
   const [items, setItems] = useState<Item[]>(MOCK_ITEMS);
   const [suppliers, setSuppliers] = useState<Supplier[]>(MOCK_SUPPLIERS);
   const [rcs, setRcs] = useState<PurchaseRequest[]>(MOCK_RCS);
   const [selectedRC, setSelectedRC] = useState<PurchaseRequest | null>(null);
+
+  const addUser: AppContextType['addUser'] = (u) => {
+    const id = users.reduce((m, x) => Math.max(m, x.id), 0) + 1;
+    const avatar =
+      (u.avatar && u.avatar.trim()) ||
+      u.name
+        .trim()
+        .split(/\s+/)
+        .map((p) => p[0])
+        .slice(0, 2)
+        .join('')
+        .toUpperCase() ||
+      '??';
+    const newUser: User = { id, name: u.name, email: u.email, role: u.role, avatar };
+    setUsers((prev) => [...prev, newUser]);
+    return newUser;
+  };
+
+  const updateUser = (id: number, updates: Partial<User>) => {
+    setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, ...updates } : u)));
+    setCurrentUser((prev) => (prev.id === id ? { ...prev, ...updates } : prev));
+  };
+
+  const deleteUser = (id: number) => {
+    setUsers((prev) => prev.filter((u) => u.id !== id));
+  };
 
   const updateRC = (id: string, updates: Partial<PurchaseRequest>) => {
     setRcs((prev) => prev.map((r) => (r.id === id ? { ...r, ...updates } : r)));
@@ -80,8 +110,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return (
     <AppContext.Provider
       value={{
-        currentUser, setCurrentUser, users, items, setItems,
-        suppliers, setSuppliers, rcs, setRcs, updateRC, addRC,
+        currentUser, setCurrentUser, users, setUsers,
+        addUser, updateUser, deleteUser,
+        items, setItems, suppliers, setSuppliers, rcs, setRcs, updateRC, addRC,
         calcRC, approveRC, rejectRC, selectedRC, setSelectedRC,
       }}
     >
