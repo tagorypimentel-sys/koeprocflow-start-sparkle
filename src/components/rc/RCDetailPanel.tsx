@@ -111,6 +111,33 @@ export function RCDetailPanel({ rc, onClose }: Props) {
           </div>
         )}
 
+        {/* Solicitante actions */}
+        {isOwnerSolicitante && rc.status === 'aguardando_entrega' && (
+          <div className="p-3 bg-purple-50 border border-purple-200 rounded-lg">
+            <p className="text-xs font-bold text-purple-700 mb-2">🚚 Material a caminho</p>
+            <p className="text-xs text-purple-700 mb-2">Confirme abaixo quando receber o material.</p>
+            <button
+              onClick={handleConfirmDelivery}
+              className="w-full bg-purple-700 text-white font-semibold text-xs py-2 rounded-lg hover:bg-purple-800 transition-colors"
+            >
+              ✓ Confirmar Entrega
+            </button>
+          </div>
+        )}
+
+        {isOwnerSolicitante && rc.status === 'entregue' && (
+          <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-xs font-bold text-blue-700 mb-2">📎 Anexar Nota Fiscal</p>
+            <p className="text-xs text-blue-700 mb-2">Anexe a NF recebida do fornecedor para dar continuidade ao processo.</p>
+            <button
+              onClick={handleAttachInvoice}
+              className="w-full bg-blue-700 text-white font-semibold text-xs py-2 rounded-lg hover:bg-blue-800 transition-colors"
+            >
+              📎 Anexar Nota Fiscal
+            </button>
+          </div>
+        )}
+
         {/* Info Grid */}
         <div className="p-4 border border-gray-100 rounded-lg space-y-3">
           <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Dados da RC</p>
