@@ -52,7 +52,7 @@ function SeletorItensRFQ({
     setSelecionados((prev) => {
       const next = { ...prev };
       if (next[id]) { delete next[id]; }
-      else { next[id] = { qty: 1, link: (item as any)?.linkReferencia ?? "" }; }
+      else { next[id] = { qty: 1, link: item?.linkReferencia ?? "" }; }
       return next;
     });
   }
