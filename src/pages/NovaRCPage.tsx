@@ -45,6 +45,11 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
     setAddingItem(false);
   };
 
+  const updateLineUnitPrice = (id: number, value: string) => {
+    const v = parseFloat(value);
+    setLineItems((prev) => prev.map((l) => (l.id === id ? { ...l, unitPrice: isNaN(v) ? 0 : v } : l)));
+  };
+
   const removeLine = (id: number) => setLineItems((prev) => prev.filter((l) => l.id !== id));
 
   const subtotal = lineItems.reduce((s, li) => s + li.unitPrice * li.qty * (1 - li.discount / 100), 0);
@@ -314,7 +319,16 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                       <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700">{li.item.tipo}</span>
                     </td>
                     <td className="px-3 py-2.5 text-center">{li.qty}</td>
-                    <td className="px-3 py-2.5">R$ {fmt(li.unitPrice)}</td>
+                    <td className="px-3 py-2.5">
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={li.unitPrice}
+                        onChange={(e) => updateLineUnitPrice(li.id, e.target.value)}
+                        className="w-24 px-2 py-1 text-sm text-right border border-gray-200 rounded focus:outline-none focus:border-blue-500"
+                      />
+                    </td>
                     <td className="px-3 py-2.5 text-green-700 font-semibold">{li.discount > 0 ? `${li.discount}%` : '—'}</td>
                     <td className="px-3 py-2.5">R$ {fmt(unitWithDiscount)}</td>
                     <td className="px-3 py-2.5 font-bold">R$ {fmt(lineTotal)}</td>
