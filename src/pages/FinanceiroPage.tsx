@@ -7,23 +7,28 @@ interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;
 }
 
+/**
+ * Financeiro atua como Fiscal nas duas etapas finais:
+ *  - nota_fiscal_recebida → pagamento_realizado (Registrar Pagamento)
+ *  - pagamento_realizado  → nota_enviada_contador (Enviar ao Contador)
+ */
 export function FinanceiroPage({ onSelectRC }: Props) {
   const { rcs, calcRC, updateRC } = useApp();
-  const pending = rcs.filter((r) => r.status === 'enviado_contabilidade');
-  const toReconcile = rcs.filter((r) => r.status === 'pago');
-  const reconciled = rcs.filter((r) => r.status === 'conciliado').slice(0, 5);
+  const pending = rcs.filter((r) => r.status === 'nota_fiscal_recebida');
+  const toSendToAccountant = rcs.filter((r) => r.status === 'pagamento_realizado');
+  const finished = rcs.filter((r) => r.status === 'nota_enviada_contador').slice(0, 5);
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
   const handlePay = (id: string) => {
     updateRC(id, {
-      status: 'pago',
+      status: 'pagamento_realizado',
       paid: true,
       paidAt: new Date().toISOString().split('T')[0],
     });
   };
 
-  const handleReconcile = (id: string) => {
-    updateRC(id, { status: 'conciliado' });
+  const handleSendToAccountant = (id: string) => {
+    updateRC(id, { status: 'nota_enviada_contador' });
   };
 
   const totalPending = pending.reduce((s, r) => s + calcRC(r).total, 0);
@@ -31,8 +36,10 @@ export function FinanceiroPage({ onSelectRC }: Props) {
   return (
     <div className="p-6 max-w-5xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Financeiro — Pagamentos & Conciliação</h1>
-        <p className="text-sm text-gray-500 mt-1">{pending.length} fatura(s) pendentes · R$ {fmt(totalPending)} a pagar · {toReconcile.length} a conciliar</p>
+        <h1 className="text-2xl font-bold text-gray-900">Financeiro — Pagamentos & Envio ao Contador</h1>
+        <p className="text-sm text-gray-500 mt-1">
+          {pending.length} fatura(s) pendentes · R$ {fmt(totalPending)} a pagar · {toSendToAccountant.length} a enviar ao contador
+        </p>
       </div>
 
       {/* Pending Payment */}
@@ -87,15 +94,15 @@ export function FinanceiroPage({ onSelectRC }: Props) {
         </div>
       )}
 
-      {/* Bank Reconciliation */}
-      <h2 className="text-sm font-bold text-gray-700 mb-3">Aguardando Conciliação Bancária</h2>
-      {toReconcile.length === 0 ? (
+      {/* Pagamentos realizados — enviar ao contador */}
+      <h2 className="text-sm font-bold text-gray-700 mb-3">Aguardando Envio ao Contador</h2>
+      {toSendToAccountant.length === 0 ? (
         <div className="bg-white rounded-xl border border-gray-200 mb-6">
-          <EmptyState message="Nenhuma conciliação pendente" icon="🏦" />
+          <EmptyState message="Nenhum envio ao contador pendente" icon="📤" />
         </div>
       ) : (
         <div className="space-y-3 mb-8">
-          {toReconcile.map((rc) => {
+          {toSendToAccountant.map((rc) => {
             const { total } = calcRC(rc);
             return (
               <div key={rc.id} className="bg-white rounded-xl border border-teal-200 shadow-sm p-4 flex items-center justify-between">
@@ -107,8 +114,8 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                 <div className="flex items-center gap-3">
                   <span className="text-sm font-bold text-gray-800">R$ {fmt(total)}</span>
                   <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver</Button>
-                  <Button size="sm" variant="primary" onClick={() => handleReconcile(rc.id)}>
-                    🏦 Confirmar Conciliação
+                  <Button size="sm" variant="primary" onClick={() => handleSendToAccountant(rc.id)}>
+                    📤 Enviar ao Contador
                   </Button>
                 </div>
               </div>
@@ -117,10 +124,10 @@ export function FinanceiroPage({ onSelectRC }: Props) {
         </div>
       )}
 
-      {/* Reconciled History */}
-      {reconciled.length > 0 && (
+      {/* Concluídas */}
+      {finished.length > 0 && (
         <>
-          <h2 className="text-sm font-bold text-gray-700 mb-3">Histórico de Conciliações</h2>
+          <h2 className="text-sm font-bold text-gray-700 mb-3">Processos Concluídos</h2>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <table className="w-full text-sm border-collapse">
               <thead>
@@ -131,7 +138,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                 </tr>
               </thead>
               <tbody>
-                {reconciled.map((rc) => {
+                {finished.map((rc) => {
                   const { total } = calcRC(rc);
                   return (
                     <tr key={rc.id} className="border-b border-gray-50 hover:bg-gray-50 cursor-pointer" onClick={() => onSelectRC(rc)}>

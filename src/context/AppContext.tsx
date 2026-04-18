@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { User, Item, Supplier, PurchaseRequest, RCStatus } from '@/types';
+import { User, Item, Supplier, PurchaseRequest } from '@/types';
 import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
 import { generatePOPdf } from '@/lib/generatePO';
 
@@ -21,7 +21,6 @@ interface AppContextType {
   addRC: (rc: PurchaseRequest) => void;
   calcRC: (rc: PurchaseRequest) => { subtotal: number; taxAmt: number; total: number };
   approveRC: (id: string) => void;
-  rejectRC: (id: string, reason?: string) => void;
   returnRC: (id: string, reason?: string) => void;
   resubmitRC: (id: string) => void;
   selectedRC: PurchaseRequest | null;
@@ -42,13 +41,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const id = users.reduce((m, x) => Math.max(m, x.id), 0) + 1;
     const avatar =
       (u.avatar && u.avatar.trim()) ||
-      u.name
-        .trim()
-        .split(/\s+/)
-        .map((p) => p[0])
-        .slice(0, 2)
-        .join('')
-        .toUpperCase() ||
+      u.name.trim().split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase() ||
       '??';
     const newUser: User = { id, name: u.name, email: u.email, role: u.role, avatar };
     setUsers((prev) => [...prev, newUser]);
@@ -90,11 +83,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const approvedAt = new Date().toISOString().split('T')[0];
     const updatedRC: PurchaseRequest = {
       ...rc,
-      status: 'aguardando_entrega',
+      status: 'aguardando_confirmacao_entrega',
       poNumber,
       approvedAt,
     };
-    updateRC(id, { status: 'aguardando_entrega', poNumber, approvedAt });
+    updateRC(id, { status: 'aguardando_confirmacao_entrega', poNumber, approvedAt });
     try {
       generatePOPdf(updatedRC, calcRC(updatedRC));
     } catch (e) {
@@ -102,17 +95,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const rejectRC = (id: string, reason?: string) => {
-    updateRC(id, {
-      status: 'rejeitado',
-      rejectedAt: new Date().toISOString().split('T')[0],
-      rejectionReason: reason,
-    });
-  };
-
   const returnRC = (id: string, reason?: string) => {
     updateRC(id, {
-      status: 'devolvido',
+      status: 'devolvida',
       rejectedAt: new Date().toISOString().split('T')[0],
       rejectionReason: reason,
     });
@@ -132,7 +117,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         currentUser, setCurrentUser, users, setUsers,
         addUser, updateUser, deleteUser,
         items, setItems, suppliers, setSuppliers, rcs, setRcs, updateRC, addRC,
-        calcRC, approveRC, rejectRC, returnRC, resubmitRC, selectedRC, setSelectedRC,
+        calcRC, approveRC, returnRC, resubmitRC, selectedRC, setSelectedRC,
       }}
     >
       {children}

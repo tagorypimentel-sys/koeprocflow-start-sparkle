@@ -1,20 +1,17 @@
 import React from 'react';
-import { PurchaseRequest, RCStatus } from '@/types';
-import { StatusBadge, Avatar, Button } from '@/components/ui-pf';
-import { RC_STATUS_FLOW } from '@/lib/constants';
+import { PurchaseRequest } from '@/types';
+import { StatusBadge, Button } from '@/components/ui-pf';
 import { useApp } from '@/context/AppContext';
 import { generatePOPdf } from '@/lib/generatePO';
-
-const TIMELINE_LABELS: Partial<Record<RCStatus, string>> = {
-  aguardando_aprovacao: 'Aguardando Aprovação',
-  aprovado: 'Aprovada',
-  aguardando_entrega: 'Aguardando Entrega',
-  entregue: 'Entregue',
-  fatura_recebida: 'Fatura Recebida',
-  enviado_contabilidade: 'Enviado à Contabilidade',
-  pago: 'Pagamento Realizado',
-  conciliado: 'Conciliado',
-};
+import ProgressoRC from '@/components/ProgressoRC';
+import {
+  StatusRC,
+  proximoStatus,
+  responsavelProximaAcao,
+  responsavelDoUsuario,
+  LABEL_BOTAO_AVANCO,
+  labelStatus,
+} from '@/lib/fluxoRC';
 
 interface Props {
   rc: PurchaseRequest;
@@ -26,23 +23,29 @@ export function RCDetailPanel({ rc, onClose }: Props) {
   const { subtotal, taxAmt, total } = calcRC(rc);
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
-  const isOwnerSolicitante = currentUser.role === 'solicitante' && rc.requester.id === currentUser.id;
+  const status = rc.status as StatusRC;
+  const papel = responsavelDoUsuario(currentUser.role);
+  const proximo = proximoStatus(status);
+  const responsavel = responsavelProximaAcao(status);
 
-  const handleConfirmDelivery = () => {
-    updateRC(rc.id, { status: 'entregue' });
+  // "aguardando_aprovacao → aprovada" é avançado pelo botão de Aprovar na AprovacoesPage,
+  // não pelo botão genérico daqui (precisa gerar PO + PDF).
+  const podeAvancar =
+    responsavel === papel &&
+    proximo !== null &&
+    status !== 'aguardando_aprovacao';
+
+  const podeReenviar = papel === 'Solicitante' && status === 'devolvida';
+
+  const handleAvancar = () => {
+    if (!proximo) return;
+    const updates: Partial<PurchaseRequest> = { status: proximo };
+    if (proximo === 'pagamento_realizado') {
+      updates.paid = true;
+      updates.paidAt = new Date().toISOString().split('T')[0];
+    }
+    updateRC(rc.id, updates);
   };
-
-  const handleAttachInvoice = () => {
-    updateRC(rc.id, {
-      status: 'fatura_recebida',
-      invoice: {
-        name: `NF-${Math.floor(Math.random() * 90000 + 10000)}.pdf`,
-        date: new Date().toISOString().split('T')[0],
-      },
-    });
-  };
-
-  const currentIdx = RC_STATUS_FLOW.indexOf(rc.status);
 
   return (
     <div className="w-[440px] bg-white border-l border-gray-200 flex flex-col flex-shrink-0 h-full">
@@ -57,50 +60,15 @@ export function RCDetailPanel({ rc, onClose }: Props) {
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
-        {/* Timeline */}
-        {rc.status !== 'rejeitado' && (
-          <div>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">Progresso</p>
-            <div className="space-y-2">
-              {RC_STATUS_FLOW.map((s, i) => {
-                const done = i <= currentIdx;
-                const current = i === currentIdx;
-                return (
-                  <div key={s} className="flex items-center gap-3">
-                    <div
-                      className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                        done ? 'bg-green-700 border-green-700' : 'bg-white border-gray-200'
-                      }`}
-                    >
-                      {done && (
-                        <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      )}
-                    </div>
-                    <span className={`text-xs ${current ? 'font-semibold text-gray-900' : done ? 'text-gray-600' : 'text-gray-400'}`}>
-                      {TIMELINE_LABELS[s]}
-                    </span>
-                    {current && <span className="ml-auto text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-semibold">Atual</span>}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
+        {/* Progresso (novo) */}
+        <ProgressoRC statusAtual={status} />
 
-        {rc.status === 'rejeitado' && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-xs font-bold text-red-700 mb-1">Requisição Rejeitada</p>
-            {rc.rejectionReason && <p className="text-xs text-red-600">{rc.rejectionReason}</p>}
-          </div>
-        )}
-
-        {rc.status === 'devolvido' && (
+        {/* Devolução */}
+        {status === 'devolvida' && (
           <div className="p-3 bg-orange-50 border border-orange-200 rounded-lg">
             <p className="text-xs font-bold text-orange-700 mb-1">↩ Devolvida pelo Aprovador</p>
             {rc.rejectionReason && <p className="text-xs text-orange-700 mb-2">{rc.rejectionReason}</p>}
-            {currentUser.role === 'solicitante' && (
+            {podeReenviar && (
               <button
                 onClick={() => resubmitRC(rc.id)}
                 className="w-full mt-1 bg-orange-600 text-white font-semibold text-xs py-2 rounded-lg hover:bg-orange-700 transition-colors"
@@ -111,30 +79,13 @@ export function RCDetailPanel({ rc, onClose }: Props) {
           </div>
         )}
 
-        {/* Solicitante actions */}
-        {isOwnerSolicitante && rc.status === 'aguardando_entrega' && (
-          <div className="p-3 bg-purple-50 border border-purple-200 rounded-lg">
-            <p className="text-xs font-bold text-purple-700 mb-2">🚚 Material a caminho</p>
-            <p className="text-xs text-purple-700 mb-2">Confirme abaixo quando receber o material.</p>
-            <button
-              onClick={handleConfirmDelivery}
-              className="w-full bg-purple-700 text-white font-semibold text-xs py-2 rounded-lg hover:bg-purple-800 transition-colors"
-            >
-              ✓ Confirmar Entrega
-            </button>
-          </div>
-        )}
-
-        {isOwnerSolicitante && rc.status === 'entregue' && (
+        {/* Botão de avanço (responsável pela próxima etapa) */}
+        {podeAvancar && proximo && (
           <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-            <p className="text-xs font-bold text-blue-700 mb-2">📎 Anexar Nota Fiscal</p>
-            <p className="text-xs text-blue-700 mb-2">Anexe a NF recebida do fornecedor para dar continuidade ao processo.</p>
-            <button
-              onClick={handleAttachInvoice}
-              className="w-full bg-blue-700 text-white font-semibold text-xs py-2 rounded-lg hover:bg-blue-800 transition-colors"
-            >
-              📎 Anexar Nota Fiscal
-            </button>
+            <p className="text-xs font-bold text-blue-700 mb-2">Próxima etapa: {labelStatus(proximo)}</p>
+            <Button variant="primary" className="w-full" onClick={handleAvancar}>
+              {LABEL_BOTAO_AVANCO[status] ?? `Avançar: ${labelStatus(proximo)}`}
+            </Button>
           </div>
         )}
 

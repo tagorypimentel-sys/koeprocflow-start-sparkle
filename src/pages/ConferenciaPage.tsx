@@ -7,29 +7,41 @@ interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;
 }
 
+/**
+ * Conferente atua como Fiscal: registra a Nota Fiscal quando a entrega
+ * já foi confirmada pelo solicitante (entrega_confirmada → nota_fiscal_recebida).
+ */
 export function ConferenciaPage({ onSelectRC }: Props) {
   const { rcs, calcRC, updateRC } = useApp();
 
-  const pending = rcs.filter((r) => r.status === 'fatura_recebida');
-  const recent = rcs.filter((r) => r.status === 'enviado_contabilidade').slice(0, 5);
+  const pending = rcs.filter((r) => r.status === 'entrega_confirmada');
+  const recent = rcs.filter((r) => r.status === 'nota_fiscal_recebida').slice(0, 5);
 
   const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
-  const handleSendToAccounting = (rcId: string) => {
-    updateRC(rcId, { status: 'enviado_contabilidade' });
+  const handleRegisterInvoice = (rcId: string) => {
+    updateRC(rcId, {
+      status: 'nota_fiscal_recebida',
+      invoice: {
+        name: `NF-${Math.floor(Math.random() * 90000 + 10000)}.pdf`,
+        date: new Date().toISOString().split('T')[0],
+      },
+    });
   };
 
   return (
     <div className="p-6 max-w-5xl">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Conferência — Envio à Contabilidade</h1>
-        <p className="text-sm text-gray-500 mt-1">{pending.length} fatura(s) aguardando envio ao portal contábil</p>
+        <h1 className="text-2xl font-bold text-gray-900">Conferência — Registro de Nota Fiscal</h1>
+        <p className="text-sm text-gray-500 mt-1">
+          {pending.length} entrega(s) confirmada(s) aguardando registro de NF
+        </p>
       </div>
 
-      <h2 className="text-sm font-bold text-gray-700 mb-3">Faturas Pendentes</h2>
+      <h2 className="text-sm font-bold text-gray-700 mb-3">Aguardando Registro de NF</h2>
       {pending.length === 0 ? (
         <div className="bg-white rounded-xl border border-gray-200 mb-6">
-          <EmptyState message="Nenhuma fatura para enviar à contabilidade" icon="📤" />
+          <EmptyState message="Nenhuma entrega aguardando registro de nota fiscal" icon="🧾" />
         </div>
       ) : (
         <div className="space-y-4 mb-8">
@@ -50,7 +62,7 @@ export function ConferenciaPage({ onSelectRC }: Props) {
                       { l: 'Projeto', v: rc.projectNumber },
                       { l: 'Cliente', v: rc.projectClient },
                       { l: 'Fornecedor', v: rc.supplier.name },
-                      { l: 'Nota Fiscal', v: rc.invoice?.name || '—' },
+                      { l: 'Solicitante', v: rc.requester.name },
                     ].map((f) => (
                       <div key={f.l}>
                         <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-1">{f.l}</p>
@@ -60,8 +72,8 @@ export function ConferenciaPage({ onSelectRC }: Props) {
                   </div>
                   <div className="flex gap-3 justify-end">
                     <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver Detalhes</Button>
-                    <Button size="sm" variant="primary" onClick={() => handleSendToAccounting(rc.id)}>
-                      📤 Enviar Fatura à Contabilidade
+                    <Button size="sm" variant="primary" onClick={() => handleRegisterInvoice(rc.id)}>
+                      🧾 Registrar Nota Fiscal
                     </Button>
                   </div>
                 </div>
@@ -73,7 +85,7 @@ export function ConferenciaPage({ onSelectRC }: Props) {
 
       {recent.length > 0 && (
         <>
-          <h2 className="text-sm font-bold text-gray-700 mb-3">Enviadas Recentemente</h2>
+          <h2 className="text-sm font-bold text-gray-700 mb-3">NFs Registradas Recentemente</h2>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <table className="w-full text-sm border-collapse">
               <thead>

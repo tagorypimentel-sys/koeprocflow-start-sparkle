@@ -12,8 +12,8 @@ export function DashboardPage({ onSelectRC }: Props) {
 
   const myRCs = currentUser.role === 'solicitante' ? rcs.filter((r) => r.requester.id === currentUser.id) : rcs;
   const pending = rcs.filter((r) => r.status === 'aguardando_aprovacao').length;
-  const inProgress = rcs.filter((r) => ['aprovado', 'pedido_emitido', 'aguardando_entrega', 'entregue', 'fatura_recebida', 'enviado_contabilidade'].includes(r.status)).length;
-  const paid = rcs.filter((r) => r.status === 'pago' || r.status === 'conciliado').length;
+  const inProgress = rcs.filter((r) => ['aprovada', 'aguardando_confirmacao_entrega', 'entrega_confirmada', 'nota_fiscal_recebida'].includes(r.status)).length;
+  const paid = rcs.filter((r) => r.status === 'pagamento_realizado' || r.status === 'nota_enviada_contador').length;
   const totalValue = rcs.reduce((s, r) => s + calcRC(r).total, 0);
 
   const recent = [...rcs].sort((a, b) => b.createdAt.localeCompare(a.createdAt)).slice(0, 6);
