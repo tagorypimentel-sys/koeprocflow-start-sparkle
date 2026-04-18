@@ -25,27 +25,16 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const [deliveryCarrier, setDeliveryCarrier] = useState<'transportadora' | 'fornecedor'>('fornecedor');
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
-  const [addingItem, setAddingItem] = useState(false);
-  const [newLine, setNewLine] = useState({ itemId: '', qty: '1', discount: '0' });
+  const [seletorAberto, setSeletorAberto] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const upd = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
-  const addLine = () => {
-    const item = items.find((i) => i.id === parseInt(newLine.itemId));
-    if (!item) return;
-    setLineItems((prev) => [
-      ...prev,
-      {
-        id: Date.now(), item,
-        qty: parseInt(newLine.qty) || 1,
-        unitPrice: item.precoUnitario,
-        discount: parseFloat(newLine.discount) || 0,
-      },
-    ]);
-    setNewLine({ itemId: '', qty: '1', discount: '0' });
-    setAddingItem(false);
+  const handleAdicionarItens = (novos: LineItem[]) => {
+    setLineItems((prev) => [...prev, ...novos]);
+    setSeletorAberto(false);
   };
+
 
   const updateLineUnitPrice = (id: number, value: string) => {
     const v = parseFloat(value);
