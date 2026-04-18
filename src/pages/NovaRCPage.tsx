@@ -3,7 +3,7 @@ import { useApp } from '@/context/AppContext';
 import { useClientes } from '@/context/ClientesContext';
 import { LineItem, PurchaseRequest } from '@/types';
 import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
-import { generateRCId } from '@/lib/constants';
+import { gerarNumeroRC, validarNumeroProjeto, normalizarProjeto } from '@/lib/numeracaoRC';
 import SeletorItens from '@/components/SeletorItens';
 import CartaoConsolidadoProjeto from '@/components/CartaoConsolidadoProjeto';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -14,7 +14,7 @@ interface Props {
 }
 
 export function NovaRCPage({ onSave, onCancel }: Props) {
-  const { items, suppliers, users, currentUser, addRC } = useApp();
+  const { items, suppliers, users, currentUser, addRC, rcs } = useApp();
   const { clientes } = useClientes();
   const approvers = users.filter((u) => u.role === 'aprovador');
 
@@ -53,6 +53,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const validate = () => {
     const e: Record<string, string> = {};
     if (!form.projectNumber) e.projectNumber = 'Obrigatório';
+    else if (!validarNumeroProjeto(form.projectNumber)) e.projectNumber = 'Deve ter 4 dígitos numéricos';
     if (!form.clienteId) e.clienteId = 'Selecione um cliente';
     if (!form.supplierId) e.supplierId = 'Obrigatório';
     if (!form.approverId) e.approverId = 'Obrigatório';
@@ -65,9 +66,10 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const handleSubmit = () => {
     if (!validate()) return;
     const cliente = clientes.find((c) => c.id === parseInt(form.clienteId));
+    const projeto = normalizarProjeto(form.projectNumber);
     const rc: PurchaseRequest = {
-      id: generateRCId(),
-      projectNumber: form.projectNumber,
+      id: gerarNumeroRC(projeto, rcs),
+      projectNumber: projeto,
       projectClient: cliente?.nome ?? '',
       supplier: suppliers.find((s) => s.id === parseInt(form.supplierId))!,
       approver: users.find((u) => u.id === parseInt(form.approverId))!,
@@ -118,10 +120,19 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
           <FormField label="Número do Projeto" required>
             <Input
               value={form.projectNumber}
-              onChange={(e) => upd('projectNumber', e.target.value)}
-              placeholder="Ex: PRJ-2024-043"
+              onChange={(e) => upd('projectNumber', e.target.value.replace(/\D/g, '').slice(0, 4))}
+              placeholder="Ex: 7025"
+              maxLength={4}
+              inputMode="numeric"
               className={errors.projectNumber ? 'border-red-400' : ''}
             />
+            {validarNumeroProjeto(form.projectNumber) && (
+              <p className="text-xs text-gray-400 mt-1">
+                Nr da RC: <span className="font-medium text-gray-600">
+                  {gerarNumeroRC(form.projectNumber, rcs)}
+                </span>
+              </p>
+            )}
             {errors.projectNumber && <p className="text-xs text-red-500 mt-1">{errors.projectNumber}</p>}
           </FormField>
           <FormField label="Cliente do Projeto" required>
