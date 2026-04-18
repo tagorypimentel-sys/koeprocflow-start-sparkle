@@ -37,7 +37,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       {
         id: Date.now(), item,
         qty: parseInt(newLine.qty) || 1,
-        unitPrice: item.price,
+        unitPrice: item.precoUnitario,
         discount: parseFloat(newLine.discount) || 0,
       },
     ]);
@@ -260,7 +260,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                 <Select value={newLine.itemId} onChange={(e) => setNewLine((n) => ({ ...n, itemId: e.target.value }))}>
                   <option value="">Selecione o item...</option>
                   {items.map((i) => (
-                    <option key={i.id} value={i.id}>{i.code} — {i.name} · R$ {i.price.toFixed(2)}</option>
+                    <option key={i.id} value={i.id}>{i.codigo} — {i.descricao} · R$ {i.precoUnitario.toFixed(2)}</option>
                   ))}
                 </Select>
               </div>
@@ -293,7 +293,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="border-b border-gray-100">
-                {['Código', 'Descrição', 'Qtd', 'Valor Unit. (R$)', 'Desconto', 'Com Desconto (R$)', 'Total (R$)', ''].map((h) => (
+                {['Código', 'Descrição', 'Categoria', 'Classe', 'Tipo', 'Qtd', 'Valor Unit. (R$)', 'Desconto', 'Com Desconto (R$)', 'Total (R$)', ''].map((h) => (
                   <th key={h} className="px-3 py-2 text-left text-xs font-semibold text-gray-400">{h}</th>
                 ))}
               </tr>
@@ -304,8 +304,15 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                 const lineTotal = unitWithDiscount * li.qty;
                 return (
                   <tr key={li.id} className="border-b border-gray-50">
-                    <td className="px-3 py-2.5 text-gray-400 font-mono text-xs">{li.item.code}</td>
-                    <td className="px-3 py-2.5 font-medium">{li.item.name}</td>
+                    <td className="px-3 py-2.5 text-gray-400 font-mono text-xs">{li.item.codigo}</td>
+                    <td className="px-3 py-2.5 font-medium">{li.item.descricao}</td>
+                    <td className="px-3 py-2.5">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{li.item.categoria}</span>
+                    </td>
+                    <td className="px-3 py-2.5 text-xs text-gray-600">{li.item.classe}</td>
+                    <td className="px-3 py-2.5">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700">{li.item.tipo}</span>
+                    </td>
                     <td className="px-3 py-2.5 text-center">{li.qty}</td>
                     <td className="px-3 py-2.5">R$ {fmt(li.unitPrice)}</td>
                     <td className="px-3 py-2.5 text-green-700 font-semibold">{li.discount > 0 ? `${li.discount}%` : '—'}</td>
