@@ -77,6 +77,7 @@ export function ItemsPage() {
       categoria: item.categoria,
       classe: item.classe,
       tipo: item.tipo,
+      linkReferencia: item.linkReferencia ?? '',
     });
     setOpen(true);
   }
