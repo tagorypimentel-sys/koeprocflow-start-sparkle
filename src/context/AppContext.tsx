@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { User, Item, Supplier, PurchaseRequest } from '@/types';
 import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
 import { generatePOPdf } from '@/lib/generatePO';
+import { gerarNumeroPO } from '@/lib/numeracaoRC';
 
 interface AppContextType {
   currentUser: User;
@@ -77,9 +78,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const approveRC = (id: string) => {
     const rc = rcs.find((r) => r.id === id);
     if (!rc) return;
-    const poPrefix = `PO#${rc.projectNumber}-`;
-    const poCount = rcs.filter((r) => r.poNumber && r.poNumber.startsWith(poPrefix)).length;
-    const poNumber = `${poPrefix}${String(poCount + 1).padStart(2, '0')}`;
+    const poNumber = gerarNumeroPO(rc.projectNumber, rcs);
     const approvedAt = new Date().toISOString().split('T')[0];
     const updatedRC: PurchaseRequest = {
       ...rc,
