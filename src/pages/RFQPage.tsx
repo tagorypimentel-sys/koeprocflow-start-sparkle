@@ -179,7 +179,7 @@ function PreencherValoresRFQ({
               <th className="text-left px-3 py-2 font-normal text-gray-500">Categoria</th>
               <th className="text-left px-3 py-2 font-normal text-gray-500">Classe</th>
               <th className="text-right px-3 py-2 font-normal text-gray-500 w-20">Qtd *</th>
-              <th className="text-left px-3 py-2 font-normal text-gray-500">Link de Referência</th>
+              <th className="text-left px-3 py-2 font-normal text-gray-500">Link (do cadastro)</th>
               <th className="w-8" />
             </tr>
           </thead>
