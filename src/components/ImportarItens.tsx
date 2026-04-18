@@ -50,6 +50,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
     const preco = Number(raw.precoUnitario ?? 0) || 0;
     const id = Number(raw.id) || 0;
     const codigo = String(raw.codigo ?? (id ? `IT-${String(id).padStart(3, '0')}` : '')).trim();
+    const link = String(raw.linkReferencia ?? '').trim();
 
     if (!desc) errors.push('Descrição vazia');
     if (!VALID_CATEGORIAS.includes(categoria)) errors.push(`Categoria inválida: "${categoria}"`);
@@ -60,6 +61,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
       marca: marca && marca !== 'Not Applicable' ? marca : undefined,
       unidade, precoUnitario: Math.round(preco * 100) / 100,
       categoria, classe, tipo,
+      linkReferencia: link || undefined,
       valid: errors.length === 0, errors,
     };
   }
