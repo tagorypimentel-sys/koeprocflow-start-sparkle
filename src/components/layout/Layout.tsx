@@ -18,7 +18,6 @@ interface LayoutProps {
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'rcs', label: 'Requisições', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'nova_rc', label: 'Nova RC', roles: ['solicitante'] },
   { id: 'rfq', label: 'RFQ', roles: ['solicitante', 'aprovador'] },
   { id: 'aprovacoes', label: 'Aprovações', roles: ['aprovador'] },
   { id: 'conferencia', label: 'Conferência', roles: ['conferente'] },
