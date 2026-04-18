@@ -179,7 +179,7 @@ function PreencherValoresRFQ({
               <th className="text-left px-3 py-2 font-normal text-gray-500">Categoria</th>
               <th className="text-left px-3 py-2 font-normal text-gray-500">Classe</th>
               <th className="text-right px-3 py-2 font-normal text-gray-500 w-20">Qtd *</th>
-              <th className="text-left px-3 py-2 font-normal text-gray-500">Link de Referência</th>
+              <th className="text-left px-3 py-2 font-normal text-gray-500">Link (do cadastro)</th>
               <th className="w-8" />
             </tr>
           </thead>
@@ -201,26 +201,20 @@ function PreencherValoresRFQ({
                     <Input type="number" min={1} className="h-8 text-xs text-right"
                       value={v.qty} onChange={(e) => setField(key, "qty", Math.max(1, Number(e.target.value)))} />
                   </td>
-                  <td className="px-2 py-2 min-w-[200px]">
-                    <div className="flex items-center gap-1.5">
-                      <div className="relative flex-1">
-                        <Input
-                          type="url" placeholder="https://..." className="h-8 text-xs pr-6"
-                          value={v.link}
-                          onChange={(e) => setField(key, "link", e.target.value)}
-                        />
-                        {v.link === (item?.linkReferencia ?? "") && v.link !== "" && (
-                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-green-500" title="Preenchido automaticamente do cadastro">✓</span>
-                        )}
-                      </div>
-                      {v.link && (
-                        <a href={v.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 flex-shrink-0" title="Abrir link">
-                          <ExternalLink size={13} />
-                        </a>
-                      )}
-                    </div>
-                    {v.link === (item?.linkReferencia ?? "") && v.link !== "" && (
-                      <p className="text-xs text-green-600 mt-0.5">Preenchido do cadastro</p>
+                  <td className="px-2 py-2 min-w-[220px] max-w-[320px]">
+                    {item.linkReferencia ? (
+                      <a
+                        href={item.linkReferencia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 text-xs truncate max-w-full"
+                        title={item.linkReferencia}
+                      >
+                        <ExternalLink size={12} className="flex-shrink-0" />
+                        <span className="truncate">{item.linkReferencia}</span>
+                      </a>
+                    ) : (
+                      <span className="text-xs text-amber-600" title="Cadastre o link na aba Itens">— sem link no cadastro</span>
                     )}
                   </td>
                   <td className="px-2 py-2 text-center">
@@ -275,7 +269,7 @@ export default function RFQ() {
         classe: item.classe,
         unidade: item.unidade,
         qty: v.qty,
-        linkReferencia: v.link,
+        linkReferencia: item.linkReferencia ?? "",
       };
     });
 
