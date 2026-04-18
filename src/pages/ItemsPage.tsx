@@ -157,6 +157,7 @@ export function ItemsPage() {
             <TableRow>
               <TableHead>Código</TableHead>
               <TableHead>Descrição</TableHead>
+              <TableHead>Marca</TableHead>
               <TableHead>Categoria</TableHead>
               <TableHead>Classe</TableHead>
               <TableHead>Tipo</TableHead>
@@ -168,7 +169,7 @@ export function ItemsPage() {
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} className="text-center text-gray-400 py-10">
+                <TableCell colSpan={9} className="text-center text-gray-400 py-10">
                   Nenhum item encontrado
                 </TableCell>
               </TableRow>
@@ -177,6 +178,7 @@ export function ItemsPage() {
                 <TableRow key={item.id}>
                   <TableCell className="text-gray-500 font-mono text-sm">{item.codigo || '—'}</TableCell>
                   <TableCell className="font-medium">{item.descricao}</TableCell>
+                  <TableCell className="text-gray-500 text-sm">{item.marca || '—'}</TableCell>
                   <TableCell>
                     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${CATEGORIA_COLOR[item.categoria] ?? ''}`}>
                       {item.categoria}
