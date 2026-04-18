@@ -130,10 +130,16 @@ export function ItemsPage() {
           <h1 className="text-xl font-medium text-gray-900">Itens</h1>
           <p className="text-sm text-gray-500 mt-0.5">{itens.length} itens cadastrados</p>
         </div>
-        <Button onClick={openNew} className="gap-2">
-          <PackagePlus size={15} />
-          Novo Item
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={() => setImportOpen(true)} className="gap-2">
+            <Upload size={15} />
+            Importar
+          </Button>
+          <Button onClick={openNew} className="gap-2">
+            <PackagePlus size={15} />
+            Novo Item
+          </Button>
+        </div>
       </div>
 
       <div className="mb-3">
