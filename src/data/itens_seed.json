@@ -259,8 +259,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: Petzl TOOLBAG - TOOLBAG 6 Liters : Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 24,
@@ -282,8 +281,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: QNR 3/16 inch Nylon Rope - 500 foot spool - Knotrite | 100% Nylon - Solid Braid - Dyeable - Industrial Grade - High UV and Abrasion Resistance : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 26,
@@ -293,8 +291,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX",
-    "linkReferencia": "SWRT 5-Pack Silver Heavy Duty Duct Tape Strong Adhesive 2Inch 450ft/150yd, Duct Tape Heavy Duty Waterproof All Weather Gray Duct Tape No Residue Sealing & Patching for Indoor&Outdoor Repair: Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 27,
@@ -315,8 +312,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "GJOOKA Welding Glasses Welding Eye Mask Welding Sunglasses Welder Protective Glasses with Clear Inner Lenses Welding Helmet Solar Welder Eyes Glasses Flip Up Lens Eye Protection - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 29,
@@ -348,8 +344,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "NEWCOMDIGI Welder Shoe Protector, Long Calf Protectors, Heat and Abrasion Resistant Welding Spats Shoes Cover, Welder Thick Protection Boot Cover - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 32,
@@ -359,8 +354,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "KCGANI Leather Welding Hood, Cowhide Split Leather Welding Protective Mask Cover with Neck Shoulder Drape, Head Protection for Welding Grinding Cutting Smelting: Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 33,
@@ -370,8 +364,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Pantalla retráctil VIZEN MESH para cascos Vertex y Strato Petzl (equipovertical.com)"
+    "tipo": "OPEX"
   },
   {
     "id": 34,
@@ -414,8 +407,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "DULFINE Safety Work Gloves PU Coated-12 Pairs,Red Seamless Knit Glove with Polyurethane Coated Smooth Grip on Palm & Fingers, for Men and Women, Ideal for General Duty Work (Large): Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 38,
@@ -436,8 +428,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Tondiamo 200 Pairs Ear Plugs Reusable Silicone Earplugs with Cord Sleeping Individually Wrapped Hearing Protection Noise Cancelling Earplugs for Work Construction Shooting Sports(Blue, Orange) : Health & Household"
+    "tipo": "OPEX"
   },
   {
     "id": 40,
@@ -459,8 +450,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: DuPont Tyvek 400 TY125S Disposable Protective Coverall with Elastic Cuffs, White, 2X-Large (Pack of 25) : Clothing, Shoes & Jewelry"
+    "tipo": "OPEX"
   },
   {
     "id": 42,
@@ -493,8 +483,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "3M 8210V Particulate Respirator with Cool Flow Valve, Grinding, Sanding, Sawing, Sweeping, Woodworking, Dust, 10/Box: Papr Safety Respirators: Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 45,
@@ -505,8 +494,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 3M Half Facepiece Reusable Respirator 6200, NIOSH, Four-Point Harness, Comfortable Fit, Dual Airline Supplied Air Compatible, Bayonet Connections, Painting, Sanding, Cleaning, Medium : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 46,
@@ -529,8 +517,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "3M N95 Respirator Filter, 5N11, Disposable, Helps Protect Against Non-Oil Based Particulates, Use With 3M 5000 Series Respirators or 6000 Series Gas and Vapor Cartridges, 10 Pack: Safety Respirators: Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 48,
@@ -541,8 +528,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Renewal 3M 501 Filter Retainer Cover for Particulate Filter 5N11 for 6000 and 7000 respirators (501 Retainer, 2, Count) : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 49,
@@ -553,8 +539,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Vunjar Respirator Cartridges/Filters 60926-1 Pair Respirator Mask Filters for Paint, Chemicals, Dust, Organic Vapors, Acid Gases, Ammonia Methylamine, Formaldehyde and Particulates (1 Pack): Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 50,
@@ -565,8 +550,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 3M Full Facepiece Reusable Respirator 6800, NIOSH, Large Lens, ANSI High Impact Eye Protection, Silicone Face Seal, Four-Point Harness, Comfortable Fit, Painting, Dust, Chemicals, Medium : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 51,
@@ -620,8 +604,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Grip 2 Ton 48\" Webbing Sling - Heavy Duty Polyester Webbing - 4000 Pound Capacity - Reduce Chance of Damage with Polished, Soft, or Paint Finish - Home, Garage, Workshop : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 56,
@@ -631,8 +614,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Dawnerz Industrial Lifting Sling 6600 Lbs Vertical WLL 10 ft - Eye and Eye Flat Polyester Web Sling 3 tons WLL - Crane Synthetic Lifting Strap for Construction, Boat Lift Strap (3.5\" x10') : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 57,
@@ -642,8 +624,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 2 Pack E-Track Ratchet Straps 2\" x 12' x 4,400 Strength for Cargo Tie Down in Enclosed Trailer & Van by KODIAK STRAPS : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 58,
@@ -653,8 +634,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 4 Pack 2\" x27' Ratchet Strap Tie Down 10000lbs J Hook,Heavy Duty Tie-Down Ratcheting Cargo Truck Straps Wire Hook Ends, J-Hook Ratchet Strap TieDowns KJE : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 59,
@@ -664,8 +644,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Global Industrial Pallet Jack, 5500-Lb. Capacity Pallet Truck - 27\" W x 48\" L Forks: Amazon.com: Industrial & Scientific"
+    "tipo": "CAPEX"
   },
   {
     "id": 60,
@@ -719,8 +698,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Manual Chain Hoist | 1 Ton/2000 lbs Capacity | 10’ Lift | 2 Hooks | Manual Hand Lift Steel Chain Block Hoist (1T): Amazon.com: Industrial & Scientific"
+    "tipo": "CAPEX"
   },
   {
     "id": 65,
@@ -730,8 +708,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Uholan Folding Steel Trolley Platform Handtruck with Brake Heavy Industrial Trolley Flatbed Truck Logistics Warehouse Handling Turnover Vehicle Load 550lb with Wheels Dolly Cart - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 66,
@@ -741,8 +718,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "US Cargo Control Convertible Aluminum Hand Truck & Hand Cart - 2-in1 Folding Hand Truck, 770 LBS Capacity, Industrial Hand Dolly, Loop Handle and 10-Inch Pneumatic Wheels, Heavy Duty Dolly for Moving - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 67,
@@ -752,8 +728,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Stanley 50 Gallon Mobile Tool Chest: Amazon.com: Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 68,
@@ -763,8 +738,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: ZUOS 8\" Glass suction cup for Granite & Glass Lifting, Vacuum Suction Cup Vacuum Glass Lifter with Metal Handle and ABS Pump,240lbs Load Capacity(2 PACK) : Industrial & Scientific"
+    "tipo": "CAPEX"
   },
   {
     "id": 69,
@@ -774,8 +748,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: BIG RED 12 Ton (24,000 LBs) Torin Welded Hydraulic Car Bottle Jack for Auto Repair and House Lift, Red, TAM91203B : Industrial & Scientific"
+    "tipo": "CAPEX"
   },
   {
     "id": 70,
@@ -785,8 +758,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX",
-    "linkReferencia": "Manual Mini Lever Chain Hoist - 1/4 Ton 550LBS 10FT, Lever Bolck Chain Puller Come Along Winch+Car Repair Tool Kit, 29 Pcs Portable Automotive Accessory Kit with Carrying Bag: Amazon.com: Industrial & Scientific"
+    "tipo": "CAPEX"
   },
   {
     "id": 71,
@@ -841,8 +813,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: AstroAI Digital Multimeter and Analyzer TRMS 6000 Counts Volt Meter Ohmmeter Auto-Ranging Tester; Accurately Measures Voltage Current Resistance Diodes Continuity Duty-Cycle Capacitance Temperature : Electronics"
+    "tipo": "CAPEX"
   },
   {
     "id": 76,
@@ -874,8 +845,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: DEWALT Socket Set, 1/4-Inch & 3/8-Inch Drive, SAE/Metric, 34-Piece (DWMT73804) : Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 79,
@@ -885,8 +855,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX",
-    "linkReferencia": "CRAFTSMAN Pliers, Electrical 6-in. Diagonal (CMHT81646) - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 80,
@@ -1072,8 +1041,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX",
-    "linkReferencia": "Mars-Rock 10 Pcs 1/4 Carbide Burr Set 1/4 Shank Die Grinder Bits Drill Bits Grinding Bits for Metal Rotary Tool Attachment Accessories Rasp Weld Wood Stone Deburring Compatible with Milwaukee Dewalt: Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 97,
@@ -1204,8 +1172,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX",
-    "linkReferencia": "Electrodo de tungsteno Tig, aguja/varilla 1,0, 1,6, 2,0, 2,4, 3,2mm para máquina de soldadura Tig, punta roja de 150mm, 10 unids/lote - AliExpress 1420"
+    "tipo": "OPEX"
   },
   {
     "id": 109,
@@ -1270,8 +1237,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX",
-    "linkReferencia": "TAPEWELL Black Electric Tape - Professional Grade - 3/4 inch x 66ft - PVC Electrical Insulating Tape for All Weather - U/L Approved - Waterproof - Home Improvement Electrical Equipment - Pack of 3: Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 115,
@@ -1281,8 +1247,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: (2 Pack) Tekit Schuko France Germany EU ø4.8mm Pin DIY Rewireable Power Plug 250V 16A,Quality European Rewireable Two Round Plug CCE 7/7 Standard Plug(Coated Black) : Electronics"
+    "tipo": "OPEX"
   },
   {
     "id": 116,
@@ -1292,8 +1257,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Toptekits Black EU Schuko French Korea 4.8mm Pin DIY Rewireable Female Socket Adapter,Schuko France Germany EU ø4.8mm Pin Female DIY Rewireable Power Plug Socket (Schuko Female Black) : Electronics"
+    "tipo": "OPEX"
   },
   {
     "id": 117,
@@ -1303,8 +1267,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX",
-    "linkReferencia": "14 Gauge Wire 3 Conductor,14 AWG Electrical Wire Stranded PVC Cord Oxygen-Free Copper Cable,26FT 3 Core Pure Copper Flexible Cable Wire for LED Lamp Lighting Strips Automotive (14AWG-3C, 26FT)…: Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 118,
@@ -1358,8 +1321,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX",
-    "linkReferencia": "NUWATT 90W LED Flood Light, 3CCT 3000K/4000K/5000K Selectable, IP65 Waterproof Lighting, 1/2\" Adjustable Knuckle Mount, 12600LM Dimmable, 120-277V, Outdoor Security Floodlight for Yard, White, UL - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 123,
@@ -1369,8 +1331,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 6 Pack of Motorola RMU2040 Two Way Radio Walkie Talkies : Electronics"
+    "tipo": "OPEX"
   },
   {
     "id": 124,
@@ -1424,8 +1385,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: ABS Plastic Sheet 12\" x 16\" x 0.06\" 6 Pack,Moldable Plastic Sheets,High Tensile and Impact Strength Plastic,Great for DIY Projects,Decor, Handcrafts ect : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 129,
@@ -1435,8 +1395,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: PC Products PC-11 Epoxy Adhesive Paste Kit with Mixing Tool, Two-Part Marine Grade, 1/2lb in Two Cans, Off White, (20128) : Video Games"
+    "tipo": "OPEX"
   },
   {
     "id": 130,
@@ -1446,8 +1405,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Sika Sikaflex-221, White, multi-purpose sealant/adhesive, polyurethane fast curing sealant, 10.1 fl. oz Cartridge : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 131,
@@ -1457,8 +1415,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Sika Sikaflex-221, White, multi-purpose sealant/adhesive, polyurethane fast curing sealant, 10.1 fl. oz Cartridge : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 132,
@@ -1468,8 +1425,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Fiberglass Warehouse Repair Kit- Fiberglass Resin Gallon with 3 Yards of 6 oz x 50\" Fiberglass Cloth and 3 Yards 1.5 oz x 50\" Chopped Strand Mat. Includes Hardener. Great for Boats, Auto, RV: Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 133,
@@ -1479,8 +1435,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Fiberglass Roller Tools Kit, 3pcs Fiberglass Resin Laminating Bubble Roller Set for Tub Shower Bathtub Boat Repair - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 134,
@@ -1490,8 +1445,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: COBIZI 10x15 Pop up Canopy Tent 10x15 Canopy with 4 Sidewalls Waterproof Heavy Duty Commercial Canopy Tent for Parties Outdoor Tent Garden Gazebo Tent, Carry Bag(10x15ft, Blue) : Patio, Lawn & Garden"
+    "tipo": "OPEX"
   },
   {
     "id": 135,
@@ -1534,8 +1488,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "ATERET Premium Yellow Caution Tape I 3 inch x 1000 feet I Harzard Tape w/Bright Yellow & Bold Black Text I 3\" Wide for Maximum Readability I Ideal Use for Danger/Hazardous Areas (1-Pack): Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 139,
@@ -1545,8 +1498,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "RoadHero 45 Inch Delineator Post with Base, Portable Orange Traffic Delineator Posts Cones with Reflective Collars for Parking Lots, Road Safety, Construction Events 3 Pack: Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 140,
@@ -1556,8 +1508,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX",
-    "linkReferencia": "200ft Plastic Barrier Chain Yellow Plastic Chain Links Weatherproof Safety Link Crowd Control Barriers Garden Fence Decoration (1 Piece): Amazon.com: Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 141,
@@ -1644,8 +1595,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 149,
@@ -1655,8 +1605,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 150,
@@ -1666,8 +1615,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 151,
@@ -1677,8 +1625,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
+    "tipo": "OPEX"
   },
   {
     "id": 153,
@@ -1742,8 +1689,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: UBeesize 16x25x1 Air Filter(6-Pack),Upgrade AC/HVAC/Furnace Filter,MERV 8,MPR 700,Easy to Close/Open,1xReusable ABS Frame+6xReplaceable Filter(Actual Size: 15.63x24.72x0.87 Inch)"
+    "tipo": "OPEX"
   },
   {
     "id": 159,
@@ -1764,8 +1710,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 5-Gallon White Bucket Pail Container with Lid | Food Grade | Heavy-Duty 90MIL Extra Durable | Metal Handles with Plastic Grip for Easy Carrying | Multi-Use | Easy Stack and Store | BPA Free : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 161,
@@ -1775,8 +1720,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Plastic Paint Roller Grid 5 Gallon Bucket Paint Can Pick A Pack 1-100 Wholesale Pricing as Low as 1.25 Each (10) : Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 162,
@@ -1786,8 +1730,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX",
-    "linkReferencia": "9-In-1 Painter’s Tool - LEVEL5 | Multi-Use Knife, Hardened Carbon Steel | Metal Hammer End | Pro-Grade Finishing Tools | 5-200: Amazon.com: Tools & Home Improvement"
+    "tipo": "OPEX"
   },
   {
     "id": 163,
@@ -1864,8 +1807,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 3M Perfect-It Gelcoat Heavy Cutting Compound, 36102, 1 Quart, Fiberglass Oxidation Remover for Boats and RVs : Automotive"
+    "tipo": "OPEX"
   },
   {
     "id": 170,
@@ -1876,8 +1818,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 3M Perfect-It Gelcoat Light Cutting Polish + Wax, 36110, 1 Quart, One-Step Process, Removes Scratches and Swirls, Light Oxidation Remover for Boats and RVs : Automotive"
+    "tipo": "OPEX"
   },
   {
     "id": 171,
@@ -1888,8 +1829,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: 3M Perfect-It Boat Wax, 36113, 1 Quart, Contains Carnauba Wax, Protects against Weather and Oxidation, For Boats and RVs : Automotive"
+    "tipo": "OPEX"
   },
   {
     "id": 172,
@@ -1921,8 +1861,7 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Cleaning",
-    "tipo": "OPEX",
-    "linkReferencia": "Amazon.com: Simple Green Pro HD Purple Concentrated Cleaner & Degreaser - Heavy Duty, Professional, Automotive, Restaurant, Grills, Ovens (32 oz Spray @Heavy Strength and 1 Gal Concentrate Refill) : Industrial & Scientific"
+    "tipo": "OPEX"
   },
   {
     "id": 175,
@@ -1991,8 +1930,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX",
-    "linkReferencia": "Makita Variable Speed Polisher - 7 Inch - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 181,
@@ -2197,8 +2135,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: COZONY Utility Blower Fan, 8 inch Portable Exhaust Fan with 32.8 FT PVC Duct Hose, 7 blade Heavy Duty Cylinder Axial Industrial Ventilator for Basements, Tunnels, Factories, Warehouse : Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 199,
@@ -2269,8 +2206,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: Milwaukee M18 18-Volt Lithium-Ion 1/2 in. Cordless Hammer Drill (Bare Tool Only) : Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 205,
@@ -2445,8 +2381,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX",
-    "linkReferencia": "RUALION Cordless Caulking Gun: Max 6500N Force 10oz/300ml Electric Caulk Gun with 2 * 2.0Ah Li-Battery & Anti-Drip Design (80, Watts) - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 220,
@@ -2456,8 +2391,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Pneumatics",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: DEWALT Vertical Portable Compressor, 1.9 Hp 200 Psi Oil Free High Pressure Low Noise (D55168) : Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 221,
@@ -2467,8 +2401,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Pneumatics",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: HVLP Air Gravity Spray Gun Set, Aflybltol 2 Pcs Sprayer Paint Gun Kit，1.4mm 600ml&0.8mm 125ml Automotive Paint Gun with Locking Air Pressure Regulator Gauge Paint Sprayer Gun for Car Painting : Automotive"
+    "tipo": "CAPEX"
   },
   {
     "id": 222,
@@ -2478,8 +2411,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Pneumatics",
-    "tipo": "CAPEX",
-    "linkReferencia": "WORKPAD 12 Needles, Compact Needle Scaler, Pneumatic Tools - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 223,
@@ -2489,8 +2421,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Pneumatics",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: FYPower Air Compressor Hose 3/8 Inch x 50 Feet Hybrid Hose with Fittings, Flexible and Kink Resistant, 1/4\" Industrial Quick Coupler and Plug Kit, Yellow"
+    "tipo": "CAPEX"
   },
   {
     "id": 224,
@@ -2500,8 +2431,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Pneumatics",
-    "tipo": "CAPEX",
-    "linkReferencia": "WYNNsky Air Compressor Accessories Fittings, 1/4''NPT Quick Connect Air Coupler and Plug Kit, I/M Type, 14 Pieces Air Tools Fittings Set - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 225,
@@ -2511,8 +2441,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Pneumatics",
-    "tipo": "CAPEX",
-    "linkReferencia": "Milosline Connect Fittings Air Splitter, 1/4 Inch NPT 3-Way Air Manifold With 3 Pieces Brass Industrial Quick 1/4NPT Couplers And Plug, Hex Style Air Compressor Hose Accessories Quick Connect Fittings - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 226,
@@ -2533,8 +2462,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX",
-    "linkReferencia": "DOWELL Magnetic Torpedo Level Mini Bubble Level Box Spirit Level Alloy Frame 180/90/45 Degree 9-Inch (1, White) - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 228,
@@ -2555,8 +2483,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX",
-    "linkReferencia": "SuZhi 3/4 Inch 48-teeth torque wrench 100-600 ft lbs /135-815N.M,Split Beam, Longer 48'' Length, less effort for Off-road equipment,Truck,Motor homes & Drilling platform… - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 230,
@@ -2577,8 +2504,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX",
-    "linkReferencia": "Caliper Measuring Tool, Qfun Vernier Digital Caliper Stainless Steel 6 Inch/150mm, Digital Micrometer Waterproof, Easy Switch from Inch to Millimeter, Large LCD Screen: Amazon.com: Industrial & Scientific"
+    "tipo": "CAPEX"
   },
   {
     "id": 232,
@@ -2588,8 +2514,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Thinkpro Bolt Extractor Set,17 Piece Wheel Lock Removal Kit,Lug Nut Extractor Set 1/2 Inch Drive,Lug Nut Remover for Removing Damaged, Frozen, Rusted, Rounded-Off Bolts, Nuts & Screws - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 233,
@@ -2610,8 +2535,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "WORKPRO 4-Piece Snap Ring Pliers Set - Heavy Duty 7-inch Internal/External Circlip Pliers Kit (Tip Diameter 5/64'')-Straight/Bent Jaw - Cr-V Steel - For Ring Remover Retaining- Storage Pouch Included - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 235,
@@ -2632,8 +2556,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "PETUOL Hole Saw Set, 22PCS Hole Saw Kit with 3/4\" to 5\" (19mm-127mm) 13Pcs Saw Blades, Mandrels, Installation Plate, Drill Bits, Hex Key with Storage Box, Ideal for Soft Wood, Plywood, Drywall, PVC - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 237,
@@ -2643,8 +2566,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "TICONN Mechanic Cr-V Ratcheting Wrench Set with Organizer Rack, Professional Slim Profile (12PCS mm (Metric)) - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 238,
@@ -2698,8 +2620,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "DURATECH 1/2-Inch Drive Ratchet, 90-Tooth Quick-release Ratchet Wrench, Reversible, Chrome Alloy Made, Full Polished, Gifts for Men Gifts for Women Gifts for Dad - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 243,
@@ -2709,8 +2630,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
+    "tipo": "CAPEX"
   },
   {
     "id": 244,
@@ -2720,8 +2640,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
+    "tipo": "CAPEX"
   },
   {
     "id": 245,
@@ -2731,8 +2650,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
+    "tipo": "CAPEX"
   },
   {
     "id": 246,
@@ -2742,8 +2660,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
+    "tipo": "CAPEX"
   },
   {
     "id": 247,
@@ -2753,8 +2670,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Bates- Caulking Gun, 10:1 Thrust Ratio, Orange, Caulking Tool Gun, Caulk Gun No Drip, Hand Caulking Guns, Silicone Gun, Caulking Gun Tool, No Drip Caulk Gun, Caulk Guns, Caulking Gun Dripless - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 248,
@@ -2962,8 +2878,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "IRWIN VISE-GRIP Original Locking Pliers with Wire Cutter, Curved Jaw, 10-Inch (502L3) - Vice Grip - Amazon.com"
+    "tipo": "CAPEX"
   },
   {
     "id": 267,
@@ -2973,8 +2888,7 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX",
-    "linkReferencia": "Amazon.com: GURADESIGN 7PCS Magnetic Torx Screwdriver Set T8 to T30 Star Screwdrivers (7PCS TORX SCREWDRIVER) : Tools & Home Improvement"
+    "tipo": "CAPEX"
   },
   {
     "id": 268,
