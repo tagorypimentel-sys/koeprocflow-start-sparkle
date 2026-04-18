@@ -71,18 +71,17 @@ export interface LineItem {
   discount: number;
 }
 
+// Novo fluxo unificado
 export type RCStatus =
+  | 'rascunho'
   | 'aguardando_aprovacao'
-  | 'aprovado'
-  | 'rejeitado'
-  | 'devolvido'
-  | 'pedido_emitido'
-  | 'aguardando_entrega'
-  | 'entregue'
-  | 'fatura_recebida'
-  | 'enviado_contabilidade'
-  | 'pago'
-  | 'conciliado';
+  | 'aprovada'
+  | 'aguardando_confirmacao_entrega'
+  | 'entrega_confirmada'
+  | 'nota_fiscal_recebida'
+  | 'pagamento_realizado'
+  | 'nota_enviada_contador'
+  | 'devolvida';
 
 export interface Invoice {
   name: string;

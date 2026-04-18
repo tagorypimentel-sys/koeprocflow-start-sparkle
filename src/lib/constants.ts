@@ -1,57 +1,49 @@
 import { RCStatus, StatusConfig, UserRole } from '@/types';
 
 export const STATUS_CONFIG: Record<RCStatus, StatusConfig> = {
+  rascunho: {
+    label: 'Rascunho', color: '#374151', bg: '#f9fafb',
+    border: '#e5e7eb', icon: '📝',
+  },
   aguardando_aprovacao: {
     label: 'Aguardando Aprovação', color: '#92400e', bg: '#fffbeb',
     border: '#fcd34d', icon: '⏳',
   },
-  aprovado: {
-    label: 'Aprovado', color: '#166534', bg: '#f0fdf4',
+  aprovada: {
+    label: 'Aprovada', color: '#166534', bg: '#f0fdf4',
     border: '#86efac', icon: '✓',
   },
-  rejeitado: {
-    label: 'Rejeitado', color: '#991b1b', bg: '#fef2f2',
-    border: '#fca5a5', icon: '✕',
-  },
-  devolvido: {
-    label: 'Devolvido ao Solicitante', color: '#9a3412', bg: '#fff7ed',
-    border: '#fdba74', icon: '↩',
-  },
-  pedido_emitido: {
-    label: 'Pedido Emitido', color: '#1e3a8a', bg: '#eff6ff',
-    border: '#93c5fd', icon: '📋',
-  },
-  aguardando_entrega: {
-    label: 'Aguardando Entrega', color: '#5b21b6', bg: '#f5f3ff',
+  aguardando_confirmacao_entrega: {
+    label: 'Aguardando Confirmação de Entrega', color: '#5b21b6', bg: '#f5f3ff',
     border: '#c4b5fd', icon: '🚚',
   },
-  entregue: {
-    label: 'Entregue', color: '#065f46', bg: '#ecfdf5',
+  entrega_confirmada: {
+    label: 'Entrega Confirmada', color: '#065f46', bg: '#ecfdf5',
     border: '#6ee7b7', icon: '📦',
   },
-  fatura_recebida: {
-    label: 'Fatura Recebida', color: '#1e3a8a', bg: '#dbeafe',
-    border: '#60a5fa', icon: '🧾',
+  nota_fiscal_recebida: {
+    label: 'Nota Fiscal Recebida', color: '#3730a3', bg: '#eef2ff',
+    border: '#a5b4fc', icon: '🧾',
   },
-  enviado_contabilidade: {
-    label: 'Enviado à Contabilidade', color: '#3730a3', bg: '#eef2ff',
-    border: '#a5b4fc', icon: '📤',
-  },
-  pago: {
-    label: 'Pago', color: '#166534', bg: '#dcfce7',
+  pagamento_realizado: {
+    label: 'Pagamento Realizado', color: '#166534', bg: '#dcfce7',
     border: '#4ade80', icon: '💰',
   },
-  conciliado: {
-    label: 'Conciliado', color: '#134e4a', bg: '#ccfbf1',
+  nota_enviada_contador: {
+    label: 'Nota Enviada ao Contador', color: '#134e4a', bg: '#ccfbf1',
     border: '#5eead4', icon: '🏦',
+  },
+  devolvida: {
+    label: 'Devolvida ao Solicitante', color: '#9a3412', bg: '#fff7ed',
+    border: '#fdba74', icon: '↩',
   },
 };
 
 export const ROLE_LABELS: Record<UserRole, string> = {
   solicitante: 'Solicitante',
   aprovador: 'Aprovador',
-  conferente: 'Conferente',
-  financeiro: 'Financeiro',
+  conferente: 'Conferente (Fiscal)',
+  financeiro: 'Financeiro (Fiscal)',
 };
 
 export const ROLE_COLORS: Record<UserRole, string> = {
@@ -75,11 +67,10 @@ export function generateRCId(): string {
 
 export const RC_STATUS_FLOW: RCStatus[] = [
   'aguardando_aprovacao',
-  'aprovado',
-  'aguardando_entrega',
-  'entregue',
-  'fatura_recebida',
-  'enviado_contabilidade',
-  'pago',
-  'conciliado',
+  'aprovada',
+  'aguardando_confirmacao_entrega',
+  'entrega_confirmada',
+  'nota_fiscal_recebida',
+  'pagamento_realizado',
+  'nota_enviada_contador',
 ];
