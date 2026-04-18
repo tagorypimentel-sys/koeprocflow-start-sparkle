@@ -39,6 +39,7 @@ const EMPTY_FORM = {
   categoria: '' as Categoria | '',
   classe: '' as Classe | '',
   tipo: '' as Tipo | '',
+  linkReferencia: '',
 };
 
 const CATEGORIA_COLOR: Record<string, string> = {
@@ -76,6 +77,7 @@ export function ItemsPage() {
       categoria: item.categoria,
       classe: item.classe,
       tipo: item.tipo,
+      linkReferencia: item.linkReferencia ?? '',
     });
     setOpen(true);
   }
@@ -95,6 +97,7 @@ export function ItemsPage() {
       categoria: form.categoria as Categoria,
       classe: form.classe as Classe,
       tipo: form.tipo as Tipo,
+      linkReferencia: form.linkReferencia.trim() || undefined,
     };
 
     if (editing) {
@@ -277,6 +280,16 @@ export function ItemsPage() {
                 type="number" min={0} step={0.01} placeholder="0,00"
                 value={form.precoUnitario}
                 onChange={(e) => setField('precoUnitario', Number(e.target.value))}
+              />
+            </div>
+
+            <div className="col-span-2 flex flex-col gap-1.5">
+              <Label>Link de referência</Label>
+              <Input
+                type="url"
+                placeholder="https://fornecedor.com/produto (opcional)"
+                value={form.linkReferencia}
+                onChange={(e) => setField('linkReferencia', e.target.value)}
               />
             </div>
           </div>

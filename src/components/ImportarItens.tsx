@@ -26,6 +26,7 @@ interface PreviewItem {
   categoria: string;
   classe: string;
   tipo: 'OPEX' | 'CAPEX';
+  linkReferencia?: string;
   valid: boolean;
   errors: string[];
 }
@@ -49,6 +50,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
     const preco = Number(raw.precoUnitario ?? 0) || 0;
     const id = Number(raw.id) || 0;
     const codigo = String(raw.codigo ?? (id ? `IT-${String(id).padStart(3, '0')}` : '')).trim();
+    const link = String(raw.linkReferencia ?? '').trim();
 
     if (!desc) errors.push('Descrição vazia');
     if (!VALID_CATEGORIAS.includes(categoria)) errors.push(`Categoria inválida: "${categoria}"`);
@@ -59,6 +61,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
       marca: marca && marca !== 'Not Applicable' ? marca : undefined,
       unidade, precoUnitario: Math.round(preco * 100) / 100,
       categoria, classe, tipo,
+      linkReferencia: link || undefined,
       valid: errors.length === 0, errors,
     };
   }
@@ -107,6 +110,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
       const idxUnid = idx(['unidade', 'unit']);
       const idxPreco = idx(['preco usd amazon', 'preço unit.', 'precounitario', 'preco unitario', 'price']);
       const idxTipo = idx(['tipo', 'opex/capex']);
+      const idxLink = idx(['link', 'linkreferencia', 'link de referência', 'url', 'referência']);
 
       const parsed: PreviewItem[] = [];
       for (let i = headerRow + 1; i < rows.length; i++) {
@@ -124,6 +128,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
           unidade: idxUnid >= 0 ? row[idxUnid] : 'UN',
           precoUnitario: idxPreco >= 0 ? row[idxPreco] : 0,
           tipo: idxTipo >= 0 ? row[idxTipo] : 'OPEX',
+          linkReferencia: idxLink >= 0 ? row[idxLink] : '',
         }));
       }
       setPreview(parsed);
@@ -172,6 +177,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
         categoria: p.categoria as any,
         classe: p.classe as any,
         tipo: p.tipo,
+        linkReferencia: p.linkReferencia,
       });
     });
 

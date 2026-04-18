@@ -52,6 +52,7 @@ export interface Item {
   categoria: Categoria;
   classe: Classe;
   tipo: Tipo;
+  linkReferencia?: string;
 }
 
 export interface Supplier {
