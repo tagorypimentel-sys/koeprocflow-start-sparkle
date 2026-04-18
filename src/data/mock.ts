@@ -12,6 +12,7 @@ export const MOCK_USERS: User[] = [
 export const MOCK_ITEMS: Item[] = (itensSeed as Array<{
   id: number; codigo: string; descricao: string; marca?: string; unidade: string;
   precoUnitario: number; categoria: string; classe: string; tipo: string;
+  linkReferencia?: string;
 }>).map((i) => ({
   id: i.id,
   codigo: i.codigo,
@@ -22,6 +23,7 @@ export const MOCK_ITEMS: Item[] = (itensSeed as Array<{
   categoria: i.categoria as Categoria,
   classe: i.classe as Classe,
   tipo: i.tipo as Tipo,
+  linkReferencia: i.linkReferencia,
 }));
 
 export const MOCK_SUPPLIERS: Supplier[] = [
