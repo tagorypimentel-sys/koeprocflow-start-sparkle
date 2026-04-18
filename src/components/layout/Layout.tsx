@@ -6,7 +6,7 @@ import { Avatar } from '@/components/ui-pf';
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
-  | 'items' | 'suppliers' | 'usuarios';
+  | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
 interface LayoutProps {
   currentPage: Page;
@@ -24,6 +24,7 @@ const NAV_ITEMS = [
   { id: 'divider' },
   { id: 'items', label: 'Itens', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'suppliers', label: 'Fornecedores', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'clientes', label: 'Clientes', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'usuarios', label: 'Usuários', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
 ] as const;
 
