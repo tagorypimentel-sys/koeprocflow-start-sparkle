@@ -46,6 +46,7 @@ export interface Item {
   id: number;
   codigo: string;
   descricao: string;
+  marca?: string;
   unidade: string;
   precoUnitario: number;
   categoria: Categoria;
