@@ -3,12 +3,12 @@
     "id": 1,
     "codigo": "IT-001",
     "descricao": "Rope Semi Static 10,5mm > 30Kn (Price/Meter)",
-    "marca": "Not Applicable",
     "unidade": "Meter",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/81301-1"
   },
   {
     "id": 2,
@@ -19,7 +19,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/62030-1"
   },
   {
     "id": 3,
@@ -30,7 +31,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/99008"
   },
   {
     "id": 4,
@@ -41,7 +43,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/20344-1"
   },
   {
     "id": 5,
@@ -52,7 +55,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=2248304"
   },
   {
     "id": 6,
@@ -63,29 +67,30 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=2248313"
   },
   {
     "id": 7,
     "codigo": "IT-007",
     "descricao": "316 Stainless Steel Delta Quick Link",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=16148205"
   },
   {
     "id": 8,
     "codigo": "IT-008",
     "descricao": "Grilon con bloqueador 4m",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/17566-1"
   },
   {
     "id": 9,
@@ -96,18 +101,19 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/70314"
   },
   {
     "id": 10,
     "codigo": "IT-010",
     "descricao": "Foot Ascender Loop",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=7020506"
   },
   {
     "id": 11,
@@ -118,29 +124,30 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/70102"
   },
   {
     "id": 12,
     "codigo": "IT-012",
     "descricao": "Absorver Energy 20 cm Length",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=8296601"
   },
   {
     "id": 13,
     "codigo": "IT-013",
     "descricao": "Tool Safety Lanyard",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=19063290"
   },
   {
     "id": 14,
@@ -151,7 +158,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/70602"
   },
   {
     "id": 15,
@@ -162,29 +170,30 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/70617"
   },
   {
     "id": 16,
     "codigo": "IT-016",
     "descricao": "Nylon Sling Runner 22kN - 120 cm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/17269-1/SubProducts/17272"
   },
   {
     "id": 17,
     "codigo": "IT-017",
     "descricao": "Nylon Sling Runner 22kN - 60 cm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/17269-1/SubProducts/17270"
   },
   {
     "id": 18,
@@ -195,62 +204,63 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectID=2842674"
   },
   {
     "id": 19,
     "codigo": "IT-019",
     "descricao": "Carabiners 23Kn",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/10401"
   },
   {
     "id": 20,
     "codigo": "IT-020",
     "descricao": "HMS Triple Lock Locking Carabiner",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/10319"
   },
   {
     "id": 21,
     "codigo": "IT-021",
     "descricao": "Carabiners auto locking 25kn",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/10404-1/SubProducts/10404"
   },
   {
     "id": 22,
     "codigo": "IT-022",
     "descricao": "Carabiners Heavy Duct 23 Kn",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/10450"
   },
   {
     "id": 23,
     "codigo": "IT-023",
     "descricao": "Tool Climbing Bag",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: Petzl TOOLBAG - TOOLBAG 6 Liters : Tools & Home Improvement"
   },
   {
     "id": 24,
@@ -261,183 +271,184 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Rope Access",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.equipovertical.com/epages/eb7547.sf/es_ES/?ObjectPath=/Shops/eb7547/Products/69534"
   },
   {
     "id": 25,
     "codigo": "IT-025",
     "descricao": "3/16 inch Nylon Rope Spool (150 meter ~ 500Feet ~ 4mm)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: QNR 3/16 inch Nylon Rope - 500 foot spool - Knotrite | 100% Nylon - Solid Braid - Dyeable - Industrial Grade - High UV and Abrasion Resistance : Tools & Home Improvement"
   },
   {
     "id": 26,
     "codigo": "IT-026",
     "descricao": "Silver Tape Heavy Ducty - 2 Inch",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Rope Access",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "SWRT 5-Pack Silver Heavy Duty Duct Tape Strong Adhesive 2Inch 450ft/150yd, Duct Tape Heavy Duty Waterproof All Weather Gray Duct Tape No Residue Sealing & Patching for Indoor&Outdoor Repair: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 27,
     "codigo": "IT-027",
     "descricao": "Welding Mask/Helmet",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/YESWELDER-Powered-Darkening-Welding-Helmet/dp/B07QJ1Y527/ref=sr_1_1_sspa?crid=22CEX6ULDZEMZ&dib=eyJ2IjoiMSJ9.l1kILNbu7P7yl_UX2F-XDfypU3XcPXuv4ODble-EJdnvnTq5CMnF8_-cEAkNoHrwj4DKRnWZKNcifhMwPSgxMF9Qk5I1ki4b4sOmEF67_rlfJ4iRNFIMbE2CHDD_VWu72YuqWIEryXQDtTKZLZcvoEZhbVEmoyXfzaKxQluTRo0_1bQIezCuX8PQaiOF0lVOz0ALYn3UyEIBkHG8ds7sVN089880R1oHY-d3CoAVnZqFsRt_iYSdw4KR4SZ27sf8Kfby8mQvPeSUcgon7_9kCPab2AeFJOvVybZPvRoF72A.j-S4c1iA9EyVyqezcGLrBxd-_-UFDVHepkcgJ-zJI-M&dib_tag=se&keywords=welding%2Bmask&qid=1721080141&sprefix=welding%2Bmask%2Caps%2C204&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 28,
     "codigo": "IT-028",
     "descricao": "Welder Eyes Glasses Flip Up",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "GJOOKA Welding Glasses Welding Eye Mask Welding Sunglasses Welder Protective Glasses with Clear Inner Lenses Welding Helmet Solar Welder Eyes Glasses Flip Up Lens Eye Protection - Amazon.com"
   },
   {
     "id": 29,
     "codigo": "IT-029",
     "descricao": "Welding Apron Fire Resistant",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Houseables-Blacksmith-Resistant-Stitching-Blacksmithing/dp/B06W5L79FV/ref=sr_1_22_sspa?crid=3UZ6WMKG05VAP&dib=eyJ2IjoiMSJ9.xqv2aQ7its46UdfkPd-8QPFn6a3YgRlg_9fQbrjOerZO4IVnJT04YKfx5zYgKGa6fcJRsrL-um6qDUePkW06ynrO9OCuL-LXgRYUs0D1Alex248zhA02LzppE_tQnisxUuICNjiLTGKgVJyfakCmG_FlCVgYWpMvoWdfKl4uecGUYYb5I-WyefxMhIgD8Sy4ZvQmoNLs7vVOwGrEjASeKUqgEXVx8GY-16vnOpW2nPL5RUkYDEOWW7myE0x3yedbYDCmgdH2wD8inKzsVDku3Cvr_2Zfa8lNq1kFGUXiT0g.5JRAr0LdDvwzRXPIEiAsskFTnvzaAIwbkGlsizhn8yk&dib_tag=se&keywords=welding%2Bapron&qid=1721080259&sprefix=welding%2Bapron%2Caps%2C297&sr=8-22-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&th=1"
   },
   {
     "id": 30,
     "codigo": "IT-030",
     "descricao": "Welding Gloves Heat & Wear Resistant",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/QeeLink-Welding-Gloves-Resistant-Fireproof/dp/B01ETQU1SG/ref=sr_1_3_sspa?crid=17ZAYMMIO4DB1&dib=eyJ2IjoiMSJ9.c0o0WkzPFe2Tjp7Cnmr0K14Gwt9kx6A6JDpLL_-b5WUnZlgV80kkeslGQ1PcSfpGzO5CHW4-hb9M0oVDH_764b6G-ufAdzhL1cf5LIf0H-Zkl4kloLgHKnLKpHREh_pzVC23bx0L63VKRh_UFDOcVXx_PHB2eflsXMiC1d4-sGXnPqfyFCzNzWBumSBGlZ7O3ZRzHjdUbvUVDLKzAF6CBADS8gv8iEsu9zqMNpd0V_WBfgBG8nYOr9axRsoygMgLvq9ZN7aHHu8pDp5sfj6sXRCtK7HWq6qwImlV0YReafM.qIFJeeX_vHBwpX-FzWkHZWm006yMvnvW1OgCsboyncA&dib_tag=se&keywords=welding+gloves&qid=1721080347&sprefix=welding+gl%2Caps%2C246&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 31,
     "codigo": "IT-031",
     "descricao": "Welder Shoe Protector",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "NEWCOMDIGI Welder Shoe Protector, Long Calf Protectors, Heat and Abrasion Resistant Welding Spats Shoes Cover, Welder Thick Protection Boot Cover - Amazon.com"
   },
   {
     "id": 32,
     "codigo": "IT-032",
     "descricao": "Neck Shoulder Welding Protector",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "KCGANI Leather Welding Hood, Cowhide Split Leather Welding Protective Mask Cover with Neck Shoulder Drape, Head Protection for Welding Grinding Cutting Smelting: Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 33,
     "codigo": "IT-033",
     "descricao": "Shield face adjustable to use in Hard Hat (Climbing Hat)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Pantalla retráctil VIZEN MESH para cascos Vertex y Strato Petzl (equipovertical.com)"
   },
   {
     "id": 34,
     "codigo": "IT-034",
     "descricao": "Polycarbonate Shield Face",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Silverline-140863-protecci%C3%B3n-transparente-Transparente/dp/B002QS1UUI/ref=sr_1_2?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2F5VRBS7ES8UC&dib=eyJ2IjoiMSJ9.sCNsmdOKNS9lX_00fRZzMDA-ocQGlpmEWAiaUvvSDkbB6XPEqnuonLQckeRaM4MTX30nX9S1a8n2N22h-WHsDn9vwL2z032M6YR2oTn4RjdYNeDjYuTUvRYUIv5KITQOQ5O0hwvh0nv1kl2ezWDMIgNEtifZSH6E5D-6YltAJ2RytLKiLnvCbqJfrTiSi4YeJVIDzV7E73E8AlbGw8n_S54ZpOqRw_-3DPapIsNDnt7eUfFFejuXzjKf-Ll3jB3w7RZaEqQzRiRVA6DzXHgfFO8hXF46iSmw-tFyW4jihnw.nzzaIBB8cwmhXqjmqxlaM1-zKFDwaia7-lU5zMUQM90&dib_tag=se&keywords=Full+Face+Impact+Resistant+Safety+Faceshield&qid=1722244056&sprefix=full+face+impact+resistant+safety+faceshield%2Caps%2C131&sr=8-2"
   },
   {
     "id": 35,
     "codigo": "IT-035",
     "descricao": "Safety Glasses Ant Fog w/ adjustable",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Oregon-539169-seguridad-certificaci%C3%B3n-profesional/dp/B006HTL2U0/ref=sr_1_12?crid=2BOY8K92FZM91&dib=eyJ2IjoiMSJ9.djD5wofJAIC9sterCR45pC03yqFL2XZQXMkH0Kj9-Ht6TRF0-JLnvf_RclOEgLrHg7PkDnorZrgbJNEe_fP-08UanGBO54oyJoUErJ-JvtUeKtyp_JKqDLcHBh2I3T7AT13dKswumtBCbk3z_6-fu_pOYUB3OjIPgoZ4aZGMduwyuwATUOywNiPKA7oanIbregh1fWMLgGRUwKllCOqxd7oM3rnkgiNBh3qsrGnbso48EXwQs2rvNpTPGUziehniMZO2-ONYaFyN3C0k26qT4gJ2H5U8GtGzfL5Zwtp-uww.Rjo2Ea1p6I6VvudXyjVqYfA0OJ7qNckAbMzxhB42kS4&dib_tag=se&keywords=safety+glasses+over+glasses&qid=1722244180&sprefix=safety+glass%2Caps%2C117&sr=8-12"
   },
   {
     "id": 36,
     "codigo": "IT-036",
     "descricao": "Safety Glass  - Escuro",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/SAFEYEAR-anti-raspado-ultravioleta-anti-impacto-protectoras/dp/B0D8L36LG2/ref=sr_1_1_sspa?crid=3QFIUKKLM56S9&dib=eyJ2IjoiMSJ9.mcF8k_HRn6gS7hUtKzpTzYdHBZjPvkCxJqcWDDsKmOlv9yfhldpXy9SyvKYtSbEmLAgCto-btDPv056FaPR_xWL-RCXXJCX4raQJ5swbNoKE5p3rYuMgNcB6O9Rf5022ZERTohrmhZhsYXBH97iMdrIxuBTLzdfpc6ZLlXpQJ3ibH4dH9FaM64y6bzf3D_cnoM7suBTsJtra0h8uQWvWytw61AN2T26E8-ViAkPYi3FBxS7aF2Z51IiB1u5RrkwxY7EPASLqStGZnUtsV7kVX8HFHSu5xVT7bvQTf6kdprU.NFZTkFLz1Ang9gAF1DeH4voBbER_SJToRQ8UqdY3IYg&dib_tag=se&keywords=gafas%2Bde%2Bseguridad%2Bde%2Bsol&qid=1755629642&sprefix=gafas%2Bde%2Bseguirda%2Caps%2C126&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 37,
     "codigo": "IT-037",
     "descricao": "Mechanical Gloves Coated - Large",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "DULFINE Safety Work Gloves PU Coated-12 Pairs,Red Seamless Knit Glove with Polyurethane Coated Smooth Grip on Palm & Fingers, for Men and Women, Ideal for General Duty Work (Large): Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 38,
     "codigo": "IT-038",
     "descricao": "Cowhide Work Glove - Large",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Durable-Cowhide-Leather-Warehouse-Gardening/dp/B08Q4FMWMX/ref=sr_1_6?crid=37ZKLSZMNAVRA&dib=eyJ2IjoiMSJ9.UHn5BExfJJ71wTA-g6I10vojiyHpVaS3CM3nWvD-ZwDSWm9zUmZbEEsi9m8u7f8yPSsNWAEUKetQS0M-pBVeJOtf_XD97uC-bg-rvNAT-WiBXujs0CsHa-NUKzcnYh42Os5ApXFyyw3R83PPLfhqhmU9vAFzSTwd-4bbd-SUArnvbFWzZPN5LE6xs3uYwytGnwxRmcAdGw2atacWV5BXBgajS79hHxFnYHuGOn19tUeAyu-0LL-bH7W45aw756GbxI1jXXhC0_-cavVkKBGcZ_G6eZCyH-k9nYid5KDNfgg.G4KzBXsc6dWmKCtAVpo4uGGJcVPe3G8iPJz4trpMhcE&dib_tag=se&keywords=leather+gloves+for+men+for+work&qid=1721078072&sprefix=leather+glove%2Caps%2C185&sr=8-6"
   },
   {
     "id": 39,
     "codigo": "IT-039",
     "descricao": "Ear Plugs (Box w/200 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Tondiamo 200 Pairs Ear Plugs Reusable Silicone Earplugs with Cord Sleeping Individually Wrapped Hearing Protection Noise Cancelling Earplugs for Work Construction Shooting Sports(Blue, Orange) : Health & Household"
   },
   {
     "id": 40,
     "codigo": "IT-040",
     "descricao": "Simple Disposable Coveralls - Large",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/MAGID-EconoWear-Lite-Kool-Plus/dp/B004OEJIBU/ref=sr_1_20_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=6B6423LIXS8O&dib=eyJ2IjoiMSJ9.x9H0drvmd_7PIpOiMA7BMRntkibsQ3O9qErWHW1DOlJll1mYBS1dKZUQkRpIoKHAXAr5M7hJ3AHNmgz4iXreTMIBRcXOY6y_RfatzoqpTnZpWEKnwXBFWP0prImjG9le1izs8KoSCBIqPhK9uAF_wS7kVFenFMqZgxhpzvY_r3v3Kr4t7wkgxQolwf76-dkU8QfCwmnsiCZ11dScsPZmLb3cXFw-B5HSMvcPlMrm6VDabEFaVuctkstQMimSX3G0w-pUUwHHCwd_fU1re0wHwovn8VHsQwGluUs0OL3bTIY.h3JF6VOlEg5iLnqWYoIB5VM5TpwPTPohs2z_yFu2bIo&dib_tag=se&keywords=disposable%2Bcoveralls%2Bsimple&qid=1722330928&sprefix=disposable%2Bcoveralls%2Bsimple%2Caps%2C194&sr=8-20-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&th=1"
   },
   {
     "id": 41,
@@ -448,29 +459,30 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: DuPont Tyvek 400 TY125S Disposable Protective Coverall with Elastic Cuffs, White, 2X-Large (Pack of 25) : Clothing, Shoes & Jewelry"
   },
   {
     "id": 42,
     "codigo": "IT-042",
     "descricao": "Protector Solar 400 ml  - FPS 50",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Nivea-Sun-hidratante-Protege-Protecci%C3%B3n/dp/B01DS2WBVM/ref=sr_1_6_mod_primary_new?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=JJT0M7N9SXSY&dib=eyJ2IjoiMSJ9.vBdjxwrIH5cMLTLc4moCtjAO1wofFc2f9_g8ebVvvqUZnuvQsA17UrKtqI1mWBc_vpZvnABHQ-dprQdkQitOEeEu5WS58t2g4XljtD7dvfRvR6mhil8l6J81u_IZe3GRbEgblwqoJS4B7p_pBFUK0J5pDRdNFvpFpIDSWOosBnd7GCkMmmZJS2lm3qmnwuwJLOnmSiRoQ0DUsxqkt6WHXXItQ5PsIgQyspQ9vKKTqK6ha8dw5YDcuEga6-YmiCo-Q0wCw_El1SwksnzKLhrR5-_QsYODseIDn2xqxBVxTTI.SQx9-egC_Mlo4OSgM_qmjMkqSvx0v9BOglkOuUfA5WE&dib_tag=se&keywords=protector%2Bsolar&qid=1755635685&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=protetor%2Bsolar%2Caps%2C131&sr=8-6&th=1"
   },
   {
     "id": 43,
     "codigo": "IT-043",
     "descricao": "Estación de limpieza de ojos con 2 botella",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Plum-4694-Estaci%C3%B3n-limpieza-botellas/dp/B009GHWDOY/ref=sr_1_10?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2AVV4JFM0CBC9&dib=eyJ2IjoiMSJ9.X2nEjr_BKHiNF5a7DdFIMJfY_3dd7Hm5OcRasZlnZ1u6TYnojxr_k883U3nXxSGPVSa19yPfb70K5WKeSeai5QInw0PRePdMrIF_kNUDf9e_O45Y0a4qOJgTuJs8VvJAsY7tTkvq8U2wKP_aLxTfWg-0nLS8CATFrPgmAuxYDodC2fVeL8fQbnHstxxe9aVBqeRxX-dNQn1fYVCZ2_3OOphJ78-BUsVK6NlFvD3SnXn2Q2ufHazbrk_ymZ_zsnerZV7W2or6ImLGWjS60UfdiED_LRKM7B_Ydou6XXsQl00.BVCJiNMXHbDd3gZNff93WglFFVEjeuQtJEJPN96pVPE&dib_tag=se&keywords=LAVADO+OCULAR+PACK+2+UNIDADES+360ML&qid=1755635923&sprefix=lavado+ocular+pack+2+unidades+360ml%2Caps%2C171&sr=8-10&ufe=app_do%3Aamzn1.fos.fde3827e-5b32-4544-acac-9bcf8407a6a6"
   },
   {
     "id": 44,
@@ -481,7 +493,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "3M 8210V Particulate Respirator with Cool Flow Valve, Grinding, Sanding, Sawing, Sweeping, Woodworking, Dust, 10/Box: Papr Safety Respirators: Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 45,
@@ -492,7 +505,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 3M Half Facepiece Reusable Respirator 6200, NIOSH, Four-Point Harness, Comfortable Fit, Dual Airline Supplied Air Compatible, Bayonet Connections, Painting, Sanding, Cleaning, Medium : Tools & Home Improvement"
   },
   {
     "id": 46,
@@ -503,7 +517,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/part%C3%ADculas-instalado-retenedor-repuesto-trabajar/dp/B0CBKC6R9W/ref=sr_1_3_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3K9WU8EPNIQE9&dib=eyJ2IjoiMSJ9.HBcJEgrEtc-i6qRbiJgN-EB6SH5CMK8X4bXTG-QZagQF8_9LiCyV2obalGpmhZ7LN1hybMeQrbtU25wP0SjswHHJkdTz6i-NhMKNXJppu3O8gxPXa_WzTvKEmLP9kkVFcmrn-vCqAafpomTtY4AeQDt3Q05kuTOgM-Ue9uvLMFcefGn5DIU2aw3WsZBjgg0thLXt_FiwIISn28GVr-qLhDjDrwj93EBW9J9NSvwQNPA5aUBwFSGp6hUJ6c_3ISJFChSN-ctEC7_izuG9hIJAZModqThpCkFdLdCkyDyLie4.xpQ_DSe6dVv_dkiGksQWDAYUyXECvn2T-R2yAz6LokE&dib_tag=se&keywords=2091+P-100+filter+Pack&qid=1722332428&sprefix=2091+p-100+filter+pack%2Caps%2C314&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 47,
@@ -514,7 +529,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "3M N95 Respirator Filter, 5N11, Disposable, Helps Protect Against Non-Oil Based Particulates, Use With 3M 5000 Series Respirators or 6000 Series Gas and Vapor Cartridges, 10 Pack: Safety Respirators: Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 48,
@@ -525,7 +541,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Renewal 3M 501 Filter Retainer Cover for Particulate Filter 5N11 for 6000 and 7000 respirators (501 Retainer, 2, Count) : Tools & Home Improvement"
   },
   {
     "id": 49,
@@ -536,7 +553,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Vunjar Respirator Cartridges/Filters 60926-1 Pair Respirator Mask Filters for Paint, Chemicals, Dust, Organic Vapors, Acid Gases, Ammonia Methylamine, Formaldehyde and Particulates (1 Pack): Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 50,
@@ -547,260 +565,261 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 3M Full Facepiece Reusable Respirator 6800, NIOSH, Large Lens, ANSI High Impact Eye Protection, Silicone Face Seal, Four-Point Harness, Comfortable Fit, Painting, Dust, Chemicals, Medium : Tools & Home Improvement"
   },
   {
     "id": 51,
     "codigo": "IT-051",
     "descricao": "KN-95 Disposable Face Mask",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/M%C3%A1scaras-seguridad-eficiencia-transpirable-el%C3%A1sticos/dp/B08Y8NVW6Y/ref=sr_1_1_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=CHR2F60OBXP7&dib=eyJ2IjoiMSJ9.1PvXv9s56pTQS0Mn1BC2ql585aUIIH8CRWu_GoEYGMRpgm7AEYjfBmZeXY-sEZmNuuGSAxfRSWWdVzM3d2KdfFnjRGRnkg0YdPKHA1UB1W-7P_tsbb6C-JfGdigULNB6-rdTENz4RWrGCxhA-IJPlPc5ttELSjHCs09ZLlMdsYEj32IAmzU97a2nDExSg8UbNLUsXS3_dxXINLgbdsHDCI0ulaHj0-uyS50uKWeJ86b773XIsBV__0R45YtuQ8YG4rzw0AbOCQGjMzbikbpZzuYYp4M0UjpI73TA6tASM3A._tHvkgF9P0Jn8VG5ydiqpOnw0tJ3YtZBIHvRApSKeGY&dib_tag=se&keywords=K95+Mask&qid=1722332480&sprefix=k95+mask%2Caps%2C215&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 52,
     "codigo": "IT-052",
     "descricao": "Nitrille Gloves Large Box w/1000 units",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/original-desechables-preparaci%C3%B3n-alimentos-mec%C3%A1nicos/dp/B0BKH9MW68/ref=sr_1_1_sspa?crid=34EBFM88NL7WL&dib=eyJ2IjoiMSJ9.GBCBH2j5Rw1mbB6rMJ691MUOVdQj0z4gy51kob38PvkegcIeCzzC47ki0c2cmdc9vbMoqxDT5PKFp4QphsFsimK4sqMudKwCFgUhpK87CZJkjkycIFnTBumQC4IMyfc44GQgJPWNXiMga2HYap_Up1O7N0SiYLBKSR2SqjhC9MqQU9lHtNkNgPkRP_RkOr-dXRJoTdB20n0CXKRrMB_3VhMmKz8yv7mIeehTMk2Dru8.aaiTHmjSh8vUt-SO-ZglSuIFQcLLOqMiTL1tYyBAJeE&dib_tag=se&keywords=nitrile+gloves+large&qid=1722334110&sprefix=nitrile%2Caps%2C192&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 53,
     "codigo": "IT-053",
     "descricao": "Knee Pads (Pair)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "PPE",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/REXBETI-Rodilleras-construcci%C3%B3n-resistentes-antideslizantes/dp/B07BPWV83H/ref=sr_1_6?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=YAPV4B8WBZX6&dib=eyJ2IjoiMSJ9.F4uCFPC1PXPQkUMM2tMhBEqICECxoihuzK2-CN2jBSLpyQiBiT9vkIdTtP_vdvZTWnW7eegfDAbIMZVpIhHthKozpqUapVnzVwwQwzYwRXcG5bI7srPxWe_wY-7aKIA9KiWP-TDDYmegvklJMRze4WcETZWoo--ETrqM1kUD2JgQ8bgRagixp6bokgCGoo_aiPbw-9bGDjZ5oefAvFVCJM0xv7wuZLwd7qzVX7ELgysiqmFtl87J6_9nnfmDkP211Pvh8cTWqMA4ITyQcij0YQOq-wXGtBIAGCNxErNFB4c.DrKeg4HJ5k_lfr8uliYBQGkFS5YcMHMFeLpzb6gbyYE&dib_tag=se&keywords=pad%2Bknee&qid=1722359376&sprefix=pad%2Bknee%2Caps%2C194&sr=8-6&th=1"
   },
   {
     "id": 54,
     "codigo": "IT-054",
     "descricao": "Lift Sling Web 1 Ton x 1 meter",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/B34440-Correa-carga-color-violeta/dp/B00HFOVTJ0/ref=sr_1_16?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=7OJYOJPGRZ16&dib=eyJ2IjoiMSJ9.7JmgT1MnXWtEIuSuWPiNMoDLSmaQpt9uTpHeezoka7SRNxluXtfC1EvJOGr7zVaaMyM1fkvzB9a5SvDC92tV28ic4ooYoO2bZuvuYvlfZxvNHmnNJPDSvANV7lpg0N17OrEDBNwckMowqzLiyZknhCBldrvV_c_LEh0mb4_Sn6G5KpOF1XnGb8ypr4hOpcsB71aigdn4cH2ZPQiwKp2EJU5Q8E0OidfAK-6nRGxNPp55j_qeKyKHbED7vODCGSJPOpMnq5SBu4hJyG02lKy__5bvztRvV9y1tYLGDUhS7vU.QpWdVhYgp62iO34yIdjdFFmCcw95EzMRDqnA5-oBBas&dib_tag=se&keywords=web+lift+1+ton+cinta+carga&qid=1755630363&sprefix=web+lift+1+ton+cinta+carga%2Caps%2C98&sr=8-16"
   },
   {
     "id": 55,
     "codigo": "IT-055",
     "descricao": "Lift Sling Web 1 Ton x 2 meter",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Grip 2 Ton 48\" Webbing Sling - Heavy Duty Polyester Webbing - 4000 Pound Capacity - Reduce Chance of Damage with Polished, Soft, or Paint Finish - Home, Garage, Workshop : Industrial & Scientific"
   },
   {
     "id": 56,
     "codigo": "IT-056",
     "descricao": "Lift Sling Web 3 Ton x 6 meter",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Dawnerz Industrial Lifting Sling 6600 Lbs Vertical WLL 10 ft - Eye and Eye Flat Polyester Web Sling 3 tons WLL - Crane Synthetic Lifting Strap for Construction, Boat Lift Strap (3.5\" x10') : Industrial & Scientific"
   },
   {
     "id": 57,
     "codigo": "IT-057",
     "descricao": "Ratchet Straps 2\" x 12' x 4,400lbs ~ (50mm x 4m) - 2ton",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 2 Pack E-Track Ratchet Straps 2\" x 12' x 4,400 Strength for Cargo Tie Down in Enclosed Trailer & Van by KODIAK STRAPS : Tools & Home Improvement"
   },
   {
     "id": 58,
     "codigo": "IT-058",
     "descricao": "Ratchet Straps 2\" x 27' - 10000 lbs ~ (50mm x 8m) - 5ton",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Load/Lift",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 4 Pack 2\" x27' Ratchet Strap Tie Down 10000lbs J Hook,Heavy Duty Tie-Down Ratcheting Cargo Truck Straps Wire Hook Ends, J-Hook Ratchet Strap TieDowns KJE : Tools & Home Improvement"
   },
   {
     "id": 59,
     "codigo": "IT-059",
     "descricao": "Pallet Jack 2500kg ~ 5500 lbs",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Global Industrial Pallet Jack, 5500-Lb. Capacity Pallet Truck - 27\" W x 48\" L Forks: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 60,
     "codigo": "IT-060",
     "descricao": "Steel Cable Dual Gear Power Puller 4000 lbs - 2TON",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0C96HX656/ref=sspa_dk_detail_2?pd_rd_i=B0C96HX656&pd_rd_w=OOP5A&content-id=amzn1.sym.f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_p=f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_r=5N93DQ4JC6BD4XNX83TK&pd_rd_wg=8q1jx&pd_rd_r=acc83d41-e322-4571-b418-e9161d0b74dc&s=hi&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM&th=1"
   },
   {
     "id": 61,
     "codigo": "IT-061",
     "descricao": "10 mm Stainless Cable - Cabo de Acero Inoxidable 10mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/inoxidable-especial-exterior-Di%C3%A1metro-flexibles/dp/B0CJK33PVC/ref=sr_1_5?crid=EZF7S2L5ND0C&dib=eyJ2IjoiMSJ9.scsp7FQzgtCGoWVVmPcgEoW1VXdRPbXxHZHkt4m0cmj0z07YGZfnXAbyylPxsYb8yttS7PQRcmUHTlKT9SompbkARPOIiF8cjhmGJ2Tv8CW1-t0dSHvzH_jvmHhCEEkMBq9isL608eniOoLE0GHe2sYh_rdD5hVfckkB_3lD324dhnFgWwuBxBzTAmOx1fB8xX8QiD9snaSCh8KmqD_46KCj5Wp8MOXsTDkyRWey_AWuNi1p6JeH3pkofEsBD0ewmPtwEx1XWaCnagPbBWN_bx3pItkeqw-8U93CP0oHNiI.Kl5ASDMrKISdjqND2mw7O8n6OhRG7yEMTP27h3eEluM&dib_tag=se&keywords=cable%2Bde%2Bacero%2Bde%2B10%2Bmm%2Binoxidable&qid=1755636346&sprefix=10%2Bmm%2Bcable%2Bde%2Bacero%2Bino%2Caps%2C118&sr=8-5&ufe=app_do%3Aamzn1.fos.5e544547-1f8e-4072-8c08-ed563e39fc7d&th=1"
   },
   {
     "id": 62,
     "codigo": "IT-062",
     "descricao": "Sujetacables de Acero Wire Rope Clips 10mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/Abrazaderas-Alambre-Inoxidable-Sujetacables-Di%C3%A1metro/dp/B0C6CWJMB8/ref=pd_day0fbt_d_sccl_1/258-3278011-2468112?pd_rd_w=qxJPI&content-id=amzn1.sym.a828d7ff-19f8-4efe-a4b8-4b4bc7df6739&pf_rd_p=a828d7ff-19f8-4efe-a4b8-4b4bc7df6739&pf_rd_r=6R3PE4ZXKDAJ53W4ZJZ8&pd_rd_wg=q1Gol&pd_rd_r=866aa694-3faf-4a9b-9d18-9e358934d8be&pd_rd_i=B0C6CWJMB8&psc=1"
   },
   {
     "id": 63,
     "codigo": "IT-063",
     "descricao": "Guardacabos Stainless M10",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/QWORK-Guardacabos-Cuerdas-2-5-3mm-Inoxidable/dp/B09GJZM6M4/ref=sr_1_7?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=32KN971BTF3ZW&dib=eyJ2IjoiMSJ9.1mK336dqktUTCmHvbNBv2itBQOTYQZL5Xm2Xsnr0Ko1agpRA9dZQ4-Kj1jpF54DWgzzWyCnwULUk2ltK_UyF-AN_kxbJUBkIePgHTPjnrdeShh8HbTXBlxIY5Wh7TQXCUHNrFHvzRd7MHaEAfxMDlHi5_U1R1gChrO2v9Uef-PyiUDVCpyMEcANMLe1WeofWLzuJAY-AKIkfsOSaWCBLMLF-2BEQ4NdO6L_cb8QDZBsncUIdZxGy4ktXd-zuKTSNEnpd3uudFisRXDuzTDlkQlrTyQS2y40pWUyZfhZU-HE.vDw-Vmf3wp9YjZB9CYarkXk0IcP0UKcKolzJ-Oz-2aU&dib_tag=se&keywords=6+guardacabos+M10&qid=1755636870&sprefix=6+guardacabos+m10%2Caps%2C292&sr=8-7"
   },
   {
     "id": 64,
     "codigo": "IT-064",
     "descricao": "Manual Chain Hoist | 1 Ton ~ 2000 lbs",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Manual Chain Hoist | 1 Ton/2000 lbs Capacity | 10’ Lift | 2 Hooks | Manual Hand Lift Steel Chain Block Hoist (1T): Amazon.com: Industrial & Scientific"
   },
   {
     "id": 65,
     "codigo": "IT-065",
     "descricao": "Trolley Platform 200kg ~ 500lbs",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Uholan Folding Steel Trolley Platform Handtruck with Brake Heavy Industrial Trolley Flatbed Truck Logistics Warehouse Handling Turnover Vehicle Load 550lb with Wheels Dolly Cart - Amazon.com"
   },
   {
     "id": 66,
     "codigo": "IT-066",
     "descricao": "Cargo Control Convertible Aluminum Hand Truck (Dolly Chart)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "US Cargo Control Convertible Aluminum Hand Truck & Hand Cart - 2-in1 Folding Hand Truck, 770 LBS Capacity, Industrial Hand Dolly, Loop Handle and 10-Inch Pneumatic Wheels, Heavy Duty Dolly for Moving - Amazon.com"
   },
   {
     "id": 67,
     "codigo": "IT-067",
     "descricao": "Stanley 50 Gallon Mobile Tool Chest",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Stanley 50 Gallon Mobile Tool Chest: Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 68,
     "codigo": "IT-068",
     "descricao": "8\" Glass suction Cup",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: ZUOS 8\" Glass suction cup for Granite & Glass Lifting, Vacuum Suction Cup Vacuum Glass Lifter with Metal Handle and ABS Pump,240lbs Load Capacity(2 PACK) : Industrial & Scientific"
   },
   {
     "id": 69,
     "codigo": "IT-069",
     "descricao": "Hydraulic Car Bottle Jack",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: BIG RED 12 Ton (24,000 LBs) Torin Welded Hydraulic Car Bottle Jack for Auto Repair and House Lift, Red, TAM91203B : Industrial & Scientific"
   },
   {
     "id": 70,
     "codigo": "IT-070",
     "descricao": "Rachet Chain Puller 1/4 Ton 550lbs 10ft chain",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Load/Lift",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Manual Mini Lever Chain Hoist - 1/4 Ton 550LBS 10FT, Lever Bolck Chain Puller Come Along Winch+Car Repair Tool Kit, 29 Pcs Portable Automotive Accessory Kit with Carrying Bag: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 71,
     "codigo": "IT-071",
     "descricao": "Insulated Electrician Screwdriver Set",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Insulated-Electrician-Screwdriver-Professional-13-Pieces/dp/B07R6QR67X/ref=sr_1_4?crid=22ZNVZ8KX2VME&dib=eyJ2IjoiMSJ9.1iccMsK-lNwPsiO78s8uwOjO-6Q7N4hVDc3HUXojAV5pzI1sfgEtWzJfNU0TH0q34bf7Di7dGFj9HJf_gXvKbggZhSrhnwsbCHCLT6aYT6t-Z1PBt8wrrPIIerRJqOqtJngwnx02z4t-vJtsxvLJZ5eXwzHM4iXJ8PPtNqRXeI0ZAJFUWz7fhRmoZYXx7bdQKXR_QR5h1c2xVKNPjLVjT7M3sjgKQ4RNYlsAKcY_r4iFzYoYMzV0gW72lmQtITbJgxaANTDPB-6TSXg-Ds8epl6TRbu3IgPCZwIY4MbKJFI.MCSibfdIvz7J6xPeCYekoaM3j9ps5o3e7AzYoh9uxYg&dib_tag=se&keywords=electrical%2Bscrewdriver%2Bset%2Binsulated&qid=1721237506&s=hi&sprefix=electrical%2Bscrew%2Ctools%2C212&sr=1-4&th=1"
   },
   {
     "id": 72,
     "codigo": "IT-072",
     "descricao": "Insulated Industrial Pliers/Cutters Set, 3-Piece",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B007HGNTXA?ref=cm_sw_r_mwn_dp_980YA8P2ADBNVXMH2THC&ref_=cm_sw_r_mwn_dp_980YA8P2ADBNVXMH2THC&social_share=cm_sw_r_mwn_dp_980YA8P2ADBNVXMH2THC&language=es-US&skipTwisterOG=2&th=1"
   },
   {
     "id": 73,
     "codigo": "IT-073",
     "descricao": "Wire Terminals Crimping Tool",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Terminals-Qibaok-Insulated-Ratcheting%20Connectors/dp/B07Y7YRTKT/ref=sr_1_8?crid=2LLTMKIO9TCC2&dib=eyJ2IjoiMSJ9.y5CNh7HbqQTXktTuvmImfDY1xItU3JV0LN6VfTUCA3sGp4sYv3sTxEBGYsvHsRvajvuX_M_WEwf1ypEKUjyaWOAKjb-UjtX9HQswxLm5Ui1OiV111du8WRirCIHtG3oyaoF1NCoFZXY-GCV4oQJi7Cd4v-_vsf8KKo-aVfnXXq1LrEYmCWnKE2w5H0pJFBd-tEbNo5hUIUD2aqGYvXldtaub_qZ_VmCIfWfOC1fBOrVGkdnxN7Uyr0yq7f334QqDeTgeibleN8Z8sP1DdPjJILasXyJn8V-CTee4F5GsuJA.ZgRbtOT7R5ZmgMpZZtMnjpHF7dsda6K6Wv6K2Y-CJxI&dib_tag=se&keywords=Electrical+Connectors+Tool+Kit+Set&qid=1721237885&s=hi&sprefix=electrical+connectors+tool+kit+set%2Ctools%2C179&sr=1-8"
   },
   {
     "id": 74,
@@ -811,904 +830,904 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B00DTSLWRA?ref=cm_sw_r_mwn_dp_21Y1KFG5Q8RXHTNEY4W3&ref_=cm_sw_r_mwn_dp_21Y1KFG5Q8RXHTNEY4W3&social_share=cm_sw_r_mwn_dp_21Y1KFG5Q8RXHTNEY4W3&language=en_US&skipTwisterOG=2"
   },
   {
     "id": 75,
     "codigo": "IT-075",
     "descricao": "Multimeter Mod",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: AstroAI Digital Multimeter and Analyzer TRMS 6000 Counts Volt Meter Ohmmeter Auto-Ranging Tester; Accurately Measures Voltage Current Resistance Diodes Continuity Duty-Cycle Capacitance Temperature : Electronics"
   },
   {
     "id": 76,
     "codigo": "IT-076",
     "descricao": "Insulated screwdriver Nut Driver Set",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0BRZ6G31G?ref=cm_sw_r_mwn_dp_PY53XJMKESDVQK32STM8&ref_=cm_sw_r_mwn_dp_PY53XJMKESDVQK32STM8&social_share=cm_sw_r_mwn_dp_PY53XJMKESDVQK32STM8&language=es-US&skipTwisterOG=2"
   },
   {
     "id": 77,
     "codigo": "IT-077",
     "descricao": "1/4-Inch Socket Set with Quick-Release Ratchet, Screwdriver Kit",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0CQK2SLBT?ref=cm_sw_r_mwn_dp_V46BJYV0T10QPX2R0W5Q&ref_=cm_sw_r_mwn_dp_V46BJYV0T10QPX2R0W5Q&social_share=cm_sw_r_mwn_dp_V46BJYV0T10QPX2R0W5Q&language=es-US&skipTwisterOG=2"
   },
   {
     "id": 78,
     "codigo": "IT-078",
     "descricao": "1/4 & 3/8 Drive Socket Set (Electrician)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: DEWALT Socket Set, 1/4-Inch & 3/8-Inch Drive, SAE/Metric, 34-Piece (DWMT73804) : Tools & Home Improvement"
   },
   {
     "id": 79,
     "codigo": "IT-079",
     "descricao": "6\" Cutter Plier",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "CRAFTSMAN Pliers, Electrical 6-in. Diagonal (CMHT81646) - Amazon.com"
   },
   {
     "id": 80,
     "codigo": "IT-080",
     "descricao": "Long Nose Plier",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-CMHT81644-LONG-NOSE-PLIER-6IN/dp/B09JB2HS1D/ref=pd_bxgy_d_sccl_2/145-6157521-4274653?pd_rd_w=jspoU&content-id=amzn1.sym.3858a394-39a9-4946-90e6-86a3153d2546&pf_rd_p=3858a394-39a9-4946-90e6-86a3153d2546&pf_rd_r=R4Z939WXQY1JZS1JSEDD&pd_rd_wg=5mfJg&pd_rd_r=93c826f7-528b-45d2-80d7-996046db0028&pd_rd_i=B09JB2HS1D&psc=1"
   },
   {
     "id": 81,
     "codigo": "IT-081",
     "descricao": "8-inch Wire Stripper/wire crimping tool",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/WGGE-Professional-crimping-Multi-Tool-Multi-Function/dp/B073YG65N2/ref=sr_1_1_sspa?crid=VMGMRHK0U7J7&dib=eyJ2IjoiMSJ9.Hb-pu49B584TZY9VsxjgqY8D6YDFsJrNmKnyK9OmmAh1iX8sRWl64u0yWxOA8TNG1PA-2AkASGpmw0tzfDa_B1boDfuwFY0Rxcz0is6SrCg4PRm5mSkQi8tbbF3kvKsxbc76s8vf9rf9JAcfC0e0RGPidD0p1_ucIOX7xEC6k6JEp9jH2F1n7GaV4wbOEkLH5vlCJZw9ATRVobT3LCWdbkSNaLc7PlnAQx-X3m6_utYPYvaVbF80n9A-qj_8Z3EpQeU8dWMKy-oxMaMpjxs_4QNU2e_lDGog6yOqYNvE56U.WkFVxBRM0Qr7UVYHSEkK4pWsbEAOviEidoh-ITgxOJo&dib_tag=se&keywords=Wire+Cutter&qid=1721291985&s=industrial&sprefix=wire+cutter%2Cindustrial%2C174&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 82,
     "codigo": "IT-082",
     "descricao": "Zip Tie 8 inch ( 500 by pack)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Strength-Black-Nylon-Bolt-Dropper/dp/B0786QPNBM/ref=sr_1_7_sspa?crid=185P3ZFPJBBGG&dib=eyJ2IjoiMSJ9.ifKj3xjQ5SoOJg5J5oEmDLumSeZBqwr7-Gr-XBll9KX7rTk9ywe_GGF75geUjR4PW0aUKX353VszMONKBj94ooxFkAESsUVm_o-8oOBj_3frgNbWfEMCVl4LrcwfRvIOubQ2XaArx8LJu4UhSynn8E_OpIP_N30cZyrJvthtxVvSNJ1yN07syRTFRcEcXfcIKI9LcCvAsIFo9QSVYc4GQaUJrItgNdLdiAQyWoOZVE6wXYRcvOj6XsCnDTOf0he0QRYYu1JqiHjTBguK6JVY8qD_GJgm7_l26B_Ibh81sg4.jlepIFBqIxOD_COfu46aO4rZthdhXe4rnPrKWa7AD8E&dib_tag=se&keywords=hellerman&qid=1721238333&s=hi&sprefix=hellerman%2Ctools%2C193&sr=1-7-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&th=1"
   },
   {
     "id": 83,
     "codigo": "IT-083",
     "descricao": "Zip Tie 4 inch (1000 by pack)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Monday-HS-Plastic-Self-Locking-Electronics-Electrical/dp/B078NT5F2B/ref=sr_1_1_sspa?crid=XAZ96F6ABHHS&dib=eyJ2IjoiMSJ9.F3KrO0ZKHVmpPudYf4dCp_Q36Za4tzDP6lKfaf4Wx6s3py8xAGoNlSGeKiqAGGSKlmdXrZFIyLJDnwqGgre9JC0ClD2MfFhqVj2GGotLFKlVb32Q1dipPni2jgeuGGLpTQdTY1T5Lgc-R884FSx2L0jxQ5x7JaAJ2FsvlFuqNqKupMLCbzsX4u49AqkKFC9_XMJ9Yc_HwePMmKlre9o6_93AItE6vh5n09FLRt6UNvKo5500oUqPl8_5Hkw2uzP_R90eoO_U6Bi8AcJEL9Uj8Vjek3bCJK4nmg2NtdIY3L4.PfH7Oz6TzFWKpwLea97ti9lSZM42lwrcypzDn96EO1w&dib_tag=se&keywords=Zip%2BTie%2B2%2Binch&qid=1721238738&s=hi&sprefix=zip%2Btie%2B2%2Binch%2Ctools%2C265&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 84,
     "codigo": "IT-084",
     "descricao": "M Scotch Super 33+ Vinyl Electrical Tape",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B01MCZ5RT1?ref_=cm_sw_r_mwn_dp_BA4JFABGWBBJE7CGGE2J&language=es-US"
   },
   {
     "id": 85,
     "codigo": "IT-085",
     "descricao": "1/8\" (3.2mm) Heat Shrink Tubing",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0B617GR2G?ref_=cm_sw_r_mwn_dp_0GQ55KQF8X144FXG0CJV&language=es-US&th=1"
   },
   {
     "id": 86,
     "codigo": "IT-086",
     "descricao": "Kable Kontrol Zip Tie Mounts, 1”",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B079G711XN?ref_=cm_sw_r_mwn_dp_X4NRRWZ972VG9FZXDGGW&language=es-US&th=1"
   },
   {
     "id": 87,
     "codigo": "IT-087",
     "descricao": "Cable Wire Markers Label Tag",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B07MG3TTNM?ref_=cm_sw_r_mwn_dp_X027Z7QM280V68G2H1FW&language=es-US"
   },
   {
     "id": 88,
     "codigo": "IT-088",
     "descricao": "Plastic Cable Identification Wire Cord",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B077GLWWMH?ref_=cm_sw_r_mwn_dp_KZ26PANJG8KSR6AYBAQ7&language=es-US&th=1"
   },
   {
     "id": 89,
     "codigo": "IT-089",
     "descricao": "Thermal Transfer Inkless Pocket Printer",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Electrical",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B01J3WQ360?ref=cm_sw_r_mwn_dp_3KMA25KVX879PE91VT29&ref_=cm_sw_r_mwn_dp_3KMA25KVX879PE91VT29&social_share=cm_sw_r_mwn_dp_3KMA25KVX879PE91VT29&language=es-US&skipTwisterOG=2&th=1"
   },
   {
     "id": 90,
     "codigo": "IT-090",
     "descricao": "7\" Cutting Disc",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/SATC-Stainless-Depressed-Cutting-Grinder/dp/B08X1KCGYY/ref=sr_1_3?crid=CNTYBNGQEPZE&dib=eyJ2IjoiMSJ9.VNv_bkUBWeqG4fIbAhZ0eHAR67EYIhS5Y5hKaUrBXGMoJIdH5Z5lMs8omaAGciASbvu-_VDh0Nhm8fpEY8224G_72GNMQSgO7pzJDKmhsVs7OLat36ZrhXOsXS7nywsVt5tK_AAMHXY_ANvWBfjsa7wuAhT6wgnzT6ZuTDrZE1mgo9PeeqJSb_BzXwjlkSRRPO8GAN2myovq4yAynY0Mlkva407YpuXQ1hq-FVmZbYw.XuxIZWJ4I_TVn_T5-dWD0PVYrNqzxTBXATn8ezDpG1o&dib_tag=se&keywords=7%2Binch%2Bcutting%2Bdisc&qid=1721080500&sprefix=7%2Binch%2Bcutting%2Caps%2C215&sr=8-3&th=1"
   },
   {
     "id": 91,
     "codigo": "IT-091",
     "descricao": "4 1/2\" Flap Disc Gr 40",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/EZARC-8-Inch-Zirconia-Grinding-Stainless/dp/B08DTRRDT8/ref=sr_1_3?crid=3AG6PZ60JZAPF&dib=eyJ2IjoiMSJ9.VZ4Qdg4fwFbqW0HbwnIWzrSbC0f0zwCG0QVIHJ1BVR6oXhB7hgi6rNIOGOIlWzAnv4n9em-V9e78_zYv17czmXyklzAwNUgy3N2aiWgGxUdinX8kvYfvJGVmbIfPPZERlEyJGXwU_EyKg_M6PBk55Z-Lh7L0VxpeM893BfsF3yhCzl_KqIBJRMcgBQ0yCYhY3zBirHUqeMjTcwnwvq7uo43ZlSVwQmPJLe22Xdg9DHM.DsoE1HhWW-x8bzMlju4Fnoj4vazlZnInmO75XzmHyBg&dib_tag=se&keywords=flap+discs+4+1%2F2+for+angle+grinder+stainless&qid=1721075203&sprefix=flap+discs+4+1%2F2+for+angle+grinder+stainless%2Caps%2C212&sr=8-3"
   },
   {
     "id": 92,
     "codigo": "IT-092",
     "descricao": "4-1/2\" Grinding Wheels",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/SALI-Grinding-Stainless-Aluminum-Depressed/dp/B0B5GHT937/ref=sr_1_2_sspa?crid=3FIFZ7QSUDH7H&dib=eyJ2IjoiMSJ9.Ys63S_E5O7rLal13IgOqCL8twy7UirYAsZkWAJpxY1WLiN6C-4z3EfqF6-MjzQ6ZRRgYycfBBsNdoEu-5tm37v30sIgXSSuKRhz_2YoVOkYOwGxuIU0Kov8AxFj5DAorI_TVkBst6nRd6GKjmFM2m0DnIMM0wtY3BFQIyEJQGc6dcrYBZ3Mv3l9cRi5DORENQH2dlFe9jUz_hP239I4Nci7NJHSWSCr7JGWaMhlsgpM.k_9PT0mUzs27fuDRCy17ibdrv1dXd-4FcIahzx7n2R4&dib_tag=se&keywords=4%2B1%2F2%2Bgrinding%2Bdisc&qid=1721076458&sprefix=4%2B1%2F2%2Bgrinding%2Bdisc%2Caps%2C197&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 93,
     "codigo": "IT-093",
     "descricao": "4-1/2\" Cutting Disc",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/SALI-Cutting-Stainless-Grinder-Aggressive/dp/B0BXKGXBZ7/ref=sr_1_2_sspa?crid=2W8X7DYY3JBGC&dib=eyJ2IjoiMSJ9.XpFpmJy-MLYANREPDJPTBwOOFpw0Aayu_sLpNUXLex58V82G7bH7tzolAfcZE9uHsdy-Gx3l-xC_eaeikMKZ91k5j3CfS0xTzqyXoG_jI68y6WHpG6QKw-CV38RO6oTKKoQiYYUuVNfByIvMX4MFrx0nvUnKMhIL7dUSqnRoWosEv0DBi5X89qf3UGubaJPHQ9SzndUALdOLuxt1QY971Poh27XYJUnfTpK371jRZdg.1i6Pjia2wQ6VQtRndXHmfuy0DmHCnQgez9yaomDF-NM&dib_tag=se&keywords=4-1%2F2%22%2BCutting%2BDisc&qid=1721080670&sprefix=4-1%2F2%2Bcutting%2Bdisc%2Caps%2C259&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 94,
     "codigo": "IT-094",
     "descricao": "Drill Bits HSS Cobalt Set (4 - 12 mm)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/MIMHOOY-Cobalt-Stainless-Steel-Grounded/dp/B0CMSMP1ZV/ref=sr_1_5?crid=1RGVM3IC3U06T&dib=eyJ2IjoiMSJ9.8FwzBj3Aj-QL5YMJIpUrWgtziYcU6OTwUM7pz2JhkG4xXUdGxbELc8cvzY8IAl0ABMYDVwU4lp0LJsOKI4TXLpyksW8hQKZv7JmrzkdnFDojBU7bht4-LsWDAMTYHeyCWicWVB8lcr-rNFQKczj3InDKm_GwmRVfOPj9M7UoXQ1-vJVaPHOL5eARTVPYdZk9XCRWnvLu9toFn8D-oZTwy2OoUV-ioJ0sg1cxCB6CFAbhzIyYJLO4-kXvbTD34Csa_QtmbcbgXgF93BVu6Xidcvn6mgC7VntabMaQGPygI54.0aidyxBSoRKPAjaHVC0d0DMrMXwfGgBmjj5ebRCVsPQ&dib_tag=se&keywords=drill+bits+cobalt+10mm&qid=1721333562&sprefix=drill+bits+cobalt+10mm%2Caps%2C189&sr=8-5"
   },
   {
     "id": 95,
     "codigo": "IT-095",
     "descricao": "Reciprocating Saw Blades Bi Metal 9\" (Pack w/25 pieces)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Dismantling-Reciprocating-Blades-Bi-Metal-Automobile/dp/B0CQN4NN78/ref=sr_1_2_sspa?crid=32OUVX7LE339A&dib=eyJ2IjoiMSJ9.tN8nWenRYBxVO2_-XPdg0wPe3ZYeH1Zj_TfhtgaGifhY0XzXQFuErqMiFdGuqGZP7G0g8XdtzqnQB-Pkj3bDP4K-qarhZQ2asLhm5RJNHpMnQoqkYocmDtLgM1MxaZqrIqxAWsmcS8wbyl3M6qPdZW108uwAxYLnf3x6HKmaoV8b8cyob4mCMN4Nx6seBBkibH-HV14HTkNr5V7YT7FXOCDBmN4jmr1UZ3wXmSzL2mbhwMn1baYU1pxAcTC9yFLFvAOF5M3qdKCql5akhHVfeyNTvHiOgQxzbTNWWajgo0g.MeiPCgTruXZCY9jCKD7AFbKE9iOjjSehLTfMntkfAS4&dib_tag=se&keywords=bi+metal+reciprocating+saw+blades&qid=1721324003&sprefix=bi+metal++saw+blades%2Caps%2C309&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 96,
     "codigo": "IT-096",
     "descricao": "Carbide Burr Set 1/4\" (10 Pieces)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Mars-Rock 10 Pcs 1/4 Carbide Burr Set 1/4 Shank Die Grinder Bits Drill Bits Grinding Bits for Metal Rotary Tool Attachment Accessories Rasp Weld Wood Stone Deburring Compatible with Milwaukee Dewalt: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 97,
     "codigo": "IT-097",
     "descricao": "Circular Saw Blades for Cutting Non-Ferrous Metals Fiberglass, PVC",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Teeth-Blade-Aluminum-Non-Ferrous-Metals/dp/B075FZKRRZ/ref=sr_1_1_sspa?crid=3BRCW5M5K89CH&dib=eyJ2IjoiMSJ9.WSkkJGEXkBGaWu0lH-pGwrSL7Zm7HsIChuXMPw4Y6pjWgWLeUt5w-L8R1yA5B8HSbWAEgqEGs2n_Sg3R5AUvVn3-cVc7VcXiQUuB9760Y04WKBgBdxQU51B1Gy4mUwk2XfFFBA7rApXr_2Mh0bRYGhLjIRFDlAu-A216zPxMdB3xwbTcrShrolx5zXL5K5HHP9NcVJ00-tr2oP7TZyMg6Qs6AdtkXgSwzPROmrhfIr8YAaCpgZ7XuMfb_sgqXpFaFvh4TvTAsr5eoTGIOVt07AeB_lJJPYv66ZVxwzatgaE.mfrHPbGQxxnKWcZu0OKpDcVERwHCsRLnOZXsdTaazC8&dib_tag=se&keywords=Circular%2BSaw%2Bblade%2Bpvc&qid=1721324342&sprefix=circular%2Bsaw%2Bblade%2Bpvc%2Caps%2C257&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 98,
     "codigo": "IT-098",
     "descricao": "Shank 80 Grit Cone Shape Abrasive Sandpaper Flap (pack 40 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B08BCCT6F4?ref=emc_s_m_5_i_atc"
   },
   {
     "id": 99,
     "codigo": "IT-099",
     "descricao": "Grinding stone Set of 10 Pc Stone Rotary Grinding Bits",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B06XT9R5QX/ref=sspa_dk_detail_4?pd_rd_i=B06XT9R5QX&pd_rd_w=GfZCr&content-id=amzn1.sym.953c7d66-4120-4d22-a777-f19dbfa69309&pf_rd_p=953c7d66-4120-4d22-a777-f19dbfa69309&pf_rd_r=868GZ0CC8F65KVJQRXA4&pd_rd_wg=AnUQK&pd_rd_r=b971e73a-0ca2-4ca8-9821-bddff41d0620&s=industrial&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy&th=1"
   },
   {
     "id": 100,
     "codigo": "IT-100",
     "descricao": "Wire Wheel Cup Brush fit to use in 4 1/2\"  Angle Grinder",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/AUPREX-Grinders-Corrosion-Heavy-Duty-Conditioning/dp/B09MJZ91XY/ref=sr_1_2_sspa?crid=3T4B87CE8WU1J&dib=eyJ2IjoiMSJ9.o4Bc-E8BUTGgULy87qGla4n_WdVX6OATCMe9_goJFDmVM5OWAWQ8KV2LwVLw_62hZv2eD-YcYYOzvtD6DsjoREjEc5XkY7_pLQhgcm73yDqspXwodf7szZCMovRnqMQqgg4Xg62x37VZ55Jl8RuU2ZJisry6LaQdvsLGAxTH3iEV5UCPasBlRNHLhgj1f2h4hl-qyG62QmHgkY5mpKYb2el7fRPRIowehzCmT81Bz7Q.G2ke5E5wy9Ld59TlCmmp7wkC95zWM7BhHGCsKar435c&dib_tag=se&keywords=steel%2Bcup%2Bbrush&qid=1721075443&sprefix=steel%2Bcup%2Bbrush%2Caps%2C268&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 101,
     "codigo": "IT-101",
     "descricao": "Twist Knotted Wire Brush fit to use in 4 1/2\" Angle Grinder",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Wheels-Grinder-Knotted-Carbon-Thread/dp/B0D2KGS8ZJ/ref=sr_1_4?crid=3BJD0WXZHAYL9&dib=eyJ2IjoiMSJ9.lBNcjSu9OQ6Dje2xNNGVj4vlVmkiPXoYN_LLk3U41q7ZlOGvqmJsPvcNnhYfObnWIRSC8s5vOvL_GnhmsbXEpPeFkTJlwERsw1wwHc77qNfaiGhIDvve3OT2Y3uuXNDHQNgQL4UKWujgaQdJD77DobpPu9kdmdaKuzIhDYouKPPNHICbMn0X6ub8H6eO88U6ZFMbdbUhJe0FEsGV2Kk0JGoNcDNMDMiuVQgjfRBOLtI.teAlohlYTPXnyB7-jl9DXMi1r_WSrd8aL-MWBYAgI1A&dib_tag=se&keywords=Twist+Knotted+Wire+Brush+fit+to+use+in+4+1%2F2%22+Angle+Grinder&qid=1721077911&sprefix=twist+knotted+wire+brush+fit+to+use+in+4+1%2F2+angle+grinder%2Caps%2C176&sr=8-4"
   },
   {
     "id": 102,
     "codigo": "IT-102",
     "descricao": "Dual-Head Chipping Hammer with CoolHand Spring Steel Handle for Arc Welding Slag Removal",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Abrasive",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Arc-Zone-Dual-Head-Chipping-CoolHand-Welding/dp/B0C4RNMG9B/ref=sr_1_4_sspa?crid=2QU669GAF494Y&dib=eyJ2IjoiMSJ9.W8g3EGrbErizuo1OVN0cz_Gvebk80JBZwUK3aQVDvGmeG_OUPZJ3kI4tp5KqFWwlmBiENeQIl8g9ckqYl4jI1Ep2I9Y39uoJ_rpajZFS06HiQbaA2VBhkEpD6qyL_aYju44Zm6_TQjeZLo7JEQCUrkrLhCJsxrqSfGO1ptfSbwzDxx00URGpNns3tmX6NYP6Qf3KjrtM0nlFp8NHIcwoF9C7pMQpUM7NXNi4_dBqRerDenXwqlCEe3sFNcBrDcTYU1efJ2G7M5vmxUJwnl1ADgw0QhveKYkJeywYOEnim8M.3id--qR_wMmILwEvAlYl4gqiaxyh4604lhdDzh_kMqk&dib_tag=se&keywords=welding+hammer+chipping+slag&qid=1721075589&sprefix=welding+hammer%2Caps%2C224&sr=8-4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 103,
     "codigo": "IT-103",
     "descricao": "Welding Hand Steel Brush",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/Cepillo-alambre-inoxidable-resistente-pulgadas/dp/B08L7RXVG5/ref=sr_1_3?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=30EC48Y7NH1LZ&dib=eyJ2IjoiMSJ9.228g49i_6HlEy4yLXS-7rPEv6rjYDMTYFuXi0eQ45Ty-ELtQeo7X745vX8rSJ8mfT8cfXp0x-vBetnz6GPRbn-34kLPdOqJA-CAy2V12iEey_gisDVWMWA8lR_1N3R8yjyoBObnDkhVWyInAI-nILS2x38ArM9xc381UAlzzX8lTV1sucTTdbiNkp-f_05SER92Du-w32FQM0Be9-ygUSL2NhcJBkr06LlIxtBWPjrE.npNWMJYPqWwvjn86ZXvJzpwbDjV_TllvkcxLZ7bYx8I&dib_tag=se&keywords=Welding+Hand+Steel+Brush&qid=1725466377&sprefix=welding+hand+steel+brush%2Caps%2C350&sr=8-3"
   },
   {
     "id": 104,
     "codigo": "IT-104",
     "descricao": "316L  2,4mm Rod Electrode",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/E309L-16-Stainless-Steel-Welding-Electrode/dp/B01D7K0KS6/ref=sr_1_7?crid=24D3N2W54N4AO&dib=eyJ2IjoiMSJ9.3kfRRvRuMYqNoBtEiDmBSiqEs1C-oIEFCkcPC5bVPBPC7fuW555IJDGJ_k-6zsKpSM6JH0bZXexJHj_7yOwTHqSfGTDFJrPS1ktLOlkGaeyXa-DbXqkEA--LmUdBw9G_rrFFH22RPRRG-gs93PTAPfMfItk9ScgX3KfsG5mMPbsbu5fMUydMgY17lCCmXaHAJyZQgnhPcHegNyNTfXKNjtcg9s7ndPxJBpoI-wFX2-c9V8v6HlSYhNdpyjynzSsb15IFDssW5THd37wn1Za7V-K4zsD0ClBFbJWy79n1o5I.AnXymBUcHDZDTpRf-rqb_w1_J5LdoyQap4NnNYGEayk&dib_tag=se&keywords=309l%2Bwelding%2Brod&qid=1721079440&sprefix=309l%2B%2Caps%2C247&sr=8-7&th=1"
   },
   {
     "id": 105,
     "codigo": "IT-105",
     "descricao": "316L  3,2 mm Rod Electrode",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/STARTECHWELD-Stainless-309L-16-Electrode-E309L-16/dp/B0C1RGLBX7/ref=sr_1_1?crid=159L0GD2K15WS&dib=eyJ2IjoiMSJ9.MYIwZPQUmajwoyUI7Xpm83v6cH2zGwB36nDXbsAFh8AvpcpLciQpAg3PisehIcl4lJcM0KKDxmkO1HwhrrgEc1iDfTB6YtPrpM439t4zoffxo15vSQk_OavW1kOfMWxzmn129Xp3MNTPkfzeWI95VTaiHvTgXq-_8-L9YM_QLRlifyjZbc-q2ZAYhFJDlDc4A_caI5BPeXWDQW_TCYviwZrZp_Pg-lcO2yO0eIDj3Acf-4CbSqaaj3__qMZhypHDIZ1gpIj2LvJl8vENiJEYcQHNq74C8uXTTAYXUwn-SzU.eS_eVwYSTA1gYyqbvTYPCFMVqPGU3Atsws64p6j15og&dib_tag=se&keywords=309l%2Bwelding%2Brod%2B1%2F8&qid=1721333634&sprefix=309l%2Bwelding%2Brod%2B1%2F8%2Caps%2C174&sr=8-1&th=1"
   },
   {
     "id": 106,
     "codigo": "IT-106",
     "descricao": "7018 2,4mm Rod Electrode (Kg)",
-    "marca": "Not Applicable",
     "unidade": "KG",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/YESWELDER-Welding-Hydrogen-Carbon-Electrodes/dp/B0C9L5WT18/ref=sr_1_1_sspa?crid=150KCFPPO84HJ&dib=eyJ2IjoiMSJ9.M4a9BXv7WjnKr4Cne1hc9R3827aX1x7xFJXdpo8YG651thP2yfUpJMD0GpS6LwzVmRN8YHcZKX2Jkmon7lZKIH7Cdd_D_sQhETW0ciwQxFB5_xkyqzE3nvjXMIDS3zFNmXUpkwBHQUrcrVGS8Lw17Z_ps_W7vI1hhYHDPpNq2YnbdwXJI7Nq0jmJ6y4dtasvoMu219FdWWfHL5cIBvi80QZDQqFrCxG0Qy46aJ9k0vrFspvIGCE10MnEG3rRAWg9pGb_Ip3GwPsVkMHyib6wldqbtG1rIxHPTqlspnk4jb8.58f-a50_NDrcBWxzm2ZVBlF4Anvw6PebdeO8poagOIo&dib_tag=se&keywords=7018%2Bwelding%2Brod&qid=1721079612&sprefix=7018%2Bwelding%2Brod%2Caps%2C183&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 107,
     "codigo": "IT-107",
     "descricao": "7018 3,2 mm Rod Electrode (Kg)",
-    "marca": "Not Applicable",
     "unidade": "KG",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Hobart-770479-7018-Stick-8-10lbs/dp/B001D5HNC4/ref=sr_1_5?crid=XDRJDJDZX0H7&dib=eyJ2IjoiMSJ9.hibQKMSd_WZZH9qAYGNyYuA8uk933XRgW_mn50TTXZoulgnvUVao_wNVs63xWMTUZIfX69E3AlLGHfTpkDkhUiE92zCBcxT1anS3VPgs2zGwGRCAdsFvmx17J_0zT4Il1_ycHfjivp-721Ys5cKncud3QonnIrlS8k8PBOs1nxGLilv2QmyL7p5o_4zBddhE7hViwbSO8cDhO5eVlX3RLPgdyqT0mMiOY5Cw1CQHtr5M5M6uebQSTGvCc5BvDrNvqArRYytOLA7kM-LmigdqQWSRLump-OjMpwZbHQ0mAJY.Gi9wERoH_jawzU5KqGVe_MwNH7aOjjKTI6thxlvpNzs&dib_tag=se&keywords=7018+1%2F8%5E+welding+rod&qid=1721079679&sprefix=7018+1%2F8+welding+rod%2Caps%2C194&sr=8-5"
   },
   {
     "id": 108,
     "codigo": "IT-108",
     "descricao": "Eletrodo tungsteno 2,4mm 2% (Punta Roja) caja con 10 unidades",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Electrodo de tungsteno Tig, aguja/varilla 1,0, 1,6, 2,0, 2,4, 3,2mm para máquina de soldadura Tig, punta roja de 150mm, 10 unids/lote - AliExpress 1420"
   },
   {
     "id": 109,
     "codigo": "IT-109",
     "descricao": "TIG Torch Consumables Accessories KIT",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B018A0LZH8?ref=cm_sw_r_mwn_dp_WJ36RZPGKG2FG272TCB1&ref_=cm_sw_r_mwn_dp_WJ36RZPGKG2FG272TCB1&social_share=cm_sw_r_mwn_dp_WJ36RZPGKG2FG272TCB1&language=es-US&th=1"
   },
   {
     "id": 110,
     "codigo": "IT-110",
     "descricao": "TIG Welding Rod 316L 2,4mm x 36\"",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/STARTECHWELD-Stainless-Steel-Welding-ER309L/dp/B0C2JR8F1W/ref=sr_1_3?crid=YW96WW1UYA7V&dib=eyJ2IjoiMSJ9.8rq4pIshdmyr60j-AclgptJTOAqOAtLoO59SPoSMoLH-6_IMx12WZ_tkgSgrQFqx6oPlikoFHFcd-lbtmxahNnK_YGbtcrjnhqlZeinoozOAi57zrfdS_j4CwPkq-Jmd2ih4J5AEitCXSBXndJPdd8OZvIhuGKFj59ym6Z9hf_H1IC8LStryee7nKVeL2NSUWvqdYctcN-7RtuA8OqFZk5L-Ia2UFYvzKn6eSZj3smGVkgUyEUa_vJG8ZIoYBdzY_bWmtEum4fqJdjFtRMfCqDqSlnrEZfv9CBCi6A_rlm4.4DxE_s5KWb6_FGGn0ZgtiSBjAslEBDENaGZUrZI3N4Y&dib_tag=se&keywords=tig%2Brod%2Bstainless%2B309l%2B3%2F32%22&qid=1721327572&s=hi&sprefix=tig%2Brod%2Bstainless%2B309l%2B3%2F32%2B%2Ctools%2C290&sr=1-3&th=1"
   },
   {
     "id": 111,
     "codigo": "IT-111",
     "descricao": "TIG Welding Rod 316L 2,4mm x 36\"",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/KUNWU-Stainless-Steel-Welding-ER316L/dp/B08F71S399/ref=sr_1_3?crid=9J99ZTMDENLM&dib=eyJ2IjoiMSJ9.nfX0aoRCiNuRby-XwUmRZg4RHm1K3xcZJ5izqXX8bhxaHrYJjbvRpy4vtJHJcfaaxszlI_LMUbKT-p_1mVb9aBzErr5ik1IFwXHSzPOqt_Tf7tObFF6dtpRgK70BsWiOT9xQoaDLt4FqUON-LMsbnwcS24k57aqBpiN8r9zAvT1Un4JQeGDSBcRHSLSuII6yBwfORS6ibRlJtIJy2mPYF0kig3Gpv_ON-opgi9XMwdylI3Xgt4Ct1eNug9z2dw59xB5XbvD9_Vs0t7b50CDV__FzvEbViJDuN_zqeoE3TQc.OZJJnIRAtOQwlbQCyQqTfJCPfP8oE6hDDGUtF4UzlnA&dib_tag=se&keywords=TIG+Welding+Rod+316L+2%2C4mm+x+36%22&qid=1721327882&s=hi&sprefix=tig+welding+rod+316l+2%2C4mm+x+36+%2Ctools%2C166&sr=1-3"
   },
   {
     "id": 112,
     "codigo": "IT-112",
     "descricao": "Dye Penetrant Kit, Solvent Removable",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/CANTESCO-K801S-Penetrant-Solvent-Removable/dp/B00T46ZDLW/ref=sr_1_1?dib=eyJ2IjoiMSJ9.afxdxo0n_lNe9XwZ6oWoLDKktnevSnysu1SiBWDp5QTrSx3lPZaR-CDbcnvEZDUWN2B-GpMH-fjKxZAmI22Mzr3aROnZeOtS-6y1PRI71R6voPr0YQQYLJfS84apcStfDkfNAR3k2pFFmxCQCUbORrPzhSzWWVX_GmqRbQljnUuL-y8Y8moJBX9g-zOXfMubtA3W_eEn1KLih7zsCOYqz2t_Yq5SBC1ilJ8q-1iGwVY.lDXqjifoE7noHRlV_qg6Mz-WgEYPgdPEB6foUvk_n_o&dib_tag=se&keywords=dye+penetrant+kit&qid=1721162117&sr=8-1"
   },
   {
     "id": 113,
     "codigo": "IT-113",
     "descricao": "Fire Blanket 40x40 Inch ~ 1x1m",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Welding",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Fire-Blanket-Home-Extinguisher-Emergency/dp/B08Z61XL6V/ref=sxin_16_pa_sp_search_thematic_sspa?content-id=amzn1.sym.fb16fbe4-bf7e-47a2-a56d-1e42bc2dbf4d%3Aamzn1.sym.fb16fbe4-bf7e-47a2-a56d-1e42bc2dbf4d&crid=1HULIT6ANC30J&cv_ct_cx=fire%2Bblanket&dib=eyJ2IjoiMSJ9.Sd98pf7qXKL6HKjFABsNacI69IosszC7JrqJbHmSFm4OTpqLaA9L8fNp24n2ky37ruwDWfhGPfMZIoqab78SaQ.i3QpshIAkx-R5iVcAwFHGsMzPYq9I1mIY5WwIFRp4IE&dib_tag=se&keywords=fire%2Bblanket&pd_rd_i=B08Z61XL6V&pd_rd_r=d06ef4de-4417-416e-b27e-4d524659071e&pd_rd_w=iQyGT&pd_rd_wg=Ux8Eh&pf_rd_p=fb16fbe4-bf7e-47a2-a56d-1e42bc2dbf4d&pf_rd_r=RXA9QRP0QAVFVQFJN9MG&qid=1725468089&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=fire%2Bblanquet%2Caps%2C200&sr=1-2-6024b2a3-78e4-4fed-8fed-e1613be3bcce-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1"
   },
   {
     "id": 114,
     "codigo": "IT-114",
     "descricao": "Electrical Tape",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "TAPEWELL Black Electric Tape - Professional Grade - 3/4 inch x 66ft - PVC Electrical Insulating Tape for All Weather - U/L Approved - Waterproof - Home Improvement Electrical Equipment - Pack of 3: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 115,
     "codigo": "IT-115",
     "descricao": "Male Schuko 250V 16A EU Power Plug",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: (2 Pack) Tekit Schuko France Germany EU ø4.8mm Pin DIY Rewireable Power Plug 250V 16A,Quality European Rewireable Two Round Plug CCE 7/7 Standard Plug(Coated Black) : Electronics"
   },
   {
     "id": 116,
     "codigo": "IT-116",
     "descricao": "Female Schuko 250V 16A EU Power Plug",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Toptekits Black EU Schuko French Korea 4.8mm Pin DIY Rewireable Female Socket Adapter,Schuko France Germany EU ø4.8mm Pin Female DIY Rewireable Power Plug Socket (Schuko Female Black) : Electronics"
   },
   {
     "id": 117,
     "codigo": "IT-117",
     "descricao": "Flexible Cable Wire 3 x 2,5mm",
-    "marca": "Not Applicable",
     "unidade": "Meter",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "14 Gauge Wire 3 Conductor,14 AWG Electrical Wire Stranded PVC Cord Oxygen-Free Copper Cable,26FT 3 Core Pure Copper Flexible Cable Wire for LED Lamp Lighting Strips Automotive (14AWG-3C, 26FT)…: Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 118,
     "codigo": "IT-118",
     "descricao": "Industrial Steck Male 2P+T IP44 (Clavija Macho)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.cablepelado.es/base-enchufe-industrial-macho-2p-t-250v-ip44-aerea-azul-16-a"
   },
   {
     "id": 119,
     "codigo": "IT-119",
     "descricao": "Industrial Portable Distribuition Box (Industrial Socket Input + 4x Shuko Sockets)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.electraline.com/ru/product/ru-industry-portable-distribution-box-with-rcd-safety-switch/"
   },
   {
     "id": 120,
     "codigo": "IT-120",
     "descricao": "Extension Cord 220V 20 meters",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/dp/B07WVDSHYB/ref=sr_1_1_sspa?crid=KBMZMUK5ELFJ&dib=eyJ2IjoiMSJ9.naPS2l4Gy9R7baCQd4o5Sriyhtrpyy3k9aFufw6Am97L7ouujIiBynFhCmgJ6cc9cetSvcJIxjyzBy8FFjDOti7BvGcNsVNez0pX0E3CM_NTPiqKJnCQwPXjVk0XtMi9WqjwzLGlL5oqZw-MCnhRmK9pOVApPqs1hH2qrbrDnE1aH5vToNDSNGLCnuEDG2iCZOwWz_Qt5m3xFsBjX2BgX8FY1ztWcxc5a2kGKbnLltDpuBs7zJvlgeIX86csLNzc7KvJJN5Q1qbudFdjIAoaGpaK8FQZVy0IXQQg6PnI6y0.Wy1y8KsLHD56xOuMhhJ_s3oBEFsdBJT5iEtJ6J7wZog&dib_tag=se&keywords=extension+cord+220v+20+meter&qid=1745167404&sprefix=extension+cord+220v+20+meters%2Caps%2C207&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 121,
     "codigo": "IT-121",
     "descricao": "Reel Extension Cord 220V 4 Output",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/-/pt/dp/B01AS0X4NG/ref=sr_1_1?crid=1UQNPBUONXY1J&dib=eyJ2IjoiMSJ9.uHtRnHWY3QdmRkJTFZFSz5e0uMqbXrKjCqPhjJDA3cZQKbu5WXOnv2syfo2s9j579U6H5ltLmTV5sYa0nZniqwgtybBLKKvME_6dUbk_H-EYqYCuZz3Ch3eFHiknnn3GWGVPfwI9S9sboDBfj1tlRbTAzCWrLqqLjql1f9IhoPK-b1c-eZ8ZBiM-chuWiv9YK0k-ocZrXpeQ1qmyiAM6fUvSJgBIyRTNDRa5olCLXN-FD5Nn4DnWAEsMX8DzvuF3tfaP_AGUp1I-GM4NUz15v4J0jK3Ud9h58IW7uJe85Ec.Bn00s6Ngy1WiNzaeGM2sgyUDpL5nFW7BRUxk21rJmNg&dib_tag=se&keywords=reel+extension+cord+220v+20+meter&qid=1745167435&sprefix=reel+extension+cord+220v+20+meter%2Caps%2C116&sr=8-1"
   },
   {
     "id": 122,
     "codigo": "IT-122",
     "descricao": "90W LED Flood Light",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Electrical",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "NUWATT 90W LED Flood Light, 3CCT 3000K/4000K/5000K Selectable, IP65 Waterproof Lighting, 1/2\" Adjustable Knuckle Mount, 12600LM Dimmable, 120-277V, Outdoor Security Floodlight for Yard, White, UL - Amazon.com"
   },
   {
     "id": 123,
     "codigo": "IT-123",
     "descricao": "Communication Radios Motorola RMU2040 (Pack 6)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 6 Pack of Motorola RMU2040 Two Way Radio Walkie Talkies : Electronics"
   },
   {
     "id": 124,
     "codigo": "IT-124",
     "descricao": "Heavy Duty Broom and Dust pan",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Dustpan-Kitchen-Sweeping-Cleaning-Standing/dp/B093K3MX8B/ref=sr_1_26?crid=2JZ5E2WT368LS&dib=eyJ2IjoiMSJ9.Vy5fywugARN10vPIxcKPmW-TCUVz7M-_69VXQaBs4Be2ldxL3v7uoHfzIM-7Xy51d5WYkh5UYC2cDvQgp__vy_dDJj2tdi5BavRRspuDVK2Bren_hmUzSVZ_Kuisq8SEJLAD22agI9jP1-MsUeQzllEJxS1vX1wfSj3NawEqFjOd64Y3j-Qz6Q3IfY9k8pM_c4-aVXyVfY9_9KIE2De2m3F8ZnGZoy_ThroV8jvdAi-uX3KHMP2IM-DjfNhScSpMgnHTOROe8FmiV6y5ryGFSjfLAXSY1O_s5RqrfCSXD4o.G4quwD24E2NH7-jOlSqTMshGcXcWQDtSLT92CN-NPBg&dib_tag=se&keywords=dust+pan+and+broom+set+heavy+duty&qid=1721081438&sprefix=heavy+broom+and+dust+pan+set%2Caps%2C302&sr=8-26"
   },
   {
     "id": 125,
     "codigo": "IT-125",
     "descricao": "Heavy Duct Dust Pan",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Novaliv-Recogedor-galvanizado-presi%C3%B3n-recogedor/dp/B088WBBSZT/ref=sr_1_5?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=R8XNSML6RP6V&dib=eyJ2IjoiMSJ9.1s3fxmQ2V6h347KnS4xbzVIONr7Ewf83glZKpFxaj_vJVgNmvV2q3glnvOmJCJw2Qj_auBQJlK11UefRGi5SXL6OxedXGXHwUhovIvCephgVKQIQcebOrvxe0Wir4r87zcuFhQRmYHGloaqXBT0JzBicAIk4UgPWTLRunr6PhW5kVEo6jpWW32Kii7XB6th0g7kYsgGPwrug5im4AgA3Kasj57P-WxWl7WlUHa420KA.sbBchi4DH8ghq_mVbjibeer0amtSrLGlJzynbOYeGvw&dib_tag=se&keywords=Heavy+Duct+Dust+Pan&qid=1755630237&sprefix=heavy+duct+dust+pan%2Caps%2C199&sr=8-5"
   },
   {
     "id": 126,
     "codigo": "IT-126",
     "descricao": "WD-40",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/WD-40-Multi-Use-Product-STRAW-SPRAYS-6-Pack/dp/B01ECA63ZE/ref=sr_1_1_sspa?crid=VONNDIOOUZDJ&dib=eyJ2IjoiMSJ9._oP0MVhbqPWgfekuPvvWNORTBwSCKxjnnEOokJpLPSH5LUahVqB9oFsl02pBkrny0xHJ0VRVNdh3a4w2Cxxfk2xROKo81ETqzCR0VmS6Pq8GzZX7xkS6Y9veMb6rUVCKem8NyOhDvC2Pm98x4kR2Bc7uNuHbITMG1IMDte9Kz4sRDla6JZq4tKXr5pg-tWyXWwxiqiRdaTE8jb4TBoog6sviDjdx-qjZHrjggoP0hjfhqlIZiCczpOnuPD69qI1PVlFB_GyIne97__im8V0iWb7hg_F0HRzUsoGcUXZcRcU.cjPTYAqm8lKQncS8sZcQfBJb2MK-FTYTrW_vE-s2Yas&dib_tag=se&keywords=wd+40&qid=1721161980&s=hi&sprefix=wd+40%2Ctools%2C169&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 127,
     "codigo": "IT-127",
     "descricao": "Permanent Markers ( 10 units / box)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Sharpie-1884739-Permanent-Markers-Point/dp/B00G4CJ8GK/ref=sr_1_2_sspa?dib=eyJ2IjoiMSJ9.tqdLsQaocVUJBu1lNVvF7Rrm37cCZwaQHuE6AeyoNxWDY7Vqhcj3HiP18276AvJ3x0gWeXcC1-UWFH7KmS5nrz4GEtGr2i-haEYPaOkfzx5WT0veuL8c5gJ6ER-Bf07vacRb0eQHzqMysoMz4VOLkGov5soglqCNChFpJ2NyU2YvXWchpYTx3BibPFxtB5jEfhX-ms4NUrUx8J48q8WhvKYYqj87eQk0Vh4G8sOnU2k3wBvs2-b1UPzK2dcDasDBPULaYu9rOisWfmxhyplnm_ehxQTaeAqclF9B_sjCltk.T_glW43HQLanXqUW9Sr3VpYEg4r_fuvgvM37Ckv4mU0&dib_tag=se&keywords=permanent+markers+4+pack&qid=1721233571&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 128,
     "codigo": "IT-128",
     "descricao": "ABS Plastic Sheet Approx Sizes 300 x 300 x  2mm ~ (12\" x 12\" x 1/16\")",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: ABS Plastic Sheet 12\" x 16\" x 0.06\" 6 Pack,Moldable Plastic Sheets,High Tensile and Impact Strength Plastic,Great for DIY Projects,Decor, Handcrafts ect : Industrial & Scientific"
   },
   {
     "id": 129,
     "codigo": "IT-129",
     "descricao": "Epoxy Adhesive Paste Kit (Epoxy Marine Filler) 1kg",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: PC Products PC-11 Epoxy Adhesive Paste Kit with Mixing Tool, Two-Part Marine Grade, 1/2lb in Two Cans, Off White, (20128) : Video Games"
   },
   {
     "id": 130,
     "codigo": "IT-130",
     "descricao": "291 Sicaflex Black 300ml",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Sika Sikaflex-221, White, multi-purpose sealant/adhesive, polyurethane fast curing sealant, 10.1 fl. oz Cartridge : Industrial & Scientific"
   },
   {
     "id": 131,
     "codigo": "IT-131",
     "descricao": "291 Sicaflex White 300ml",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Sika Sikaflex-221, White, multi-purpose sealant/adhesive, polyurethane fast curing sealant, 10.1 fl. oz Cartridge : Industrial & Scientific"
   },
   {
     "id": 132,
     "codigo": "IT-132",
     "descricao": "Small Repair Kit- Fiberglass + Resin Gallon + Hardener)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Fiberglass Warehouse Repair Kit- Fiberglass Resin Gallon with 3 Yards of 6 oz x 50\" Fiberglass Cloth and 3 Yards 1.5 oz x 50\" Chopped Strand Mat. Includes Hardener. Great for Boats, Auto, RV: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 133,
     "codigo": "IT-133",
     "descricao": "Fiberglass Roller Tools Kit",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Fiberglass Roller Tools Kit, 3pcs Fiberglass Resin Laminating Bubble Roller Set for Tub Shower Bathtub Boat Repair - Amazon.com"
   },
   {
     "id": 134,
     "codigo": "IT-134",
     "descricao": "Canopy Tent 10x20' w/ 6 Sidewalls Waterproof Heavy Duty",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: COBIZI 10x15 Pop up Canopy Tent 10x15 Canopy with 4 Sidewalls Waterproof Heavy Duty Commercial Canopy Tent for Parties Outdoor Tent Garden Gazebo Tent, Carry Bag(10x15ft, Blue) : Patio, Lawn & Garden"
   },
   {
     "id": 135,
     "codigo": "IT-135",
     "descricao": "Heavy Duty Cargo Net Dark Green 20mm mesh ( 5 x 5 m)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.nets4you.com/products/heavy-duty-cargo-net-dark-green-20mm-mesh?variant=47487144264022"
   },
   {
     "id": 136,
     "codigo": "IT-136",
     "descricao": "Lona Impermeable con ojales reforcazados",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/dp/B07ZZ9YPDY/ref=sspa_dk_detail_4?psc=1&pd_rd_i=B07ZZ9YPDY&pd_rd_w=6CKeT&content-id=amzn1.sym.dec61eec-c10c-476f-b9d1-109d380c1864&pf_rd_p=dec61eec-c10c-476f-b9d1-109d380c1864&pf_rd_r=T1GXEYCWSH0P5JHPBMRY&pd_rd_wg=9Kr62&pd_rd_r=fed961cb-2642-4d8b-91a9-22c28d23e2fe&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy"
   },
   {
     "id": 137,
     "codigo": "IT-137",
     "descricao": "200L Gallons Reforced/Heavy Duct Trash Bag",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.leroymerlin.es/productos/pack-10-bolsas-de-basura-200l-81972962.html"
   },
   {
     "id": 138,
     "codigo": "IT-138",
     "descricao": "Safety Yellow Caution Tape I 3 inch x 1000 feet",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "ATERET Premium Yellow Caution Tape I 3 inch x 1000 feet I Harzard Tape w/Bright Yellow & Bold Black Text I 3\" Wide for Maximum Readability I Ideal Use for Danger/Hazardous Areas (1-Pack): Amazon.com: Industrial & Scientific"
   },
   {
     "id": 139,
     "codigo": "IT-139",
     "descricao": "Portable Orange Traffic Delineator Posts Cones",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "RoadHero 45 Inch Delineator Post with Base, Portable Orange Traffic Delineator Posts Cones with Reflective Collars for Parking Lots, Road Safety, Construction Events 3 Pack: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 140,
     "codigo": "IT-140",
     "descricao": "Plastic Barrier Chain Yellow Plastic Chain Roll - 50 meters",
-    "marca": "Not Applicable",
     "unidade": "Rolls",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "General",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "200ft Plastic Barrier Chain Yellow Plastic Chain Links Weatherproof Safety Link Crowd Control Barriers Garden Fence Decoration (1 Piece): Amazon.com: Industrial & Scientific"
   },
   {
     "id": 141,
     "codigo": "IT-141",
     "descricao": "2\" Paint Blue Tape - Rolls",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/s?k=blue+tape+2+inch&i=tools&crid=2SXQ90MUOWJ82&sprefix=blue+tape+2%2Ctools%2C123&ref=nb_sb_noss_2"
   },
   {
     "id": 142,
     "codigo": "IT-142",
     "descricao": "1\" Paint Blue Tape - Rolls",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/EFOK-Blue-Painters-embalaje-automotriz/dp/B0CJYC1VQ3/ref=sr_1_1_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=237PQAXEAT4OR&dib=eyJ2IjoiMSJ9.Woy1u7KXc8rpjwn99lXZ0gXJN8wYRnoaML00fb9U9t4LIaejOzKMpHQ3Z3LXxfyuK91RR3Mhi3EZGgaDII1ae0WTcfUKeLrPpzNU4Ckt2wgTpXUWmePvL1tAgcdvmhnzdqqrBq2F-akYpLH5u9R4QSzXYhityjIV9ArjSuderOSPQctXGLWwSvcPHiy3Yw3zXvEHZUATXz2W5TMHIPw4jkfVmrWlPzVzAAGTNfC_CYiUWKcTbIQMZgoz2LDJ2RdYTIMwXYJ5HJv-7oDLT8Su0rNAqE3jNtMu7EJ4AJMk-vo.6Ty-4047-l1xeOk7ok2WB6A--53Jo5jBZ2Bfyb60Vf4&dib_tag=se&keywords=blue+tape+1+inch&qid=1725806465&sprefix=blue+tape+1+inch%2Caps%2C197&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 143,
     "codigo": "IT-143",
     "descricao": "4\" Frame Paint Roller",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/FoamPRO-684-Roller-Frame-Castle/dp/B0168S1BIC/ref=sr_1_5?dib=eyJ2IjoiMSJ9.JmFqHgZDeottbwft8DlSzlEQL3BDCG9VO1nhhQHz06OFp_iLBd6vtTBdCS9YYnXM8gw6QRRLpYmzIW1LUve18mnHaKN458PmAyeSzayqhEOzZMEP2YlxHrNrYaOVtmfgrrwloZfw__PQw-Isop6yc-Jx9AD1H3tWYYuzogMi7-U01T6K3TTDwe8BW1XQzCFQeaQcgA2tyRYCMJyye_9pum2sqcaXm9N8XHcSNE4aHo08NNUqch_-MPAtn_70gMFqNh-nBF94YM3-Kr9Fod03aFmAzxtcfCkwvaVxVUmSI2I.JyhOwMPPGp0J-m2T_kFj-VCnDKIPyKxJ1uDmzNAeXII&dib_tag=se&keywords=4%22+Frame+Paint+Roller&qid=1721081762&sr=8-5"
   },
   {
     "id": 144,
     "codigo": "IT-144",
     "descricao": "4\" Microfiber Paint Roller",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Microfiber-Covers%EF%BC%8CPack-Painting%EF%BC%8CHome-Painting-Supplies%EF%BC%8C/dp/B0B2QN87SQ/ref=sr_1_4_sspa?crid=QJGMIK74UGFG&dib=eyJ2IjoiMSJ9.8vLO8vAB8DAEvjGGhGlgsZQ2Glmwc-ZP_cKT9a4IajTeY7o8VPhnJtWqvTykWGgEBE9GHH1TApro6cPWqyXZ3PFP_gzeTjtK91bLrmSfxKwJdj1keuZeh5SCyw6P6VhPxT3DXoXWEI0VAarmaeoSvdYY8uNyKCPxh4n8RM5jABFn2JfOX0AlTBlR-3UWyOHZBikKxCfFim5G-AsxnKn6WggIvVJb6lXTLenB93VNrnLgzFqhGOoznllhfGrDdSgPIWt5cYbFm2Yp8SJotx1jxChqOaFJRt9OgY8MEcMxaQY.o0aeIOCsizYRZhfSotlsjc1gxdU13lSENaagzoXXuGg&dib_tag=se&keywords=4+microfiber+paint+roller&qid=1721081779&sprefix=4%22+Microfiber+Paint+Roller%2Caps%2C319&sr=8-4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 145,
     "codigo": "IT-145",
     "descricao": "4\" Foam Paint Roller",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/rodillos-pulgadas-completo-peque%C3%B1as-cubiertas/dp/B096S4GXPZ/ref=sr_1_5?crid=RITZJ7GZILMQ&dib=eyJ2IjoiMSJ9.apT1x1rYvAQQARANrT0uBUyQ9hl3wtPdOwwMDg2gQwgXnXOzm0imTahlHEqaixKOtRbs7mxohqKqswUVPUthTW5vnPtGXH14pkAwqGoFjST2nbEoJsGR6LVsO27bgFxn9rNinNR1cpcJ_aNxKRXZ6NrhlbAJ1YT9L8yw6mgjWe8qGMbfrIvI9QJrExCwC0d_xwrvvz8ZwyBoouz3PAX2KCdgNpJMlDPrO9v-J6GH9aXQb-RznpKC8qDQmaI6PiEptLWttwfIlrtEwngm64IcqKpf_1lw7ThQ5YkmcteqtW0.YNAUiTo5QIziD-G-Q5sLLpDPKLuxLJG-eiQo2v8pa_c&dib_tag=se&keywords=foam+roller+paint&qid=1725806522&sprefix=foam+roller%2Caps%2C181&sr=8-5"
   },
   {
     "id": 146,
     "codigo": "IT-146",
     "descricao": "Microfibra Roller Paint 18 cm - Antigoteo",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Rodillo-Pintura-Set-piezas-Reutilizables/dp/B095LK37K9/ref=sr_1_7?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1FK99VYUPF2NL&dib=eyJ2IjoiMSJ9.c5sIFNRZ9mGYlEVctd99fBzVY_AP_V6ndom0w8VAGe9GeHhMFtAFA6iK-6A4vo3G2VfB1kxfzJbsILzOdkJSVjkMmHAj8LNkSlifAypSDQ0Q5gTA8DFJA55g07znhZvW5KVq3_b3Cphtq6bSLx82oYER_bTVF_aWaJpSJgCTseHpyNhbVDg37JKMxbJb2w3m_LC_YtUVftOnUIEtWpf2hsU_pgkagQ_wyPPCrahfTA_x6vXFV6_YTgeCHvzhmqmIHL5SpBcfyw_M-wNIK98SO7AFUw2XxO2PyAYMeVBkvcg.MotPhsQT2AI7nNdeJoG6ufr2_Qk2ZH0tuapZcUO8wYs&dib_tag=se&keywords=rodillo+pintura+18+cm&qid=1755635349&sprefix=rodillo+pintura+18+cm%2Caps%2C125&sr=8-7"
   },
   {
     "id": 147,
     "codigo": "IT-147",
     "descricao": "Microfiba Roller Paint 22 or 23 cm - Antigoteo",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Nespoli-Superficies-Pl%C3%A1sticas-Decorativas-Decoraci%C3%B3n/dp/B0CB6J3FWS/ref=sr_1_6?crid=8MZNSQL91V18&dib=eyJ2IjoiMSJ9.AYwgXpek1LxseGXj59_BBizmR0kCIR2Os4g8I90xyRXceeAYus7VQ5VrgFjwzd52-zrWsbrFMMN3xIjgq0ufA5JmBPuwNT90xna5c5fhc0RFBvjM0MdoRv-W9MiAywN8XBi3xc_xZauKWfUWOLxlGqv6IKPlb2iiphSO3QICU_49exqiDYx4vsXT4gF_moJQhKAnpy1cJrB24PS-yohU6hLD1cjMwbvU5T8TRrkF5Paex0Hl5B7AwmgkNAdI2Utcz_IJAdmHw_sRQdwUJu5HXveqjYUCWKBL2c1KB8i8-2I.G0uMhSrZjPG0Yhm2Iyzmisb2GxcloXCmslYI95R2pUw&dib_tag=se&keywords=rodillo+pintura+22+cm&qid=1755635267&sprefix=rodillo+pintura+22%2Caps%2C115&sr=8-6"
   },
   {
     "id": 148,
     "codigo": "IT-148",
     "descricao": "5\" Velcro Sanding Discs (Orbital Sandpaper) Gr 40 (Box w/100 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
   },
   {
     "id": 149,
     "codigo": "IT-149",
     "descricao": "5\" Velcro Sanding Discs (Orbital Sandpaper) Gr 60 (Box w/100 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
   },
   {
     "id": 150,
     "codigo": "IT-150",
     "descricao": "5\" Velcro Sanding Discs (Orbital Sandpaper) Gr 80 (Box w/100 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
   },
   {
     "id": 151,
     "codigo": "IT-151",
     "descricao": "5\" Velcro Sanding Discs (Orbital Sandpaper) Gr 120 (Box w/100 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Aiyard 5-Inch 8-Hole Hook and Loop Sanding Discs 80-Grit Random Orbit Sandpaper, 100-Pack - Amazon.com"
   },
   {
     "id": 153,
     "codigo": "IT-153",
     "descricao": "Paint Brush 2\"",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Pro-Grade-Professional-Painting-Commercial-Paintbrush/dp/B07MDVBK3K/ref=sr_1_5?crid=LX38A63EOOEK&dib=eyJ2IjoiMSJ9.msHfZ_QdoE_P4kGNA6hwJ9rYIN67ghCgHPVdq3RVMIOxpkQhryjEdNH9JxQi3XRbuS9rPK_aPgI5Ia6nPlpZBeb07S3v65FwlF5d1atQLIc-Z8_mTXNGwCDnznbSGXhLlWs6ENuBLFyTJvoUeos1GvmXhcyAXBJaYLApzCGc0t6LR-HD6HAgp_8UGFfcZMZgflC1bHyZOwHPpjoNCu3K2LwE-5d-Mh1FCeDUcLsGpzbWscErz3LFpfVjH4WaEmEOG-o3YuXPOVtphZo_azjP6p-StGJMHWK0Rw7UivB8hX4.gHVLRSnNF96zanZhfocLFMUrw_CrssxZzKFRsNt-V6E&dib_tag=se&keywords=paint+brushes+2%5E&qid=1721333311&sprefix=paint+brushes+2%2Caps%2C219&sr=8-5"
   },
   {
     "id": 154,
     "codigo": "IT-154",
     "descricao": "2000ml Mixing Cup Graduated",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0C2CTTFCT/ref=sspa_dk_detail_1?psc=1&pd_rd_i=B0C2CTTFCT&pd_rd_w=zhBJD&content-id=amzn1.sym.f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_p=f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_r=VEJ0FXXZDAN5B7PT3Q9G&pd_rd_wg=zihlJ&pd_rd_r=e1f3aa8c-aa57-4b3a-b6da-547a3bf282cd&s=kitchen&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM"
   },
   {
     "id": 155,
     "codigo": "IT-155",
     "descricao": "4 Gallons (15 Litres) Clear Bags",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Hommaly-Clear-Garbage-Bathroom-4G150-Clear/dp/B0CKPNVS62/ref=sr_1_2_sspa?crid=13QJDD99LGS9P&dib=eyJ2IjoiMSJ9.1TZD9DBFa_T7Ngs_BRW7AhC1sWAw1nzVbs94JTniejui8xumV7-yO4Ikx2mvRXOdgFGF2yznZ2G9JmR5phKAHazt3NkkORXO40_p48EhiJYpW9_PA8wGH77bDDQ9aOYUybDt1gIrj6xP5Vvj6p5DpGggVgSmr7SEto9yJe7QNVfZ0Rxq2OBX2iAzg-hOFNC3dY-geDJFDxqw2YW-fWpb7-xZyMaC6THswEQoiXZ8i7sXddo_GKFpj7RM0ZIQe3yvjj6v0pPOdWEGLQHdqIDP4YS0DXv8Yg50GGzXe18Qc4U.kFw9a9hxjIw01Vz1VH2AqHzO4Lv8LwPaVWzJvE9z-Lc&dib_tag=se&keywords=15%2Bliter%2Btrash%2Bbags&qid=1719604038&sprefix=bags%2B15%2Blit%2Caps%2C130&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 156,
     "codigo": "IT-156",
     "descricao": "Rags (Pack 25 Kg)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Texas-Ragtime-Multipurpose-Restaurants-Commercial/dp/B09M7K911Y?th=1"
   },
   {
     "id": 157,
     "codigo": "IT-157",
     "descricao": "Acetona (Pack 25 Litros)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
@@ -1719,122 +1738,122 @@
     "id": 158,
     "codigo": "IT-158",
     "descricao": "Air Filter for Exhaust Fan (12x12\") (Pack 5 units)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: UBeesize 16x25x1 Air Filter(6-Pack),Upgrade AC/HVAC/Furnace Filter,MERV 8,MPR 700,Easy to Close/Open,1xReusable ABS Frame+6xReplaceable Filter(Actual Size: 15.63x24.72x0.87 Inch)"
   },
   {
     "id": 159,
     "codigo": "IT-159",
     "descricao": "Paint Mixer 1 to 5 Gallon ~ 4 to 20 Litres",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/AYZOTEK-Mezclador-agitador-taladros-est%C3%A1ndar/dp/B0BTPM4H8R/ref=pd_day0fbt_hardlines_d_sccl_2/135-3597136-8084611?pd_rd_w=AAswV&content-id=amzn1.sym.cba70d57-20bf-4ffe-964a-d7cc13213897&pf_rd_p=cba70d57-20bf-4ffe-964a-d7cc13213897&pf_rd_r=MPY1525MSJK9CJBRHP96&pd_rd_wg=JKT9v&pd_rd_r=a382cbc3-ec61-4ee3-9198-a893ecc68bf2&pd_rd_i=B0BTPM4H8R&th=1"
   },
   {
     "id": 160,
     "codigo": "IT-160",
     "descricao": "15 ~ 16L Gallon Bucket Painting w/ Metal Hand",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 5-Gallon White Bucket Pail Container with Lid | Food Grade | Heavy-Duty 90MIL Extra Durable | Metal Handles with Plastic Grip for Easy Carrying | Multi-Use | Easy Stack and Store | BPA Free : Industrial & Scientific"
   },
   {
     "id": 161,
     "codigo": "IT-161",
     "descricao": "Plastic Paint Roller Grid for 5 Gallon Bucket Paint",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Plastic Paint Roller Grid 5 Gallon Bucket Paint Can Pick A Pack 1-100 Wholesale Pricing as Low as 1.25 Each (10) : Tools & Home Improvement"
   },
   {
     "id": 162,
     "codigo": "IT-162",
     "descricao": "9 in 1 Paint Tool (Paint Scraper Tool)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "9-In-1 Painter’s Tool - LEVEL5 | Multi-Use Knife, Hardened Carbon Steel | Metal Hammer End | Pro-Grade Finishing Tools | 5-200: Amazon.com: Tools & Home Improvement"
   },
   {
     "id": 163,
     "codigo": "IT-163",
     "descricao": "Desengrasante Concentrado - 5L",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Ecosoluciones-Qu%C3%ADmicas-Desengrasante-Concentrado-industriales/dp/B07ZJ7WX81/ref=sr_1_6?crid=3RIU2C5Z0A8VH&dib=eyJ2IjoiMSJ9.KTL25DOn8wneFtoYIjz-qRVCPQeUsWCxilaImHytywOyleUJF0BV5UHCsynqMlK3AeNudoL-TedcwfaQoPM48Z7JshjuWk_BCmyuMnBNHgkGTaMLby4TTdFWBURdCXK1YUYSVJrt7-X2-Psvi2a0IoFcei6c0FmbrKP9yKRPGiHNLKLlUE27NxyjX-Z2Vvx5JlSSkzAOnbqmUEX2RkRc10S17FtW5Lpw6YbZTCkhidJGsZxBj5wkO2GeOUORy9RMWD3ikhcPcvbye1G2q3RvwSAWynuX9T-djBKLzpBxbU4.z1cG0pEjPi5SAdHa2E2ME4zwAA_BOQrSI7s9OnFQD9I&dib_tag=se&keywords=desengrasante+industrial&qid=1755630713&rdc=1&sprefix=desengras%2Caps%2C145&sr=8-6"
   },
   {
     "id": 164,
     "codigo": "IT-164",
     "descricao": "Sight Pointer Ful Adjable Focus Lazer",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://es.shein.com/ark/4314?goods_id=126263770&test=5051&url_from=adhub178243276&scene=1&pf=google&ad_type=DPA&language=es&siteuid=es&abt_param=100585376_a&landing_page_id=4314&ad_test_id=39965&requestId=olw-4yccd5ks24op&cid=22692358060&gad_source=1&skucode=I2nn3gqh7gek&onelink=0/googlefeed_es&network=g&gad_campaignid=22692358060&gclid=EAIaIQobChMI1KfinM2XjwMVC4N8Bh0YXh2AEAQYCCABEgJ4OvD_BwE&adid=759047429671&geoid=9198281&gbraid=0AAAAADm0yO5nYkQrhm5Z8Z34k2Y80xCFF&setid=181471620855&kwd=pla-2438484159104&currency=EUR&lang=es"
   },
   {
     "id": 165,
     "codigo": "IT-165",
     "descricao": "Alargador extensible alumino con campana 2m",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.leroymerlin.es/productos/alargador-extensible-alumino-con-campana-3m-83762149.html"
   },
   {
     "id": 166,
     "codigo": "IT-166",
     "descricao": "Varilla para mezclar pintura de 400 mm - Acero para taladro",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.leroymerlin.es/productos/mezclador-manual-de-pintura-5-10-kg-profesional-13249432.html"
   },
   {
     "id": 167,
     "codigo": "IT-167",
     "descricao": "Shoes Proctection Disposable / Cuprezapatos desechables",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/ARNOMED-Cubrezapatos-desechables-impermeable-cubrezapatos/dp/B0B773KPGY/ref=sxin_15_pa_sp_search_thematic_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&content-id=amzn1.sym.bb5c43cb-668e-4ebb-b890-25f5b5bda5a3%3Aamzn1.sym.bb5c43cb-668e-4ebb-b890-25f5b5bda5a3&crid=3MORS7U86GJT7&cv_ct_cx=cubrezapatos%2Bdescartables&keywords=cubrezapatos%2Bdescartables&pd_rd_i=B0B773KPGY&pd_rd_r=00d2576e-6ebc-4876-b3a3-b380961ba9d3&pd_rd_w=Svwli&pd_rd_wg=1Eqki&pf_rd_p=bb5c43cb-668e-4ebb-b890-25f5b5bda5a3&pf_rd_r=PK31VM92F5ZEK16SCT2E&qid=1755681586&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=cuprezapatos%2Bdescartables%2Caps%2C310&sr=1-2-9ac51240-4b88-4e0c-aad1-ad3578b6cab1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1"
   },
   {
     "id": 168,
     "codigo": "IT-168",
     "descricao": "Buffing Pad 8\" - 100% Wool Hook",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/TCP-Global-Almohadilla-compuestos-autom%C3%B3viles/dp/B01NBSXNF1/ref=sr_1_8?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2PH2ZCZDZP20V&dib=eyJ2IjoiMSJ9.RjNIFWChXDvOoi-aENGPOZ1UegQk2AYYDxCJiwBlblVSBKD1mGkiruJAxN7Pobrc_eW0VAaTMRi1dfJxlmwYR1Tn6mRJABiJ27s8xsg0Ffa18clDpqgiOtCWiZC98kKTyo-aWpzpQiL1Bzgs1Y7Mg8dSpaN3cmgIPlwAwDMZlopUcDwwHJayWBXRlMgOY7nWmli5fv_UX3O74CrDhVsglvJmQp3mGdAeB3WYCyudDebqOppuNnO2lYTlt3R-519IR272m53grRZVVlwYluCnI2dRWOmD1Wqt9AsodCXfnZI.Cs8Dx2GVWMkHoCgKRtfXw5Zoh0T7WuDqotboArXOpbc&dib_tag=se&keywords=buffing+pad&qid=1725810656&sprefix=buffin+pad%2Caps%2C158&sr=8-8"
   },
   {
     "id": 169,
@@ -1845,7 +1864,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 3M Perfect-It Gelcoat Heavy Cutting Compound, 36102, 1 Quart, Fiberglass Oxidation Remover for Boats and RVs : Automotive"
   },
   {
     "id": 170,
@@ -1856,7 +1876,8 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 3M Perfect-It Gelcoat Light Cutting Polish + Wax, 36110, 1 Quart, One-Step Process, Removes Scratches and Swirls, Light Oxidation Remover for Boats and RVs : Automotive"
   },
   {
     "id": 171,
@@ -1867,62 +1888,63 @@
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: 3M Perfect-It Boat Wax, 36113, 1 Quart, Contains Carnauba Wax, Protects against Weather and Oxidation, For Boats and RVs : Automotive"
   },
   {
     "id": 172,
     "codigo": "IT-172",
     "descricao": "Stainless Steel Cleaner and Polish (500ml)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.com/Weiman-Stainless-Steel-Cleaner-Polish/dp/B07J9HFCSG/ref=sxin_16_pa_sp_search_thematic_sspa?content-id=amzn1.sym.5439bf72-3da4-45fb-a22b-ecb711485806%3Aamzn1.sym.5439bf72-3da4-45fb-a22b-ecb711485806&crid=PSF3JF4LL4QA&cv_ct_cx=inox%2Bcleaner&dib=eyJ2IjoiMSJ9.M4-HERFSEu8gUwm5rwnzlD-cUEiVEPuAU2bp020YVoscXZKT4IihHFB3vXxm5PGv.sdupJKBYiNJk_qh_ZQh-wZ1dR8sa2woeOQkiNQqdfdo&dib_tag=se&keywords=inox%2Bcleaner&pd_rd_i=B07J9HFCSG&pd_rd_r=78e4a9a3-57ac-4c84-af6e-2dc891625318&pd_rd_w=jYrSo&pd_rd_wg=5I4Fw&pf_rd_p=5439bf72-3da4-45fb-a22b-ecb711485806&pf_rd_r=CDYB44FCTVDX1KESWFEH&qid=1718914332&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=inox%2Bclean%2Caps%2C117&sr=1-1-364cf978-ce2a-480a-9bb0-bdb96faa0f61-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1"
   },
   {
     "id": 173,
     "codigo": "IT-173",
     "descricao": "Wire Drawing Flap Wheel 105 x 100 x 19 Gr 120",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Polish",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.manomano.es/p/rodillo-de-laminas-mixto-gr-80-para-satinadora-stayer-ls-1200-2794802"
   },
   {
     "id": 174,
     "codigo": "IT-174",
     "descricao": "Concentrated Cleaner & Degreaser - Heavy Duty Soap",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Cleaning",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "Amazon.com: Simple Green Pro HD Purple Concentrated Cleaner & Degreaser - Heavy Duty, Professional, Automotive, Restaurant, Grills, Ovens (32 oz Spray @Heavy Strength and 1 Gal Concentrate Refill) : Industrial & Scientific"
   },
   {
     "id": 175,
     "codigo": "IT-175",
     "descricao": "Solvente (Thinner) Universal 5L",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Painting",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/Disolvente-universal-Multiusos-desengrasante-inflamable-Envase/dp/B0BR61K783/ref=sr_1_10?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3QFDV4X2VL2NP&dib=eyJ2IjoiMSJ9.-gCNs7IO0OaanQ6PNNlWJ0GOKrkJF2GzgmEPJgdNZyrJEPJwaEnaiM3HRCYtJYtluFAdzytHtY6o10gfIacIfhRDKt3hOf2GaJU58HoFrUxbS3mgqyUCjg9bpq2DfRHIqscFhiZjtDs5GNeamqCaC2qlAd5eJwzWY8OTHxtSr69Rn1QgKXy0g3L5J5VmOyp_pQeXOtBt50hrnL6T5TfnATwVOyY51Sw7VPIxsmY8XOes_QpwSsmUNpqhWnK5fo4u3UF8au-sDCLbGChwv81cuvv4GkAJG2TUKVvleq-FVqc.svBLNjDC3CTwtnrpxmw01Ednps8fKCp3BECwkgGGrZs&dib_tag=se&keywords=Solvente+%28Thinner%29+Universal+5L&qid=1755681891&sprefix=solvente+thinner+universal+5l%2Caps%2C279&sr=8-10"
   },
   {
     "id": 176,
     "codigo": "IT-176",
     "descricao": "Scotch Brite (Abrasive Scrub Sponge Roll ~ 6 metros)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Consumables",
     "classe": "Cleaning",
-    "tipo": "OPEX"
+    "tipo": "OPEX",
+    "linkReferencia": "https://www.amazon.es/ScotchBrite-Limpieza-precortado-rolloscaja-6MX134MM/dp/B00BQY6MTC/ref=sr_1_21?crid=NZOSHULH05AJ&dib=eyJ2IjoiMSJ9.GXLH29io7VgQX6Pwu8xAGLw-nkVJu7IGzF2zg3JbokTBiIAHLKS9KRHZG3fEqqGyy7uLkm50NXsqCipmzMGJWmNnE73Y9ASCK4AEP3FVOYP7-hWiCI5Cce9QtrEC4WK2bw8hHCTxapAKLodtjAv4gUKUDmk2Kujxn0sWBhwMoCIEfcx2E14brdBbKRgTRlgPc_sBuLvWAGGWsn4s63oj336Ts1-JwDrsHg2AOukJmuu4nTkHkbHvprOy6yWVNVjxCdhAojunvDtgBPEXw3mLZkz0Z0PtTIg6ATiCslbOAhI.lB8Y5qatuGZlTjbKNJgIz46ROJTXEaeK9mxdOtKlTAY&dib_tag=se&keywords=scotch+brite&qid=1755637390&sprefix=scotch%2Caps%2C185&sr=8-21"
   },
   {
     "id": 177,
@@ -1933,7 +1955,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Moledora-DWE4011-protecci%C3%B3n-One-Touch-pulgadas/dp/B009ELXH1K/ref=sr_1_1_sspa?crid=2RA1MB9FWEXR7&dib=eyJ2IjoiMSJ9.YfM4OEt_hTpCoSz9-_EpCR_bDjNACe7s7nbuci87GheZkd81JHx2weUu0wvBZXGTr0QzhZ4UImVRhm36DAVJqo_P4ofiNqPvnmxypb-TY-LFbVNugjFl-U6C92lnSlWXaARSu19RBUTGoR78i2H3e4hFXxF5Ky7sS5NqFuLRW4r1aOnLgRWiRQf4_dPf_wKULb-GD0PFwLaw9hKLjAE3CB8gG6DXGNqm84WwzWkiDsMNvVr-Y2ROw3u0MMSfWQePLd2-j_ZmSw1iOexcq98gLgkawT_RP0lDMYobl6EXV3k.500QUCSaXnnwIs2EaXs1FEonrpJsJOEWHR_DlrQb79g&dib_tag=se&keywords=angle%2Bgrinder&qid=1721074537&sprefix=angle%2B%2Caps%2C196&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 178,
@@ -1944,7 +1967,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Makita-GA7021-7-Inch-Angle-Grinder/dp/B000I6QWQM/ref=sr_1_7?crid=3EVL9J3H5CYS8&dib=eyJ2IjoiMSJ9.t2pk5GKg_T4ELmL642UhdaBRk84iB78wJBakcnsLEN0FKgpwKK4xq5UQZgUL-fO5HNxv2EvG2NgrxWvOFULuKZwbk7cXrdyFH2x5FhuDyEyUCrCfcRbZaGo-k2fP5_K7syCFYEbrvHCmGyyWVJBWxVO14eD7aTfTUEl4vKcBl2kFzqH70NZMtlPXHonT2dGx_FWauU8GCCaH2KjDaWGQ37UIoGRJPdRuLsqrYnrCH2S3-47v7xkNyx9mRq2Knhyvwvr6STVw_ODkdkPzv3Zkh9VeBuszBxp9uQx_bGwsEjY.2Fn4bJP6wd57aOfCjlUORrbWhS3pEEV-J2ivvD1nH0Q&dib_tag=se&keywords=7+angle+grinder&qid=1721080599&sprefix=7+angle+grinde%2Caps%2C320&sr=8-7"
   },
   {
     "id": 179,
@@ -1955,7 +1979,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-Reciprocating-Saw-7-5-Amp-CMES300/dp/B07MBS7MTT/ref=sr_1_3_sspa?crid=27WBJIZEJ29WW&dib=eyJ2IjoiMSJ9.-0mNh4s8Vy3dK7vYY1jkNaKXmLgkfQVkP2CyPuUB1ibMmj9tqh16wEk1zWJObJPnE7dBSxQfL0tDBnl2hQceBQ3ko7_PHtzQ5pjVmePkXHvSmkMfCoW4UHUZGjVuiVfO_quOF9XUcz77ceZU0kBgd7lkyUrHSxGC9IUWcUWtS-zYQsrrHSsEND6D2FUZvsdXoo0UPZ2juXIvbGVoYVKzfXaPX_LU0aFIGTQqYBfvFJWLapQJmo44ReaRrvBM1BsvVHpfqwb9ktrIQBaKdAK3gWJ2W-UAGyK2BY4kNXqEWv8.HBEvUtb7nKQcXiyClA8nvZFOPVZdLoXHqi663DcL5to&dib_tag=se&keywords=sawzall&qid=1721229731&sprefix=saw%2Bza%2Caps%2C263&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 180,
@@ -1966,7 +1991,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Makita Variable Speed Polisher - 7 Inch - Amazon.com"
   },
   {
     "id": 181,
@@ -1977,7 +2003,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-CMES510-15A-7-1-Circular/dp/B07KK9YGZ4/ref=pd_bxgy_d_sccl_2/147-4758851-6495067?pd_rd_w=Sc73X&content-id=amzn1.sym.c51e3ad7-b551-4b1a-b43c-3cf69addb649&pf_rd_p=c51e3ad7-b551-4b1a-b43c-3cf69addb649&pf_rd_r=P3R3J5DTY73WD96RVYQP&pd_rd_wg=ELLbX&pd_rd_r=951c6533-ae33-4ee0-ac2b-d5e0ebb209fc&pd_rd_i=B07KK9YGZ4&th=1"
   },
   {
     "id": 182,
@@ -1988,40 +2015,41 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-CMED741-7A-Hammer-Drill/dp/B07KKHNPWZ/ref=sr_1_1_sspa?crid=2KJAQF2IVOJ8N&dib=eyJ2IjoiMSJ9.8Y8z2jeuNl1_ggbTlA0rTczkKrX54ErIOByqvlceruZug4ImJkSzLzDUNj2KHUxqrVxE621JAHFLUNH3Bq8far6vOTnTbhKKIA5U2kvI8K4VZhRPqBda2fjItyegzkoEfyovnwPVKE8ZzYZEwp-zAB4Yp0VVx3OYLSmOBNny049CS59VAbiClSxhclIl9Pilfqqn9wMvl1J3NKA9z_ssT6jbtY8unA1KA5UIvnteM86VgxfBmjw8XzPJmxAt91IP72afsl7nrhtqkQ9c3JEybIyHZMN_4XxlYbrbutlIZbM.MRcr0ocjN94JXTYjUfsxywCWMnw8QXEbw-zMWlFl_Cg&dib_tag=se&keywords=drill%2Bcorded&qid=1721325552&sprefix=drill%2Bcorded%2Caps%2C203&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 183,
     "codigo": "IT-183",
     "descricao": "Welding Machine 200A",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/ARCCAPTAIN-Synergic-Inverter-Digital-LED-Anti-Stick/dp/B09YGXKZC1/ref=sr_1_1_sspa?crid=2Z9WRAK369G62&dib=eyJ2IjoiMSJ9.2jGSYhw-G2-NpO3cUY9cNv9BSInHN2Qa5sRl6LQtg3LXj0uZvo2Qm8qYXO-dyqaYaNcTd1wVTxLFlLxH-5TQXUV6CM7vgSdTHN-3rsRHR1ZwDH8E9yPuM-vOfK1q3qu6mv9K07Ho2SCaKo04EAK9Isco_UsUsB095iL_vK2CJx_uWVcqR68CwV-Qhk7RZm3__-l6AyKoj6VvjgRmYZakLa1gr01xrvedgNeaHXEC1qTp0e7veY8wxZVWnpXHCpG8kfn_pHj3gldWV-rzoLWOnLoEFD068FwJ6OnCJ-7ftFs.vSkq5Bo-2sWImD1t8J1L1gJJMEVksf8OxmFRC1_fONo&dib_tag=se&keywords=Portable%2BStick%2BWelding%2BMachine&qid=1721078747&sprefix=portable%2Bstick%2Bwelding%2Bmachine%2Caps%2C371&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 184,
     "codigo": "IT-184",
     "descricao": "Dry Stick Welding Electrode Oven - Portable 115V",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/High-Quality-Lightweight-Temperature-Controlled-Electrode/dp/B086WLFLNB/ref=sr_1_5?crid=10DGYQA5GPU5&dib=eyJ2IjoiMSJ9.YFbWLgmpim_343XLBWGdxpQQp9sTxsIvQGuJoxAWqlmQ-nocGxRaWHQydJmzhJ23yVVwGSi79xU6_BlJEwZ7L3jOxypSUOB6ILUXFhQFpjwQ318moCrtZnQzrHGYuIOrVqyKjeVF-mN_3ZdXDahUz-DNaEFPijvb22utQnQXLtlzcC9cJy3hz503fogW2bvyGnOLBlauq7r91Nle3FZMwtXxK5tocztwwPNCN5Tq0A8_vRtTnMlRZA-2B1qzxFEJ7cqJjw_1URCZLo1h4d-W3k3W5rPr56-fCzAqMGhir0o._v5QE7RK_06x6EDwN7bYnNY4_JteIewURZassCYrB2Y&dib_tag=se&keywords=portable+heater+electrode&qid=1732045250&sprefix=portable+heater+electrode%2Caps%2C216&sr=8-5"
   },
   {
     "id": 185,
     "codigo": "IT-185",
     "descricao": "TIG Welding  Machine",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.harborfreight.com/omnipro-220-industrial-multiprocess-welder-with-120240v-input-57812.html?utm_source=google&utm_medium=cpc&utm_campaign=12233785352&campaignid=12233785352&utm_content=146195811264&adsetid=146195811264&product=57812&store=&gad_source=1&gclid=Cj0KCQjw-uK0BhC0ARIsANQtgGMY8jZ2KqUN9sI-64mo-oyaWxX2eZXdtMHPJ136TEK-DrtSBZw6WUQaAvvsEALw_wcB"
   },
   {
     "id": 186,
@@ -2032,7 +2060,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/ESAB-Multi-Process-Welder-STICK/dp/B09KMH2CGQ/ref=sr_1_5?crid=11EQG61SC41N4&dib=eyJ2IjoiMSJ9.X2V9hoLYzA8VMmchVOZai-FAF822mAi966ptiggmjd8XKfI4Wk3wrXZauFFu5_lWoatJK8VjuDJGAWkty3_7knWajbOKq0FRsaF0yZGdaGY6drbLE1Lg84LXLD6Cm87QZuUQ5ERMusyCgd_kfNYb2R1d2e6u3WYdx_TBZUKbsRKb8Wnn2XpxmIKrxkOZcmBFZzdJuPl3Kc4IWNFwci5QkJqOBrei_ViFXz8p7ITckt_Er1SemPGknMWNs2EUmtgdj9MB_3nYgG831efbXT4QzRn-9HVOZ0DeluI7i2EXg4k.jumYDO-BJnBYy8c-afH8KNOjqMBuKdPqum1EsYa_6WE&dib_tag=se&keywords=welding+machine+esab&qid=1722288311&sprefix=welding+machine+esab%2Caps%2C131&sr=8-5"
   },
   {
     "id": 187,
@@ -2043,7 +2072,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Lincoln-Electric-K3291-2-Autopro-Height/dp/B07DTFW8ZD/ref=asc_df_B07DTFW8ZD/?tag=hyprod-20&linkCode=df0&hvadid=692875362841&hvpos=&hvnetw=g&hvrand=3675274968616838921&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9190133&hvtargid=pla-2281435178098&psc=1&mcid=be4f879043f63c5bb33a1e041b7af5a6&hvocijid=3675274968616838921-B07DTFW8ZD-&hvexpln=73&gad_source=1"
   },
   {
     "id": 188,
@@ -2054,7 +2084,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Bosch-Professional-Eccentric-Sander-40-150/dp/B08GKYTVVP/ref=sr_1_4?crid=2CWRSY9C5Q268&dib=eyJ2IjoiMSJ9.AT697NGDccKnZQLDUymvs4oJtJ-n53mo8bIZILVf6kAdvPxkNqe0qYtNKoq2YV3vh5g6Le6h9AA5_4cFvKmEDq2YkUaiNn-3kWo9JReWsHwC6zs2x2lz9bEswgJRZujDYzhpKxD59yUwjr1akEXYBKXyW7Y4cXPYbeU5YAObDgCKULRAQ1f8iz5C6pi0YlVHsTtF2rnawo7kZsz1E4p2Guv9ymOO9bcHQ-huAZrJR6f8a6KsIL5Z09nF0vx2g48y1hyOwGr79AcHe-1Guo6qNT0bJzg57YQ-cFYxFG0yi50.r6hP9Oom2E2XlARUXcPwful0pe_ucxf7CmgQeyUhIK0&dib_tag=se&keywords=bosch+orbital+gex-40&qid=1722272193&s=hi&sprefix=bosh+orbital+gex-40%2Ctools%2C155&sr=1-4"
   },
   {
     "id": 189,
@@ -2065,7 +2096,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-17595-Gallon-Heavy-Duty-Attachments/dp/B07H84CNG9/ref=sr_1_1?crid=G438DS52A8XY&dib=eyJ2IjoiMSJ9.Qc0awaQipouWAowE-44DgfLqpPBfD4X82FSK8JLhb9Ii0Poek6GcXbcOfwbZ2GRVxeHXbJNKUFEqmSl18f3YHs4jOUY8rMOCSl8_WUQlDFnZHUBRkCElR9ynKmtIDazCg6TheNjDL5vKmQVFJQFlQElkasrCqq9sRCXTjrVWsTu4UgHqh1URX9B5Cj39hbo66wrTvazhV1dtWE5hWFZzFJLqCieUc7CrNV4A-tuiPSdAHV86vwwO-vZJObuy59OUeRSISuuNVQlANBHwKkqPJFt3tPdzei9a7GstCcNIk5Y.nH87e96VR0Y-EZaDulZh_oWSymfIokDFgdx89Jnia3A&dib_tag=se&keywords=vacuum+industrial&qid=1722366080&refinements=p_n_feature_twelve_browse-bin%3A41942209011&rnid=41941772011&s=hi&sprefix=VACUUM+IN%2Caps%2C180&sr=1-1"
   },
   {
     "id": 190,
@@ -2076,40 +2108,41 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Armor-All-VBV809-0901-desmontable/dp/B07693HKXK/ref=sr_1_22_sspa?crid=Q92VXAWC8UWO&dib=eyJ2IjoiMSJ9.v63Yog_Vk4KzsZBs1y4p4xr5KHQBBDuJLUVNBqlBii12YUDnRPs3dj3zQjghxh2_fWvEoTKhBeVUDRAhEetsEs1mNyOBKVLJjO1hxymVzRX1v4a_H8POnBS0SPfuL_IG7aU_zZ2Hk620GkTVG-Mkls2wwHBTXoh3igbrojM8uN61kr4VO72Zf-saQp_9XAwJGBLdHsZChQ_wNKeJti4PyHZMLRxG7c452dd1_lpUG3s.wo9ZwXWuqIapFJW5ipE8nd14KDMurssr4c3bfJKKTzA&dib_tag=se&keywords=vacuum%2Bindustrial&qid=1725565865&sprefix=vacuum%2Bindustrial%2Caps%2C188&sr=8-22-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9idGY&th=1"
   },
   {
     "id": 191,
     "codigo": "IT-191",
     "descricao": "Jack Hammer,1-1/8\" 14-Amp Corded Electric Heavy Duty Concrete/Pavement Flat Chisel Bull Point Chisel",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Berserker-Demolition-Breaker-SDS-Hex-Vibration/dp/B08QR5W1FZ/ref=sr_1_10?crid=3816OVTI5MZHH&dib=eyJ2IjoiMSJ9.Gfb4dqN64Pa2rlA554itrO1Q-K4uopFATPQKiFd7wjBz6FC-ohrmtMNk-QV_5F5nDB2b6npwPQGQF89D6rJQGsfUVigverKZGhBVfoZiilsB1JdBn-AdnGPi6bybG_Z1Bn2do6GwP5jmce5PZtYjUzTyKlqUxvmM2--Lg_oiJ7J6vqdoX5FkHS6CzPNk1to-XZTwLew-K-cQeXuWOx39kDDp_0mIS8EAbY4AcPNlakWAqVNguZUnaAeWoMubfg4m4UZcaRi5P7YlN3Z3clKxWlXLrl6fVhHU6jdMYGMhqYo.cybkNZFbIEB9ry0mo6-PizFpK0TZN_4QRyuGmOxj2rI&dib_tag=se&keywords=demolition%2Bjack%2Bhammer%2Bconcrete%2Bbreaker&qid=1721230305&sprefix=Demolition%2BJack%2BHammer%2Caps%2C307&sr=8-10&th=1"
   },
   {
     "id": 192,
     "codigo": "IT-192",
     "descricao": "3-in Wide Cranked Angled Bent Tile Removal Chisel (3”X10”)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Firecore-FS18310-Cranked-Angled-Removal/dp/B07KYFRKZY/ref=pd_bxgy_d_sccl_2/135-0813426-6950132?pd_rd_w=876mS&content-id=amzn1.sym.c51e3ad7-b551-4b1a-b43c-3cf69addb649&pf_rd_p=c51e3ad7-b551-4b1a-b43c-3cf69addb649&pf_rd_r=PAEEXXWXA9EQ7DJZRPPY&pd_rd_wg=CaZsy&pd_rd_r=ee751960-e7d0-4e06-90d6-b9bba8cb4de7&pd_rd_i=B07KYFRKZY&th=1"
   },
   {
     "id": 193,
     "codigo": "IT-193",
     "descricao": "Oxy Acetylene Torch Kit",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/RX-WELD-Acetylene-Heating-Nozzle-6-MFA-1/dp/B0D25NVQ8R/ref=sr_1_3_sspa?crid=3BMBMZJEFV6PN&dib=eyJ2IjoiMSJ9.-0jbmRsFnH-EhXYk_RjmyTbkdiw3o2c5baWDx9ukNpiAvE8nqeB8sKp1hy1anpD5mnahUWhplIjvYJ5mTvG8vo1tHnjJFh4lznI8W_q8fI2XZfa1CVNLZEFnZFgmCqclprGkEXswwanJjoYkehpei94NBZkofewg4Egw9Zn66cqA2G07kykhmPO4ssQv9qPrUCYIHZLPnaOrYr_DO-JyVSjcM5nHGFW2FwB-1L_jsaWf5t27uoKNTV6Ysm615o_YWwS6FUfLU8KOo0vxgXdsNrkWcerOLlFmf3shjlQoE2s.g0elSIRcpI5YJCyKbMsqzk3OgMF6BoM61Tt0wEtsPiE&dib_tag=se&keywords=gas+welding+torch+kit&qid=1721231485&s=hi&sprefix=torch+welding%2Ctools%2C176&sr=1-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 194,
@@ -2120,51 +2153,52 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/DECKER-LD120VA-20-Volt-Lithium-Accessories/dp/B006V6YAPI/ref=sr_1_3?crid=3TNEV18SEZIOQ&dib=eyJ2IjoiMSJ9.WvoWycT0JZyAcoMNL1eOlMs1fZlMZiWFovw3jp-KrJKK3H84Jf6qt-G9CD_NrX-0oEuw3XuHoBhURuIN6DXDyr3nt7_pQuGDukfRd4II2Ol_2932QuE2iS_w57ra5K6ZngYZpDuyXIxrIpm1MYCZZwWo4fZN8-E5mQoZsw73qj2OKiGLs4O8lxA5VOZ1eYIS7f9hJ6k0yrG1X8XOBzW4iFvIlrUxI25jXyHDVRmHOJO1gA0rITewC8ZuoPs8zQt2yhW7uIabng9QCCMAE2QA_zHITBdsIru1_twlosaNTdc.bEWB-PEJ-viMyBwolen6eHjMdedxHlU-3if-FT29vF8&dib_tag=se&keywords=30+Piece+Bits+and+Drivers+Kit&qid=1721234980&s=hi&sprefix=30+piece+bits+and+drivers+kit%2Ctools%2C282&sr=1-3"
   },
   {
     "id": 195,
     "codigo": "IT-195",
     "descricao": "Die Grinder",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Makita-GD0603-Compact-Die-Grinder/dp/B01C3WPX6I/ref=sr_1_24?crid=27HVKADYLK8RR&dib=eyJ2IjoiMSJ9.swlqGxatbMb9BqdCWaEK9Qu_sXNb_apSDUYmd2uP-N_bXhC8K_oSKxcZjYFXC8DT_obpMAawB73WMUFhBINnO8qr_pr-wBmB2FMO4yqH5vynr4xbJt0qHB7KbOB4gfyYK163ViOSMls4A02eCFekHdyT8oU3KdXfunHxY4a6bPl_35nHVqTu6a4mAq18rxJqEN_h7FbLjq7ZV-7J4nNv-ciZ82c_qhQYUGM4g4em_E8BS3Tc0aM_wIMEGAtjfDKCOa00HlSuoXKaRRihjBEs98N6jZvZAKgVoicxwkLGWe8.EEy9Mxr6kdyb4LfT9dv1TvTQ22SJi_mXXQOjoN2wC-k&dib_tag=se&keywords=die+grinder&qid=1721328269&s=hi&sprefix=die+grinde%2Ctools%2C193&sr=1-24"
   },
   {
     "id": 196,
     "codigo": "IT-196",
     "descricao": "Screwdriver Bit Set S2 Steel Drill bit set Power Bit Set with Security Bits",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/ARUCMIN-214-Piece-Screwdriver-Steel-Security/dp/B08D7TS3JP/ref=sr_1_4?crid=3TNEV18SEZIOQ&dib=eyJ2IjoiMSJ9.WvoWycT0JZyAcoMNL1eOlMs1fZlMZiWFovw3jp-KrJKK3H84Jf6qt-G9CD_NrX-0oEuw3XuHoBhURuIN6DXDyr3nt7_pQuGDukfRd4II2Ol_2932QuE2iS_w57ra5K6ZngYZpDuyXIxrIpm1MYCZZwWo4fZN8-E5mQoZsw73qj2OKiGLs4O8lxA5VOZ1eYIS7f9hJ6k0yrG1X8XOBzW4iFvIlrUxI25jXyHDVRmHOJO1gA0rITewC8ZuoPs8zQt2yhW7uIabng9QCCMAE2QA_zHITBdsIru1_twlosaNTdc.bEWB-PEJ-viMyBwolen6eHjMdedxHlU-3if-FT29vF8&dib_tag=se&keywords=30+Piece+Bits+and+Drivers+Kit&qid=1721234980&s=hi&sprefix=30+piece+bits+and+drivers+kit%2Ctools%2C282&sr=1-4"
   },
   {
     "id": 197,
     "codigo": "IT-197",
     "descricao": "Handheld Stainless Steel Polisher",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/VEVOR-Stainless-Polisher-Burnishing-Polishing/dp/B07GWLV7YY/ref=pd_bxgy_d_sccl_1/145-2627247-2471156?pd_rd_w=h6L9w&content-id=amzn1.sym.c51e3ad7-b551-4b1a-b43c-3cf69addb649&pf_rd_p=c51e3ad7-b551-4b1a-b43c-3cf69addb649&pf_rd_r=65Z7VARN2NZ73MD036DC&pd_rd_wg=qkuPG&pd_rd_r=dc56c10f-fd9a-458d-9176-a41ba590b65d&pd_rd_i=B07GWLV7YY&psc=1"
   },
   {
     "id": 198,
     "codigo": "IT-198",
     "descricao": "8\" Portable Blower Fun + 16' or 32' Flexible PVC Duct",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Corded",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: COZONY Utility Blower Fan, 8 inch Portable Exhaust Fan with 32.8 FT PVC Duct Hose, 7 blade Heavy Duty Cylinder Axial Industrial Ventilator for Basements, Tunnels, Factories, Warehouse : Tools & Home Improvement"
   },
   {
     "id": 199,
@@ -2175,7 +2209,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Cordless-Aiment-3000RPM-Brushless-Electric/dp/B0BKG1DSTW/ref=sr_1_30?crid=2XB1MB5U5Y3DE&dib=eyJ2IjoiMSJ9.m6PmSfClWxIg2zsRLLiEv772OQC8DKh5HBgpQqAhFfIhQh4r31H767n4fcMjfWrLSTGENG9Agbd_H7GXhc2viiTSOIj0RuMqLkLs7wb2-EnfpB6NQQXqJqq6lRHlPhFK9qNUKLyQzgUWNzTAb56LhXkF1DTYCSnuhIL5zWuuCaPTetKLaeX9UjhW3AP7EMTSIZdHof6Ydff9_79UzRfqXG_ejo-S2KBa-c5MzsuIlEjiKO4yxKuSRukvKQnuw22TepgqarHoFmm72CNTbp4pAbjDvuTZZRQViYfXz4Yf0kc.aJ5MhdQLCOJl-3jdtUPIsjEgn8zpoekEAwoMIkDVi2I&dib_tag=se&keywords=impact%2Bdriver%2B1%2F2%2Binch&qid=1721235085&s=hi&sprefix=impact%2Bdriver%2B%2Ctools%2C202&sr=1-30&th=1"
   },
   {
     "id": 200,
@@ -2186,7 +2221,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-2719-20-FUEL-Hackzall-Black/dp/B076JHJKR8/ref=sr_1_1?crid=19KIQ9ES8VZYX&dib=eyJ2IjoiMSJ9.yNbqOsw2PCf6YGfPg99boZY_XjrwB6xZfsjccUytoGa13uVnSZHcxFRYZrIYkYLmX47KnDPPtILalKQ5BCM7BCPAVERNdZQsgGa5QEyDYvh0GGLzxZ-tXRLkksxQPwQdgdExYuTW0cT6OaNe0rlzNWybm4xavX-2AHou1YtUBHVIDqVNmAsj6TA-z-jbF4K3yblM0MiJyIfRBK2PmoUdRhEsF583JZGrZ70W70xERXQgMEgBRjgjz_RY6FJ74UCPKCON07ThwQCa62KDoqZlD9T4-O4hjr95WajPTMHNJto.mR7Y0Wa1fMTdAROInoVA7cG5UmNy7hoHpD5vHVttias&dib_tag=se&keywords=reciprocating+saw+milwaukee&qid=1722274311&sprefix=reciprocating+saw+mi%2Caps%2C124&sr=8-1"
   },
   {
     "id": 201,
@@ -2197,7 +2233,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-ONE-KEY-18V-Lithium-Ion-Brushless-Cordless-1-2-in-Hammer-Drill-Driver-Tool-Only-2906-20/325692515"
   },
   {
     "id": 202,
@@ -2208,7 +2245,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-2641-20-Caulk-tool-Only/dp/B008XLM7QI/ref=sr_1_1?crid=2MD9LH7LS7N7E&dib=eyJ2IjoiMSJ9.PxqbH_FTha94jtqKnahoppDdv5YF7sRMuweDKBCJeCJ7UHiUFdoJz9jyejv9ExZlxNoytFciMYrpGZi5NPdAjaCB6cX5ComdqFqo2HT1O2ezt0zHzJuQol7qeVeEzkqwoqU8dXCR4sVCi-DHRD4sNXySUw5FtzbzUFwiV8T8xDkNHSy_eFzrxfgfjsiK3hquK-6yc6IwypxincVE_hNWTn9sxbcStnq5JKDjmSbvGyG8UPgVS9mXtP0vqUPnhZ6LK-mrwI5jW0fZccAtmP0hu3FNALr8kAwx1lN7kp1LubA.pJt1Cc4wjdfZQCPBF4mRO5uwLjeuYTclJCeJnZ5EosE&dib_tag=se&keywords=adhesive+gun+milwaukee+18v&qid=1722286286&sprefix=adhesiv+gun+milwaukee+18v%2Caps%2C202&sr=8-1"
   },
   {
     "id": 203,
@@ -2219,7 +2257,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/PROFACTOR-GDS18V-740N-Cordless-Friction-Included/dp/B08VMK23BK/ref=sr_1_2?crid=3IB0NQW3AVNT4&dib=eyJ2IjoiMSJ9.mHKiiW0xQPTUnlvxy29PVTPqBeLvRzLHqHeEwfFGb3vqYuz2xbWuN8LSsenjzFi_5lcdG2zY6Ve_QjN6mR8kKz4Qx-tXQvK8F0uLO4pxXrP0w9SicytK0CgrmOP2YKZyGwvR7zzdu-9Z7N9TxS8sLywcLxC8ur88fI102nEauAMypybrccdl1w-kenMz9zINWXsb22OLCMMHmcnKy5kmd3wlaGrOhaqwC6QsCNZvQkYIII4Kb9Bg7kKrC9636Q3QYCja_ibi-8mxYRQOB0mF1s9X4XZ5kSmK5mu4tKP4K4c.QppvG5wBmedkt0s1lznpMubPj1PGa7lguzNXbbLcbTk&dib_tag=se&keywords=1%2F2%2Bimpact%2Bdriver%2Bbosch&qid=1725905227&sprefix=1%2F2%2Bimpact%2Bdriver%2Bbosh%2Caps%2C208&sr=8-2&th=1"
   },
   {
     "id": 204,
@@ -2230,18 +2269,19 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: Milwaukee M18 18-Volt Lithium-Ion 1/2 in. Cordless Hammer Drill (Bare Tool Only) : Tools & Home Improvement"
   },
   {
     "id": 205,
     "codigo": "IT-205",
     "descricao": "1/2 Drill/ Taladro Simples - Mescla de Pintura",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/Aatornillador-Escobillas-Atornillador-Velocidades-Accesorios/dp/B0DMJ4FD5M/ref=sr_1_2_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KPG8JB5FOI9D&dib=eyJ2IjoiMSJ9.ycF7tqwdOfHEQjHPLVTQSFBQazKBY0rx_tzCjBshvLdFDnCz05H2bcbT3ZmB1tzz60ZIRkm9DHPMTAe67WtEIzZTKnm8pdjLSFujHO2DBuhLOSiK9HnKkVM8reT5ZoeoQ-KFQ4vesujOqnfOLg_MftOsJPNWDeOEXWp4YOuGc8VV6-TJokR4MtdyIvKu3RkV6re3X6ZVu7F7oB9GfU5NInKEUSVLu0Q4B_McdFPkNo4.zZJeNzYF6iCE9NJ14WlQ2T47CpbrKJ96bt2oo9iwPuM&dib_tag=se&keywords=taladro+bateria&qid=1755634949&s=tools&sprefix=taladro+bateria%2Cdiy%2C103&sr=1-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 206,
@@ -2252,40 +2292,41 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/DEWALT-DCF897B-impacto-Baretool-retenci%C3%B3n/dp/B01H0UJE5Y/ref=sr_1_1?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=TIWTR9TB4LG0&dib=eyJ2IjoiMSJ9.CG5bCHA3IUiJ5CXU8zAax95QgeaHZZyVNCG7r9T2xXMv2aVWevwr7LIJKzwSEolYMgXoneqKzI6KRsG2NZwndHD_oGhzXSOqz9PEz5Dy8QKynL1LF34Ow5PW7JjQN20NBNumMoTSJKa2ZJ5lGrVe98fHXz99cPLetqM5n_I2E0eumGqLFU3CdIXQp0_QMBVUq65uLiE1lS6Eh5HRF9_wN0g1TvWVCFOcFw-uKPdfoI-vM_Qe7Ro5pb-KVd_8-vgnYeZD0b-E8oujFf75Gv_Arq6EHs476G1l4m-hsY9tT2Y.Szy5MF-VvOCLNjQ1ro6eMi0vzv82z8ofZuCb_glywq4&dib_tag=se&keywords=impact%2Bwrench%2Bdewalt%2B1%2Binch&qid=1725726048&sprefix=impact%2Bwrench%2Bdewalt%2B1%2Binch%2Caps%2C184&sr=8-1&th=1"
   },
   {
     "id": 207,
     "codigo": "IT-207",
     "descricao": "Reductor / Adaptador Set Impact ( 3/8 x 1/2 x 3/4 x 1/4\")",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/Neiko-30249A-adaptadores-conversiones-controladores/dp/B01G3VKPAE/ref=sr_1_41?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=UC0S7NO0G6KU&dib=eyJ2IjoiMSJ9.xk_mrt4jBBlaeZdXsYTgj-tHCLfdNTZ4GBB_IvUSgQCDniZz3hwbrR6VgjLnNFrik_NGmZTN2VyUjguPTV7tw-7cEgC4lEArV8RxTGFCXihqdiKVHrPbbQBdYIfKj5eDw0scfLKvoCrbR6EJaWxVa6Ap37jFHttqDzU26r6l_BIpI83MY1AxhgpXXJcHwrDl5AnNjnFrRTVOFeU0pQvW-53JPC7jLE3MpRdwuYd40-xAtaJKkWhJqc1GDtDcfPWNDw57y5C8XDZ9w9J5tFzsSRkuVsv_SdOHxqUkVvEuLOs.8LachxjtaofqQzSrL0diilnJtISfc424Oq8szIK0y3M&dib_tag=se&keywords=adaptador%2Btorque%2Bwrench&qid=1725726129&sprefix=adaptador%2Btorque%2Bwrench%2Caps%2C205&sr=8-41&th=1"
   },
   {
     "id": 208,
     "codigo": "IT-208",
     "descricao": "Swivel Adaptador Impact Set (1/4\", 3/8\",  1/2\" )",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/giratorias-universales-esf%C3%A9rico-accionamiento-pulgadas/dp/B07M65WW6S/ref=sr_1_2_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=CUW0RU67MPRZ&dib=eyJ2IjoiMSJ9.zKjt4gpnzCBBiVjVx9CFttTWvBYPowORuV_lMakbdBhv_VkOa0Q5KRridHowKyYldkVphAKwc77v0VPzvNiDEAZvjoaYWhqquAgjwX3LMyZETyoS1GZ9RKwi2moodYXU4iUhZSAFN8ZczZ_IdHYqJa0JqkypqW7P98eeiqxB8Aeg1PRT-IGG20y9EpjFlswiiN0sS_91W4vPGu1MT1RCEZAg0mFabN45dbXGe6el6_hwU9hlCEH3kRgKMsBX16Qez9AUFd6_4rtIgspzYfh3_FpkL_LdUJLbLpnRTwArLz4.P3r1ihVhNc0PeWQNkmeICjVl5AZfMJODVsM69ha4fdY&dib_tag=se&keywords=juego%2Bde%2Benchufes%2Bgiratorios%2Bde%2Bimpacto%2Buniversal%2Bde%2Barticulaci%C3%B3n&qid=1725726752&sprefix=juego%2Bde%2Benchufes%2Bgiratorios%2Bde%2Bimpacto%2Buniversal%2Bde%2Barticulaci%C3%B3n%2Caps%2C291&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 209,
     "codigo": "IT-209",
     "descricao": "Adaptador Impact Set (1/4\", 3/8\", 1/2\", 3/4\")",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0B4KHSNMD/ref=sspa_dk_detail_4?pd_rd_i=B0B4KHSNMD&pd_rd_w=5Iy4s&content-id=amzn1.sym.f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_p=f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_r=7RA6J8G92E7JCPS6H9X7&pd_rd_wg=0YgbR&pd_rd_r=00cb794e-dcc3-4252-8146-b1254c505bed&s=hi&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM&th=1"
   },
   {
     "id": 210,
@@ -2296,7 +2337,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-2767-20-Torque-Impact-Friction/dp/B08P4NX77N/ref=sr_1_3?crid=1B46X4OBIIA96&dib=eyJ2IjoiMSJ9.f5D3RjGED68TslfxryQfvfzSWnbkUAlwIOQTk3Kzc2DUJnahlg4fscR3C8PMJCwhpqsjtTQ770qMyK7Enq-2Sr2UMGfLbBP_j2CS6Y3ILirejSzGnupTyh9zLXRkyxOi87HtcJSr9SJXf6IMAz7mb2jfyD-Uw6m5yWz4rCxmILM6iIypkRq6wmc5Aiqe2YA2ev6zQsGEoTTSczmes8DkdU3McyD5jY74m_n1BvgLPZfZjlifTmoHr9t1DCcrbtaU1Y_4xO6EuHtYkks3SvzIpheyUThe08k8Vhvu-nWxtVs.oKrq-9DCdp2Di7QSBYcZNz_G-begQFGrYUZ0UPMi3VA&dib_tag=se&keywords=high+torque+impact+wrench+milwaukee&qid=1722287106&sprefix=High+Torque+Impact+Wrench%2Caps%2C138&sr=8-3"
   },
   {
     "id": 211,
@@ -2307,7 +2349,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-48-11-1865-18-Volt-Lithium-Ion-Battery/dp/B07GZ77N6J/ref=sr_1_6?crid=24JOUIN0TF8K2&dib=eyJ2IjoiMSJ9.uGeO6VfT7RlmOyA6kit3_fmNXLbBG80iFCNNDYfueUX6hNoVx7kzJ9n2sDqdvBqsIboSQ13F3tvsXBeFalL8YU82w6ZWZBV9f6EQTv_MVNCTvMWSOk0rc5fiPwQVOe89eHKa_e95w8Qt6pAGKvRqZt28Gm42ma6jq01Jg4m7UPWj1eZon2xkIJ3eFDO_cnr1ySLXrp2L3sR6yd7Zvqv3hhWDRe7XwRpmqxTUYLy6rq082XzPWfkB3kemmWd0a4kDWwoNgk196fQ_nfp5g_VEAQAu5hoTfU43SgtBPGeIH2w.YXuiot0Tt5m0QmgI4OsCOyyh-yqw_ioN0GhJUvx13I8&dib_tag=se&keywords=milwaukee+m18+battery&qid=1722287423&sprefix=milw%2Caps%2C132&sr=8-6_fmNXLbBG80iFCNNDYfueUX6hNoVx7kzJ9n2sDqdvBqsIboSQ13F3tvsXBeFalL8YU82w6ZWZBV9f6EQTv_MVNCTvMWSOk0rc5fiPwQVOe89eHKa_e95w8Qt6pAGKvRqZt28Gm42ma6jq01Jg4m7UPWj1eZon2xkIJ3eFDO_cnr1ySLXrp2L3sR6yd7Zvqv3hhWDRe7XwRpmqxTUYLy6rq082XzPWfkB3kemmWd0a4kDWwoNgk196fQ_nfp5g_VEAQAu5hoTfU43SgtBPGeIH2w.YXuiot0Tt5m0QmgI4OsCOyyh-yqw_ioN0GhJUvx13I8&dib_tag=se&keywords=milwaukee+m18+battery&qid=1722287423&sprefix=milw%2Caps%2C132&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 212,
@@ -2318,7 +2361,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-48-11-1880-REDLITHIUM-Lithium-Ion-Battery/dp/B07S2WNS3H/ref=sr_1_10?crid=24JOUIN0TF8K2&dib=eyJ2IjoiMSJ9.uGeO6VfT7RlmOyA6kit3_fmNXLbBG80iFCNNDYfueUX6hNoVx7kzJ9n2sDqdvBqsIboSQ13F3tvsXBeFalL8YU82w6ZWZBV9f6EQTv_MVNCTvMWSOk0rc5fiPwQVOe89eHKa_e95w8Qt6pAGKvRqZt28Gm42ma6jq01Jg4m7UPWj1eZon2xkIJ3eFDO_cnr1ySLXrp2L3sR6yd7Zvqv3hhWDRe7XwRpmqxTUYLy6rq082XzPWfkB3kemmWd0a4kDWwoNgk196fQ_nfp5g_VEAQAu5hoTfU43SgtBPGeIH2w.YXuiot0Tt5m0QmgI4OsCOyyh-yqw_ioN0GhJUvx13I8&dib_tag=se&keywords=milwaukee+m18+battery&qid=1722287423&sprefix=milw%2Caps%2C132&sr=8-10"
   },
   {
     "id": 213,
@@ -2329,7 +2373,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Redlithium-High-Output-Hd12-0-Battery/dp/B07MTZQL4Q/ref=sr_1_7?crid=24JOUIN0TF8K2&dib=eyJ2IjoiMSJ9.uGeO6VfT7RlmOyA6kit3_fmNXLbBG80iFCNNDYfueUX6hNoVx7kzJ9n2sDqdvBqsIboSQ13F3tvsXBeFalL8YU82w6ZWZBV9f6EQTv_MVNCTvMWSOk0rc5fiPwQVOe89eHKa_e95w8Qt6pAGKvRqZt28Gm42ma6jq01Jg4m7UPWj1eZon2xkIJ3eFDO_cnr1ySLXrp2L3sR6yd7Zvqv3hhWDRe7XwRpmqxTUYLy6rq082XzPWfkB3kemmWd0a4kDWwoNgk196fQ_nfp5g_VEAQAu5hoTfU43SgtBPGeIH2w.YXuiot0Tt5m0QmgI4OsCOyyh-yqw_ioN0GhJUvx13I8&dib_tag=se&keywords=milwaukee+m18+battery&qid=1722287423&sprefix=milw%2Caps%2C132&sr=8-7"
   },
   {
     "id": 214,
@@ -2340,7 +2385,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-Variable-Braking-Grinder-ONE-KEY/dp/B0C2JRG2MZ/ref=sr_1_4?crid=TVP6MDVM2NFO&dib=eyJ2IjoiMSJ9.ybHH_daPUFUM7qNHVJWogmxHG6jBhicKYVbrUxnk6zhANDlL70tWqKHr-V6M9Rqyj30LKvPlvrWI6BUOFtavrKVE3yqXIKszGLR6hC9AHYE57UDlR1Daj6xT-xF7suF-AP1tJh6MR-UpmB_Ya74-KXGWL6M7bzRodZ8QC114JE6P4NodF21ixzeFY6AhLnS29STM2AAOvmXPCZj9FtVMokV_W7KmH-er4wP50bjkgSg03ALNrF5Iw_qm81uIgdYs7QfOo14TiPDzGBOPTZn56lxJxqt3PTl1NSKKeb9L9BU.C88OFXX4q06L0226Yfzr-wvcOPMWieQszU06RrFBKSs&dib_tag=se&keywords=die+grinder+milwaukee&qid=1722363550&s=industrial&sprefix=die+grinder+milwaukee%2Cindustrial%2C122&sr=1-4"
   },
   {
     "id": 215,
@@ -2351,7 +2397,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-2880-20-Grinder-Paddle-Switch/dp/B09RX4R3TR/ref=sr_1_1?crid=1416HZW0XI2A7&dib=eyJ2IjoiMSJ9.q_o3VFLmh6tdr-WOVCnbMc0DY2s2M82SgtesAhKw37Y1BbG1yu9hMRtOmZP9Ef84hAxW6LzyhxZKEQBb4IrpCZj51wGTk4nbYqoCzMcu0oagjVKTdbIRheLu_6pK_R-JHCHa72CKIze6BRDVnRxb4l2ne8eVWwHXUPVhZrpJSn-k9LXWUXHLX_NvkzXP3rNqsY2zqOhogesoVeSgJG5YVxvVYvmkl_vzVIUqfeRDHicUWoQ7ePhWbdZly6P0gSrcxjL-_6M8MdAtLYv9VOSKaCqyTtSfSQiKAtx0AFAaot8.Y_sipzxt4cGW3JIe-EB4JJMPwDJkSwKSgiOYdM5dbEY&dib_tag=se&keywords=angle+grinder+milwaukee&qid=1722363745&sprefix=angle+grinder+M%2Caps%2C121&sr=8-1"
   },
   {
     "id": 216,
@@ -2362,7 +2409,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/M18-Cordless-Lithium-Ion-6-1-Circular/dp/B005UQNS3U/ref=sr_1_1?crid=1ZDR6T3JI17JA&dib=eyJ2IjoiMSJ9.7K-ZNqV6iGjNTsoMpn7ltDl4lbIwrI1zX1vsjooQbDLhfpQTDoM-FQectYegDSFvgqN3946ySy57dNIcOckTZTqXfz0No34Vky9Vz9o19IRoL7dakZc-dVJKm-pC6Pizepc6LbkKGlLmj1lDfDzfsoz8LKa84UQMjS1_8byMvCaWQQ3Ob-FfJPw7_lULyyX_riG_5aaCYVejJI0jtfq8w0QsE__FcFrJt4juGftQw5kci0KxL6uAo68LQvhB97x0SlFxbS8W6KCYnV8L2vImQg36YInzKe1lYFH2VzSvsvA.n-4vgTiAiz-gWEvrGlsoe6fot9yz4sgntFyWX2bj5Tw&dib_tag=se&keywords=circular+saw+milwaukee&qid=1722363893&sprefix=circular+saw+m%2Caps%2C116&sr=8-1"
   },
   {
     "id": 217,
@@ -2373,7 +2421,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Milwaukee-2912-20-Brushless-Rotary-Hammer/dp/B09PMSKXRV/ref=sr_1_2?crid=3HT9OVV07SAIN&dib=eyJ2IjoiMSJ9.s064tlcUHfNhRFCVZLhgYQDbWQMouwhYYnbQ08FCVvcauU3Ztt5LENY6GBJW7QGPjZoARgqA2zGd5DQyXVTUnv_bk4ec3K9E9H9wCoy33gJsV83yhjOpX23pI5KkyK_geks8KSExPCVrOPquPzcsEm3LE1elYKq7LEtVJpFjvYeDrPmLUNeALIdEWs6b5TDmz_lJggoCXgwH4mp7c8w24YfUQxBA9gmTGq6SNL8QO1vbZYDwZydzt4VG2tUu_rWaZjAa9DYohYcCkNKE1DjW989iRCPY71InN9rPv_zUsxM.dQ4JUrIcs5Zy_YoZv06kOk6EdEkDhCRtaWmAlmGo2LI&dib_tag=se&keywords=rotary+hammer+drill+milwaukee&qid=1722364262&sprefix=rotary+hammer+drill+M%2Caps%2C139&sr=8-2"
   },
   {
     "id": 218,
@@ -2384,7 +2433,8 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/MILWAUKEE-2470-21-CORDLESS-SHEARS-CUTTERS/dp/B07C63SM39/ref=sr_1_3?crid=3RWAWWMBJ3ETC&dib=eyJ2IjoiMSJ9._NA9XQebPGl6sFNrB1rXDg_QH7qzaSpB01xufP6xy8nLN3V-THJ-lK3ZkxQBk6MDTuqaoc5t-87p8OWib9a536_2Jpa6pJhxXiwf4qzbyD9raVX-WxEqRlPwn44NiwvS52Nq1msrsjKP3Q8Ow0W0PlgAZKMNG4AlcSjqxq_lIK2rTwrvxG-Ehe6CuX7Fx_oGppi_04CPpFN1CvWUXAs3xXB-GRtNCy9u48Y4vIuMb9I8lmu2KLBxQV5ebWii2TEf8dl2Vd7h7k_MKylZCskN5HyebjJFks8QUkkdtQSZ1o8.FFR-pQs7N8l1U0MTbQ4l4Zo4dvnmDq6vZnbNvY2BaeU&dib_tag=se&keywords=milwaukee+pvc+pipe+cutter&qid=1722366447&s=hi&sprefix=pipe+cutter+mi%2Ctools%2C129&sr=1-3"
   },
   {
     "id": 219,
@@ -2395,545 +2445,546 @@
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Cordless",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "RUALION Cordless Caulking Gun: Max 6500N Force 10oz/300ml Electric Caulk Gun with 2 * 2.0Ah Li-Battery & Anti-Drip Design (80, Watts) - Amazon.com"
   },
   {
     "id": 220,
     "codigo": "IT-220",
     "descricao": "Portable Compressor, 1.9 Hp 200 Psi",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
-    "classe": "Pneumatica",
-    "tipo": "CAPEX"
+    "classe": "Pneumatics",
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: DEWALT Vertical Portable Compressor, 1.9 Hp 200 Psi Oil Free High Pressure Low Noise (D55168) : Tools & Home Improvement"
   },
   {
     "id": 221,
     "codigo": "IT-221",
     "descricao": "Air Gravity Spray Gun Set",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
-    "classe": "Pneumatica",
-    "tipo": "CAPEX"
+    "classe": "Pneumatics",
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: HVLP Air Gravity Spray Gun Set, Aflybltol 2 Pcs Sprayer Paint Gun Kit，1.4mm 600ml&0.8mm 125ml Automotive Paint Gun with Locking Air Pressure Regulator Gauge Paint Sprayer Gun for Car Painting : Automotive"
   },
   {
     "id": 222,
     "codigo": "IT-222",
     "descricao": "Compact Needle Scaler Heavy Duct",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
-    "classe": "Pneumatica",
-    "tipo": "CAPEX"
+    "classe": "Pneumatics",
+    "tipo": "CAPEX",
+    "linkReferencia": "WORKPAD 12 Needles, Compact Needle Scaler, Pneumatic Tools - Amazon.com"
   },
   {
     "id": 223,
     "codigo": "IT-223",
     "descricao": "Air Hose 3/8-Inch by 50-Feet w/air quick fittings",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
-    "classe": "Pneumatica",
-    "tipo": "CAPEX"
+    "classe": "Pneumatics",
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: FYPower Air Compressor Hose 3/8 Inch x 50 Feet Hybrid Hose with Fittings, Flexible and Kink Resistant, 1/4\" Industrial Quick Coupler and Plug Kit, Yellow"
   },
   {
     "id": 224,
     "codigo": "IT-224",
     "descricao": "Air Compressor Accessories Fittings, 1/4''NPT",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
-    "classe": "Pneumatica",
-    "tipo": "CAPEX"
+    "classe": "Pneumatics",
+    "tipo": "CAPEX",
+    "linkReferencia": "WYNNsky Air Compressor Accessories Fittings, 1/4''NPT Quick Connect Air Coupler and Plug Kit, I/M Type, 14 Pieces Air Tools Fittings Set - Amazon.com"
   },
   {
     "id": 225,
     "codigo": "IT-225",
     "descricao": "4-Way Straight Air Manifold  (1/4\" Male NPT Plug)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
-    "classe": "Pneumatica",
-    "tipo": "CAPEX"
+    "classe": "Pneumatics",
+    "tipo": "CAPEX",
+    "linkReferencia": "Milosline Connect Fittings Air Splitter, 1/4 Inch NPT 3-Way Air Manifold With 3 Pieces Brass Industrial Quick 1/4NPT Couplers And Plug, Hex Style Air Compressor Hose Accessories Quick Connect Fittings - Amazon.com"
   },
   {
     "id": 226,
     "codigo": "IT-226",
     "descricao": "Aluminium Square 12\"",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/WORKPRO-Combination-Die-casting-Carpenter-Zinc-alloy/dp/B083143LDY/ref=sr_1_3_sspa?crid=1C1AAQV0ZWIX1&dib=eyJ2IjoiMSJ9.niDNoE_C6Qp-574mpReysL05kd1Lb6NiUY7scL0QB6e22EIll0TPELknlWRj9bIYr8oF34KSdLnmIOqOr88vCqoWR1wk9lXNDfrfo7Fi8vqOYpZbX92uylOOgFhw6aIXplE0dHRlmZqKiIUFLFOL6nptjIf"
   },
   {
     "id": 227,
     "codigo": "IT-227",
     "descricao": "Magnetic Bubble Level (180o e 90o)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "DOWELL Magnetic Torpedo Level Mini Bubble Level Box Spirit Level Alloy Frame 180/90/45 Degree 9-Inch (1, White) - Amazon.com"
   },
   {
     "id": 228,
     "codigo": "IT-228",
     "descricao": "Tape Measure (mm) - 5 meters",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Stanley-Tools-33-725-25-Feet-Measure/dp/B00002PV66/ref=sr_1_5?crid=3UJ8Z3QZQRNAC&dib=eyJ2IjoiMSJ9.jXQw04EeGXjWnLcLejQENwmk3ZkfxMMNuWxRaYbYsWKNUEc82-ilTw8xNdAnyZL2HjMc-amLQONfBObqt6Uzfyr2lEGp09weY4TaLiSALLOME991-qanoSUbhPEypfxYrqVFzZTH98tEemqh4DdgAz_P6ab7gm9VzAPvtkBUi_NmDX4pPNI7NNAIYFRyrG3-TRrfmsvT41mOvUUJrJbBAPbk7EIClMT2BIKhAatttHDALv1tcuhRpHaSOy8ux4wl4szGFevdKSdR-DzSifNAGI97R1YIAVSnuowBU5CxD08._6kolV8VeOSUSgUIoxntqHkFlUTfcPrSvNMeIs087KI&dib_tag=se&keywords=tape+measure+25+ft&qid=1721146705&s=hi&sprefix=tape+me%2Ctools%2C232&sr=1-5"
   },
   {
     "id": 229,
     "codigo": "IT-229",
     "descricao": "3/4\" Torquer Wrench 100 - 600 lbs ~ 135 - 800 nm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "SuZhi 3/4 Inch 48-teeth torque wrench 100-600 ft lbs /135-815N.M,Split Beam, Longer 48'' Length, less effort for Off-road equipment,Truck,Motor homes & Drilling platform… - Amazon.com"
   },
   {
     "id": 230,
     "codigo": "IT-230",
     "descricao": "1/2\" Torquer Wrench 25 - 250lbs ~ 34 - 340 nm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/EPAuto-dinamom%C3%A9trica-pulgada-10-150-13-6-203-5/dp/B01LX4NIFK/ref=sr_1_1_sspa?__mk_es_US=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=36D3JC9IEQSLF&dib=eyJ2IjoiMSJ9.6OLgEJZmOqtHLNK-z6G_R2K_gj8okdeRvQ-nlImYyzZBva-eiFYj4AZ_-Cy9vn2At1IKdH9acI0v8jveBDo3DE9eaaR_wI1QfcdchRZk_8c3q3DQD_RPV0KkncBtiqZq6P5myhbpmPxD-C-UxSoSyWTGjdxfHC9BGLEkyXxjCk-tUfO9TSmSktGnOofSfaK0YfT6F8wMS8IQVrzLWgZ9IczSgFcQMRwrjPVekTqjGxX628eCxBHXRW0hhi59wmgACXBjQ-bPDOAC1AjRFOgXKKkZoaNDERx_sExyfUtvfq4.mjOulVfDCYLs_TPECrFpF5E13SNeUNiBW7xgZmGEKAw&dib_tag=se&keywords=torque%2Bratchet%2Bwrench&qid=1725814359&sprefix=torque%2Bratchet%2Bwrench%2B%2Caps%2C208&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
   },
   {
     "id": 231,
     "codigo": "IT-231",
     "descricao": "Digital Caliper Stainless 6\"",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Measurement",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Caliper Measuring Tool, Qfun Vernier Digital Caliper Stainless Steel 6 Inch/150mm, Digital Micrometer Waterproof, Easy Switch from Inch to Millimeter, Large LCD Screen: Amazon.com: Industrial & Scientific"
   },
   {
     "id": 232,
     "codigo": "IT-232",
     "descricao": "1/2\" Drive Nut/Bolt Damage Extractor Tool",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Thinkpro Bolt Extractor Set,17 Piece Wheel Lock Removal Kit,Lug Nut Extractor Set 1/2 Inch Drive,Lug Nut Remover for Removing Damaged, Frozen, Rusted, Rounded-Off Bolts, Nuts & Screws - Amazon.com"
   },
   {
     "id": 233,
     "codigo": "IT-233",
     "descricao": "Thread Repair Chaser Set",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B0CQNYSHLK/ref=sspa_dk_detail_4?psc=1&pd_rd_i=B0CQNYSHLK&pd_rd_w=c1o8k&content-id=amzn1.sym.f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_p=f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_r=TC2SV416XCKATX62S346&pd_rd_wg=eHEJ7&pd_rd_r=b65be8f7-17fe-4160-aa74-4cd2601ad3a3&s=automotive&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM"
   },
   {
     "id": 234,
     "codigo": "IT-234",
     "descricao": "Snap Ring Pliers Set - Heavy Duty 7-inch Internal/External",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "WORKPRO 4-Piece Snap Ring Pliers Set - Heavy Duty 7-inch Internal/External Circlip Pliers Kit (Tip Diameter 5/64'')-Straight/Bent Jaw - Cr-V Steel - For Ring Remover Retaining- Storage Pouch Included - Amazon.com"
   },
   {
     "id": 235,
     "codigo": "IT-235",
     "descricao": "Pin Punch Set 9 Pieces",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B07RKPH6R9/ref=sspa_dk_detail_5?psc=1&pd_rd_i=B07RKPH6R9&pd_rd_w=2LyHv&content-id=amzn1.sym.386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_p=386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_r=RH565QFHW18S2XGYTZAG&pd_rd_wg=TseUW&pd_rd_r=e4dd0610-c7ef-41c2-b1bf-52476c5fb131&s=automotive&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM"
   },
   {
     "id": 236,
     "codigo": "IT-236",
     "descricao": "Hole Saw Set ( 19 - 127mm)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "PETUOL Hole Saw Set, 22PCS Hole Saw Kit with 3/4\" to 5\" (19mm-127mm) 13Pcs Saw Blades, Mandrels, Installation Plate, Drill Bits, Hex Key with Storage Box, Ideal for Soft Wood, Plywood, Drywall, PVC - Amazon.com"
   },
   {
     "id": 237,
     "codigo": "IT-237",
     "descricao": "Ratcheting Combination Wrench Set 12 Pieces Heavy Duct (mm)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "TICONN Mechanic Cr-V Ratcheting Wrench Set with Organizer Rack, Professional Slim Profile (12PCS mm (Metric)) - Amazon.com"
   },
   {
     "id": 238,
     "codigo": "IT-238",
     "descricao": "Ratcheting Combination Wrench  17 mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/combinada-Tekton-WRN53117-trinquete-pulgadas/dp/B01F511QLK/ref=sr_1_9?crid=W4SNE5BMWNA3&dib=eyJ2IjoiMSJ9.w53icP7o-eFwHhGLYw9jlAVR4shH-o2d7NXuHbXHfduBu3yqP3lms2-iAfjr2RwbbjxIb7T8M0ehv1tF88dnU5a2ynTurXptQBPB7xBAOlvE0bE3FHWRX0r-SxR_WdgTc0eDjfoIW9Gay7Jow99FpjGT35X2MQMe9iUDrK6LdXNRdEZZEkR4daUD0pi1zrBKgzocubgJlsp3i349SLQdupiPAXL0hYBpKD0n7-lcuhiqNqIdtyTdt7a9w6Lk9clvt2dc9QX6mWRVahRYnSIaAYt4TK_wGN45qQirGy0X4pc.ECSyZooKtv5R3qW6Di7VVpOkpJnO4e-dXBUYJvhBirs&dib_tag=se&keywords=ratcheting%2Bcombination%2Bwrench%2B17%2Bmillimeter&qid=1725807769&sprefix=Ratcheting%2BCombination%2BWrench%2B%2B17%2Bmm%2Caps%2C400&sr=8-9&th=1"
   },
   {
     "id": 239,
     "codigo": "IT-239",
     "descricao": "Ratcheting Combination Wrench  19 mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/combinada-Tekton-WRN53117-trinquete-pulgadas/dp/B01F511QLK/ref=sr_1_9?crid=W4SNE5BMWNA3&dib=eyJ2IjoiMSJ9.w53icP7o-eFwHhGLYw9jlAVR4shH-o2d7NXuHbXHfduBu3yqP3lms2-iAfjr2RwbbjxIb7T8M0ehv1tF88dnU5a2ynTurXptQBPB7xBAOlvE0bE3FHWRX0r-SxR_WdgTc0eDjfoIW9Gay7Jow99FpjGT35X2MQMe9iUDrK6LdXNRdEZZEkR4daUD0pi1zrBKgzocubgJlsp3i349SLQdupiPAXL0hYBpKD0n7-lcuhiqNqIdtyTdt7a9w6Lk9clvt2dc9QX6mWRVahRYnSIaAYt4TK_wGN45qQirGy0X4pc.ECSyZooKtv5R3qW6Di7VVpOkpJnO4e-dXBUYJvhBirs&dib_tag=se&keywords=ratcheting%2Bcombination%2Bwrench%2B17%2Bmillimeter&qid=1725807769&sprefix=Ratcheting%2BCombination%2BWrench%2B%2B17%2Bmm%2Caps%2C400&sr=8-9&th=1"
   },
   {
     "id": 240,
     "codigo": "IT-240",
     "descricao": "Ratcheting Combination Wrench  24 mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/combinada-Tekton-WRN53117-trinquete-pulgadas/dp/B01F511QLK/ref=sr_1_9?crid=W4SNE5BMWNA3&dib=eyJ2IjoiMSJ9.w53icP7o-eFwHhGLYw9jlAVR4shH-o2d7NXuHbXHfduBu3yqP3lms2-iAfjr2RwbbjxIb7T8M0ehv1tF88dnU5a2ynTurXptQBPB7xBAOlvE0bE3FHWRX0r-SxR_WdgTc0eDjfoIW9Gay7Jow99FpjGT35X2MQMe9iUDrK6LdXNRdEZZEkR4daUD0pi1zrBKgzocubgJlsp3i349SLQdupiPAXL0hYBpKD0n7-lcuhiqNqIdtyTdt7a9w6Lk9clvt2dc9QX6mWRVahRYnSIaAYt4TK_wGN45qQirGy0X4pc.ECSyZooKtv5R3qW6Di7VVpOkpJnO4e-dXBUYJvhBirs&dib_tag=se&keywords=ratcheting%2Bcombination%2Bwrench%2B17%2Bmillimeter&qid=1725807769&sprefix=Ratcheting%2BCombination%2BWrench%2B%2B17%2Bmm%2Caps%2C400&sr=8-9&th=1"
   },
   {
     "id": 241,
     "codigo": "IT-241",
     "descricao": "Ratcheting Combination Wrench  30 mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/-/es/combinada-Tekton-WRN53117-trinquete-pulgadas/dp/B01F511QLK/ref=sr_1_9?crid=W4SNE5BMWNA3&dib=eyJ2IjoiMSJ9.w53icP7o-eFwHhGLYw9jlAVR4shH-o2d7NXuHbXHfduBu3yqP3lms2-iAfjr2RwbbjxIb7T8M0ehv1tF88dnU5a2ynTurXptQBPB7xBAOlvE0bE3FHWRX0r-SxR_WdgTc0eDjfoIW9Gay7Jow99FpjGT35X2MQMe9iUDrK6LdXNRdEZZEkR4daUD0pi1zrBKgzocubgJlsp3i349SLQdupiPAXL0hYBpKD0n7-lcuhiqNqIdtyTdt7a9w6Lk9clvt2dc9QX6mWRVahRYnSIaAYt4TK_wGN45qQirGy0X4pc.ECSyZooKtv5R3qW6Di7VVpOkpJnO4e-dXBUYJvhBirs&dib_tag=se&keywords=ratcheting%2Bcombination%2Bwrench%2B17%2Bmillimeter&qid=1725807769&sprefix=Ratcheting%2BCombination%2BWrench%2B%2B17%2Bmm%2Caps%2C400&sr=8-9&th=1"
   },
   {
     "id": 242,
     "codigo": "IT-242",
     "descricao": "1/2\" Drive Ratchet Heavy Duct",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "DURATECH 1/2-Inch Drive Ratchet, 90-Tooth Quick-release Ratchet Wrench, Reversible, Chrome Alloy Made, Full Polished, Gifts for Men Gifts for Women Gifts for Dad - Amazon.com"
   },
   {
     "id": 243,
     "codigo": "IT-243",
     "descricao": "1/2\" Drive Heavy Duct Impact Socket 17mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
   },
   {
     "id": 244,
     "codigo": "IT-244",
     "descricao": "1/2\" Drive Heavy Duct Impact Socket 19mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
   },
   {
     "id": 245,
     "codigo": "IT-245",
     "descricao": "1/2\" Drive Heavy Duct Impact Socket 24 mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
   },
   {
     "id": 246,
     "codigo": "IT-246",
     "descricao": "3/4\" Drive Heavy Duct Impact Socket 30mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: CRAFTSMAN Shallow Impact Socket, Metric, 1/2-Inch Drive, 17mm (CMMT15865)"
   },
   {
     "id": 247,
     "codigo": "IT-247",
     "descricao": "Hand Caulking Tool Gun",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Bates- Caulking Gun, 10:1 Thrust Ratio, Orange, Caulking Tool Gun, Caulk Gun No Drip, Hand Caulking Guns, Silicone Gun, Caulking Gun Tool, No Drip Caulk Gun, Caulk Guns, Caulking Gun Dripless - Amazon.com"
   },
   {
     "id": 248,
     "codigo": "IT-248",
     "descricao": "Tool Bag Large / Storage Back Heavy Ducty",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.alycotools.com/en/products/b-1/?b=1&fa=&pa=198130"
   },
   {
     "id": 249,
     "codigo": "IT-249",
     "descricao": "Tool Bag Smal / Storage Back Heavy Ducty",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.alycotools.com/en/nylon-bag-alyco/v-502/"
   },
   {
     "id": 250,
     "codigo": "IT-250",
     "descricao": "Allen Key Set mm",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/SEDY-32-Piece-0-028-3-2-Piece-Extension/dp/B08MVKQKYL/ref=sr_1_5?crid=66VI02MVGQ16&dib=eyJ2IjoiMSJ9.G2b-y9w-HBBpNdCBJSkU58Gn3-B62iRo-aQH5r_avp-14zwExbJDbb1WnFzWeTgeO7H3TBeDqjVpwur2w1nhHPeS1khjH91ah6EsDMpKos7_1USNdh3TR4ZsU00i3_SxlIb4yQwUvkzoE89xjGpecRYnD5hz2aMtyJ0vJPiGYSbivt_KCTRQbeMXJSuO7llF-WK6xdPechVlMUMV31mmZ-Z9HrhMHLSlFMb0tDy1aZNufcLYrZTDXRl6o-qS2wfrFP2Sm9XurVvoEgi8g0WJvGgWCx2Tavwr99Iz3KUpRjM.LsrnzZb_Y1L8qs0LKPDDFfSfWIdeu7_FzO2wDowmfUk&dib_tag=se&keywords=allen+key+set&qid=1721145998&s=hi&sprefix=allen+key%2Ctools%2C256&sr=1-5"
   },
   {
     "id": 251,
     "codigo": "IT-251",
     "descricao": "Allen Key Set Inch",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/DISEN-Hex-Key-Set-Ball/dp/B09NRBNBCH/ref=sr_1_1_sspa?crid=2P1A9H82SUXIR&dib=eyJ2IjoiMSJ9.VgVdE_0SSzhrTdNbO6SAsiLCP8Gu51oRLPmEoKPCi54CXFVrjgXiifZ731ievET9AUvKBb-UTHM8qr8-J-1scRrilEJzj0LT97aPY5YrLAFzxbk6zerWZZajVjg9SuHNctNSofiF7loYesO4VLu4oLWWbXC1luLwOTc7EpyKwRcib4JqQ7aUl6sXE0oMi5WIToo_4ECmN-EXklFp9nihHkw4z_xhM0SjYCuKZPehvnsQDic3VCV440AM3nQIZQ74nrHOhGxXsBWxtMCfvQvUfONatF1uQTE4qUIrJ9gDPmw.zG6CPWrGwd-Wj1F8NC-dkr7MOx622edzBLOPdqo1ggg&dib_tag=se&keywords=Allen+Key+Set+Inch&qid=1721236431&s=hi&sprefix=allen+key+set+inch%2Ctools%2C204&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 252,
     "codigo": "IT-252",
     "descricao": "Combination Wrench Set, Chrome Vanadium Steel Metric",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/15-Piece-Premium-Combination-Vanadium-Pattern/dp/B07Y7ZTDMM/ref=sr_1_4?crid=34EHHOZFK0YSV&dib=eyJ2IjoiMSJ9.21gNsrbpNkJbta8mkdChdvcTSKOWwe0oZ_hZogyxGQANvIbstWSglqXhwqNfn_y67zbXwAdT5m-nuJ8xuOgDW1A23qPA8JOOVYwzUghHePtABpYTQgsGw2KMugHZmKbtEjvJo7HrXVAceqapURh_CGXYNcyUzNbn5YKiqHpGdQEk-y1U1a5v7Y8vEquRpE0WiYo8fZWTyy1GNSw08hcmWMXZPq9tmX38bHDSBW-Ni8_OS1d-iKlPrF0639nIJ5V9BZACzpOL_ZOajAzvqH56ybb-ihnVnwFXoEuKXabKtCk.FYdUbevfT6JQD0aYC6AthPpSCGL9zWQKsrg5ULwgdMM&dib_tag=se&keywords=wrench+set+metric&qid=1721236904&s=hi&sprefix=wrench+set+metric%2Ctools%2C413&sr=1-4"
   },
   {
     "id": 253,
     "codigo": "IT-253",
     "descricao": "Screw Driver Phillips and Flat",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/SUNHZMCKP-Screwdriver-Professional-Magnetize-Demagnetize/dp/B0CWL7CBWW/ref=sr_1_3_sspa?crid=16V7VL2KFSOEF&dib=eyJ2IjoiMSJ9.UhRBACnekjazH42J-YC3Wb-pxEjB_n89lPTot47YmlFP8s98_S8OPVsj3OB2ibJhdnW7eO2UbtyFM-R6umbrBQFWDrmg31MupvRvSPQz7bIiiLn0EcdBe8-xREr-0G47LxcNL1XYExDDEuDp5XM-4nR0RklmQ8CzT2UEt6Z5rhtHxOcw6ijXuqwVlqan6G4V2U-lDo93dbLvnPsdwMiXICvYjYm1W0UhkB6ytIjJhK5JYWucxOjOcfqICpzjUnBQSNnZb5_0Wy7_LicAj2qAvwEy9qdyhFPf4q_yHLau5Ks.TxoEGFqexUh4D7_aj04PDF06vBY8Ioo3O5ceZHxu-Os&dib_tag=se&keywords=screw+driver+and+flat&qid=1721146089&s=hi&sprefix=srew+driver+and+fla%2Ctools%2C219&sr=1-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
   },
   {
     "id": 254,
     "codigo": "IT-254",
     "descricao": "Crack Hammer - 3-Pound Sledge",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Estwing-Strike-Drilling-Crack-Hammer/dp/B00433SC4Q/ref=sr_1_6?crid=37QXTS1VURR9B&dib=eyJ2IjoiMSJ9.QWwxFaw3hJs7y8lHHexsD-bZGbvCJvByTIBwlP1xADHUaI1kM-kZridxxqTaghhWuY7s8ySztwc81vYf0XM-8DAe5RY0pmYcSzmK6j0KTMcO8ydpwL0v0jmg1DX_2pOyacIYfPZuVWbVu9UnAmJkrPQySbU-iqFueX3WWPhG5PIhGT46AuytxYhSvdJVxnjTyNF3qpNKw4Qmr0kx7xiJIhuoFSvbO00EJc3iUPHCbz53_3U3-_J9PK4PjVd9f_yGI_IIif7DuVNT3BMfLLe5zvSMDXwWon_38VvCwtnasR0.Cwj_Mvv0_ZSf1cHxQwSKVu2Hp8U5L736wZUtl0Df5OI&dib_tag=se&keywords=heavy%2Bhammer%2Bset&qid=1721146203&s=hi&sprefix=heavy%2Bhammer%2Bset%2Ctools%2C195&sr=1-6&th=1"
   },
   {
     "id": 255,
     "codigo": "IT-255",
     "descricao": "8\" Universal Plier",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/GEARWRENCH-Pitbull-Material-Universal-Cutting/dp/B08JMDGBCC/ref=sr_1_4?crid=20Z52IJ1GDK2Z&dib=eyJ2IjoiMSJ9.LFc4YRet2gwVOMl2ypMYnXQQhtGAMoDFgu9bEJRi8UlD-bHWwY14BNY4RC1KMF1BquRTBWWacLD-E55NlH7Or7Fpj5VqeS1OgmR32g5wONyuL64mWoZQjIVd9VbYceZ7jVFOfq7CAS7VDERXMKgNGQAJbUHsk_S1vCvjrnfUpHbiJsILW1YnpHRARhYpV0q0VokmHFS2s4GktAW0bpzTEOqENkGfBoo0S5Hri09z-WtVPym9FOs5K_VL5ti9805NsJDxtygpcOvUGg_T_bPSb0VHKqhQmb6DKuAIuHfN3qE.Rq8n5n982LCN-qXVK9KuRoZjk4v3G4F6PTWN88DlPUY&dib_tag=se&keywords=Pliers%2Buniversal&qid=1721146412&s=hi&sprefix=pliers%2Buniversal%2Ctools%2C243&sr=1-4&th=1"
   },
   {
     "id": 256,
     "codigo": "IT-256",
     "descricao": "Water Pump Pliers Set",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B07G2J4YQZ/ref=sspa_dk_detail_5?pd_rd_i=B07G2J4YQZ&pd_rd_w=iXHod&content-id=amzn1.sym.f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_p=f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_r=J9Z9WDMP3HGPCRF482FG&pd_rd_wg=EecGm&pd_rd_r=5edede37-f0bb-42ea-8a83-83b5915a5f77&s=hi&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM&th=1"
   },
   {
     "id": 257,
     "codigo": "IT-257",
     "descricao": "Rubber Hammer 0,5kg",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/Edward-Tools-Harden-Rubber-Mallet/dp/B082XMMJZ7/ref=sr_1_4?crid=VKQ8YCE0K0R9&dib=eyJ2IjoiMSJ9.e5BRXobk5HjzrrBprxts5mUpJHHPERHwLbbM_xUGWaCL6BhUqlHcMzCP7lZ7fPuGFMGQ6NgtnT0EnUgT4hXLKawXdSpbQ0OHHM_GhwEFIaue-hB4ShRIkQC8Ek-6CUxWK60oUW5qZ59aP2Roy2VoAWcsVImI3tZfFWBOL17eRscsC6-DVWZ7R7f_7BhDM5L_QzXIPlEp92WkEGUOG3zpFpKYdBRS5R4xl8W6mvXQO2lrdXkxeAk6zGm3Qm3TPYb0FBqopZfvhxBalVqoLtlSrdNicYmOFUhQypFhCm_QZoY.uHFh6vLYR9z6qVBblE_1x5p4zKqDvNkL1HTc1bMTCyA&dib_tag=se&keywords=rubber%2Bhammer&qid=1721233287&s=hi&sprefix=rubber%2Bhamme%2Ctools%2C178&sr=1-4&th=1"
   },
   {
     "id": 258,
     "codigo": "IT-258",
     "descricao": "Rubber Hammer 1kg",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/dp/B00JF5V6I6/ref=sspa_dk_detail_6?psc=1&pd_rd_i=B00JF5V6I6&pd_rd_w=OQ4Mi&content-id=amzn1.sym.386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_p=386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_r=FAFD25MKFZJP093YTPHN&pd_rd_wg=rs26C&pd_rd_r=de933866-cfce-4899-ab54-67f08b458381&s=hi&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM"
   },
   {
     "id": 259,
     "codigo": "IT-259",
     "descricao": "Pipe Wrench Set, Straight Plumbing Wrench 14 inch",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/MAXPOWER-Pipe-Wrench-Straight-Plumbing/dp/B09GKPF3FB"
   },
   {
     "id": 260,
     "codigo": "IT-260",
     "descricao": "Pipe Wrench Set, Straight Plumbing Wrench 10 inch",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/MAXPOWER-Pipe-Wrench-Straight-Plumbing/dp/B09GKPF3FB"
   },
   {
     "id": 261,
     "codigo": "IT-261",
     "descricao": "Short Impact Socket, Metric, 1/2-Inch Drive Set",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-Shallow-Impact-Socket-CMMT15865/dp/B07QKGHV3G/ref=sr_1_6?crid=316DNZS1U0M4Z&dib=eyJ2IjoiMSJ9.gbkMVIFt21zw3tRfbqA9h09eYLdIOkyfmKN39kO98SvI1FUgQFPyL0x9B7ucv0AajZJYphRPrYxu_D2bNFc6yTpflbWBC_5tFx4RY-Abo5LPeX9Mx299GILhPj9z05JU7W9jm7lO2wAbK1rgVavv1v9-kvaEMJ1vsBcw4kr_vlix9OZt0SvkRQ8Q3nGRM1uCSO-6FKNvmq7Mdpk67X2HSNttuIAqkVviHLupyThapgLn51xNCf5HUSE-xlVU07gT2d5pJC9Tx4mVB3sYRaNpWIavMsb15ihSVanyVJGSD1s.QYQLi4xozje3rT0Rjr3xUhDUFxAycHaeoqK2Kkb6W1o&dib_tag=se&keywords=17mm%2Bsocket%2B1%2F2%2Bdrive&qid=1721158786&sprefix=1%2F2%22%2BDrive%2BSocket%2B17mm%2Caps%2C373&sr=8-6&th=1"
   },
   {
     "id": 262,
     "codigo": "IT-262",
     "descricao": "Short Impact Socket, Metric, 1/2-Inch Drive, Inch",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/s?k=craftsman+deep+impact+socket%2C+metric%2C+1%2F2-inch+drive%2C+19mm&crid=12GE1E467G246&sprefix=Impact+Socket%2C+Metric%2C+1%2F2-Inch+Drive%2C+19mm+%2Caps%2C302&ref=nb_sb_ss_pltr-xclick_1_44"
   },
   {
     "id": 263,
     "codigo": "IT-263",
     "descricao": "Cutter Retractable, Utility Knife Cuchilo plegable",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/Amazon-Basics-Universalmesser-Klappmesser-Aluminiumgeh%C3%A4use/dp/B07TBNH4ZT/ref=sr_1_24?crid=1SC70DIOED7D8&dib=eyJ2IjoiMSJ9.-iN7D5xEneImqVuT5L_XlpAGC33_GuRhDMpiskfxlivkxeBU_iCTInUupaKkaZ2x8mgP7EigKIQOE6J-DaC79_b6KbXwooVy3lCrWdjCe3Yp-47uFaJtz78FOFT-eARfHgDC3f3_47lc2neOtbnusaSLNCxkgu4LrXqppQMc06-bK6NpBwaBcDudkG_OBb2ek6Fklk2sFW8C7I34ILcxXTGdCSFNODoE7Exm6TGU9qfmwJtI_wsj3d8MsFyTnk7WynV6d1Ge6gtNc6ESSTDU0-UN5WxETyPh3E9_ZHmjUaE.fwIjyC8bkiYKkyYvQ6uKAiJJ-0l9pp9vs7KxerlPoUI&dib_tag=se&keywords=estilete+navaja&qid=1755632425&sprefix=estilete%2Caps%2C127&sr=8-24"
   },
   {
     "id": 264,
     "codigo": "IT-264",
     "descricao": "Hoja de cuchillo gama estandar 1992, Dispensador 10 hojas",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/Stanley-2-11-921-trapezoidales-Orificios-Distribuidor/dp/B0001IWB0I/ref=pd_bxgy_d_sccl_1/258-3278011-2468112?pd_rd_w=vo8fy&content-id=amzn1.sym.74b21e91-68d2-43e6-9bb6-b10981f45976&pf_rd_p=74b21e91-68d2-43e6-9bb6-b10981f45976&pf_rd_r=DT5G6X9J5Y9EBV3E1H3P&pd_rd_wg=qDVbT&pd_rd_r=496988da-be36-4544-924d-0e22ca24cf31&pd_rd_i=B0001IWB0I&psc=1"
   },
   {
     "id": 265,
     "codigo": "IT-265",
     "descricao": "Adjustable Wrench Set, 3-Piece (CMMT12001)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.com/CRAFTSMAN-Adjustable-Wrench-3-Piece-CMMT12001/dp/B07QQ8P5K6/ref=sr_1_4?crid=3PW9LYV6Y84PL&dib=eyJ2IjoiMSJ9.urlWN9A8aOuqL0uKNvSA3vcj0fd0m99pSjH7SZLwqirDTIma78Z6NCCvBWbOv-kN863RCPYy_XZ535QxknE4u6mFQvibEIH8KMPjX3jtGcgLYw3NSI4WloFHfQiaSAyNAFIb-x6KAPUg6-C3zMOoFSOEeEyXqI7Z_VMpCfg1MSwSJdzy6Z-tGXK8t9eN5nUxnSzgf8EM2z2wVtfAk0Mcz9Me-S7YsoxUHwGLxj7BrKmbEFqflDZ-GwiTbnbs0h31Sn2l9FdWn_fzPYyJK5yP-gOgSf3LBBmNFNUyDw-akyI.RAc05UTu4hhsXf2PjtVliQAWh7vcXzq8Rwdfh4gPxTk&dib_tag=se&keywords=adjustable+wrench&qid=1721146905&s=hi&sprefix=adjustable+w%2Ctools%2C1075&sr=1-4"
   },
   {
     "id": 266,
     "codigo": "IT-266",
     "descricao": "10\" VISE-GRIP Original Locking Plier",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "IRWIN VISE-GRIP Original Locking Pliers with Wire Cutter, Curved Jaw, 10-Inch (502L3) - Vice Grip - Amazon.com"
   },
   {
     "id": 267,
     "codigo": "IT-267",
     "descricao": "Torx Screwdriver Set T8 to T30 Star Screwdrivers",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "Amazon.com: GURADESIGN 7PCS Magnetic Torx Screwdriver Set T8 to T30 Star Screwdrivers (7PCS TORX SCREWDRIVER) : Tools & Home Improvement"
   },
   {
     "id": 268,
     "codigo": "IT-268",
     "descricao": "Heavy Duty Plier (Cutter Stainless Cables)",
-    "marca": "Not Applicable",
     "unidade": "Unity",
     "precoUnitario": 0,
     "categoria": "Tools",
     "classe": "Hand",
-    "tipo": "CAPEX"
+    "tipo": "CAPEX",
+    "linkReferencia": "https://www.amazon.es/-/pt/dp/B0DCTL4TBX/ref=sr_1_5?crid=25863D42D58ZZ&dib=eyJ2IjoiMSJ9.tZzRaqDi4OmPLNVlWAii6sDLgaMoh-Y6KrBnRgkjXIvwfcrYtoa_l3lEf6lEm1gPa_FSjY8iqXtqwm7Tabbx5CdyFm9pDkcU1hFD8jo_E1mcm_i_CmlqUQYzOEDp3euJ0tSecwYiyQzZltaCrAkmMsHw7kuPfUdexppU42i-zg5IYnTsrzpIZ2Spe_6XcjzFXl9j_83n6DrHujPKhHj5e22A6Liua1Kk6z2Momdbd_o.OZOvOIkCQL5-vCQIBMfTZZmtmEznYV_Tfechwxj3qNA&dib_tag=se&keywords=stainless+cable+cutter&qid=1745166338&s=tools&sprefix=stainless+cable+cutter%2Cdiy%2C125&sr=1-5"
   }
 ]
