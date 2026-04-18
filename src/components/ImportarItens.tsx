@@ -26,6 +26,7 @@ interface PreviewItem {
   categoria: string;
   classe: string;
   tipo: 'OPEX' | 'CAPEX';
+  linkReferencia?: string;
   valid: boolean;
   errors: string[];
 }
