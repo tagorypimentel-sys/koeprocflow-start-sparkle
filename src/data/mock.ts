@@ -9,16 +9,16 @@ export const MOCK_USERS: User[] = [
 ];
 
 export const MOCK_ITEMS: Item[] = [
-  { id: 1, code: 'IT001', name: 'Notebook Dell Inspiron 15', unit: 'UN', price: 4500 },
-  { id: 2, code: 'IT002', name: 'Monitor LG 24"', unit: 'UN', price: 1200 },
-  { id: 3, code: 'IT003', name: 'Teclado Mecânico Logitech', unit: 'UN', price: 450 },
-  { id: 4, code: 'IT004', name: 'Mouse Sem Fio', unit: 'UN', price: 180 },
-  { id: 5, code: 'IT005', name: 'Headset Sony', unit: 'UN', price: 320 },
-  { id: 6, code: 'IT006', name: 'Papel A4 Resma 500fls', unit: 'PCT', price: 28 },
-  { id: 7, code: 'IT007', name: 'Caneta Esferográfica', unit: 'CX', price: 15 },
-  { id: 8, code: 'IT008', name: 'Mesa de Escritório', unit: 'UN', price: 850 },
-  { id: 9, code: 'IT009', name: 'Cadeira Ergonômica', unit: 'UN', price: 1300 },
-  { id: 10, code: 'IT010', name: 'HD Externo 1TB', unit: 'UN', price: 380 },
+  { id: 1, codigo: 'IT001', descricao: 'Notebook Dell Inspiron 15', unidade: 'UN', precoUnitario: 4500, categoria: 'Tools', classe: 'Electrical', tipo: 'CAPEX' },
+  { id: 2, codigo: 'IT002', descricao: 'Monitor LG 24"', unidade: 'UN', precoUnitario: 1200, categoria: 'Tools', classe: 'Electrical', tipo: 'CAPEX' },
+  { id: 3, codigo: 'IT003', descricao: 'Teclado Mecânico Logitech', unidade: 'UN', precoUnitario: 450, categoria: 'Tools', classe: 'Electrical', tipo: 'OPEX' },
+  { id: 4, codigo: 'IT004', descricao: 'Mouse Sem Fio', unidade: 'UN', precoUnitario: 180, categoria: 'Tools', classe: 'Electrical', tipo: 'OPEX' },
+  { id: 5, codigo: 'IT005', descricao: 'Headset Sony', unidade: 'UN', precoUnitario: 320, categoria: 'Tools', classe: 'Electrical', tipo: 'OPEX' },
+  { id: 6, codigo: 'IT006', descricao: 'Papel A4 Resma 500fls', unidade: 'PCT', precoUnitario: 28, categoria: 'Consumables', classe: 'General', tipo: 'OPEX' },
+  { id: 7, codigo: 'IT007', descricao: 'Caneta Esferográfica', unidade: 'CX', precoUnitario: 15, categoria: 'Consumables', classe: 'General', tipo: 'OPEX' },
+  { id: 8, codigo: 'IT008', descricao: 'Mesa de Escritório', unidade: 'UN', precoUnitario: 850, categoria: 'Tools', classe: 'General', tipo: 'CAPEX' },
+  { id: 9, codigo: 'IT009', descricao: 'Cadeira Ergonômica', unidade: 'UN', precoUnitario: 1300, categoria: 'Tools', classe: 'General', tipo: 'CAPEX' },
+  { id: 10, codigo: 'IT010', descricao: 'HD Externo 1TB', unidade: 'UN', precoUnitario: 380, categoria: 'Tools', classe: 'Electrical', tipo: 'CAPEX' },
 ];
 
 export const MOCK_SUPPLIERS: Supplier[] = [

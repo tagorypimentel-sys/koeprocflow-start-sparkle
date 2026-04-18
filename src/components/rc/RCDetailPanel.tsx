@@ -175,7 +175,7 @@ export function RCDetailPanel({ rc, onClose }: Props) {
               const t = li.unitPrice * li.qty * (1 - li.discount / 100);
               return (
                 <div key={li.id} className="pb-3 border-b border-gray-50 last:border-0 last:pb-0">
-                  <div className="font-medium text-sm text-gray-800 mb-1">{li.item.name}</div>
+                  <div className="font-medium text-sm text-gray-800 mb-1">{li.item.descricao}</div>
                   <div className="flex justify-between text-xs text-gray-500">
                     <span>{li.qty} × R$ {fmt(li.unitPrice)}{li.discount > 0 ? ` (-${li.discount}%)` : ''}</span>
                     <span className="font-semibold text-gray-800">R$ {fmt(t)}</span>

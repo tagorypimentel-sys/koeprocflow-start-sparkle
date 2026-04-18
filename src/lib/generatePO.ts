@@ -175,8 +175,8 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
     body: rc.lineItems.map((li) => {
       const t = li.unitPrice * li.qty * (1 - li.discount / 100);
       return [
-        li.item.code,
-        li.item.name,
+        li.item.codigo,
+        li.item.descricao,
         String(li.qty),
         fmt(li.unitPrice),
         li.discount > 0 ? `${li.discount}%` : '—',

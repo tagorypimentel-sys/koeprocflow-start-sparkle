@@ -80,8 +80,8 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                         const t = li.unitPrice * li.qty * (1 - li.discount / 100);
                         return (
                           <tr key={li.id} className="border-b border-gray-50">
-                            <td className="px-3 py-2 font-mono text-gray-400">{li.item.code}</td>
-                            <td className="px-3 py-2 font-medium text-gray-800">{li.item.name}</td>
+                            <td className="px-3 py-2 font-mono text-gray-400">{li.item.codigo}</td>
+                            <td className="px-3 py-2 font-medium text-gray-800">{li.item.descricao}</td>
                             <td className="px-3 py-2 text-center">{li.qty}</td>
                             <td className="px-3 py-2">R$ {fmt(li.unitPrice)}</td>
                             <td className="px-3 py-2 text-green-700">{li.discount > 0 ? `${li.discount}%` : '—'}</td>

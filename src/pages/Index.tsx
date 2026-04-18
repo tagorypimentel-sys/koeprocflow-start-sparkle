@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AppProvider, useApp } from '@/context/AppContext';
 import { ClientesProvider } from '@/context/ClientesContext';
+import { ItensProvider } from '@/context/ItensContext';
 import { Layout } from '@/components/layout/Layout';
 import { RCDetailPanel } from '@/components/rc/RCDetailPanel';
 import { DashboardPage } from '@/pages/DashboardPage';
@@ -55,9 +56,11 @@ function AppInner() {
 export default function Index() {
   return (
     <AppProvider>
-      <ClientesProvider>
-        <AppInner />
-      </ClientesProvider>
+      <ItensProvider>
+        <ClientesProvider>
+          <AppInner />
+        </ClientesProvider>
+      </ItensProvider>
     </AppProvider>
   );
 }

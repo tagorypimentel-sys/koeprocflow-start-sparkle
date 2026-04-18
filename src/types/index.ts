@@ -8,12 +8,41 @@ export interface User {
   avatar: string;
 }
 
+export const CATEGORIAS = ['Tools', 'Consumables'] as const;
+
+export const CLASSES = [
+  'Rope Access',
+  'PPE',
+  'Load/Lift',
+  'Electrical',
+  'Abrasive',
+  'Welding',
+  'General',
+  'Painting',
+  'Polish',
+  'Cleaning',
+  'Corded',
+  'Cordless',
+  'Pneumatics',
+  'Measurement',
+  'Hand',
+] as const;
+
+export const TIPOS = ['OPEX', 'CAPEX'] as const;
+
+export type Categoria = (typeof CATEGORIAS)[number];
+export type Classe = (typeof CLASSES)[number];
+export type Tipo = (typeof TIPOS)[number];
+
 export interface Item {
   id: number;
-  code: string;
-  name: string;
-  unit: string;
-  price: number;
+  codigo: string;
+  descricao: string;
+  unidade: string;
+  precoUnitario: number;
+  categoria: Categoria;
+  classe: Classe;
+  tipo: Tipo;
 }
 
 export interface Supplier {
