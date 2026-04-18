@@ -39,6 +39,7 @@ const EMPTY_FORM = {
   categoria: '' as Categoria | '',
   classe: '' as Classe | '',
   tipo: '' as Tipo | '',
+  linkReferencia: '',
 };
 
 const CATEGORIA_COLOR: Record<string, string> = {
