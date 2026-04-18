@@ -6,6 +6,7 @@ import { Avatar } from '@/components/ui-pf';
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
+  | 'rfq'
   | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
 interface LayoutProps {
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'rcs', label: 'Requisições', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'nova_rc', label: 'Nova RC', roles: ['solicitante'] },
+  { id: 'rfq', label: 'RFQ', roles: ['solicitante', 'aprovador'] },
   { id: 'aprovacoes', label: 'Aprovações', roles: ['aprovador'] },
   { id: 'conferencia', label: 'Conferência', roles: ['conferente'] },
   { id: 'financeiro', label: 'Financeiro', roles: ['financeiro'] },
@@ -32,6 +34,7 @@ const ICONS: Record<string, string> = {
   dashboard: 'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z',
   rcs: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
   nova_rc: 'M12 4v16m8-8H4',
+  rfq: 'M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16zM10 7v6M7 10h6',
   aprovacoes: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0',
   conferencia: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 12h6M9 16h4',
   financeiro: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0',
