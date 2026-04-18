@@ -231,6 +231,7 @@ export default function RFQ() {
   // Form
   const [numeroProjeto, setNumeroProjeto] = useState("");
   const [prazoResposta, setPrazoResposta] = useState("");
+  const [dataEntrega, setDataEntrega] = useState("");
   const [observacoes, setObservacoes] = useState("");
   const [selecionados, setSelecionados] = useState<Record<string, { qty: number; link: string }>>({});
 
@@ -239,7 +240,7 @@ export default function RFQ() {
   const totalSel = Object.keys(selecionados).length;
 
   function resetForm() {
-    setNumeroProjeto(""); setPrazoResposta(""); setObservacoes("");
+    setNumeroProjeto(""); setPrazoResposta(""); setDataEntrega(""); setObservacoes("");
     setSelecionados({}); setEtapa(1);
   }
 
@@ -247,6 +248,7 @@ export default function RFQ() {
     if (!projetoValido) { toast.error("Número do projeto deve ter 4 dígitos."); return; }
     if (totalSel === 0) { toast.error("Selecione ao menos um item."); return; }
     if (!prazoResposta) { toast.error("Informe o prazo para resposta."); return; }
+    if (!dataEntrega) { toast.error("Informe a data de entrega dos materiais."); return; }
 
     const rfqItens: RFQItem[] = Object.entries(selecionados).map(([id, v]) => {
       const item = itens.find((i) => String(i.id) === id)!;
@@ -266,6 +268,7 @@ export default function RFQ() {
     const novaRFQ = addRFQ({
       numeroProjeto: numeroProjeto.trim(),
       prazoResposta,
+      dataEntrega,
       observacoes,
       itens: rfqItens,
       status: "rascunho",
@@ -348,7 +351,7 @@ export default function RFQ() {
           </DialogHeader>
 
           {/* Dados gerais */}
-          <div className="grid grid-cols-3 gap-4 pb-2">
+          <div className="grid grid-cols-2 gap-4 pb-2">
             <div className="flex flex-col gap-1.5">
               <Label>Nº do Projeto * <span className="text-gray-400 font-normal">(4 dígitos)</span></Label>
               <Input
@@ -364,7 +367,11 @@ export default function RFQ() {
               <Label>Prazo para Resposta *</Label>
               <Input type="date" value={prazoResposta} onChange={(e) => setPrazoResposta(e.target.value)} />
             </div>
-            <div className="flex flex-col gap-1.5 col-span-1">
+            <div className="flex flex-col gap-1.5">
+              <Label>Data de Entrega dos Materiais * <span className="text-gray-400 font-normal">(coleta/transporte)</span></Label>
+              <Input type="date" value={dataEntrega} onChange={(e) => setDataEntrega(e.target.value)} />
+            </div>
+            <div className="flex flex-col gap-1.5">
               <Label>Observações</Label>
               <Textarea placeholder="Condições, instruções ao fornecedor..." className="text-sm min-h-[60px]"
                 value={observacoes} onChange={(e) => setObservacoes(e.target.value)} />
@@ -397,7 +404,7 @@ export default function RFQ() {
                 <div className="flex justify-between mt-4">
                   <Button variant="outline" onClick={() => setEtapa(1)}>← Voltar</Button>
                   <Button
-                    disabled={!projetoValido || totalSel === 0 || !prazoResposta}
+                    disabled={!projetoValido || totalSel === 0 || !prazoResposta || !dataEntrega}
                     onClick={handleCriar}
                     className="gap-2"
                   >

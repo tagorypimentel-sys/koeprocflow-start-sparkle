@@ -17,6 +17,7 @@ export interface RFQ {
   numeroRFQ: string;       // ex: RFQ-7025-01
   numeroProjeto: string;   // 4 dígitos
   prazoResposta: string;
+  dataEntrega: string;
   observacoes: string;
   itens: RFQItem[];
   status: "rascunho" | "enviada";

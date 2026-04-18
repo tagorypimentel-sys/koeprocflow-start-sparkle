@@ -43,10 +43,13 @@ export function gerarPDFRFQ(rfq: RFQ, nomeEmpresa = "KOE Syst Compras") {
     ["Prazo para Resposta", rfq.prazoResposta
       ? new Date(rfq.prazoResposta + "T00:00:00").toLocaleDateString("pt-BR")
       : "—"],
+    ["Entrega dos Materiais", rfq.dataEntrega
+      ? new Date(rfq.dataEntrega + "T00:00:00").toLocaleDateString("pt-BR")
+      : "—"],
   ];
 
   campos.forEach(([label, valor], i) => {
-    const x = 12 + i * 88;
+    const x = 12 + i * 66;
     doc.setFont("helvetica", "bold");
     doc.setTextColor(...CINZA);
     doc.text(label.toUpperCase(), x, y);
