@@ -236,6 +236,11 @@ export function ItemsPage() {
               <Input placeholder="Descrição do item" value={form.descricao} onChange={(e) => setField('descricao', e.target.value)} />
             </div>
 
+            <div className="col-span-2 flex flex-col gap-1.5">
+              <Label>Marca</Label>
+              <Input placeholder="Ex: Petzl, Bosch (opcional)" value={form.marca} onChange={(e) => setField('marca', e.target.value)} />
+            </div>
+
             <div className="flex flex-col gap-1.5">
               <Label>Categoria *</Label>
               <Select value={form.categoria} onValueChange={(v) => setField('categoria', v as Categoria)}>
@@ -280,6 +285,15 @@ export function ItemsPage() {
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
             <Button onClick={handleSave}>Salvar item</Button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={importOpen} onOpenChange={setImportOpen}>
+        <DialogContent className="sm:max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Importar itens</DialogTitle>
+          </DialogHeader>
+          <ImportarItens onClose={() => setImportOpen(false)} />
         </DialogContent>
       </Dialog>
     </div>
