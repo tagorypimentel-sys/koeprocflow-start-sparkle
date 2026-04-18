@@ -177,6 +177,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
         categoria: p.categoria as any,
         classe: p.classe as any,
         tipo: p.tipo,
+        linkReferencia: p.linkReferencia,
       });
     });
 
