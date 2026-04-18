@@ -48,10 +48,11 @@ function SeletorItensRFQ({
   const allSelected = filtrados.length > 0 && filtrados.every((i) => selecionados[String(i.id)]);
 
   function toggle(id: string) {
+    const item = itens.find((i) => String(i.id) === id);
     setSelecionados((prev) => {
       const next = { ...prev };
       if (next[id]) { delete next[id]; }
-      else { next[id] = { qty: 1, link: "" }; }
+      else { next[id] = { qty: 1, link: (item as any)?.linkReferencia ?? "" }; }
       return next;
     });
   }
@@ -59,8 +60,13 @@ function SeletorItensRFQ({
   function toggleAll() {
     setSelecionados((prev) => {
       const next = { ...prev };
-      if (allSelected) { filtrados.forEach((i) => delete next[String(i.id)]); }
-      else { filtrados.forEach((i) => { if (!next[String(i.id)]) next[String(i.id)] = { qty: 1, link: "" }; }); }
+      if (allSelected) {
+        filtrados.forEach((i) => delete next[String(i.id)]);
+      } else {
+        filtrados.forEach((i) => {
+          if (!next[String(i.id)]) next[String(i.id)] = { qty: 1, link: (i as any).linkReferencia ?? "" };
+        });
+      }
       return next;
     });
   }
@@ -197,17 +203,25 @@ function PreencherValoresRFQ({
                   </td>
                   <td className="px-2 py-2 min-w-[200px]">
                     <div className="flex items-center gap-1.5">
-                      <Input
-                        type="url" placeholder="https://..." className="h-8 text-xs"
-                        value={v.link}
-                        onChange={(e) => setField(key, "link", e.target.value)}
-                      />
+                      <div className="relative flex-1">
+                        <Input
+                          type="url" placeholder="https://..." className="h-8 text-xs pr-6"
+                          value={v.link}
+                          onChange={(e) => setField(key, "link", e.target.value)}
+                        />
+                        {v.link === ((item as any).linkReferencia ?? "") && v.link !== "" && (
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-green-500" title="Preenchido automaticamente do cadastro">✓</span>
+                        )}
+                      </div>
                       {v.link && (
-                        <a href={v.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 flex-shrink-0">
+                        <a href={v.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 flex-shrink-0" title="Abrir link">
                           <ExternalLink size={13} />
                         </a>
                       )}
                     </div>
+                    {v.link === ((item as any).linkReferencia ?? "") && v.link !== "" && (
+                      <p className="text-xs text-green-600 mt-0.5">Preenchido do cadastro</p>
+                    )}
                   </td>
                   <td className="px-2 py-2 text-center">
                     <button onClick={() => remover(key)} className="text-gray-300 hover:text-red-400">×</button>
