@@ -282,6 +282,16 @@ export function ItemsPage() {
                 onChange={(e) => setField('precoUnitario', Number(e.target.value))}
               />
             </div>
+
+            <div className="col-span-2 flex flex-col gap-1.5">
+              <Label>Link de referência</Label>
+              <Input
+                type="url"
+                placeholder="https://fornecedor.com/produto (opcional)"
+                value={form.linkReferencia}
+                onChange={(e) => setField('linkReferencia', e.target.value)}
+              />
+            </div>
           </div>
 
           <DialogFooter>
