@@ -52,7 +52,7 @@ function SeletorItensRFQ({
     setSelecionados((prev) => {
       const next = { ...prev };
       if (next[id]) { delete next[id]; }
-      else { next[id] = { qty: 1, link: (item as any)?.linkReferencia ?? "" }; }
+      else { next[id] = { qty: 1, link: item?.linkReferencia ?? "" }; }
       return next;
     });
   }
@@ -64,7 +64,7 @@ function SeletorItensRFQ({
         filtrados.forEach((i) => delete next[String(i.id)]);
       } else {
         filtrados.forEach((i) => {
-          if (!next[String(i.id)]) next[String(i.id)] = { qty: 1, link: (i as any).linkReferencia ?? "" };
+          if (!next[String(i.id)]) next[String(i.id)] = { qty: 1, link: i.linkReferencia ?? "" };
         });
       }
       return next;
@@ -209,7 +209,7 @@ function PreencherValoresRFQ({
                           value={v.link}
                           onChange={(e) => setField(key, "link", e.target.value)}
                         />
-                        {v.link === ((item as any).linkReferencia ?? "") && v.link !== "" && (
+                        {v.link === (item?.linkReferencia ?? "") && v.link !== "" && (
                           <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-green-500" title="Preenchido automaticamente do cadastro">✓</span>
                         )}
                       </div>
@@ -219,7 +219,7 @@ function PreencherValoresRFQ({
                         </a>
                       )}
                     </div>
-                    {v.link === ((item as any).linkReferencia ?? "") && v.link !== "" && (
+                    {v.link === (item?.linkReferencia ?? "") && v.link !== "" && (
                       <p className="text-xs text-green-600 mt-0.5">Preenchido do cadastro</p>
                     )}
                   </td>
