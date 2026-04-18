@@ -269,7 +269,7 @@ export default function RFQ() {
         classe: item.classe,
         unidade: item.unidade,
         qty: v.qty,
-        linkReferencia: v.link,
+        linkReferencia: item.linkReferencia ?? "",
       };
     });
 
