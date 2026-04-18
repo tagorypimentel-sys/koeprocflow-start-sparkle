@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AppProvider, useApp } from '@/context/AppContext';
+import { ClientesProvider } from '@/context/ClientesContext';
 import { Layout } from '@/components/layout/Layout';
 import { RCDetailPanel } from '@/components/rc/RCDetailPanel';
 import { DashboardPage } from '@/pages/DashboardPage';
@@ -10,13 +11,14 @@ import { ConferenciaPage } from '@/pages/ConferenciaPage';
 import { FinanceiroPage } from '@/pages/FinanceiroPage';
 import { ItemsPage } from '@/pages/ItemsPage';
 import { SuppliersPage } from '@/pages/SuppliersPage';
+import { ClientesPage } from '@/pages/ClientesPage';
 import { UsuariosPage } from '@/pages/UsuariosPage';
 import { PurchaseRequest } from '@/types';
 
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
-  | 'items' | 'suppliers' | 'usuarios';
+  | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
 function AppInner() {
   const [page, setPage] = useState<Page>('dashboard');
@@ -41,6 +43,7 @@ function AppInner() {
           {page === 'financeiro' && <FinanceiroPage onSelectRC={handleSelectRC} />}
           {page === 'items' && <ItemsPage />}
           {page === 'suppliers' && <SuppliersPage />}
+          {page === 'clientes' && <ClientesPage />}
           {page === 'usuarios' && <UsuariosPage />}
         </div>
         {selectedRC && <RCDetailPanel rc={selectedRC} onClose={handleClosePanel} />}
@@ -52,7 +55,9 @@ function AppInner() {
 export default function Index() {
   return (
     <AppProvider>
-      <AppInner />
+      <ClientesProvider>
+        <AppInner />
+      </ClientesProvider>
     </AppProvider>
   );
 }

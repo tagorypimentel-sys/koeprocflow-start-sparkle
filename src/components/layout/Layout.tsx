@@ -6,7 +6,7 @@ import { Avatar } from '@/components/ui-pf';
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
-  | 'items' | 'suppliers' | 'usuarios';
+  | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
 interface LayoutProps {
   currentPage: Page;
@@ -24,6 +24,7 @@ const NAV_ITEMS = [
   { id: 'divider' },
   { id: 'items', label: 'Itens', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'suppliers', label: 'Fornecedores', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'clientes', label: 'Clientes', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'usuarios', label: 'Usuários', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
 ] as const;
 
@@ -36,6 +37,7 @@ const ICONS: Record<string, string> = {
   financeiro: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0',
   items: 'M4 6h16M4 10h16M4 14h16M4 18h16',
   suppliers: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1v5m4 0H9',
+  clientes: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
   usuarios: 'M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5.13a4 4 0 11-8 0 4 4 0 018 0zm6 0a4 4 0 11-8 0 4 4 0 018 0z',
 };
 
