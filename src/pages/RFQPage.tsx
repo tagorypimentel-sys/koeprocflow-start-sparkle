@@ -48,10 +48,11 @@ function SeletorItensRFQ({
   const allSelected = filtrados.length > 0 && filtrados.every((i) => selecionados[String(i.id)]);
 
   function toggle(id: string) {
+    const item = itens.find((i) => String(i.id) === id);
     setSelecionados((prev) => {
       const next = { ...prev };
       if (next[id]) { delete next[id]; }
-      else { next[id] = { qty: 1, link: "" }; }
+      else { next[id] = { qty: 1, link: (item as any)?.linkReferencia ?? "" }; }
       return next;
     });
   }
@@ -59,8 +60,13 @@ function SeletorItensRFQ({
   function toggleAll() {
     setSelecionados((prev) => {
       const next = { ...prev };
-      if (allSelected) { filtrados.forEach((i) => delete next[String(i.id)]); }
-      else { filtrados.forEach((i) => { if (!next[String(i.id)]) next[String(i.id)] = { qty: 1, link: "" }; }); }
+      if (allSelected) {
+        filtrados.forEach((i) => delete next[String(i.id)]);
+      } else {
+        filtrados.forEach((i) => {
+          if (!next[String(i.id)]) next[String(i.id)] = { qty: 1, link: (i as any).linkReferencia ?? "" };
+        });
+      }
       return next;
     });
   }
