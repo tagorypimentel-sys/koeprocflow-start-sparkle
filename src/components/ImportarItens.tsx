@@ -110,6 +110,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
       const idxUnid = idx(['unidade', 'unit']);
       const idxPreco = idx(['preco usd amazon', 'preço unit.', 'precounitario', 'preco unitario', 'price']);
       const idxTipo = idx(['tipo', 'opex/capex']);
+      const idxLink = idx(['link', 'linkreferencia', 'link de referência', 'url', 'referência']);
 
       const parsed: PreviewItem[] = [];
       for (let i = headerRow + 1; i < rows.length; i++) {
@@ -127,6 +128,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
           unidade: idxUnid >= 0 ? row[idxUnid] : 'UN',
           precoUnitario: idxPreco >= 0 ? row[idxPreco] : 0,
           tipo: idxTipo >= 0 ? row[idxTipo] : 'OPEX',
+          linkReferencia: idxLink >= 0 ? row[idxLink] : '',
         }));
       }
       setPreview(parsed);
