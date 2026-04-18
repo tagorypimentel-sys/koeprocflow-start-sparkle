@@ -97,6 +97,7 @@ export function ItemsPage() {
       categoria: form.categoria as Categoria,
       classe: form.classe as Classe,
       tipo: form.tipo as Tipo,
+      linkReferencia: form.linkReferencia.trim() || undefined,
     };
 
     if (editing) {
