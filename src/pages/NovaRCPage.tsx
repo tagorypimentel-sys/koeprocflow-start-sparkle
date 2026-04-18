@@ -4,6 +4,8 @@ import { useClientes } from '@/context/ClientesContext';
 import { LineItem, PurchaseRequest } from '@/types';
 import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
 import { generateRCId } from '@/lib/constants';
+import SeletorItens from '@/components/SeletorItens';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface Props {
   onSave: () => void;
