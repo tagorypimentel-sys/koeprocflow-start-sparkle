@@ -8,7 +8,15 @@ export interface User {
   avatar: string;
 }
 
-export const CATEGORIAS = ['Tools', 'Consumables'] as const;
+export const CATEGORIAS = [
+  'Tools',
+  'Consumables',
+  'Hospedagem',
+  'Bagagem',
+  'Aluguel Carro/Van',
+  'Aluguel/Equipamentos',
+  'Uniformes',
+] as const;
 
 export const CLASSES = [
   'Rope Access',
