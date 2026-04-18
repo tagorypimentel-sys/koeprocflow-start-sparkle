@@ -1,4 +1,5 @@
-import { User, Item, Supplier, PurchaseRequest } from '../types';
+import { User, Item, Supplier, PurchaseRequest, Categoria, Classe, Tipo } from '../types';
+import itensSeed from './itens_seed.json';
 
 export const MOCK_USERS: User[] = [
   { id: 1, name: 'Carlos Silva', email: 'carlos@empresa.com', role: 'solicitante', avatar: 'CS' },
@@ -8,18 +9,20 @@ export const MOCK_USERS: User[] = [
   { id: 5, name: 'João Financeiro', email: 'joao@empresa.com', role: 'financeiro', avatar: 'JF' },
 ];
 
-export const MOCK_ITEMS: Item[] = [
-  { id: 1, codigo: 'IT001', descricao: 'Notebook Dell Inspiron 15', unidade: 'UN', precoUnitario: 4500, categoria: 'Tools', classe: 'Electrical', tipo: 'CAPEX' },
-  { id: 2, codigo: 'IT002', descricao: 'Monitor LG 24"', unidade: 'UN', precoUnitario: 1200, categoria: 'Tools', classe: 'Electrical', tipo: 'CAPEX' },
-  { id: 3, codigo: 'IT003', descricao: 'Teclado Mecânico Logitech', unidade: 'UN', precoUnitario: 450, categoria: 'Tools', classe: 'Electrical', tipo: 'OPEX' },
-  { id: 4, codigo: 'IT004', descricao: 'Mouse Sem Fio', unidade: 'UN', precoUnitario: 180, categoria: 'Tools', classe: 'Electrical', tipo: 'OPEX' },
-  { id: 5, codigo: 'IT005', descricao: 'Headset Sony', unidade: 'UN', precoUnitario: 320, categoria: 'Tools', classe: 'Electrical', tipo: 'OPEX' },
-  { id: 6, codigo: 'IT006', descricao: 'Papel A4 Resma 500fls', unidade: 'PCT', precoUnitario: 28, categoria: 'Consumables', classe: 'General', tipo: 'OPEX' },
-  { id: 7, codigo: 'IT007', descricao: 'Caneta Esferográfica', unidade: 'CX', precoUnitario: 15, categoria: 'Consumables', classe: 'General', tipo: 'OPEX' },
-  { id: 8, codigo: 'IT008', descricao: 'Mesa de Escritório', unidade: 'UN', precoUnitario: 850, categoria: 'Tools', classe: 'General', tipo: 'CAPEX' },
-  { id: 9, codigo: 'IT009', descricao: 'Cadeira Ergonômica', unidade: 'UN', precoUnitario: 1300, categoria: 'Tools', classe: 'General', tipo: 'CAPEX' },
-  { id: 10, codigo: 'IT010', descricao: 'HD Externo 1TB', unidade: 'UN', precoUnitario: 380, categoria: 'Tools', classe: 'Electrical', tipo: 'CAPEX' },
-];
+export const MOCK_ITEMS: Item[] = (itensSeed as Array<{
+  id: number; codigo: string; descricao: string; marca?: string; unidade: string;
+  precoUnitario: number; categoria: string; classe: string; tipo: string;
+}>).map((i) => ({
+  id: i.id,
+  codigo: i.codigo,
+  descricao: i.descricao,
+  marca: i.marca && i.marca !== 'Not Applicable' ? i.marca : undefined,
+  unidade: i.unidade || 'UN',
+  precoUnitario: i.precoUnitario || 0,
+  categoria: i.categoria as Categoria,
+  classe: i.classe as Classe,
+  tipo: i.tipo as Tipo,
+}));
 
 export const MOCK_SUPPLIERS: Supplier[] = [
   {

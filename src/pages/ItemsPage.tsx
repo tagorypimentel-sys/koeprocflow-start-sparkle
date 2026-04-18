@@ -27,11 +27,13 @@ import {
   DialogFooter,
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import { Pencil, Trash2, PackagePlus } from 'lucide-react';
+import { Pencil, Trash2, PackagePlus, Upload } from 'lucide-react';
+import ImportarItens from '@/components/ImportarItens';
 
 const EMPTY_FORM = {
   codigo: '',
   descricao: '',
+  marca: '',
   unidade: '',
   precoUnitario: 0,
   categoria: '' as Categoria | '',
@@ -52,6 +54,7 @@ const TIPO_COLOR: Record<string, string> = {
 export function ItemsPage() {
   const { itens, addItem, updateItem, deleteItem } = useItens();
   const [open, setOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
   const [editing, setEditing] = useState<Item | null>(null);
   const [form, setForm] = useState(EMPTY_FORM);
   const [search, setSearch] = useState('');
@@ -67,6 +70,7 @@ export function ItemsPage() {
     setForm({
       codigo: item.codigo,
       descricao: item.descricao,
+      marca: item.marca ?? '',
       unidade: item.unidade,
       precoUnitario: item.precoUnitario,
       categoria: item.categoria,
@@ -85,6 +89,7 @@ export function ItemsPage() {
     const data = {
       codigo: form.codigo.trim(),
       descricao: form.descricao.trim(),
+      marca: form.marca.trim() || undefined,
       unidade: form.unidade.trim() || 'UN',
       precoUnitario: Number(form.precoUnitario) || 0,
       categoria: form.categoria as Categoria,
@@ -125,10 +130,16 @@ export function ItemsPage() {
           <h1 className="text-xl font-medium text-gray-900">Itens</h1>
           <p className="text-sm text-gray-500 mt-0.5">{itens.length} itens cadastrados</p>
         </div>
-        <Button onClick={openNew} className="gap-2">
-          <PackagePlus size={15} />
-          Novo Item
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={() => setImportOpen(true)} className="gap-2">
+            <Upload size={15} />
+            Importar
+          </Button>
+          <Button onClick={openNew} className="gap-2">
+            <PackagePlus size={15} />
+            Novo Item
+          </Button>
+        </div>
       </div>
 
       <div className="mb-3">
@@ -146,6 +157,7 @@ export function ItemsPage() {
             <TableRow>
               <TableHead>Código</TableHead>
               <TableHead>Descrição</TableHead>
+              <TableHead>Marca</TableHead>
               <TableHead>Categoria</TableHead>
               <TableHead>Classe</TableHead>
               <TableHead>Tipo</TableHead>
@@ -157,7 +169,7 @@ export function ItemsPage() {
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={8} className="text-center text-gray-400 py-10">
+                <TableCell colSpan={9} className="text-center text-gray-400 py-10">
                   Nenhum item encontrado
                 </TableCell>
               </TableRow>
@@ -166,6 +178,7 @@ export function ItemsPage() {
                 <TableRow key={item.id}>
                   <TableCell className="text-gray-500 font-mono text-sm">{item.codigo || '—'}</TableCell>
                   <TableCell className="font-medium">{item.descricao}</TableCell>
+                  <TableCell className="text-gray-500 text-sm">{item.marca || '—'}</TableCell>
                   <TableCell>
                     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${CATEGORIA_COLOR[item.categoria] ?? ''}`}>
                       {item.categoria}
@@ -223,6 +236,11 @@ export function ItemsPage() {
               <Input placeholder="Descrição do item" value={form.descricao} onChange={(e) => setField('descricao', e.target.value)} />
             </div>
 
+            <div className="col-span-2 flex flex-col gap-1.5">
+              <Label>Marca</Label>
+              <Input placeholder="Ex: Petzl, Bosch (opcional)" value={form.marca} onChange={(e) => setField('marca', e.target.value)} />
+            </div>
+
             <div className="flex flex-col gap-1.5">
               <Label>Categoria *</Label>
               <Select value={form.categoria} onValueChange={(v) => setField('categoria', v as Categoria)}>
@@ -267,6 +285,15 @@ export function ItemsPage() {
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
             <Button onClick={handleSave}>Salvar item</Button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={importOpen} onOpenChange={setImportOpen}>
+        <DialogContent className="sm:max-w-2xl">
+          <DialogHeader>
+            <DialogTitle>Importar itens</DialogTitle>
+          </DialogHeader>
+          <ImportarItens onClose={() => setImportOpen(false)} />
         </DialogContent>
       </Dialog>
     </div>
