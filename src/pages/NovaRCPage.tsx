@@ -4,6 +4,8 @@ import { useClientes } from '@/context/ClientesContext';
 import { LineItem, PurchaseRequest } from '@/types';
 import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
 import { generateRCId } from '@/lib/constants';
+import SeletorItens from '@/components/SeletorItens';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface Props {
   onSave: () => void;
@@ -23,27 +25,16 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const [deliveryCarrier, setDeliveryCarrier] = useState<'transportadora' | 'fornecedor'>('fornecedor');
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
-  const [addingItem, setAddingItem] = useState(false);
-  const [newLine, setNewLine] = useState({ itemId: '', qty: '1', discount: '0' });
+  const [seletorAberto, setSeletorAberto] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const upd = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
-  const addLine = () => {
-    const item = items.find((i) => i.id === parseInt(newLine.itemId));
-    if (!item) return;
-    setLineItems((prev) => [
-      ...prev,
-      {
-        id: Date.now(), item,
-        qty: parseInt(newLine.qty) || 1,
-        unitPrice: item.precoUnitario,
-        discount: parseFloat(newLine.discount) || 0,
-      },
-    ]);
-    setNewLine({ itemId: '', qty: '1', discount: '0' });
-    setAddingItem(false);
+  const handleAdicionarItens = (novos: LineItem[]) => {
+    setLineItems((prev) => [...prev, ...novos]);
+    setSeletorAberto(false);
   };
+
 
   const updateLineUnitPrice = (id: number, value: string) => {
     const v = parseFloat(value);
@@ -249,49 +240,25 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-6">
         <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
           <h2 className="text-sm font-bold text-blue-900">Itens da Requisição</h2>
-          <Button variant="ghost" size="sm" onClick={() => setAddingItem(true)}>+ Adicionar Item</Button>
+          <Button variant="ghost" size="sm" onClick={() => setSeletorAberto(true)}>+ Adicionar Item</Button>
         </div>
 
         {errors.items && (
           <div className="mb-3 p-2 bg-red-50 border border-red-200 rounded-lg text-xs text-red-600">{errors.items}</div>
         )}
 
-        {/* Add Item Row */}
-        {addingItem && (
-          <div className="mb-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-            <div className="grid grid-cols-4 gap-3 items-end">
-              <div className="col-span-2">
-                <label className="block text-xs font-semibold text-gray-500 mb-1">Item *</label>
-                <Select value={newLine.itemId} onChange={(e) => setNewLine((n) => ({ ...n, itemId: e.target.value }))}>
-                  <option value="">Selecione o item...</option>
-                  {items.map((i) => (
-                    <option key={i.id} value={i.id}>{i.codigo} — {i.descricao} · R$ {i.precoUnitario.toFixed(2)}</option>
-                  ))}
-                </Select>
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1">Quantidade *</label>
-                <Input
-                  type="number" min="1"
-                  value={newLine.qty}
-                  onChange={(e) => setNewLine((n) => ({ ...n, qty: e.target.value }))}
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1">Desconto %</label>
-                <Input
-                  type="number" min="0" max="100"
-                  value={newLine.discount}
-                  onChange={(e) => setNewLine((n) => ({ ...n, discount: e.target.value }))}
-                />
-              </div>
-            </div>
-            <div className="flex gap-2 mt-3">
-              <Button size="sm" onClick={addLine} disabled={!newLine.itemId}>Confirmar</Button>
-              <Button size="sm" variant="secondary" onClick={() => setAddingItem(false)}>Cancelar</Button>
-            </div>
-          </div>
-        )}
+        <Dialog open={seletorAberto} onOpenChange={setSeletorAberto}>
+          <DialogContent className="sm:max-w-5xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Selecionar itens</DialogTitle>
+            </DialogHeader>
+            <SeletorItens
+              onConfirmar={handleAdicionarItens}
+              onCancelar={() => setSeletorAberto(false)}
+            />
+          </DialogContent>
+        </Dialog>
+
 
         {/* Items Table */}
         <div className="overflow-x-auto">
