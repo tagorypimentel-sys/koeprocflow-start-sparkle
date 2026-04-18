@@ -27,11 +27,13 @@ import {
   DialogFooter,
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import { Pencil, Trash2, PackagePlus } from 'lucide-react';
+import { Pencil, Trash2, PackagePlus, Upload } from 'lucide-react';
+import ImportarItens from '@/components/ImportarItens';
 
 const EMPTY_FORM = {
   codigo: '',
   descricao: '',
+  marca: '',
   unidade: '',
   precoUnitario: 0,
   categoria: '' as Categoria | '',
@@ -52,6 +54,7 @@ const TIPO_COLOR: Record<string, string> = {
 export function ItemsPage() {
   const { itens, addItem, updateItem, deleteItem } = useItens();
   const [open, setOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
   const [editing, setEditing] = useState<Item | null>(null);
   const [form, setForm] = useState(EMPTY_FORM);
   const [search, setSearch] = useState('');
@@ -67,6 +70,7 @@ export function ItemsPage() {
     setForm({
       codigo: item.codigo,
       descricao: item.descricao,
+      marca: item.marca ?? '',
       unidade: item.unidade,
       precoUnitario: item.precoUnitario,
       categoria: item.categoria,
@@ -85,6 +89,7 @@ export function ItemsPage() {
     const data = {
       codigo: form.codigo.trim(),
       descricao: form.descricao.trim(),
+      marca: form.marca.trim() || undefined,
       unidade: form.unidade.trim() || 'UN',
       precoUnitario: Number(form.precoUnitario) || 0,
       categoria: form.categoria as Categoria,
