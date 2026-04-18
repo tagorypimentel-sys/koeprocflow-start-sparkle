@@ -5,6 +5,7 @@ import { LineItem, PurchaseRequest } from '@/types';
 import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
 import { generateRCId } from '@/lib/constants';
 import SeletorItens from '@/components/SeletorItens';
+import CartaoConsolidadoProjeto from '@/components/CartaoConsolidadoProjeto';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 interface Props {
@@ -101,6 +102,14 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
           <p className="text-sm text-gray-500 mt-0.5">Preencha os dados para criar e enviar para aprovação</p>
         </div>
       </div>
+
+      {/* Consolidado do Projeto (aparece após informar o número do projeto) */}
+      {form.projectNumber.trim() && (
+        <CartaoConsolidadoProjeto
+          numeroProjeto={form.projectNumber.trim()}
+          itensAtuais={lineItems}
+        />
+      )}
 
       {/* Project Info */}
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-4">

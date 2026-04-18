@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { PurchaseRequest } from '@/types';
 import { StatusBadge, Button, EmptyState, TotalsBox } from '@/components/ui-pf';
+import CartaoConsolidadoProjeto from '@/components/CartaoConsolidadoProjeto';
 
 interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;
@@ -36,7 +37,9 @@ export function AprovacoesPage({ onSelectRC }: Props) {
         pending.map((rc) => {
           const { subtotal, taxAmt, total } = calcRC(rc);
           return (
-            <div key={rc.id} className="bg-white rounded-xl border border-amber-200 shadow-sm mb-5 overflow-hidden">
+            <div key={rc.id} className="mb-5">
+            <CartaoConsolidadoProjeto numeroProjeto={rc.projectNumber} rcAtualId={rc.id} />
+            <div className="bg-white rounded-xl border border-amber-200 shadow-sm overflow-hidden">
               {/* Header */}
               <div className="bg-amber-50 px-5 py-3 border-b border-amber-100 flex justify-between items-center">
                 <div className="flex items-center gap-3">
@@ -126,6 +129,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                   <Button size="sm" variant="success" onClick={() => approveRC(rc.id)}>✓ Aprovar</Button>
                 </div>
               </div>
+            </div>
             </div>
           );
         })
