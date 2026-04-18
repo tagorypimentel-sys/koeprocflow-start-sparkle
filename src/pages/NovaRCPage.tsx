@@ -12,10 +12,11 @@ interface Props {
 
 export function NovaRCPage({ onSave, onCancel }: Props) {
   const { items, suppliers, users, currentUser, addRC } = useApp();
+  const { clientes } = useClientes();
   const approvers = users.filter((u) => u.role === 'aprovador');
 
   const [form, setForm] = useState({
-    projectNumber: '', projectClient: '', supplierId: '',
+    projectNumber: '', clienteId: '', supplierId: '',
     approverId: '', tax: '0', notes: '',
   });
   const [deliveryMode, setDeliveryMode] = useState<'entrega' | 'retirada'>('entrega');
@@ -55,7 +56,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const validate = () => {
     const e: Record<string, string> = {};
     if (!form.projectNumber) e.projectNumber = 'Obrigatório';
-    if (!form.projectClient) e.projectClient = 'Obrigatório';
+    if (!form.clienteId) e.clienteId = 'Selecione um cliente';
     if (!form.supplierId) e.supplierId = 'Obrigatório';
     if (!form.approverId) e.approverId = 'Obrigatório';
     if (lineItems.length === 0) e.items = 'Adicione pelo menos um item';
@@ -66,10 +67,11 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
 
   const handleSubmit = () => {
     if (!validate()) return;
+    const cliente = clientes.find((c) => c.id === parseInt(form.clienteId));
     const rc: PurchaseRequest = {
       id: generateRCId(),
       projectNumber: form.projectNumber,
-      projectClient: form.projectClient,
+      projectClient: cliente?.nome ?? '',
       supplier: suppliers.find((s) => s.id === parseInt(form.supplierId))!,
       approver: users.find((u) => u.id === parseInt(form.approverId))!,
       requester: currentUser,
@@ -118,13 +120,21 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
             {errors.projectNumber && <p className="text-xs text-red-500 mt-1">{errors.projectNumber}</p>}
           </FormField>
           <FormField label="Cliente do Projeto" required>
-            <Input
-              value={form.projectClient}
-              onChange={(e) => upd('projectClient', e.target.value)}
-              placeholder="Nome do cliente"
-              className={errors.projectClient ? 'border-red-400' : ''}
-            />
-            {errors.projectClient && <p className="text-xs text-red-500 mt-1">{errors.projectClient}</p>}
+            <Select
+              value={form.clienteId}
+              onChange={(e) => upd('clienteId', e.target.value)}
+              className={errors.clienteId ? 'border-red-400' : ''}
+            >
+              <option value="">
+                {clientes.length === 0 ? 'Nenhum cliente cadastrado — cadastre em "Clientes"' : 'Selecione o cliente...'}
+              </option>
+              {clientes.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {c.nome}{c.doc ? ` — ${c.doc}` : ''}
+                </option>
+              ))}
+            </Select>
+            {errors.clienteId && <p className="text-xs text-red-500 mt-1">{errors.clienteId}</p>}
           </FormField>
           <FormField label="Fornecedor" required>
             <Select
