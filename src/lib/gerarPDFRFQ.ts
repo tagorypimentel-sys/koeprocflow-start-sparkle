@@ -7,12 +7,10 @@ const LOGO_BASE64 = "iVBORw0KGgoAAAANSUhEUgAAAMgAAADKCAIAAABv8pjCAABxBklEQVR42u1
 
 function fmtData(iso: string): string {
   if (!iso) return "—";
-  const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString("pt-BR");
+  return new Date(iso + "T00:00:00").toLocaleDateString("pt-BR");
 }
 
 export function gerarPDFRFQ(rfq: RFQ) {
-  // PORTRAIT (vertical)
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
   doc.setLanguage("pt-BR");
   const W = doc.internal.pageSize.getWidth();
@@ -20,49 +18,51 @@ export function gerarPDFRFQ(rfq: RFQ) {
 
   const AZUL_ESCURO: [number, number, number] = [26, 43, 109];
   const AZUL_MEDIO: [number, number, number] = [30, 64, 175];
-  const CINZA: [number, number, number] = [90, 90, 90];
+  const CINZA: [number, number, number] = [100, 100, 100];
   const CINZA_CLARO: [number, number, number] = [243, 244, 246];
   const BRANCO: [number, number, number] = [255, 255, 255];
 
-  // ── Cabeçalho: Logo + Info empresa ────────────────────────────────────────
+  // ── CABEÇALHO ─────────────────────────────────────────────────────────────
+  // Logo (esquerda)
   try {
-    doc.addImage(LOGO_BASE64, "PNG", 10, 6, 20, 20);
-  } catch (e) {
+    doc.addImage(LOGO_BASE64, "PNG", 10, 6, 22, 22);
+  } catch {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
     doc.setTextColor(...AZUL_ESCURO);
-    doc.text("KESSLER", 10, 14);
+    doc.text("KESSLER", 10, 18);
   }
 
+  // Texto empresa (ao lado da logo)
   doc.setFont("helvetica", "bold");
   doc.setFontSize(12);
   doc.setTextColor(...AZUL_ESCURO);
-  doc.text("Kessler Group", 34, 12);
+  doc.text("Kessler Group", 36, 13);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor(...CINZA);
-  doc.text("Av Brasil, 4577, Sala 2, Rio de Janeiro", 34, 18);
-  doc.text("compras@kessleroffshore.com.br", 34, 23);
+  doc.text("Av Brasil, 4577, Sala 2, Rio de Janeiro", 36, 19);
+  doc.text("compras@kessleroffshore.com.br", 36, 24);
 
-  // Linha separadora
-  doc.setDrawColor(220, 220, 220);
-  doc.setLineWidth(0.3);
-  doc.line(10, 30, W - 10, 30);
-
-  // ── Faixa azul — título + número RFQ ──────────────────────────────────────
-  let y = 34;
-  doc.setFillColor(...AZUL_ESCURO);
-  doc.rect(0, y, W, 12, "F");
-
+  // RFQ (direita) — sem faixa, só texto
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
-  doc.setTextColor(...BRANCO);
-  doc.text("RFQ — REQUEST FOR QUOTATION", 10, y + 8);
-  doc.text(rfq.numeroRFQ, W - 10, y + 8, { align: "right" });
+  doc.setFontSize(18);
+  doc.setTextColor(...AZUL_ESCURO);
+  doc.text("RFQ", W - 10, 14, { align: "right" });
 
-  // ── Bloco info: Projeto + Entrega Limite (sem Emitido Em) ──────────────────
-  y += 16;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(...CINZA);
+  doc.text(rfq.numeroRFQ, W - 10, 22, { align: "right" });
+
+  // Linha divisória suave
+  doc.setDrawColor(200, 210, 230);
+  doc.setLineWidth(0.5);
+  doc.line(10, 32, W - 10, 32);
+
+  // ── BLOCO INFO ─────────────────────────────────────────────────────────────
+  let y = 38;
   doc.setFillColor(...CINZA_CLARO);
   doc.roundedRect(10, y, W - 20, 18, 2, 2, "F");
 
@@ -71,40 +71,59 @@ export function gerarPDFRFQ(rfq: RFQ) {
     { label: "ENTREGA LIMITE", valor: fmtData(rfq.dataLimiteEntrega) },
   ];
 
-  const colW = (W - 20) / infos.length;
   infos.forEach((info, i) => {
-    const x = 16 + i * colW;
+    const x = 16 + i * ((W - 20) / 2);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
     doc.setTextColor(...CINZA);
     doc.text(info.label, x, y + 5);
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(10);
+    doc.setFontSize(11);
     doc.setTextColor(20, 20, 20);
-    doc.text(info.valor, x, y + 13);
+    doc.text(info.valor, x, y + 14);
   });
 
-  // ── Mensagem ao fornecedor ─────────────────────────────────────────────────
+  // ── MENSAGEM AO FORNECEDOR ─────────────────────────────────────────────────
   y += 26;
 
-  const dataLimite = fmtData(rfq.dataLimiteEntrega);
-  const mensagem =
-    `Prezado Fornecedor,\n\n` +
-    `Contando com a nossa parceria, solicitamos a cotacao dos itens listados abaixo.\n` +
-    `Por favor, observe que temos uma data limite para coleta dos materiais: ${dataLimite}.\n` +
-    `Pedimos que o retorno da cotacao seja realizado dentro do prazo estabelecido.\n\n` +
-    (rfq.observacoes?.trim()
-      ? `Observacoes adicionais: ${rfq.observacoes.trim()}`
-      : "");
+  // "Prezado Fornecedor," em negrito
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(9);
+  doc.setTextColor(30, 30, 30);
+  doc.text("Prezado Fornecedor,", 10, y);
+  y += 7;
 
-  const linhasMensagem = doc.splitTextToSize(mensagem, W - 20);
+  // Corpo da mensagem
+  const corpo =
+    "Contando com a nossa parceria, solicitamos a cotacao dos itens listados abaixo.\n" +
+    "Por favor, observe que temos uma data limite para coleta dos materiais informada acima.";
+
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
-  doc.setTextColor(40, 40, 40);
-  doc.text(linhasMensagem, 10, y);
-  y += linhasMensagem.length * 5 + 4;
+  doc.setTextColor(50, 50, 50);
+  const linhasCorpo = doc.splitTextToSize(corpo, W - 20);
+  doc.text(linhasCorpo, 10, y);
+  y += linhasCorpo.length * 5 + 5;
 
-  // ── Tabela de itens ────────────────────────────────────────────────────────
+  // Observações (se preenchidas)
+  if (rfq.observacoes?.trim()) {
+    const linhasObs = doc.splitTextToSize(rfq.observacoes.trim(), W - 20);
+    doc.text(linhasObs, 10, y);
+    y += linhasObs.length * 5 + 5;
+  }
+
+  // "Nossos cumprimentos, Kessler Group"
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(50, 50, 50);
+  doc.text("Nossos cumprimentos,", 10, y);
+  y += 5;
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(...AZUL_ESCURO);
+  doc.text("Kessler Group", 10, y);
+  y += 10;
+
+  // ── TABELA DE ITENS ────────────────────────────────────────────────────────
   const urls = rfq.itens.map((item) => item.referencia || "");
 
   const rows = rfq.itens.map((item, idx) => [
@@ -136,7 +155,7 @@ export function gerarPDFRFQ(rfq: RFQ) {
     alternateRowStyles: { fillColor: [248, 249, 252] },
     columnStyles: {
       0: { cellWidth: 22, fontStyle: "bold" },
-      1: { cellWidth: 90 },
+      1: { cellWidth: 95 },
       2: { cellWidth: 14, halign: "center" },
       3: { cellWidth: 22, halign: "center" },
       4: { cellWidth: 32, halign: "center", textColor: AZUL_MEDIO, fontStyle: "bold" },
@@ -156,20 +175,22 @@ export function gerarPDFRFQ(rfq: RFQ) {
     },
   });
 
-  // ── Rodapé ─────────────────────────────────────────────────────────────────
+  // ── RODAPÉ ─────────────────────────────────────────────────────────────────
   const totalPaginas = (doc.internal as any).getNumberOfPages();
   for (let i = 1; i <= totalPaginas; i++) {
     doc.setPage(i);
-    doc.setFillColor(...AZUL_ESCURO);
-    doc.rect(0, H - 10, W, 10, "F");
+    // Linha suave antes do rodapé
+    doc.setDrawColor(200, 210, 230);
+    doc.setLineWidth(0.3);
+    doc.line(10, H - 12, W - 10, H - 12);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(7);
-    doc.setTextColor(...BRANCO);
+    doc.setTextColor(...CINZA);
     doc.text(
       `Kessler Group · ${rfq.numeroRFQ} · Emitido em ${new Date().toLocaleDateString("pt-BR")}`,
-      12, H - 4
+      10, H - 7
     );
-    doc.text(`Pagina ${i} / ${totalPaginas}`, W - 12, H - 4, { align: "right" });
+    doc.text(`Pagina ${i} / ${totalPaginas}`, W - 10, H - 7, { align: "right" });
   }
 
   doc.save(`${rfq.numeroRFQ}.pdf`);
