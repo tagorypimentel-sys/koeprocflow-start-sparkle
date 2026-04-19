@@ -18,7 +18,6 @@ const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'rcs', label: 'Requisições', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'rfq', label: 'RFQ', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'po', label: 'PO', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
 
   { id: 'aprovacoes', label: 'Aprovações', roles: ['aprovador'] },
   { id: 'conferencia', label: 'Conferência', roles: ['conferente'] },
