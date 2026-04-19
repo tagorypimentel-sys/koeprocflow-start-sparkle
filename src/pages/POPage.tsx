@@ -88,7 +88,7 @@ export function POPage() {
     const po = rcParaPO(rc);
     const total = calcRC(rc).total.toLocaleString('pt-BR', {
       style: 'currency',
-      currency: 'BRL',
+      currency: 'EUR',
     });
     const dataEmissao = new Date(po.criadoEm).toLocaleDateString('pt-BR');
     const assunto = encodeURIComponent(
@@ -179,7 +179,7 @@ export function POPage() {
                         : new Date(rc.createdAt).toLocaleDateString('pt-BR')}
                     </TableCell>
                     <TableCell className="text-right font-medium text-sm">
-                      {total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                      {total.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
                     </TableCell>
                     <TableCell>
                       <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${STATUS_STYLE[rc.status] ?? 'bg-gray-50 text-gray-500 border-gray-200'}`}>

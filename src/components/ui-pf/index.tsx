@@ -191,13 +191,13 @@ export function TotalsBox({
 }: {
   subtotal: number; tax: number; taxRate: number; total: number;
 }) {
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
   return (
     <div className="mt-4 p-4 bg-gray-50 rounded-lg text-right text-sm space-y-1">
-      <div className="text-gray-500">Subtotal: <span className="font-semibold text-gray-800">R$ {fmt(subtotal)}</span></div>
-      <div className="text-gray-500">Impostos ({taxRate}%): <span className="font-semibold text-gray-800">R$ {fmt(tax)}</span></div>
+      <div className="text-gray-500">Subtotal: <span className="font-semibold text-gray-800">€ {fmt(subtotal)}</span></div>
+      <div className="text-gray-500">Impostos ({taxRate}%): <span className="font-semibold text-gray-800">€ {fmt(tax)}</span></div>
       <div className="pt-2 border-t border-gray-200 text-lg font-bold text-blue-900">
-        Total: R$ {fmt(total)}
+        Total: € {fmt(total)}
       </div>
     </div>
   );

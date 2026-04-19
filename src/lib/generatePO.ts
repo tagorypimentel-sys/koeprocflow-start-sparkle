@@ -8,7 +8,7 @@ const GRAY: [number, number, number] = [107, 114, 128]; // #6b7280
 const LIGHT: [number, number, number] = [243, 244, 246]; // #f3f4f6
 
 const fmt = (n: number) =>
-  n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const today = () =>
   new Date().toLocaleDateString('pt-BR');
@@ -171,7 +171,7 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
   autoTable(doc, {
     startY: y,
     margin: { left: margin, right: margin },
-    head: [['Código', 'Descrição', 'Qtd', 'Unit. (R$)', 'Desc.', 'Total (R$)']],
+    head: [['Código', 'Descrição', 'Qtd', 'Unit. (€)', 'Desc.', 'Total (€)']],
     body: rc.lineItems.map((li) => {
       const t = li.unitPrice * li.qty * (1 - li.discount / 100);
       return [
@@ -218,13 +218,13 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
     y += big ? 7 : 5.2;
   };
 
-  totalsRow('Subtotal', `R$ ${fmt(totals.subtotal)}`);
-  totalsRow(`Impostos (${rc.tax}%)`, `R$ ${fmt(totals.taxAmt)}`);
+  totalsRow('Subtotal', `€ ${fmt(totals.subtotal)}`);
+  totalsRow(`Impostos (${rc.tax}%)`, `€ ${fmt(totals.taxAmt)}`);
   doc.setDrawColor(...NAVY);
   doc.setLineWidth(0.4);
   doc.line(totalsX, y - 2, valX, y - 2);
   y += 1;
-  totalsRow('TOTAL', `R$ ${fmt(totals.total)}`, true, true);
+  totalsRow('TOTAL', `€ ${fmt(totals.total)}`, true, true);
 
   // ===== Notes =====
   if (rc.notes) {

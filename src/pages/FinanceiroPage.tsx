@@ -17,7 +17,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
   const pending = rcs.filter((r) => r.status === 'nota_fiscal_recebida');
   const toSendToAccountant = rcs.filter((r) => r.status === 'pagamento_realizado');
   const finished = rcs.filter((r) => r.status === 'nota_enviada_contador').slice(0, 5);
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   const handlePay = (id: string) => {
     updateRC(id, {
@@ -38,7 +38,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Financeiro — Pagamentos & Envio ao Contador</h1>
         <p className="text-sm text-gray-500 mt-1">
-          {pending.length} fatura(s) pendentes · R$ {fmt(totalPending)} a pagar · {toSendToAccountant.length} a enviar ao contador
+          {pending.length} fatura(s) pendentes · € {fmt(totalPending)} a pagar · {toSendToAccountant.length} a enviar ao contador
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                     <StatusBadge status={rc.status} />
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-bold text-blue-900">R$ {fmt(total)}</div>
+                    <div className="text-xl font-bold text-blue-900">€ {fmt(total)}</div>
                   </div>
                 </div>
                 <div className="p-5">
@@ -78,7 +78,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                     ))}
                   </div>
                   <div className="text-xs text-gray-500 mb-4 space-y-0.5">
-                    <div>Subtotal: R$ {fmt(subtotal)} · Impostos ({rc.tax}%): R$ {fmt(taxAmt)}</div>
+                    <div>Subtotal: € {fmt(subtotal)} · Impostos ({rc.tax}%): € {fmt(taxAmt)}</div>
                     <div>Projeto: {rc.projectNumber} · {rc.projectClient}</div>
                   </div>
                   <div className="flex gap-3 justify-end">
@@ -112,7 +112,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                   <StatusBadge status={rc.status} />
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-gray-800">R$ {fmt(total)}</span>
+                  <span className="text-sm font-bold text-gray-800">€ {fmt(total)}</span>
                   <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver</Button>
                   <Button size="sm" variant="primary" onClick={() => handleSendToAccountant(rc.id)}>
                     📤 Enviar ao Contador
@@ -146,7 +146,7 @@ export function FinanceiroPage({ onSelectRC }: Props) {
                       <td className="px-4 py-3 text-xs text-gray-600">{rc.projectNumber}</td>
                       <td className="px-4 py-3 text-xs font-medium">{rc.supplier.name}</td>
                       <td className="px-4 py-3 text-xs text-gray-400">{rc.paidAt || '—'}</td>
-                      <td className="px-4 py-3 text-xs font-bold">R$ {fmt(total)}</td>
+                      <td className="px-4 py-3 text-xs font-bold">€ {fmt(total)}</td>
                       <td className="px-4 py-3"><StatusBadge status={rc.status} /></td>
                     </tr>
                   );

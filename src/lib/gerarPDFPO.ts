@@ -10,7 +10,7 @@ function fmtData(iso: string): string {
 }
 
 function fmtMoeda(v: number): string {
-  return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  return v.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
 
 export interface POItem {

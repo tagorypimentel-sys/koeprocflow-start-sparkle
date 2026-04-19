@@ -25,7 +25,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
     return matchStatus && matchSearch;
   });
 
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   return (
     <div className="p-6">
@@ -92,7 +92,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
                     <td className="px-4 py-3 text-gray-600 text-xs">{rc.supplier.name}</td>
                     <td className="px-4 py-3 text-gray-600 text-xs">{rc.requester.name}</td>
                     <td className="px-4 py-3 text-gray-400 text-xs">{rc.createdAt}</td>
-                    <td className="px-4 py-3 font-bold text-xs">R$ {fmt(total)}</td>
+                    <td className="px-4 py-3 font-bold text-xs">€ {fmt(total)}</td>
                     <td className="px-4 py-3"><StatusBadge status={rc.status} /></td>
                     <td className="px-4 py-3">
                       <button

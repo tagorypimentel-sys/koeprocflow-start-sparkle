@@ -14,7 +14,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
   const [rejectReason, setRejectReason] = useState('');
 
   const pending = rcs.filter((r) => r.status === 'aguardando_aprovacao');
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   const handleReject = (id: string) => {
     returnRC(id, rejectReason);
@@ -47,7 +47,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                   <span className="font-bold text-blue-900">{rc.id}</span>
                   <span className="text-gray-400 text-xs">· criado em {rc.createdAt}</span>
                 </div>
-                <span className="font-bold text-blue-900 text-lg">R$ {fmt(total)}</span>
+                <span className="font-bold text-blue-900 text-lg">€ {fmt(total)}</span>
               </div>
 
               <div className="p-5">
@@ -73,7 +73,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                   <table className="w-full text-xs border-collapse">
                     <thead>
                       <tr className="bg-gray-50 border-b border-gray-100">
-                        {['Código', 'Descrição', 'Qtd', 'Unit. (R$)', 'Desc.', 'Total (R$)'].map((h) => (
+                        {['Código', 'Descrição', 'Qtd', 'Unit. (€)', 'Desc.', 'Total (€)'].map((h) => (
                           <th key={h} className="px-3 py-2 text-left font-semibold text-gray-400">{h}</th>
                         ))}
                       </tr>
@@ -86,9 +86,9 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                             <td className="px-3 py-2 font-mono text-gray-400">{li.item.codigo}</td>
                             <td className="px-3 py-2 font-medium text-gray-800">{li.item.descricao}</td>
                             <td className="px-3 py-2 text-center">{li.qty}</td>
-                            <td className="px-3 py-2">R$ {fmt(li.unitPrice)}</td>
+                            <td className="px-3 py-2">€ {fmt(li.unitPrice)}</td>
                             <td className="px-3 py-2 text-green-700">{li.discount > 0 ? `${li.discount}%` : '—'}</td>
-                            <td className="px-3 py-2 font-bold">R$ {fmt(t)}</td>
+                            <td className="px-3 py-2 font-bold">€ {fmt(t)}</td>
                           </tr>
                         );
                       })}

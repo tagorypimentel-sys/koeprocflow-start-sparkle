@@ -11,7 +11,7 @@ interface Props {
 }
 
 const fmt = (v: number) =>
-  v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  v.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
 
 const totalLine = (li: LineItem) =>
   li.unitPrice * li.qty * (1 - (li.discount ?? 0) / 100);
