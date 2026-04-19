@@ -492,8 +492,8 @@ export function ConsultaPage() {
             rfqs={p.rfqs}
             rcs={p.rcs}
             onPDFRFQ={handlePDFRFQ}
-            onPDFRC={handlePDFRC}
-            onPDFPO={handlePDFPO}
+            onVerRC={(rc) => setVerRC(rc)}
+            onVerPO={(rc) => setVerPO(rc)}
             onEmailPO={handleEmailPO}
           />
         ))
