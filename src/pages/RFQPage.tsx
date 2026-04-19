@@ -312,7 +312,7 @@ export function RFQPage() {
             <TableRow>
               <TableHead>Número RFQ</TableHead>
               <TableHead>Projeto</TableHead>
-              <TableHead>Nome do Projeto</TableHead>
+              <TableHead>Nome do Cliente</TableHead>
               <TableHead>Itens</TableHead>
               <TableHead>Entrega Limite</TableHead>
               <TableHead>Emitido em</TableHead>
@@ -380,8 +380,8 @@ export function RFQPage() {
               )}
             </div>
             <div className="flex flex-col gap-1.5">
-              <Label>Nome do Projeto</Label>
-              <Input placeholder="Ex: Plataforma Navantia" value={nomeProjeto}
+              <Label>Nome do Cliente</Label>
+              <Input placeholder="Ex: Petrobras" value={nomeProjeto}
                 onChange={(e) => setNomeProjeto(e.target.value)} />
             </div>
             <div className="flex flex-col gap-1.5">
