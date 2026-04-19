@@ -13,6 +13,7 @@ function fmtData(iso: string): string {
 
 export function gerarPDFRFQ(rfq: RFQ) {
   const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+  doc.setLanguage("pt-BR");
   const W = doc.internal.pageSize.getWidth();
   const H = doc.internal.pageSize.getHeight();
 
@@ -88,7 +89,7 @@ export function gerarPDFRFQ(rfq: RFQ) {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
     doc.setTextColor(...CINZA);
-    doc.text("OBSERVAÇÕES", 12, y);
+    doc.text("OBSERVACOES", 12, y);
     y += 4;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(9);
@@ -106,12 +107,12 @@ export function gerarPDFRFQ(rfq: RFQ) {
     item.descricao,
     String(item.qty),
     item.unidade || "UN",
-    item.referencia ? "🔗 Ver Referência" : "—",
+    item.referencia ? "Ver Referencia" : "—",
   ]);
 
   autoTable(doc, {
     startY: y,
-    head: [["Código", "Descrição", "Qtd", "Unidade", "Referência"]],
+    head: [["Codigo", "Descricao", "Qtd", "Unidade", "Referencia"]],
     body: rows,
     margin: { left: 10, right: 10 },
     styles: {
@@ -163,7 +164,7 @@ export function gerarPDFRFQ(rfq: RFQ) {
       `Kessler Group · ${rfq.numeroRFQ} · Emitido em ${new Date().toLocaleDateString("pt-BR")}`,
       12, H - 4
     );
-    doc.text(`Página ${i} / ${totalPaginas}`, W - 12, H - 4, { align: "right" });
+    doc.text(`Pagina ${i} / ${totalPaginas}`, W - 12, H - 4, { align: "right" });
   }
 
   doc.save(`${rfq.numeroRFQ}.pdf`);
