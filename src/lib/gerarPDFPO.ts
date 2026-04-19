@@ -10,7 +10,7 @@ function fmtData(iso: string): string {
 }
 
 function fmtMoeda(v: number): string {
-  return v.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+  return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
 export interface POItem {
@@ -51,8 +51,6 @@ export function gerarPDFPO(po: POData) {
   const CINZA: [number, number, number] = [100, 100, 100];
   const CINZA_CLARO: [number, number, number] = [243, 244, 246];
   const BRANCO: [number, number, number] = [255, 255, 255];
-  const VERDE: [number, number, number] = [22, 101, 52];
-  const VERDE_BG: [number, number, number] = [220, 252, 231];
 
   // ── CABEÇALHO ──────────────────────────────────────────────────────────────
   try {
@@ -87,12 +85,12 @@ export function gerarPDFPO(po: POData) {
   doc.text(po.numeroPO, W - 10, 22, { align: "right" });
 
   // Badge APROVADA
-  doc.setFillColor(...VERDE_BG);
-  doc.roundedRect(W - 46, 25, 36, 6, 1, 1, "F");
+  doc.setFillColor(...AZUL_ESCURO);
+  doc.roundedRect(W - 66, 24, 56, 7, 1.5, 1.5, "F");
   doc.setFont("helvetica", "bold");
   doc.setFontSize(7);
-  doc.setTextColor(...VERDE);
-  doc.text("PEDIDO DE COMPRA APROVADO", W - 28, 29.5, { align: "center" });
+  doc.setTextColor(...BRANCO);
+  doc.text("PEDIDO DE COMPRA APROVADO", W - 38, 29, { align: "center" });
 
   // Linha divisória
   doc.setDrawColor(200, 210, 230);
@@ -207,31 +205,34 @@ export function gerarPDFPO(po: POData) {
   });
 
   // ── TOTAIS ──────────────────────────────────────────────────────────────────
-  const yFinal = (doc as any).lastAutoTable.finalY + 4;
-  const xTotais = W - 10;
+  // Totais alinhados com a coluna Total da tabela (margem direita = 10mm)
+  const yFinal = (doc as any).lastAutoTable.finalY + 6;
+  const xLabel = W - 52;  // início dos labels
+  const xValor = W - 10;  // fim dos valores (alinhado com col Total)
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor(...CINZA);
-  doc.text("Subtotal:", xTotais - 40, yFinal);
+  doc.text("Subtotal:", xLabel, yFinal);
   doc.setTextColor(30, 30, 30);
-  doc.text(fmtMoeda(subtotal), xTotais, yFinal, { align: "right" });
+  doc.text(fmtMoeda(subtotal), xValor, yFinal, { align: "right" });
 
   doc.setTextColor(...CINZA);
-  doc.text(`Imposto (${po.imposto}%):`, xTotais - 40, yFinal + 5);
+  doc.text(`Imposto (${po.imposto}%):`, xLabel, yFinal + 6);
   doc.setTextColor(30, 30, 30);
-  doc.text(fmtMoeda(impostoVal), xTotais, yFinal + 5, { align: "right" });
+  doc.text(fmtMoeda(impostoVal), xValor, yFinal + 6, { align: "right" });
 
-  // Linha total
+  // Linha separadora alinhada
   doc.setDrawColor(...AZUL_ESCURO);
   doc.setLineWidth(0.4);
-  doc.line(xTotais - 50, yFinal + 7, xTotais, yFinal + 7);
+  doc.line(xLabel, yFinal + 9, xValor, yFinal + 9);
 
+  // Total
   doc.setFont("helvetica", "bold");
   doc.setFontSize(10);
   doc.setTextColor(...AZUL_ESCURO);
-  doc.text("TOTAL:", xTotais - 40, yFinal + 13);
-  doc.text(fmtMoeda(totalGeral), xTotais, yFinal + 13, { align: "right" });
+  doc.text("TOTAL:", xLabel, yFinal + 16);
+  doc.text(fmtMoeda(totalGeral), xValor, yFinal + 16, { align: "right" });
 
   // ── OBSERVAÇÕES ─────────────────────────────────────────────────────────────
   if (po.observacoes?.trim()) {
