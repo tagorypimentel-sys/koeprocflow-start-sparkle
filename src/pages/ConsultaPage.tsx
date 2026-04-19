@@ -127,8 +127,8 @@ function ProjetoCard({
   rfqs,
   rcs,
   onPDFRFQ,
-  onPDFRC,
-  onPDFPO,
+  onVerRC,
+  onVerPO,
   onEmailPO,
 }: {
   numeroProjeto: string;
@@ -136,8 +136,8 @@ function ProjetoCard({
   rfqs: RFQ[];
   rcs: PurchaseRequest[];
   onPDFRFQ: (rfq: RFQ) => void;
-  onPDFRC: (rc: PurchaseRequest) => void;
-  onPDFPO: (rc: PurchaseRequest) => void;
+  onVerRC: (rc: PurchaseRequest) => void;
+  onVerPO: (rc: PurchaseRequest) => void;
   onEmailPO: (rc: PurchaseRequest) => void;
 }) {
   const [aberto, setAberto] = useState(true);
