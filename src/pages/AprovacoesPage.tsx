@@ -14,7 +14,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
   const [rejectReason, setRejectReason] = useState('');
 
   const pending = rcs.filter((r) => r.status === 'aguardando_aprovacao');
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   const handleReject = (id: string) => {
     returnRC(id, rejectReason);

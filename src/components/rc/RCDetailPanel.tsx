@@ -21,7 +21,7 @@ interface Props {
 export function RCDetailPanel({ rc, onClose }: Props) {
   const { calcRC, resubmitRC, updateRC, currentUser } = useApp();
   const { subtotal, taxAmt, total } = calcRC(rc);
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   const status = rc.status as StatusRC;
   const papel = responsavelDoUsuario(currentUser.role);

@@ -48,7 +48,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const tax = parseFloat(form.tax) || 0;
   const taxAmt = subtotal * (tax / 100);
   const total = subtotal + taxAmt;
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   const validate = () => {
     const e: Record<string, string> = {};

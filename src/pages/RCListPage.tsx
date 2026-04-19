@@ -25,7 +25,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
     return matchStatus && matchSearch;
   });
 
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   return (
     <div className="p-6">

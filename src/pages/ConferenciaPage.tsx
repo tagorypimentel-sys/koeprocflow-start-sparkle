@@ -17,7 +17,7 @@ export function ConferenciaPage({ onSelectRC }: Props) {
   const pending = rcs.filter((r) => r.status === 'entrega_confirmada');
   const recent = rcs.filter((r) => r.status === 'nota_fiscal_recebida').slice(0, 5);
 
-  const fmt = (n: number) => n.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+  const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
 
   const handleRegisterInvoice = (rcId: string) => {
     updateRC(rcId, {
