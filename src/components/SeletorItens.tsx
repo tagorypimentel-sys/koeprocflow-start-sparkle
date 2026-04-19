@@ -122,7 +122,7 @@ export default function SeletorItens({ onConfirmar, onCancelar }: Props) {
     itensFiltrados.length > 0 && itensFiltrados.every((i) => selecionados[String(i.id)]);
 
   const fmt = (v: number) =>
-    v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    v.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   if (etapa === "selecionar") {
     return (

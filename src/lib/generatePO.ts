@@ -8,7 +8,7 @@ const GRAY: [number, number, number] = [107, 114, 128]; // #6b7280
 const LIGHT: [number, number, number] = [243, 244, 246]; // #f3f4f6
 
 const fmt = (n: number) =>
-  n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  n.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const today = () =>
   new Date().toLocaleDateString('pt-BR');
