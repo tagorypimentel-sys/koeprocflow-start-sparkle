@@ -10,6 +10,7 @@ import { gerarPDFRFQ } from '@/lib/gerarPDFRFQ';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { toast } from 'sonner';
 import { PurchaseRequest } from '@/types';
+import { VisualizarRC, VisualizarPO } from '@/components/VisualizarDocumento';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
