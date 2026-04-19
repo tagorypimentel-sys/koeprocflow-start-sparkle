@@ -4,7 +4,7 @@ import { ROLE_LABELS } from '@/lib/constants';
 import { Avatar } from '@/components/ui-pf';
 
 type Page =
-  | 'dashboard' | 'rcs' | 'nova_rc'
+  | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
   | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
@@ -17,7 +17,8 @@ interface LayoutProps {
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Dashboard', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
   { id: 'rcs', label: 'Requisições', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  
+  { id: 'rfq', label: 'RFQ', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+
   { id: 'aprovacoes', label: 'Aprovações', roles: ['aprovador'] },
   { id: 'conferencia', label: 'Conferência', roles: ['conferente'] },
   { id: 'financeiro', label: 'Financeiro', roles: ['financeiro'] },
@@ -31,6 +32,7 @@ const NAV_ITEMS = [
 const ICONS: Record<string, string> = {
   dashboard: 'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z',
   rcs: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+  rfq: 'M8 7h12M8 12h12M8 17h8M3 7h.01M3 12h.01M3 17h.01',
   nova_rc: 'M12 4v16m8-8H4',
   
   aprovacoes: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0',

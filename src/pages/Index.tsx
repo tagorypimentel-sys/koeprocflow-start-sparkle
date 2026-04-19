@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AppProvider, useApp } from '@/context/AppContext';
 import { ClientesProvider } from '@/context/ClientesContext';
 import { ItensProvider } from '@/context/ItensContext';
+import { RFQProvider } from '@/context/RFQContext';
 
 import { Layout } from '@/components/layout/Layout';
 import { RCDetailPanel } from '@/components/rc/RCDetailPanel';
@@ -12,6 +13,7 @@ import { AprovacoesPage } from '@/pages/AprovacoesPage';
 import { ConferenciaPage } from '@/pages/ConferenciaPage';
 import { FinanceiroPage } from '@/pages/FinanceiroPage';
 import { ItemsPage } from '@/pages/ItemsPage';
+import { RFQPage } from '@/pages/RFQPage';
 import { SuppliersPage } from '@/pages/SuppliersPage';
 import { ClientesPage } from '@/pages/ClientesPage';
 import { UsuariosPage } from '@/pages/UsuariosPage';
@@ -19,7 +21,7 @@ import { UsuariosPage } from '@/pages/UsuariosPage';
 import { PurchaseRequest } from '@/types';
 
 type Page =
-  | 'dashboard' | 'rcs' | 'nova_rc'
+  | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
   | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
@@ -45,6 +47,7 @@ function AppInner() {
           {page === 'conferencia' && <ConferenciaPage onSelectRC={handleSelectRC} />}
           {page === 'financeiro' && <FinanceiroPage onSelectRC={handleSelectRC} />}
           
+          {page === 'rfq' && <RFQPage />}
           {page === 'items' && <ItemsPage />}
           {page === 'suppliers' && <SuppliersPage />}
           {page === 'clientes' && <ClientesPage />}
@@ -61,7 +64,9 @@ export default function Index() {
     <AppProvider>
       <ItensProvider>
         <ClientesProvider>
-          <AppInner />
+          <RFQProvider>
+            <AppInner />
+          </RFQProvider>
         </ClientesProvider>
       </ItensProvider>
     </AppProvider>
