@@ -329,6 +329,8 @@ export function ConsultaPage() {
   const { rfqs } = useRFQ();
   const [busca, setBusca] = useState('');
   const [filtroCliente, setFiltroCliente] = useState('all');
+  const [verRC, setVerRC] = useState<PurchaseRequest | null>(null);
+  const [verPO, setVerPO] = useState<PurchaseRequest | null>(null);
 
   function getNomeCliente(rc: PurchaseRequest): string {
     const projClient = rc.projectClient;
