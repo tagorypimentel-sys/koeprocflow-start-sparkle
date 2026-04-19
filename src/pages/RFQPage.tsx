@@ -386,9 +386,10 @@ export function RFQPage() {
                 onChange={(e) => setNomeProjeto(e.target.value)} />
             </div>
             <div className="flex flex-col gap-1.5">
-              <Label>Data de Emissão *</Label>
-              <Input type="date" value={dataEmissao}
-                onChange={(e) => setDataEmissao(e.target.value)} />
+              <Label>Data de Emissão</Label>
+              <div className="h-9 flex items-center px-3 text-sm text-gray-700 bg-gray-50 border border-gray-200 rounded-md">
+                {new Date().toLocaleDateString('pt-BR')}
+              </div>
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Data Limite de Entrega *</Label>
