@@ -5,29 +5,16 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
+  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table';
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
+  Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import { Pencil, Trash2, PackagePlus, Upload } from 'lucide-react';
+import { Pencil, Trash2, PackagePlus, Upload, ExternalLink } from 'lucide-react';
 import ImportarItens from '@/components/ImportarItens';
 
 const EMPTY_FORM = {
@@ -42,15 +29,23 @@ const EMPTY_FORM = {
   linkReferencia: '',
 };
 
-const CATEGORIA_COLOR: Record<string, string> = {
+const CAT_STYLE: Record<string, string> = {
   Tools: 'bg-blue-50 text-blue-700 border-blue-200',
   Consumables: 'bg-amber-50 text-amber-700 border-amber-200',
 };
 
-const TIPO_COLOR: Record<string, string> = {
+const TIPO_STYLE: Record<string, string> = {
   OPEX: 'bg-green-50 text-green-700 border-green-200',
   CAPEX: 'bg-purple-50 text-purple-700 border-purple-200',
 };
+
+function safeHostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
 
 export function ItemsPage() {
   const { itens, addItem, updateItem, deleteItem } = useItens();
@@ -120,37 +115,37 @@ export function ItemsPage() {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
+  const q = search.toLowerCase();
   const filtered = itens.filter((i) =>
-    !search ||
-    i.codigo.toLowerCase().includes(search.toLowerCase()) ||
-    i.descricao.toLowerCase().includes(search.toLowerCase())
+    !q ||
+    i.codigo.toLowerCase().includes(q) ||
+    i.descricao.toLowerCase().includes(q) ||
+    i.classe.toLowerCase().includes(q) ||
+    (i.marca?.toLowerCase().includes(q) ?? false)
   );
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-xl font-medium text-gray-900">Itens</h1>
-          <p className="text-sm text-gray-500 mt-0.5">{itens.length} itens cadastrados</p>
-        </div>
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-xl font-medium text-gray-900">
+          Itens <span className="text-sm font-normal text-gray-400 ml-1">{itens.length} cadastrados</span>
+        </h1>
         <div className="flex gap-2">
           <Button variant="outline" onClick={() => setImportOpen(true)} className="gap-2">
-            <Upload size={15} />
-            Importar
+            <Upload size={14} /> Importar Excel
           </Button>
           <Button onClick={openNew} className="gap-2">
-            <PackagePlus size={15} />
-            Novo Item
+            <PackagePlus size={14} /> Novo Item
           </Button>
         </div>
       </div>
 
       <div className="mb-3">
         <Input
+          placeholder="Buscar por descrição, código, classe ou marca..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Buscar por código ou descrição..."
-          className="max-w-xs"
+          className="max-w-sm"
         />
       </div>
 
@@ -165,49 +160,68 @@ export function ItemsPage() {
               <TableHead>Classe</TableHead>
               <TableHead>Tipo</TableHead>
               <TableHead>Unidade</TableHead>
-              <TableHead className="text-right">Preço Unit.</TableHead>
+              <TableHead className="text-right">Preço Unit. (USD)</TableHead>
+              <TableHead>Link Referência</TableHead>
               <TableHead className="text-right">Ações</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filtered.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={9} className="text-center text-gray-400 py-10">
-                  Nenhum item encontrado
+                <TableCell colSpan={10} className="text-center text-gray-400 py-10">
+                  {itens.length === 0 ? 'Nenhum item cadastrado' : 'Nenhum resultado para a busca'}
                 </TableCell>
               </TableRow>
             ) : (
               filtered.map((item) => (
                 <TableRow key={item.id}>
-                  <TableCell className="text-gray-500 font-mono text-sm">{item.codigo || '—'}</TableCell>
-                  <TableCell className="font-medium">{item.descricao}</TableCell>
+                  <TableCell className="text-gray-400 font-mono text-xs">{item.codigo || '—'}</TableCell>
+                  <TableCell className="font-medium text-sm">{item.descricao}</TableCell>
                   <TableCell className="text-gray-500 text-sm">{item.marca || '—'}</TableCell>
                   <TableCell>
-                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${CATEGORIA_COLOR[item.categoria] ?? ''}`}>
+                    <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium border ${CAT_STYLE[item.categoria] ?? 'bg-gray-50 text-gray-600 border-gray-200'}`}>
                       {item.categoria}
                     </span>
                   </TableCell>
                   <TableCell className="text-gray-600 text-sm">{item.classe}</TableCell>
                   <TableCell>
-                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${TIPO_COLOR[item.tipo] ?? ''}`}>
+                    <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium border ${TIPO_STYLE[item.tipo] ?? ''}`}>
                       {item.tipo}
                     </span>
                   </TableCell>
                   <TableCell className="text-gray-500 text-sm">{item.unidade || '—'}</TableCell>
-                  <TableCell className="text-right font-medium">
-                    {item.precoUnitario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                  <TableCell className="text-right font-medium text-sm">
+                    {item.precoUnitario > 0
+                      ? `$${item.precoUnitario.toLocaleString('en-US', { minimumFractionDigits: 2 })}`
+                      : '—'}
+                  </TableCell>
+                  <TableCell>
+                    {item.linkReferencia ? (
+                      <a
+                        href={item.linkReferencia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline max-w-[160px] truncate"
+                        title={item.linkReferencia}
+                      >
+                        <ExternalLink size={11} className="flex-shrink-0" />
+                        {safeHostname(item.linkReferencia)}
+                      </a>
+                    ) : (
+                      <span className="text-xs text-gray-300">—</span>
+                    )}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex gap-2 justify-end">
-                      <Button variant="outline" size="sm" onClick={() => openEdit(item)} className="gap-1.5">
-                        <Pencil size={13} /> Editar
+                      <Button variant="outline" size="sm" onClick={() => openEdit(item)} className="gap-1">
+                        <Pencil size={12} /> Editar
                       </Button>
                       <Button
                         variant="outline" size="sm"
                         onClick={() => handleDelete(item.id)}
-                        className="gap-1.5 text-red-600 border-red-200 hover:bg-red-50"
+                        className="gap-1 text-red-600 border-red-200 hover:bg-red-50"
                       >
-                        <Trash2 size={13} /> Excluir
+                        <Trash2 size={12} /> Excluir
                       </Button>
                     </div>
                   </TableCell>
@@ -275,22 +289,34 @@ export function ItemsPage() {
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Preço Unitário (R$)</Label>
+              <Label>Preço Unitário (USD)</Label>
               <Input
-                type="number" min={0} step={0.01} placeholder="0,00"
+                type="number" min={0} step={0.01} placeholder="0.00"
                 value={form.precoUnitario}
                 onChange={(e) => setField('precoUnitario', Number(e.target.value))}
               />
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Link de referência</Label>
-              <Input
-                type="url"
-                placeholder="https://fornecedor.com/produto (opcional)"
-                value={form.linkReferencia}
-                onChange={(e) => setField('linkReferencia', e.target.value)}
-              />
+              <Label>Link de Referência</Label>
+              <div className="flex items-center gap-2">
+                <Input
+                  type="url" placeholder="https://fornecedor.com/produto"
+                  value={form.linkReferencia}
+                  onChange={(e) => setField('linkReferencia', e.target.value)}
+                />
+                {form.linkReferencia && (
+                  <a
+                    href={form.linkReferencia}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-700 flex-shrink-0"
+                  >
+                    <ExternalLink size={16} />
+                  </a>
+                )}
+              </div>
+              <p className="text-xs text-gray-400">URL de referência para o fornecedor</p>
             </div>
           </div>
 
