@@ -6,7 +6,7 @@ import { FileDown, Mail } from "lucide-react";
 import { PurchaseRequest } from "@/types";
 
 function fmtMoeda(v: number) {
-  return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  return v.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
 function fmtData(iso?: string) {
   if (!iso) return "—";

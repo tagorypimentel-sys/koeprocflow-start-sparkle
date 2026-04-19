@@ -15,7 +15,7 @@ import { VisualizarRC, VisualizarPO } from '@/components/VisualizarDocumento';
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 function fmtMoeda(v: number) {
-  return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  return v.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
 }
 
 function fmtData(iso?: string) {
