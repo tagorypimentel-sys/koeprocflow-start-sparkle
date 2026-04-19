@@ -8,13 +8,15 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
 import {
-  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
-} from '@/components/ui/table';
-import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
 } from '@/components/ui/dialog';
+import {
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator,
+} from '@/components/ui/dropdown-menu';
 import { toast } from 'sonner';
-import { Pencil, Trash2, PackagePlus, Upload, ExternalLink } from 'lucide-react';
+import {
+  Pencil, Trash2, PackagePlus, Upload, ExternalLink, Search, MoreVertical,
+} from 'lucide-react';
 import ImportarItens from '@/components/ImportarItens';
 
 const EMPTY_FORM = {
@@ -30,13 +32,13 @@ const EMPTY_FORM = {
 };
 
 const CAT_STYLE: Record<string, string> = {
-  Tools: 'bg-blue-50 text-blue-700 border-blue-200',
-  Consumables: 'bg-amber-50 text-amber-700 border-amber-200',
+  Tools: 'bg-blue-50 text-blue-800 border-blue-200',
+  Consumables: 'bg-amber-50 text-amber-800 border-amber-200',
 };
 
 const TIPO_STYLE: Record<string, string> = {
-  OPEX: 'bg-green-50 text-green-700 border-green-200',
-  CAPEX: 'bg-purple-50 text-purple-700 border-purple-200',
+  OPEX: 'bg-green-50 text-green-800 border-green-200',
+  CAPEX: 'bg-purple-50 text-purple-800 border-purple-200',
 };
 
 function safeHostname(url: string): string {
@@ -125,113 +127,158 @@ export function ItemsPage() {
   );
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl font-medium text-gray-900">
-          Itens <span className="text-sm font-normal text-gray-400 ml-1">{itens.length} cadastrados</span>
-        </h1>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={() => setImportOpen(true)} className="gap-2">
-            <Upload size={14} /> Importar Excel
-          </Button>
-          <Button onClick={openNew} className="gap-2">
-            <PackagePlus size={14} /> Novo Item
-          </Button>
+    <div className="flex flex-col h-full bg-gray-50 font-sans">
+      {/* Topbar */}
+      <div className="bg-white border-b border-gray-100 px-5 py-3 flex items-center justify-between flex-shrink-0">
+        <div className="flex items-center gap-2">
+          <h1 className="text-base font-semibold text-gray-900">Itens</h1>
+          <span className="text-sm text-gray-400">{itens.length} cadastrados</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setImportOpen(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg text-sm text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+          >
+            <Upload size={13} />
+            Importar Excel
+          </button>
+          <button
+            onClick={openNew}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-white bg-gray-900 hover:bg-gray-800 transition-colors"
+          >
+            <PackagePlus size={13} />
+            Novo Item
+          </button>
         </div>
       </div>
 
-      <div className="mb-3">
-        <Input
-          placeholder="Buscar por descrição, código, classe ou marca..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="max-w-sm"
-        />
+      {/* Search */}
+      <div className="bg-white border-b border-gray-100 px-5 py-2.5 flex-shrink-0">
+        <div className="relative max-w-sm">
+          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Buscar por descrição, código, classe ou marca..."
+            className="w-full pl-8 pr-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:bg-white transition-colors"
+          />
+        </div>
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white overflow-hidden">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Código</TableHead>
-              <TableHead>Descrição</TableHead>
-              <TableHead>Marca</TableHead>
-              <TableHead>Categoria</TableHead>
-              <TableHead>Classe</TableHead>
-              <TableHead>Tipo</TableHead>
-              <TableHead>Unidade</TableHead>
-              <TableHead className="text-right">Preço Unit. (USD)</TableHead>
-              <TableHead>Link Referência</TableHead>
-              <TableHead className="text-right">Ações</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filtered.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={10} className="text-center text-gray-400 py-10">
-                  {itens.length === 0 ? 'Nenhum item cadastrado' : 'Nenhum resultado para a busca'}
-                </TableCell>
-              </TableRow>
-            ) : (
-              filtered.map((item) => (
-                <TableRow key={item.id}>
-                  <TableCell className="text-gray-400 font-mono text-xs">{item.codigo || '—'}</TableCell>
-                  <TableCell className="font-medium text-sm">{item.descricao}</TableCell>
-                  <TableCell className="text-gray-500 text-sm">{item.marca || '—'}</TableCell>
-                  <TableCell>
-                    <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium border ${CAT_STYLE[item.categoria] ?? 'bg-gray-50 text-gray-600 border-gray-200'}`}>
-                      {item.categoria}
-                    </span>
-                  </TableCell>
-                  <TableCell className="text-gray-600 text-sm">{item.classe}</TableCell>
-                  <TableCell>
-                    <span className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium border ${TIPO_STYLE[item.tipo] ?? ''}`}>
-                      {item.tipo}
-                    </span>
-                  </TableCell>
-                  <TableCell className="text-gray-500 text-sm">{item.unidade || '—'}</TableCell>
-                  <TableCell className="text-right font-medium text-sm">
+      {/* Table */}
+      <div className="flex-1 overflow-auto">
+        <table className="w-full border-collapse text-sm" style={{ minWidth: 900 }}>
+          <thead>
+            <tr className="bg-white border-b border-gray-100 sticky top-0 z-10">
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">Código</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 min-w-[200px]">Descrição</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-32">Marca</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">Categoria</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">Classe</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">Tipo</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">Unidade</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">Preço Unit. (EUR)</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-40">Link Referência</th>
+              <th className="w-10 px-2 py-3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((item) => (
+              <tr key={item.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                <td className="px-4 py-3">
+                  <span className="text-xs font-mono text-gray-400">{item.codigo || '—'}</span>
+                </td>
+                <td className="px-4 py-3">
+                  <span className="font-medium text-gray-900 leading-snug">{item.descricao}</span>
+                </td>
+                <td className="px-4 py-3">
+                  <span className="text-gray-500 text-xs">{item.marca || '—'}</span>
+                </td>
+                <td className="px-4 py-3">
+                  <span
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                      CAT_STYLE[item.categoria] ?? 'bg-gray-100 text-gray-700 border-gray-200'
+                    }`}
+                  >
+                    {item.categoria}
+                  </span>
+                </td>
+                <td className="px-4 py-3">
+                  <span className="text-gray-600 text-xs">{item.classe}</span>
+                </td>
+                <td className="px-4 py-3">
+                  <span
+                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                      TIPO_STYLE[item.tipo] ?? 'bg-gray-100 text-gray-700 border-gray-200'
+                    }`}
+                  >
+                    {item.tipo}
+                  </span>
+                </td>
+                <td className="px-4 py-3">
+                  <span className="text-gray-600 text-xs">{item.unidade || '—'}</span>
+                </td>
+                <td className="px-4 py-3">
+                  <span className="text-gray-700 text-xs font-medium">
                     {item.precoUnitario > 0
-                      ? `$${item.precoUnitario.toLocaleString('en-US', { minimumFractionDigits: 2 })}`
+                      ? `€${item.precoUnitario.toLocaleString('de-DE', { minimumFractionDigits: 2 })}`
                       : '—'}
-                  </TableCell>
-                  <TableCell>
-                    {item.linkReferencia ? (
-                      <a
-                        href={item.linkReferencia}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-800 hover:underline max-w-[160px] truncate"
-                        title={item.linkReferencia}
-                      >
-                        <ExternalLink size={11} className="flex-shrink-0" />
-                        {safeHostname(item.linkReferencia)}
-                      </a>
-                    ) : (
-                      <span className="text-xs text-gray-300">—</span>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <div className="flex gap-2 justify-end">
-                      <Button variant="outline" size="sm" onClick={() => openEdit(item)} className="gap-1">
-                        <Pencil size={12} /> Editar
-                      </Button>
-                      <Button
-                        variant="outline" size="sm"
+                  </span>
+                </td>
+                <td className="px-4 py-3">
+                  {item.linkReferencia ? (
+                    <a
+                      href={item.linkReferencia}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={item.linkReferencia}
+                      className="flex items-center gap-1.5 text-blue-600 text-xs hover:text-blue-800 transition-colors max-w-[160px] truncate"
+                    >
+                      <ExternalLink size={12} className="flex-shrink-0" />
+                      <span className="truncate">{safeHostname(item.linkReferencia)}</span>
+                    </a>
+                  ) : (
+                    <span className="text-xs text-gray-300">—</span>
+                  )}
+                </td>
+                <td className="px-2 py-3">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="w-7 h-7 rounded-lg border border-gray-100 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors">
+                        <MoreVertical size={13} />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-36">
+                      <DropdownMenuItem onClick={() => openEdit(item)} className="gap-2 text-sm">
+                        <Pencil size={13} /> Editar
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem
                         onClick={() => handleDelete(item.id)}
-                        className="gap-1 text-red-600 border-red-200 hover:bg-red-50"
+                        className="gap-2 text-sm text-red-600 focus:text-red-700"
                       >
-                        <Trash2 size={12} /> Excluir
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
+                        <Trash2 size={13} /> Excluir
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {filtered.length === 0 && (
+          <div className="flex flex-col items-center justify-center py-20 text-gray-400">
+            <Search size={20} />
+            <p className="mt-2 text-sm">
+              {itens.length === 0 ? 'Nenhum item cadastrado' : 'Nenhum resultado para a busca'}
+            </p>
+          </div>
+        )}
       </div>
 
+      {/* Dialog Novo/Editar */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-lg">
           <DialogHeader>
@@ -289,7 +336,7 @@ export function ItemsPage() {
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Preço Unitário (USD)</Label>
+              <Label>Preço Unitário (EUR)</Label>
               <Input
                 type="number" min={0} step={0.01} placeholder="0.00"
                 value={form.precoUnitario}
@@ -327,6 +374,7 @@ export function ItemsPage() {
         </DialogContent>
       </Dialog>
 
+      {/* Dialog Importar */}
       <Dialog open={importOpen} onOpenChange={setImportOpen}>
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
