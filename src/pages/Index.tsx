@@ -14,6 +14,7 @@ import { ConferenciaPage } from '@/pages/ConferenciaPage';
 import { FinanceiroPage } from '@/pages/FinanceiroPage';
 import { ItemsPage } from '@/pages/ItemsPage';
 import { RFQPage } from '@/pages/RFQPage';
+import { POPage } from '@/pages/POPage';
 import { SuppliersPage } from '@/pages/SuppliersPage';
 import { ClientesPage } from '@/pages/ClientesPage';
 import { UsuariosPage } from '@/pages/UsuariosPage';
@@ -21,7 +22,7 @@ import { UsuariosPage } from '@/pages/UsuariosPage';
 import { PurchaseRequest } from '@/types';
 
 type Page =
-  | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq'
+  | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq' | 'po'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
   | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
@@ -48,6 +49,7 @@ function AppInner() {
           {page === 'financeiro' && <FinanceiroPage onSelectRC={handleSelectRC} />}
           
           {page === 'rfq' && <RFQPage />}
+          {page === 'po' && <POPage />}
           {page === 'items' && <ItemsPage />}
           {page === 'suppliers' && <SuppliersPage />}
           {page === 'clientes' && <ClientesPage />}
