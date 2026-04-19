@@ -498,6 +498,23 @@ export function ConsultaPage() {
           />
         ))
       )}
+
+      {/* Modais de visualização */}
+      <VisualizarRC
+        rc={verRC}
+        clienteNome={verRC ? getNomeCliente(verRC) : ''}
+        open={!!verRC}
+        onClose={() => setVerRC(null)}
+        onGerarPDF={() => { if (verRC) handlePDFRC(verRC); }}
+      />
+      <VisualizarPO
+        rc={verPO}
+        clienteNome={verPO ? getNomeCliente(verPO) : ''}
+        open={!!verPO}
+        onClose={() => setVerPO(null)}
+        onGerarPDF={() => { if (verPO) handlePDFPO(verPO); }}
+        onEmail={() => { if (verPO) handleEmailPO(verPO); }}
+      />
     </div>
   );
 }
