@@ -2,9 +2,10 @@ import { useState, useMemo } from 'react';
 import { useApp } from '@/context/AppContext';
 import { useClientes } from '@/context/ClientesContext';
 import { useRFQ, RFQ } from '@/context/RFQContext';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Search, FileDown, Mail, ChevronDown, ChevronUp } from 'lucide-react';
+import {
+  Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
+} from '@/components/ui/select';
+import { Search, Mail, ChevronDown, ChevronUp, Eye, FileText, Receipt } from 'lucide-react';
 import { gerarPDFRFQ } from '@/lib/gerarPDFRFQ';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { toast } from 'sonner';
@@ -86,6 +87,37 @@ const RC_STATUS_STYLE: Record<string, string> = {
   devolvida: 'bg-red-50 text-red-600 border-red-200',
 };
 
+// ── Botão de documento ───────────────────────────────────────────────────────
+
+function DocBtn({
+  label, icon, onClick, title, disabled = false, color = '',
+}: {
+  label: string;
+  icon: React.ReactNode;
+  onClick: () => void;
+  title?: string;
+  disabled?: boolean;
+  color?: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      title={title}
+      className={`inline-flex items-center gap-1 px-2 py-1 rounded border text-xs font-medium transition-colors
+        ${disabled
+          ? 'opacity-30 cursor-not-allowed border-gray-200 text-gray-400'
+          : color
+            ? `${color} cursor-pointer`
+            : 'border-gray-200 text-gray-500 hover:bg-gray-50 cursor-pointer'
+        }`}
+    >
+      {icon}
+      {label}
+    </button>
+  );
+}
+
 // ── Card por projeto ──────────────────────────────────────────────────────────
 
 function ProjetoCard({
@@ -94,6 +126,7 @@ function ProjetoCard({
   rfqs,
   rcs,
   onPDFRFQ,
+  onPDFRC,
   onPDFPO,
   onEmailPO,
 }: {
@@ -102,6 +135,7 @@ function ProjetoCard({
   rfqs: RFQ[];
   rcs: PurchaseRequest[];
   onPDFRFQ: (rfq: RFQ) => void;
+  onPDFRC: (rc: PurchaseRequest) => void;
   onPDFPO: (rc: PurchaseRequest) => void;
   onEmailPO: (rc: PurchaseRequest) => void;
 }) {
@@ -127,15 +161,15 @@ function ProjetoCard({
               <p className="text-sm font-medium text-gray-700">{clienteNome}</p>
             </div>
           )}
-          <div className="flex gap-3 ml-4">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-blue-50 text-blue-700 border border-blue-200">
+          <div className="flex gap-2 ml-4">
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-blue-50 text-blue-700 border border-blue-200">
               {rfqs.length} RFQ{rfqs.length !== 1 ? 's' : ''}
             </span>
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-gray-50 text-gray-600 border border-gray-200">
+            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-gray-50 text-gray-600 border border-gray-200">
               {rcs.length} RC{rcs.length !== 1 ? 's' : ''}
             </span>
             {posGeradas > 0 && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-green-50 text-green-700 border border-green-200">
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-green-50 text-green-700 border border-green-200">
                 {posGeradas} PO{posGeradas !== 1 ? 's' : ''}
               </span>
             )}
@@ -156,6 +190,7 @@ function ProjetoCard({
 
       {aberto && (
         <div className="divide-y divide-gray-100">
+          {/* RFQs */}
           {rfqs.length > 0 && (
             <div className="px-5 py-3">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">RFQs</p>
@@ -176,20 +211,20 @@ function ProjetoCard({
                       </span>
                       <span className="text-xs text-gray-400">Emitido: {fmtData(rfq.criadoEm)}</span>
                     </div>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-7 gap-1.5 text-xs"
+                    <DocBtn
+                      label="RFQ"
+                      title="Visualizar PDF da RFQ"
+                      icon={<Eye size={11} />}
+                      color="border-blue-200 text-blue-700 hover:bg-blue-50"
                       onClick={() => onPDFRFQ(rfq)}
-                    >
-                      <FileDown size={12} /> PDF
-                    </Button>
+                    />
                   </div>
                 ))}
               </div>
             </div>
           )}
 
+          {/* RCs e POs */}
           {rcs.length > 0 && (
             <div className="px-5 py-3">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">RCs / POs</p>
@@ -203,7 +238,7 @@ function ProjetoCard({
                     <th className="text-right py-1.5 pr-3 font-normal">Valor</th>
                     <th className="text-left py-1.5 pr-3 font-normal">Status RC</th>
                     <th className="text-left py-1.5 pr-3 font-normal">Data</th>
-                    <th className="py-1.5 text-right font-normal">Ações</th>
+                    <th className="py-1.5 text-right font-normal">Documentos</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -235,28 +270,41 @@ function ProjetoCard({
                       </td>
                       <td className="py-2 pr-3 text-gray-400">{fmtData(rc.createdAt)}</td>
                       <td className="py-2">
-                        <div className="flex gap-1 justify-end">
+                        <div className="flex gap-1.5 justify-end items-center">
+                          {/* RC — sempre disponível */}
+                          <DocBtn
+                            label="RC"
+                            title="Visualizar PDF da RC"
+                            icon={<FileText size={11} />}
+                            color="border-gray-200 text-gray-600 hover:bg-gray-50"
+                            onClick={() => onPDFRC(rc)}
+                          />
+                          {/* PO — só quando gerada */}
+                          <DocBtn
+                            label="PO"
+                            title={rc.poNumber ? 'Visualizar PDF da PO' : 'PO ainda não gerada'}
+                            icon={<Eye size={11} />}
+                            color={rc.poNumber ? 'border-green-200 text-green-700 hover:bg-green-50' : ''}
+                            disabled={!rc.poNumber}
+                            onClick={() => onPDFPO(rc)}
+                          />
+                          {/* NF — placeholder para futuro */}
+                          <DocBtn
+                            label="NF"
+                            title="Nota Fiscal — em breve"
+                            icon={<Receipt size={11} />}
+                            disabled
+                            onClick={() => {}}
+                          />
+                          {/* Email — só quando PO gerada */}
                           {rc.poNumber && (
-                            <>
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                className="h-7 gap-1 text-xs"
-                                title="Baixar PDF da PO"
-                                onClick={() => onPDFPO(rc)}
-                              >
-                                <FileDown size={11} /> PO
-                              </Button>
-                              <Button
-                                variant="outline"
-                                size="sm"
-                                className="h-7 gap-1 text-xs"
-                                title="Enviar PO por email"
-                                onClick={() => onEmailPO(rc)}
-                              >
-                                <Mail size={11} />
-                              </Button>
-                            </>
+                            <button
+                              onClick={() => onEmailPO(rc)}
+                              title="Enviar PO por email"
+                              className="inline-flex items-center justify-center w-6 h-6 rounded border border-gray-200 text-gray-400 hover:bg-gray-50 transition-colors"
+                            >
+                              <Mail size={11} />
+                            </button>
                           )}
                         </div>
                       </td>
@@ -279,6 +327,7 @@ export function ConsultaPage() {
   const { clientes } = useClientes();
   const { rfqs } = useRFQ();
   const [busca, setBusca] = useState('');
+  const [filtroCliente, setFiltroCliente] = useState('all');
 
   function getNomeCliente(rc: PurchaseRequest): string {
     const projClient = rc.projectClient;
@@ -289,43 +338,17 @@ export function ConsultaPage() {
     return found?.nome ?? projClient ?? '—';
   }
 
-  const projetos = useMemo(() => {
-    const q = busca.toLowerCase().trim();
-
-    const todosProjetos = new Set<string>();
-    rcs.forEach((rc) => {
-      if (rc.projectNumber) todosProjetos.add(rc.projectNumber);
-    });
-    rfqs.forEach((rfq) => {
-      if (rfq.numeroProjeto) todosProjetos.add(rfq.numeroProjeto);
-    });
-
-    return Array.from(todosProjetos)
-      .map((proj) => {
-        const rcsProj = rcs.filter((rc) => rc.projectNumber === proj);
-        const rfqsProj = rfqs.filter((rfq) => rfq.numeroProjeto === proj);
-        const clienteNome = rcsProj.length > 0 ? getNomeCliente(rcsProj[0]) : '—';
-        return { numeroProjeto: proj, clienteNome, rcs: rcsProj, rfqs: rfqsProj };
-      })
-      .filter(({ numeroProjeto, clienteNome, rcs: rcsP, rfqs: rfqsP }) => {
-        if (!q) return true;
-        return (
-          numeroProjeto.toLowerCase().includes(q) ||
-          clienteNome.toLowerCase().includes(q) ||
-          rcsP.some(
-            (rc) =>
-              rc.id.toLowerCase().includes(q) ||
-              (rc.poNumber ?? '').toLowerCase().includes(q)
-          ) ||
-          rfqsP.some((rfq) => rfq.numeroRFQ?.toLowerCase().includes(q))
-        );
-      })
-      .sort((a, b) => a.numeroProjeto.localeCompare(b.numeroProjeto));
-  }, [rcs, rfqs, clientes, busca]);
-
   function handlePDFRFQ(rfq: RFQ) {
     gerarPDFRFQ(rfq);
     toast.success(`PDF ${rfq.numeroRFQ} gerado!`);
+  }
+
+  function handlePDFRC(rc: PurchaseRequest) {
+    const clienteNome = getNomeCliente(rc);
+    const rcData = rcParaPO(rc, clienteNome);
+    rcData.numeroPO = `RC: ${rc.id}`;
+    gerarPDFPO(rcData);
+    toast.success(`PDF ${rc.id} gerado!`);
   }
 
   function handlePDFPO(rc: PurchaseRequest) {
@@ -357,35 +380,102 @@ export function ConsultaPage() {
     }, 400);
   }
 
-  const totalProjetos = projetos.length;
-  const totalRCs = projetos.reduce((a, p) => a + p.rcs.length, 0);
-  const totalRFQs = projetos.reduce((a, p) => a + p.rfqs.length, 0);
-  const totalPOs = projetos.reduce(
-    (a, p) => a + p.rcs.filter((rc) => rc.poNumber).length,
-    0
-  );
+  const projetos = useMemo(() => {
+    const q = busca.toLowerCase().trim();
+
+    const todosProjetos = new Set<string>();
+    rcs.forEach((rc) => {
+      if (rc.projectNumber) todosProjetos.add(rc.projectNumber);
+    });
+    rfqs.forEach((rfq) => {
+      if (rfq.numeroProjeto) todosProjetos.add(rfq.numeroProjeto);
+    });
+
+    return Array.from(todosProjetos)
+      .map((proj) => {
+        const rcsProj = rcs.filter((rc) => rc.projectNumber === proj);
+        const rfqsProj = rfqs.filter((rfq) => rfq.numeroProjeto === proj);
+        const clienteNome = rcsProj.length > 0 ? getNomeCliente(rcsProj[0]) : '—';
+        return { numeroProjeto: proj, clienteNome, rcs: rcsProj, rfqs: rfqsProj };
+      })
+      .filter(({ numeroProjeto, clienteNome, rcs: rcsP, rfqs: rfqsP }) => {
+        if (filtroCliente !== 'all' && clienteNome !== filtroCliente) return false;
+        if (!q) return true;
+        return (
+          numeroProjeto.toLowerCase().includes(q) ||
+          clienteNome.toLowerCase().includes(q) ||
+          rcsP.some(
+            (rc) =>
+              rc.id.toLowerCase().includes(q) ||
+              (rc.poNumber ?? '').toLowerCase().includes(q)
+          ) ||
+          rfqsP.some((rfq) => rfq.numeroRFQ?.toLowerCase().includes(q))
+        );
+      })
+      .sort((a, b) => a.numeroProjeto.localeCompare(b.numeroProjeto));
+  }, [rcs, rfqs, clientes, busca, filtroCliente]);
+
+  // Lista de clientes únicos com RCs
+  const clientesComDados = useMemo(() => {
+    const nomes = new Set<string>();
+    rcs.forEach((rc) => {
+      const nome = getNomeCliente(rc);
+      if (nome && nome !== '—') nomes.add(nome);
+    });
+    return Array.from(nomes).sort();
+  }, [rcs, clientes]);
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <div className="mb-6">
+      <div className="mb-5">
         <h1 className="text-xl font-medium text-gray-900">Consulta</h1>
         <p className="text-sm text-gray-400">Visão unificada de RFQs, RCs e POs por projeto</p>
       </div>
 
-      <div className="relative mb-5 max-w-md">
-        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-        <Input
-          placeholder="Buscar por projeto, cliente, RC, PO ou RFQ..."
-          className="pl-9"
-          value={busca}
-          onChange={(e) => setBusca(e.target.value)}
-        />
+      {/* Filtros */}
+      <div className="flex gap-3 mb-5 items-center">
+        <div className="relative flex-1 max-w-sm">
+          <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+          <input
+            className="w-full pl-9 pr-3 h-9 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
+            placeholder="Buscar por projeto, RC, PO ou RFQ..."
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
+        </div>
+        <Select value={filtroCliente} onValueChange={setFiltroCliente}>
+          <SelectTrigger className="w-56 h-9 text-sm">
+            <SelectValue placeholder="Filtrar por cliente" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">Todos os clientes</SelectItem>
+            {clientesComDados.map((nome) => (
+              <SelectItem key={nome} value={nome}>{nome}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        {(busca || filtroCliente !== 'all') && (
+          <button
+            className="text-xs text-gray-400 hover:text-gray-600 px-2"
+            onClick={() => { setBusca(''); setFiltroCliente('all'); }}
+          >
+            Limpar filtros
+          </button>
+        )}
+      </div>
+
+      {/* Legenda dos botões de documento */}
+      <div className="flex items-center gap-4 mb-3 px-1">
+        <span className="text-xs text-gray-400">Documentos:</span>
+        <span className="flex items-center gap-1 text-xs text-gray-500"><FileText size={11}/> RC — Requisição de Compra</span>
+        <span className="flex items-center gap-1 text-xs text-green-600"><Eye size={11}/> PO — Pedido de Compra</span>
+        <span className="flex items-center gap-1 text-xs text-gray-300"><Receipt size={11}/> NF — Nota Fiscal (em breve)</span>
       </div>
 
       {projetos.length === 0 ? (
         <div className="rounded-xl border border-gray-200 bg-white py-16 text-center">
           <p className="text-gray-400 text-sm">
-            {busca
+            {busca || filtroCliente !== 'all'
               ? 'Nenhum resultado encontrado.'
               : 'Nenhum projeto encontrado. Crie uma RFQ ou RC para começar.'}
           </p>
@@ -399,6 +489,7 @@ export function ConsultaPage() {
             rfqs={p.rfqs}
             rcs={p.rcs}
             onPDFRFQ={handlePDFRFQ}
+            onPDFRC={handlePDFRC}
             onPDFPO={handlePDFPO}
             onEmailPO={handleEmailPO}
           />
