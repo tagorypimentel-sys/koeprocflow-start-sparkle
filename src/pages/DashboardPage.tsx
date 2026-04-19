@@ -373,7 +373,7 @@ export function DashboardPage({ onSelectRC }: Props) {
             <div className="space-y-3">
               {stats.topProjetos.map(([proj, val]) => (
                 <div key={proj} className="flex items-center gap-2">
-                  <span className="text-xs text-gray-500 min-w-[60px]">Proj {proj}</span>
+                  <span className="text-xs text-gray-500 min-w-[60px]">{proj}</span>
                   <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                     <div className="h-full bg-blue-800 rounded-full" style={{width:`${val/maxProj*100}%`}}/>
                   </div>
