@@ -218,21 +218,21 @@ export function gerarPDFPO(po: POData) {
   doc.text(fmtMoeda(subtotal), xValor, yFinal, { align: "right" });
 
   doc.setTextColor(...CINZA);
-  doc.text(`Imposto (${po.imposto}%):`, xLabel, yFinal + 6);
+  doc.text(`Impostos IVA (${po.imposto}%):`, xLabel, yFinal + 6);
   doc.setTextColor(30, 30, 30);
   doc.text(fmtMoeda(impostoVal), xValor, yFinal + 6, { align: "right" });
 
-  // Linha separadora alinhada
+  // Linha separadora com mais espaço
   doc.setDrawColor(...AZUL_ESCURO);
   doc.setLineWidth(0.4);
-  doc.line(xLabel, yFinal + 9, xValor, yFinal + 9);
+  doc.line(xLabel, yFinal + 11, xValor, yFinal + 11);
 
   // Total
   doc.setFont("helvetica", "bold");
   doc.setFontSize(10);
   doc.setTextColor(...AZUL_ESCURO);
-  doc.text("TOTAL:", xLabel, yFinal + 16);
-  doc.text(fmtMoeda(totalGeral), xValor, yFinal + 16, { align: "right" });
+  doc.text("TOTAL:", xLabel, yFinal + 18);
+  doc.text(fmtMoeda(totalGeral), xValor, yFinal + 18, { align: "right" });
 
   // ── OBSERVAÇÕES ─────────────────────────────────────────────────────────────
   if (po.observacoes?.trim()) {
