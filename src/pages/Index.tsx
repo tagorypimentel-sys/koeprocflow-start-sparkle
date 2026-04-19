@@ -22,7 +22,7 @@ import { UsuariosPage } from '@/pages/UsuariosPage';
 import { PurchaseRequest } from '@/types';
 
 type Page =
-  | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq' | 'po'
+  | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq'
   | 'aprovacoes' | 'conferencia' | 'financeiro'
   | 'items' | 'suppliers' | 'clientes' | 'usuarios';
 
@@ -49,7 +49,6 @@ function AppInner() {
           {page === 'financeiro' && <FinanceiroPage onSelectRC={handleSelectRC} />}
           
           {page === 'rfq' && <RFQPage />}
-          {page === 'po' && <POPage />}
           {page === 'items' && <ItemsPage />}
           {page === 'suppliers' && <SuppliersPage />}
           {page === 'clientes' && <ClientesPage />}
