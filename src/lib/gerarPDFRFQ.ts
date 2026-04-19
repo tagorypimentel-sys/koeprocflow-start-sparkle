@@ -68,7 +68,7 @@ export function gerarPDFRFQ(rfq: RFQ) {
 
   const infos = [
     { label: "PROJETO",        valor: rfq.numeroProjeto },
-    { label: "ENTREGA LIMITE", valor: fmtData(rfq.dataLimiteEntrega) },
+    { label: "DATA LIMITE COLETA/ENTREGA", valor: fmtData(rfq.dataLimiteEntrega) },
   ];
 
   infos.forEach((info, i) => {
@@ -86,16 +86,16 @@ export function gerarPDFRFQ(rfq: RFQ) {
   // ── MENSAGEM AO FORNECEDOR ─────────────────────────────────────────────────
   y += 26;
 
-  // "Prezado Fornecedor," em negrito
+  // "Prezado Fornecedor,"
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);
   doc.setTextColor(30, 30, 30);
   doc.text("Prezado Fornecedor,", 10, y);
-  y += 7;
+  y += 8; // linha em branco após saudação
 
-  // Corpo da mensagem
+  // Parágrafo único
   const corpo =
-    "Contando com a nossa parceria, solicitamos a cotacao dos itens listados abaixo.\n" +
+    "Contando com a nossa parceria, solicitamos a cotacao dos itens listados abaixo. " +
     "Por favor, observe que temos uma data limite para coleta dos materiais informada acima.";
 
   doc.setFont("helvetica", "normal");
@@ -103,16 +103,16 @@ export function gerarPDFRFQ(rfq: RFQ) {
   doc.setTextColor(50, 50, 50);
   const linhasCorpo = doc.splitTextToSize(corpo, W - 20);
   doc.text(linhasCorpo, 10, y);
-  y += linhasCorpo.length * 5 + 5;
+  y += linhasCorpo.length * 5 + 8; // linha em branco após parágrafo
 
   // Observações (se preenchidas)
   if (rfq.observacoes?.trim()) {
     const linhasObs = doc.splitTextToSize(rfq.observacoes.trim(), W - 20);
     doc.text(linhasObs, 10, y);
-    y += linhasObs.length * 5 + 5;
+    y += linhasObs.length * 5 + 8;
   }
 
-  // "Nossos cumprimentos, Kessler Group"
+  // "Nossos cumprimentos," + "Kessler Group"
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
   doc.setTextColor(50, 50, 50);
@@ -121,7 +121,7 @@ export function gerarPDFRFQ(rfq: RFQ) {
   doc.setFont("helvetica", "bold");
   doc.setTextColor(...AZUL_ESCURO);
   doc.text("Kessler Group", 10, y);
-  y += 10;
+  y += 12;
 
   // ── TABELA DE ITENS ────────────────────────────────────────────────────────
   const urls = rfq.itens.map((item) => item.referencia || "");
