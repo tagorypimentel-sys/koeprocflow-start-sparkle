@@ -10,6 +10,7 @@ import { gerarPDFRFQ } from '@/lib/gerarPDFRFQ';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { toast } from 'sonner';
 import { PurchaseRequest } from '@/types';
+import { VisualizarRC, VisualizarPO } from '@/components/VisualizarDocumento';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -126,8 +127,8 @@ function ProjetoCard({
   rfqs,
   rcs,
   onPDFRFQ,
-  onPDFRC,
-  onPDFPO,
+  onVerRC,
+  onVerPO,
   onEmailPO,
 }: {
   numeroProjeto: string;
@@ -135,8 +136,8 @@ function ProjetoCard({
   rfqs: RFQ[];
   rcs: PurchaseRequest[];
   onPDFRFQ: (rfq: RFQ) => void;
-  onPDFRC: (rc: PurchaseRequest) => void;
-  onPDFPO: (rc: PurchaseRequest) => void;
+  onVerRC: (rc: PurchaseRequest) => void;
+  onVerPO: (rc: PurchaseRequest) => void;
   onEmailPO: (rc: PurchaseRequest) => void;
 }) {
   const [aberto, setAberto] = useState(true);
@@ -271,22 +272,22 @@ function ProjetoCard({
                       <td className="py-2 pr-3 text-gray-400">{fmtData(rc.createdAt)}</td>
                       <td className="py-2">
                         <div className="flex gap-1.5 justify-end items-center">
-                          {/* RC — sempre disponível */}
+                          {/* RC — abre modal */}
                           <DocBtn
                             label="RC"
-                            title="Visualizar PDF da RC"
-                            icon={<FileText size={11} />}
+                            title="Visualizar RC"
+                            icon={<Eye size={11} />}
                             color="border-gray-200 text-gray-600 hover:bg-gray-50"
-                            onClick={() => onPDFRC(rc)}
+                            onClick={() => onVerRC(rc)}
                           />
-                          {/* PO — só quando gerada */}
+                          {/* PO — abre modal, só quando gerada */}
                           <DocBtn
                             label="PO"
-                            title={rc.poNumber ? 'Visualizar PDF da PO' : 'PO ainda não gerada'}
+                            title={rc.poNumber ? 'Visualizar PO' : 'PO ainda não gerada'}
                             icon={<Eye size={11} />}
                             color={rc.poNumber ? 'border-green-200 text-green-700 hover:bg-green-50' : ''}
                             disabled={!rc.poNumber}
-                            onClick={() => onPDFPO(rc)}
+                            onClick={() => onVerPO(rc)}
                           />
                           {/* NF — placeholder para futuro */}
                           <DocBtn
@@ -328,6 +329,8 @@ export function ConsultaPage() {
   const { rfqs } = useRFQ();
   const [busca, setBusca] = useState('');
   const [filtroCliente, setFiltroCliente] = useState('all');
+  const [verRC, setVerRC] = useState<PurchaseRequest | null>(null);
+  const [verPO, setVerPO] = useState<PurchaseRequest | null>(null);
 
   function getNomeCliente(rc: PurchaseRequest): string {
     const projClient = rc.projectClient;
@@ -489,12 +492,29 @@ export function ConsultaPage() {
             rfqs={p.rfqs}
             rcs={p.rcs}
             onPDFRFQ={handlePDFRFQ}
-            onPDFRC={handlePDFRC}
-            onPDFPO={handlePDFPO}
+            onVerRC={(rc) => setVerRC(rc)}
+            onVerPO={(rc) => setVerPO(rc)}
             onEmailPO={handleEmailPO}
           />
         ))
       )}
+
+      {/* Modais de visualização */}
+      <VisualizarRC
+        rc={verRC}
+        clienteNome={verRC ? getNomeCliente(verRC) : ''}
+        open={!!verRC}
+        onClose={() => setVerRC(null)}
+        onGerarPDF={() => { if (verRC) handlePDFRC(verRC); }}
+      />
+      <VisualizarPO
+        rc={verPO}
+        clienteNome={verPO ? getNomeCliente(verPO) : ''}
+        open={!!verPO}
+        onClose={() => setVerPO(null)}
+        onGerarPDF={() => { if (verPO) handlePDFPO(verPO); }}
+        onEmail={() => { if (verPO) handleEmailPO(verPO); }}
+      />
     </div>
   );
 }
