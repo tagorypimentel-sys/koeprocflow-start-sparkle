@@ -372,20 +372,6 @@ export function ConsultaPage() {
         <p className="text-sm text-gray-400">Visão unificada de RFQs, RCs e POs por projeto</p>
       </div>
 
-      <div className="grid grid-cols-4 gap-3 mb-5">
-        {[
-          { label: 'Projetos', valor: totalProjetos, cor: 'text-gray-900' },
-          { label: 'RFQs', valor: totalRFQs, cor: 'text-blue-700' },
-          { label: 'RCs', valor: totalRCs, cor: 'text-gray-700' },
-          { label: 'POs', valor: totalPOs, cor: 'text-green-700' },
-        ].map((m) => (
-          <div key={m.label} className="bg-white rounded-xl border border-gray-200 p-3 text-center">
-            <p className="text-xs text-gray-400 mb-1">{m.label}</p>
-            <p className={`text-2xl font-semibold ${m.cor}`}>{m.valor}</p>
-          </div>
-        ))}
-      </div>
-
       <div className="relative mb-5 max-w-md">
         <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
         <Input
