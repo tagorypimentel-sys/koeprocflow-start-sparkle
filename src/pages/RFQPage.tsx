@@ -258,7 +258,7 @@ export function RFQPage() {
   const totalSel = Object.keys(selecionados).length;
 
   function resetForm() {
-    setNumeroProjeto(''); setNomeProjeto(''); setDataEmissao(hoje);
+    setNumeroProjeto(''); setNomeProjeto('');
     setDataLimiteEntrega(''); setObservacoes(''); setSelecionados({}); setEtapa(1);
   }
 
@@ -282,7 +282,7 @@ export function RFQPage() {
     const nova = addRFQ({
       numeroProjeto: numeroProjeto.trim(),
       nomeProjeto: nomeProjeto.trim(),
-      dataEmissao,
+      dataEmissao: hoje,
       dataLimiteEntrega,
       observacoes,
       itens: rfqItens,
