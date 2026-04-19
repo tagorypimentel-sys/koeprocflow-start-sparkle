@@ -171,7 +171,7 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
   autoTable(doc, {
     startY: y,
     margin: { left: margin, right: margin },
-    head: [['Código', 'Descrição', 'Qtd', 'Unit. (R$)', 'Desc.', 'Total (R$)']],
+    head: [['Código', 'Descrição', 'Qtd', 'Unit. (€)', 'Desc.', 'Total (€)']],
     body: rc.lineItems.map((li) => {
       const t = li.unitPrice * li.qty * (1 - li.discount / 100);
       return [
@@ -218,13 +218,13 @@ export function generatePOPdf(rc: PurchaseRequest, totals: POTotals) {
     y += big ? 7 : 5.2;
   };
 
-  totalsRow('Subtotal', `R$ ${fmt(totals.subtotal)}`);
-  totalsRow(`Impostos (${rc.tax}%)`, `R$ ${fmt(totals.taxAmt)}`);
+  totalsRow('Subtotal', `€ ${fmt(totals.subtotal)}`);
+  totalsRow(`Impostos (${rc.tax}%)`, `€ ${fmt(totals.taxAmt)}`);
   doc.setDrawColor(...NAVY);
   doc.setLineWidth(0.4);
   doc.line(totalsX, y - 2, valX, y - 2);
   y += 1;
-  totalsRow('TOTAL', `R$ ${fmt(totals.total)}`, true, true);
+  totalsRow('TOTAL', `€ ${fmt(totals.total)}`, true, true);
 
   // ===== Notes =====
   if (rc.notes) {

@@ -52,9 +52,9 @@ const GARGALO_STATUS = [
 ];
 
 function fmt(v: number): string {
-  if (v >= 1000000) return 'R$ ' + (v / 1000000).toFixed(1) + 'M';
-  if (v >= 1000) return 'R$ ' + (v / 1000).toFixed(0) + 'k';
-  return 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+  if (v >= 1000000) return '€ ' + (v / 1000000).toFixed(1) + 'M';
+  if (v >= 1000) return '€ ' + (v / 1000).toFixed(0) + 'k';
+  return '€ ' + Math.round(v).toLocaleString('de-DE');
 }
 
 function lineSubtotal(li: PurchaseRequest['lineItems'][number]): number {

@@ -54,7 +54,7 @@ export function ConferenciaPage({ onSelectRC }: Props) {
                     <span className="font-bold text-blue-900">{rc.poNumber || rc.id}</span>
                     <StatusBadge status={rc.status} />
                   </div>
-                  <span className="font-bold text-gray-800">R$ {fmt(total)}</span>
+                  <span className="font-bold text-gray-800">€ {fmt(total)}</span>
                 </div>
                 <div className="p-5">
                   <div className="grid grid-cols-4 gap-4 mb-4">
@@ -104,7 +104,7 @@ export function ConferenciaPage({ onSelectRC }: Props) {
                       <td className="px-4 py-3 text-xs text-gray-600">{rc.projectNumber}</td>
                       <td className="px-4 py-3 text-xs font-medium">{rc.supplier.name}</td>
                       <td className="px-4 py-3 text-xs text-gray-400">{rc.invoice?.name || '—'}</td>
-                      <td className="px-4 py-3 text-xs font-bold">R$ {fmt(total)}</td>
+                      <td className="px-4 py-3 text-xs font-bold">€ {fmt(total)}</td>
                       <td className="px-4 py-3"><StatusBadge status={rc.status} /></td>
                     </tr>
                   );

@@ -128,17 +128,17 @@ export function RCDetailPanel({ rc, onClose }: Props) {
                 <div key={li.id} className="pb-3 border-b border-gray-50 last:border-0 last:pb-0">
                   <div className="font-medium text-sm text-gray-800 mb-1">{li.item.descricao}</div>
                   <div className="flex justify-between text-xs text-gray-500">
-                    <span>{li.qty} × R$ {fmt(li.unitPrice)}{li.discount > 0 ? ` (-${li.discount}%)` : ''}</span>
-                    <span className="font-semibold text-gray-800">R$ {fmt(t)}</span>
+                    <span>{li.qty} × € {fmt(li.unitPrice)}{li.discount > 0 ? ` (-${li.discount}%)` : ''}</span>
+                    <span className="font-semibold text-gray-800">€ {fmt(t)}</span>
                   </div>
                 </div>
               );
             })}
           </div>
           <div className="mt-3 pt-3 border-t border-gray-200 space-y-1 text-xs text-right">
-            <div className="text-gray-500">Subtotal: <span className="font-semibold text-gray-800">R$ {fmt(subtotal)}</span></div>
-            <div className="text-gray-500">Impostos ({rc.tax}%): <span className="font-semibold text-gray-800">R$ {fmt(taxAmt)}</span></div>
-            <div className="text-base font-bold text-blue-900 pt-1">Total: R$ {fmt(total)}</div>
+            <div className="text-gray-500">Subtotal: <span className="font-semibold text-gray-800">€ {fmt(subtotal)}</span></div>
+            <div className="text-gray-500">Impostos ({rc.tax}%): <span className="font-semibold text-gray-800">€ {fmt(taxAmt)}</span></div>
+            <div className="text-base font-bold text-blue-900 pt-1">Total: € {fmt(total)}</div>
           </div>
         </div>
 

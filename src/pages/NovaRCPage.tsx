@@ -285,7 +285,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="border-b border-gray-100">
-                {['Código', 'Descrição', 'Categoria', 'Classe', 'Tipo', 'Qtd', 'Valor Unit. (R$)', 'Desconto', 'Com Desconto (R$)', 'Total (R$)', ''].map((h) => (
+                {['Código', 'Descrição', 'Categoria', 'Classe', 'Tipo', 'Qtd', 'Valor Unit. (€)', 'Desconto', 'Com Desconto (€)', 'Total (€)', ''].map((h) => (
                   <th key={h} className="px-3 py-2 text-left text-xs font-semibold text-gray-400">{h}</th>
                 ))}
               </tr>
@@ -317,8 +317,8 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                       />
                     </td>
                     <td className="px-3 py-2.5 text-green-700 font-semibold">{li.discount > 0 ? `${li.discount}%` : '—'}</td>
-                    <td className="px-3 py-2.5">R$ {fmt(unitWithDiscount)}</td>
-                    <td className="px-3 py-2.5 font-bold">R$ {fmt(lineTotal)}</td>
+                    <td className="px-3 py-2.5">€ {fmt(unitWithDiscount)}</td>
+                    <td className="px-3 py-2.5 font-bold">€ {fmt(lineTotal)}</td>
                     <td className="px-3 py-2.5">
                       <button onClick={() => removeLine(li.id)} className="text-red-400 hover:text-red-600 text-sm">✕</button>
                     </td>

@@ -285,7 +285,7 @@ export default function SeletorItens({ onConfirmar, onCancelar }: Props) {
                 <th className="text-left px-3 py-2 font-normal text-gray-500">Classe</th>
                 <th className="text-left px-3 py-2 font-normal text-gray-500">Tipo</th>
                 <th className="text-right px-3 py-2 font-normal text-gray-500">Qtd *</th>
-                <th className="text-right px-3 py-2 font-normal text-gray-500">Valor Unit. (R$) *</th>
+                <th className="text-right px-3 py-2 font-normal text-gray-500">Valor Unit. (€) *</th>
                 <th className="text-right px-3 py-2 font-normal text-gray-500">Desc. %</th>
                 <th className="text-right px-3 py-2 font-normal text-gray-500">Total</th>
               </tr>
@@ -337,7 +337,7 @@ export default function SeletorItens({ onConfirmar, onCancelar }: Props) {
                     <td className="px-2 py-2" style={{ width: 130 }}>
                       <div className="relative">
                         <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-gray-400 pointer-events-none">
-                          R$
+                          €
                         </span>
                         <Input
                           type="number"
@@ -372,7 +372,7 @@ export default function SeletorItens({ onConfirmar, onCancelar }: Props) {
                       </div>
                     </td>
                     <td className="px-3 py-2 text-right font-medium text-gray-700">
-                      {v.valorUnitario > 0 ? `R$ ${fmt(total)}` : "—"}
+                      {v.valorUnitario > 0 ? `€ ${fmt(total)}` : "—"}
                     </td>
                   </tr>
                 );
@@ -385,7 +385,7 @@ export default function SeletorItens({ onConfirmar, onCancelar }: Props) {
       <div className="text-right text-sm text-gray-500">
         Total geral:{" "}
         <span className="font-medium text-gray-800">
-          R$ {fmt(
+          € {fmt(
             itensSelecionados.reduce((acc, item) => {
               const v = valores[String(item.id)] ?? { qty: 1, valorUnitario: item.precoUnitario, desconto: 0 };
               return acc + v.valorUnitario * (1 - v.desconto / 100) * v.qty;
