@@ -250,7 +250,6 @@ export function RFQPage() {
 
   const [numeroProjeto, setNumeroProjeto] = useState('');
   const [nomeProjeto, setNomeProjeto] = useState('');
-  const [dataEmissao, setDataEmissao] = useState(hoje);
   const [dataLimiteEntrega, setDataLimiteEntrega] = useState('');
   const [observacoes, setObservacoes] = useState('');
   const [selecionados, setSelecionados] = useState<Record<string, number>>({});
