@@ -1,4 +1,4 @@
-// Dependência: npm install jspdf jspdf-autotable
+// Dependencia: npm install jspdf jspdf-autotable
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { RFQ } from "@/context/RFQContext";
@@ -12,7 +12,8 @@ function fmtData(iso: string): string {
 }
 
 export function gerarPDFRFQ(rfq: RFQ) {
-  const doc = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+  // PORTRAIT (vertical)
+  const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
   doc.setLanguage("pt-BR");
   const W = doc.internal.pageSize.getWidth();
   const H = doc.internal.pageSize.getHeight();
@@ -24,48 +25,49 @@ export function gerarPDFRFQ(rfq: RFQ) {
   const BRANCO: [number, number, number] = [255, 255, 255];
 
   // ── Cabeçalho: Logo + Info empresa ────────────────────────────────────────
-  // Logo Kessler (esquerda) — altura 22mm, proporcional
   try {
-    doc.addImage(LOGO_BASE64, "PNG", 10, 4, 22, 22);
+    doc.addImage(LOGO_BASE64, "PNG", 10, 6, 20, 20);
   } catch (e) {
-    // fallback texto se imagem falhar
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.setTextColor(26, 43, 109);
+    doc.setTextColor(...AZUL_ESCURO);
     doc.text("KESSLER", 10, 14);
   }
 
-  // Texto empresa (ao lado da logo)
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(13);
-  doc.setTextColor(26, 43, 109);
-  doc.text("Kessler Group", 36, 10);
+  doc.setFontSize(12);
+  doc.setTextColor(...AZUL_ESCURO);
+  doc.text("Kessler Group", 34, 12);
 
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor(...CINZA);
-  doc.text("Av Brasil, 4577, Sala 2, Rio de Janeiro", 36, 16);
-  doc.text("compras@kessleroffshore.com.br", 36, 21);
+  doc.text("Av Brasil, 4577, Sala 2, Rio de Janeiro", 34, 18);
+  doc.text("compras@kessleroffshore.com.br", 34, 23);
+
+  // Linha separadora
+  doc.setDrawColor(220, 220, 220);
+  doc.setLineWidth(0.3);
+  doc.line(10, 30, W - 10, 30);
 
   // ── Faixa azul — título + número RFQ ──────────────────────────────────────
-  let y = 30;
+  let y = 34;
   doc.setFillColor(...AZUL_ESCURO);
   doc.rect(0, y, W, 12, "F");
 
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(11);
+  doc.setFontSize(10);
   doc.setTextColor(...BRANCO);
   doc.text("RFQ — REQUEST FOR QUOTATION", 10, y + 8);
   doc.text(rfq.numeroRFQ, W - 10, y + 8, { align: "right" });
 
-  // ── Bloco de informações ───────────────────────────────────────────────────
+  // ── Bloco info: Projeto + Entrega Limite (sem Emitido Em) ──────────────────
   y += 16;
   doc.setFillColor(...CINZA_CLARO);
-  doc.roundedRect(10, y, W - 20, 20, 2, 2, "F");
+  doc.roundedRect(10, y, W - 20, 18, 2, 2, "F");
 
   const infos = [
-    { label: "PROJETO",        valor: rfq.numeroProjeto + (rfq.nomeProjeto ? ` — ${rfq.nomeProjeto}` : "") },
-    { label: "EMITIDO EM",     valor: fmtData(rfq.dataEmissao) },
+    { label: "PROJETO",        valor: rfq.numeroProjeto },
     { label: "ENTREGA LIMITE", valor: fmtData(rfq.dataLimiteEntrega) },
   ];
 
@@ -75,29 +77,32 @@ export function gerarPDFRFQ(rfq: RFQ) {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(7);
     doc.setTextColor(...CINZA);
-    doc.text(info.label, x, y + 6);
+    doc.text(info.label, x, y + 5);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(10);
     doc.setTextColor(20, 20, 20);
-    doc.text(info.valor, x, y + 14);
+    doc.text(info.valor, x, y + 13);
   });
 
+  // ── Mensagem ao fornecedor ─────────────────────────────────────────────────
   y += 26;
 
-  // ── Observações ────────────────────────────────────────────────────────────
-  if (rfq.observacoes?.trim()) {
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(7);
-    doc.setTextColor(...CINZA);
-    doc.text("OBSERVACOES", 12, y);
-    y += 4;
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(9);
-    doc.setTextColor(30, 30, 30);
-    const linhas = doc.splitTextToSize(rfq.observacoes.trim(), W - 24);
-    doc.text(linhas, 12, y);
-    y += linhas.length * 4 + 4;
-  }
+  const dataLimite = fmtData(rfq.dataLimiteEntrega);
+  const mensagem =
+    `Prezado Fornecedor,\n\n` +
+    `Contando com a nossa parceria, solicitamos a cotacao dos itens listados abaixo.\n` +
+    `Por favor, observe que temos uma data limite para coleta dos materiais: ${dataLimite}.\n` +
+    `Pedimos que o retorno da cotacao seja realizado dentro do prazo estabelecido.\n\n` +
+    (rfq.observacoes?.trim()
+      ? `Observacoes adicionais: ${rfq.observacoes.trim()}`
+      : "");
+
+  const linhasMensagem = doc.splitTextToSize(mensagem, W - 20);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(40, 40, 40);
+  doc.text(linhasMensagem, 10, y);
+  y += linhasMensagem.length * 5 + 4;
 
   // ── Tabela de itens ────────────────────────────────────────────────────────
   const urls = rfq.itens.map((item) => item.referencia || "");
@@ -130,11 +135,11 @@ export function gerarPDFRFQ(rfq: RFQ) {
     },
     alternateRowStyles: { fillColor: [248, 249, 252] },
     columnStyles: {
-      0: { cellWidth: 20, fontStyle: "bold" },
-      1: { cellWidth: 110 },
+      0: { cellWidth: 22, fontStyle: "bold" },
+      1: { cellWidth: 90 },
       2: { cellWidth: 14, halign: "center" },
       3: { cellWidth: 22, halign: "center" },
-      4: { cellWidth: 36, halign: "center", textColor: AZUL_MEDIO, fontStyle: "bold" },
+      4: { cellWidth: 32, halign: "center", textColor: AZUL_MEDIO, fontStyle: "bold" },
     },
     didDrawCell: (data) => {
       if (data.column.index === 4 && data.section === "body") {
