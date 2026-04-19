@@ -45,21 +45,29 @@ export function gerarPDFRFQ(rfq: RFQ) {
   doc.text("Av Brasil, 4577, Sala 2, Rio de Janeiro", 36, 19);
   doc.text("compras@kessleroffshore.com.br", 36, 24);
 
-  // RFQ (direita) — sem faixa, só texto
+  // RFQ (direita)
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.setTextColor(...AZUL_ESCURO);
   doc.text("RFQ", W - 10, 14, { align: "right" });
 
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  doc.setTextColor(...CINZA);
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10);
+  doc.setTextColor(...AZUL_MEDIO);
   doc.text(rfq.numeroRFQ, W - 10, 22, { align: "right" });
+
+  // Badge RFQ ENVIADA
+  doc.setFillColor(...AZUL_ESCURO);
+  doc.roundedRect(W - 66, 24, 56, 7, 1.5, 1.5, "F");
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(7);
+  doc.setTextColor(...BRANCO);
+  doc.text("REQUISICAO DE COTACAO", W - 38, 29, { align: "center" });
 
   // Linha divisória suave
   doc.setDrawColor(200, 210, 230);
   doc.setLineWidth(0.5);
-  doc.line(10, 32, W - 10, 32);
+  doc.line(10, 34, W - 10, 34);
 
   // ── BLOCO INFO ─────────────────────────────────────────────────────────────
   let y = 38;
@@ -67,24 +75,33 @@ export function gerarPDFRFQ(rfq: RFQ) {
   doc.roundedRect(10, y, W - 20, 18, 2, 2, "F");
 
   const infos = [
-    { label: "PROJETO",        valor: rfq.numeroProjeto },
+    { label: "PROJETO",                    valor: rfq.numeroProjeto },
     { label: "DATA LIMITE COLETA/ENTREGA", valor: fmtData(rfq.dataLimiteEntrega) },
+    { label: "EMITIDO EM",                 valor: new Date().toLocaleDateString("pt-BR") },
   ];
 
+  const colW = (W - 20) / 3;
   infos.forEach((info, i) => {
-    const x = 16 + i * ((W - 20) / 2);
+    const x = 16 + i * colW;
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(7);
+    doc.setFontSize(6.5);
     doc.setTextColor(...CINZA);
     doc.text(info.label, x, y + 5);
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(11);
+    doc.setFontSize(9);
     doc.setTextColor(20, 20, 20);
-    doc.text(info.valor, x, y + 14);
+    const val = doc.splitTextToSize(info.valor, colW - 4);
+    doc.text(val[0], x, y + 12);
   });
 
   // ── MENSAGEM AO FORNECEDOR ─────────────────────────────────────────────────
-  y += 26;
+  y += 24;
+
+  // Linha separadora
+  doc.setDrawColor(220, 225, 235);
+  doc.setLineWidth(0.3);
+  doc.line(10, y, W - 10, y);
+  y += 6;
 
   // "Prezado Fornecedor,"
   doc.setFont("helvetica", "bold");
