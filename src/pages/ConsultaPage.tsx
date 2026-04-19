@@ -272,22 +272,22 @@ function ProjetoCard({
                       <td className="py-2 pr-3 text-gray-400">{fmtData(rc.createdAt)}</td>
                       <td className="py-2">
                         <div className="flex gap-1.5 justify-end items-center">
-                          {/* RC — sempre disponível */}
+                          {/* RC — abre modal */}
                           <DocBtn
                             label="RC"
-                            title="Visualizar PDF da RC"
-                            icon={<FileText size={11} />}
+                            title="Visualizar RC"
+                            icon={<Eye size={11} />}
                             color="border-gray-200 text-gray-600 hover:bg-gray-50"
-                            onClick={() => onPDFRC(rc)}
+                            onClick={() => onVerRC(rc)}
                           />
-                          {/* PO — só quando gerada */}
+                          {/* PO — abre modal, só quando gerada */}
                           <DocBtn
                             label="PO"
-                            title={rc.poNumber ? 'Visualizar PDF da PO' : 'PO ainda não gerada'}
+                            title={rc.poNumber ? 'Visualizar PO' : 'PO ainda não gerada'}
                             icon={<Eye size={11} />}
                             color={rc.poNumber ? 'border-green-200 text-green-700 hover:bg-green-50' : ''}
                             disabled={!rc.poNumber}
-                            onClick={() => onPDFPO(rc)}
+                            onClick={() => onVerPO(rc)}
                           />
                           {/* NF — placeholder para futuro */}
                           <DocBtn
