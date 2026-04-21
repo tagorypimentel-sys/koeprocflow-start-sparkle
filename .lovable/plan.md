@@ -36,3 +36,6 @@ Adicionar `deliveryMode: 'entrega'` + `deliveryCarrier: 'fornecedor'` às RCs ex
 ### Fora de escopo
 - Edição do modo de entrega após criação da RC.
 - Cadastro de transportadoras.
+
+### 7. Ajustes de Interface
+- **Sidebar**: Invertida a ordem do menu para exibir RFQ antes de Requisições.
