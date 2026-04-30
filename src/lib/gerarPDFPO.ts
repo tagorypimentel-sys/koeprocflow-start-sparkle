@@ -261,12 +261,6 @@ export function criarDocPO(po: POData): jsPDF {
   doc.setFont("courier", "normal");
   doc.text("EUR", 35, yFooter);
 
-  yFooter += 8;
-  doc.setFont("courier", "bold");
-  doc.text("Impuestos (IVA):", 15, yFooter);
-  doc.setFont("courier", "normal");
-  doc.text(`${fmtMoeda(impostoVal)} EUR`, 45, yFooter);
-
   yFooter += 10;
   doc.setDrawColor(150, 150, 150);
   doc.setLineWidth(0.5);
