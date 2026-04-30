@@ -73,7 +73,7 @@ export function criarDocPO(po: POData): jsPDF {
   doc.text("Polígono Empresarial de Levante, n.1, Mod.4", W - 15, 37, { align: "right" });
   doc.text("Cádiz, España, 11011", W - 15, 42, { align: "right" });
   doc.text("NIF: B56358120", W - 15, 47, { align: "right" });
-  doc.text("Tel.:", W - 15, 52, { align: "right" });
+  doc.text("Tel.: +34 627 94 57 94", W - 15, 52, { align: "right" });
   
   doc.text("E-mail: mari.ferraz@kessleroffshoregroup.com", W - 15, 57, { align: "right" });
   
