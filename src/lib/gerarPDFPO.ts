@@ -93,7 +93,7 @@ export function criarDocPO(po: POData): jsPDF {
   doc.line(15, 70, W - 15, 70);
 
   // ── BLOCO INFO ──────────────────────────────────────────────────────────────
-  const yBlock1 = 72;
+  const yBlock1 = 78;
   const colLeft = 15;
   const colRight = W / 2 + 5;
 
