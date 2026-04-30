@@ -229,11 +229,21 @@ export function AprovacoesPage({ onSelectRC }: Props) {
                     </div>
                   )}
 
-                  {/* Actions */}
                   <div className="flex gap-3 justify-end mt-4">
                     <Button size="sm" variant="secondary" onClick={() => onSelectRC(rc)}>Ver Detalhes</Button>
                     <Button size="sm" variant="danger" onClick={() => setRejectingId(rc.id)}>↩ Devolver ao Solicitante</Button>
-                    <Button size="sm" variant="success" onClick={() => approveRC(rc.id)}>✓ Aprovar</Button>
+                    <Button
+                      size="sm"
+                      variant="success"
+                      onClick={() => {
+                        // Sempre passa os itens finais — com edições aplicadas se em modo edição
+                        const finalItems = rc.lineItems
+                          .filter((li) => !deleted.has(li.id))
+                          .map((li) => ({ ...li, qty: isEditing ? (qtyMap[li.id] ?? li.qty) : li.qty }));
+                        approveRC(rc.id, finalItems);
+                        setEditingId(null);
+                      }}
+                    >✓ Aprovar</Button>
                   </div>
                 </div>
               </div>

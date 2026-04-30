@@ -21,7 +21,7 @@ interface AppContextType {
   updateRC: (id: string, updates: Partial<PurchaseRequest>) => void;
   addRC: (rc: PurchaseRequest) => void;
   calcRC: (rc: PurchaseRequest) => { subtotal: number; taxAmt: number; total: number };
-  approveRC: (id: string) => void;
+  approveRC: (id: string, overrideLineItems?: PurchaseRequest['lineItems']) => void;
   returnRC: (id: string, reason?: string) => void;
   resubmitRC: (id: string) => void;
   selectedRC: PurchaseRequest | null;
@@ -75,14 +75,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return { subtotal, taxAmt, total: subtotal + taxAmt };
   };
 
-  const approveRC = (id: string) => {
+  const approveRC = (id: string, overrideLineItems?: PurchaseRequest['lineItems']) => {
     const rc = rcs.find((r) => r.id === id);
     if (!rc) return;
+    const finalItems = overrideLineItems ?? rc.lineItems;
     const poNumber = gerarNumeroPO(rc.projectNumber, rcs);
     const approvedAt = new Date().toISOString().split('T')[0];
-    updateRC(id, { status: 'aguardando_confirmacao_entrega', poNumber, approvedAt });
+    updateRC(id, { status: 'aguardando_confirmacao_entrega', poNumber, approvedAt, lineItems: finalItems });
     try {
-      const { subtotal, taxAmt } = calcRC(rc);
+      const rcForCalc = { ...rc, lineItems: finalItems };
+      const { subtotal } = calcRC(rcForCalc);
       const poData: POData = {
         numeroPO: poNumber,
         numeroRC: rc.id,
@@ -97,7 +99,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         imposto: rc.tax,
         observacoes: rc.notes || '',
         criadoEm: approvedAt,
-        itens: rc.lineItems.map((li) => ({
+        itens: finalItems.map((li) => ({
           codigo: li.item.codigo,
           descricao: li.item.descricao,
           categoria: li.item.categoria || '',
