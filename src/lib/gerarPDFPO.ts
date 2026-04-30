@@ -201,15 +201,47 @@ export function criarDocPO(po: POData): jsPDF {
     },
   });
 
+  // ── TOTAIS ──────────────────────────────────────────────────────────────────
+  const yAfterTable = (doc as any).lastAutoTable.finalY + 6;
+  const impostoVal = subtotal * (po.imposto / 100);
+  const totalGeral = subtotal + impostoVal;
+
+  const xLabel = W - 80;
+  const xValor = W - 15;
+
+  doc.setFont("courier", "normal");
+  doc.setFontSize(9);
+  doc.setTextColor(0, 0, 0);
+
+  // Subtotal
+  doc.text("Subtotal:", xLabel, yAfterTable);
+  doc.text(`${fmtMoeda(subtotal)} EUR`, xValor, yAfterTable, { align: "right" });
+
+  // Impuesto
+  doc.text(`Impuestos (${po.imposto}%):`, xLabel, yAfterTable + 7);
+  doc.text(`${fmtMoeda(impostoVal)} EUR`, xValor, yAfterTable + 7, { align: "right" });
+
+  // Linha separadora
+  doc.setDrawColor(0, 0, 0);
+  doc.setLineWidth(0.4);
+  doc.line(xLabel, yAfterTable + 11, xValor, yAfterTable + 11);
+
+  // Total geral
+  doc.setFont("courier", "bold");
+  doc.setFontSize(10);
+  doc.text("TOTAL:", xLabel, yAfterTable + 18);
+  doc.text(`${fmtMoeda(totalGeral)} EUR`, xValor, yAfterTable + 18, { align: "right" });
+
   // ── FOOTER ──────────────────────────────────────────────────────────────────
-  const yFooterLine = (doc as any).lastAutoTable.finalY + 10;
-  
+  const yFooterLine = yAfterTable + 28;
+
   doc.setDrawColor(150, 150, 150);
   doc.setLineWidth(0.5);
   doc.line(15, yFooterLine, W - 15, yFooterLine);
 
   let yFooter = yFooterLine + 10;
   doc.setFont("courier", "bold");
+  doc.setFontSize(9);
   doc.text("CONDICIONES", 15, yFooter);
 
   yFooter += 8;
@@ -233,8 +265,6 @@ export function criarDocPO(po: POData): jsPDF {
   doc.setFont("courier", "bold");
   doc.text("Impuestos:", 15, yFooter);
   doc.setFont("courier", "normal");
-  const impostoVal = subtotal * (po.imposto / 100);
-  const totalGeral = subtotal + impostoVal;
   doc.text(`${fmtMoeda(impostoVal)} EUR`, 45, yFooter);
 
   yFooter += 10;
