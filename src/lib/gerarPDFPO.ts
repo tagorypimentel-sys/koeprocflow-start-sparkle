@@ -218,7 +218,7 @@ export function criarDocPO(po: POData): jsPDF {
   doc.text(`${fmtMoeda(subtotal)} EUR`, xValor, yAfterTable, { align: "right" });
 
   // Impuesto
-  doc.text(`Impuestos (${po.imposto}%):`, xLabel, yAfterTable + 7);
+  doc.text(`Impuestos IVA (${po.imposto}%):`, xLabel, yAfterTable + 7);
   doc.text(`${fmtMoeda(impostoVal)} EUR`, xValor, yAfterTable + 7, { align: "right" });
 
   // Linha separadora
@@ -263,7 +263,7 @@ export function criarDocPO(po: POData): jsPDF {
 
   yFooter += 8;
   doc.setFont("courier", "bold");
-  doc.text("Impuestos:", 15, yFooter);
+  doc.text("Impuestos (IVA):", 15, yFooter);
   doc.setFont("courier", "normal");
   doc.text(`${fmtMoeda(impostoVal)} EUR`, 45, yFooter);
 
