@@ -67,24 +67,28 @@ export function criarDocPO(po: POData): jsPDF {
   doc.text("PURCHASE ORDER", W - 15, 22, { align: "right" });
 
   doc.setFont("courier", "bold");
+  doc.setFontSize(11);
+  doc.text(`PO# ${po.numeroPO}`, W - 15, 29, { align: "right" });
+
+  doc.setFont("courier", "bold");
   doc.setFontSize(10);
-  doc.text("KESSLER OFFSHORE ENGINEERING", W - 15, 32, { align: "right" });
+  doc.text("KESSLER OFFSHORE ENGINEERING", W - 15, 37, { align: "right" });
   doc.setFont("courier", "normal");
-  doc.text("Polígono Empresarial de Levante, n.1, Mod.4", W - 15, 37, { align: "right" });
-  doc.text("Cádiz, España, 11011", W - 15, 42, { align: "right" });
-  doc.text("NIF: B56358120", W - 15, 47, { align: "right" });
-  doc.text("Tel.: +34 627 94 57 94", W - 15, 52, { align: "right" });
+  doc.text("Polígono Empresarial de Levante, n.1, Mod.4", W - 15, 42, { align: "right" });
+  doc.text("Cádiz, España, 11011", W - 15, 47, { align: "right" });
+  doc.text("NIF: B56358120", W - 15, 52, { align: "right" });
+  doc.text("Tel.: +34 627 94 57 94", W - 15, 57, { align: "right" });
   
-  doc.text("E-mail: mari.ferraz@kessleroffshoregroup.com", W - 15, 57, { align: "right" });
+  doc.text("E-mail: mari.ferraz@kessleroffshoregroup.com", W - 15, 62, { align: "right" });
   
   const textWidth = doc.getTextWidth("mari.ferraz@kessleroffshoregroup.com");
   doc.setDrawColor(100, 150, 200);
   doc.setLineWidth(0.3);
-  doc.line(W - 15 - textWidth, 58, W - 15, 58);
+  doc.line(W - 15 - textWidth, 63, W - 15, 63);
 
   doc.setDrawColor(150, 150, 150);
   doc.setLineWidth(0.5);
-  doc.line(15, 65, W - 15, 65);
+  doc.line(15, 70, W - 15, 70);
 
   // ── BLOCO INFO ──────────────────────────────────────────────────────────────
   const yBlock1 = 72;
