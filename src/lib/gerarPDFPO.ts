@@ -10,7 +10,7 @@ function fmtData(iso: string): string {
 }
 
 function fmtMoeda(v: number): string {
-  return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  return v.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 export interface POItem {
@@ -40,238 +40,217 @@ export interface POData {
   itens: POItem[];
 }
 
-export function gerarPDFPO(po: POData) {
+export function criarDocPO(po: POData): jsPDF {
   const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-  doc.setLanguage("pt-BR");
+  doc.setLanguage("es-ES");
   const W = doc.internal.pageSize.getWidth();
   const H = doc.internal.pageSize.getHeight();
 
   const AZUL_ESCURO: [number, number, number] = [26, 43, 109];
-  const AZUL_MEDIO: [number, number, number] = [30, 64, 175];
-  const CINZA: [number, number, number] = [100, 100, 100];
-  const CINZA_CLARO: [number, number, number] = [243, 244, 246];
-  const BRANCO: [number, number, number] = [255, 255, 255];
+  const PRETO: [number, number, number] = [0, 0, 0];
 
   // ── CABEÇALHO ──────────────────────────────────────────────────────────────
   try {
-    doc.addImage(LOGO_BASE64, "PNG", 10, 6, 22, 22);
+    doc.addImage(LOGO_BASE64, "PNG", 15, 12, 35, 35);
   } catch {
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(14);
+    doc.setFont("courier", "bold");
+    doc.setFontSize(24);
     doc.setTextColor(...AZUL_ESCURO);
-    doc.text("KESSLER", 10, 18);
+    doc.text("KESSLER", 15, 30);
+    doc.setFontSize(10);
+    doc.text("GROUP", 15, 35);
   }
 
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(12);
-  doc.setTextColor(...AZUL_ESCURO);
-  doc.text("Kessler Group", 36, 13);
-
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(8);
-  doc.setTextColor(...CINZA);
-  doc.text("Av Brasil, 4577, Sala 2, Rio de Janeiro", 36, 19);
-  doc.text("compras@kessleroffshore.com.br", 36, 24);
-
-  // Título PO (direita)
-  doc.setFont("helvetica", "bold");
+  doc.setFont("courier", "bold");
   doc.setFontSize(18);
-  doc.setTextColor(...AZUL_ESCURO);
-  doc.text("PO", W - 10, 14, { align: "right" });
+  doc.setTextColor(...PRETO);
+  doc.text("PURCHASE ORDER", W - 15, 22, { align: "right" });
 
-  doc.setFont("helvetica", "bold");
+  doc.setFont("courier", "bold");
   doc.setFontSize(10);
-  doc.setTextColor(...AZUL_MEDIO);
-  doc.text(po.numeroPO, W - 10, 22, { align: "right" });
+  doc.text("KESSLER OFFSHORE ENGINEERING", W - 15, 32, { align: "right" });
+  doc.setFont("courier", "normal");
+  doc.text("Polígono Empresarial de Levante, n.1, Mod.4", W - 15, 37, { align: "right" });
+  doc.text("Cádiz, España, 11011", W - 15, 42, { align: "right" });
+  doc.text("NIF: B56358120", W - 15, 47, { align: "right" });
+  doc.text("Tel.:", W - 15, 52, { align: "right" });
+  
+  doc.text("E-mail: mari.ferraz@kessleroffshoregroup.com", W - 15, 57, { align: "right" });
+  
+  const textWidth = doc.getTextWidth("mari.ferraz@kessleroffshoregroup.com");
+  doc.setDrawColor(100, 150, 200);
+  doc.setLineWidth(0.3);
+  doc.line(W - 15 - textWidth, 58, W - 15, 58);
 
-  // Badge APROVADA
-  doc.setFillColor(...AZUL_ESCURO);
-  doc.roundedRect(W - 66, 24, 56, 7, 1.5, 1.5, "F");
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(7);
-  doc.setTextColor(...BRANCO);
-  doc.text("PEDIDO DE COMPRA APROVADO", W - 38, 29, { align: "center" });
-
-  // Linha divisória
-  doc.setDrawColor(200, 210, 230);
+  doc.setDrawColor(150, 150, 150);
   doc.setLineWidth(0.5);
-  doc.line(10, 34, W - 10, 34);
+  doc.line(15, 65, W - 15, 65);
 
   // ── BLOCO INFO ──────────────────────────────────────────────────────────────
-  let y = 38;
-  doc.setFillColor(...CINZA_CLARO);
-  doc.roundedRect(10, y, W - 20, 28, 2, 2, "F");
+  const yBlock1 = 72;
+  const colLeft = 15;
+  const colRight = W / 2 + 5;
 
-  const infos = [
-    { label: "PROJETO",      valor: po.numeroProjeto },
-    { label: "RC ORIGEM",    valor: po.numeroRC },
-    { label: "EMITIDO EM",   valor: fmtData(po.criadoEm) },
-    { label: "SOLICITANTE",  valor: po.solicitante },
-    { label: "FORNECEDOR",   valor: po.fornecedor },
-    { label: "MODO ENTREGA", valor: po.modoEntrega || "—" },
-  ];
+  doc.setFont("courier", "bold");
+  doc.text("PURCHASE ORDER", colLeft, yBlock1);
+  
+  doc.text("PO N°:", colLeft, yBlock1 + 10);
+  doc.setFont("courier", "normal");
+  doc.text(po.numeroPO || "PO-0003", colLeft + 18, yBlock1 + 10);
 
-  const colW = (W - 20) / 3;
-  infos.forEach((info, i) => {
-    const col = i % 3;
-    const row = Math.floor(i / 3);
-    const x = 16 + col * colW;
-    const yRow = y + 5 + row * 13;
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(6.5);
-    doc.setTextColor(...CINZA);
-    doc.text(info.label, x, yRow);
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9);
-    doc.setTextColor(20, 20, 20);
-    const val = doc.splitTextToSize(info.valor, colW - 4);
-    doc.text(val[0], x, yRow + 5);
-  });
+  doc.setFont("courier", "bold");
+  doc.text("Fecha de Emisión:", colLeft, yBlock1 + 17);
+  doc.setFont("courier", "normal");
+  doc.text(fmtData(po.criadoEm), colLeft + 42, yBlock1 + 17);
 
-  // Endereço de entrega (linha completa abaixo)
-  y += 32;
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(6.5);
-  doc.setTextColor(...CINZA);
-  doc.text("ENDERECO DE ENTREGA", 12, y);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(8.5);
-  doc.setTextColor(30, 30, 30);
-  const endLines = doc.splitTextToSize(po.enderecoEntrega || "—", W - 24);
-  doc.text(endLines, 12, y + 5);
-  y += 5 + endLines.length * 4.5 + 6;
+  doc.setFont("courier", "bold");
+  doc.text("Solicitante:", colLeft, yBlock1 + 24);
+  doc.setFont("courier", "normal");
+  doc.text(po.solicitante || "Tagory", colLeft + 30, yBlock1 + 24);
 
-  // Linha separadora
-  doc.setDrawColor(220, 225, 235);
-  doc.setLineWidth(0.3);
-  doc.line(10, y, W - 10, y);
-  y += 6;
+  doc.setFont("courier", "bold");
+  doc.text("Aprovado por:", colLeft, yBlock1 + 31);
+  doc.setFont("courier", "normal");
+  doc.text("Marc", colLeft + 32, yBlock1 + 31);
+
+  doc.setFont("courier", "bold");
+  doc.text("DATOS DEL PROVEEDOR", colLeft, yBlock1 + 42);
+
+  doc.setFont("courier", "bold");
+  doc.text("Proveedor:", colRight, yBlock1);
+  doc.setFont("courier", "normal");
+  const provLines = doc.splitTextToSize(po.fornecedor || "Creatividad Digital Sur S.L.U.", (W - 15) - (colRight + 25));
+  doc.text(provLines, colRight + 25, yBlock1);
+
+  let yRight = yBlock1 + (provLines.length * 5) + 2;
+  doc.setFont("courier", "bold");
+  doc.text("Dirección:", colRight, yRight);
+  doc.setFont("courier", "normal");
+  const end = po.enderecoEntrega && po.enderecoEntrega.length > 5 ? po.enderecoEntrega : "C/ Factoría de Matagorda N° 52 Puerto Real (Cádiz), C.P: 11.510";
+  const dirLines = doc.splitTextToSize(end, (W - 15) - (colRight + 25));
+  doc.text(dirLines, colRight + 25, yRight);
+
+  yRight += (dirLines.length * 5) + 2;
+  doc.setFont("courier", "bold");
+  doc.text("CIF/NIF:", colRight, yRight);
+  doc.setFont("courier", "normal");
+  doc.text("C.I.F: B 72341928", colRight + 25, yRight);
+
+  yRight += 7;
+  doc.setFont("courier", "bold");
+  doc.text("Persona de contacto:", colRight, yRight);
+
+  yRight += 7;
+  doc.setFont("courier", "bold");
+  doc.text("Teléfono:", colRight, yRight);
+  doc.setFont("courier", "normal");
+  doc.text("856 21 18 34", colRight + 25, yRight);
+
+  const yLine2 = Math.max(yBlock1 + 48, yRight + 8);
+  doc.setDrawColor(150, 150, 150);
+  doc.setLineWidth(0.5);
+  doc.line(15, yLine2, W - 15, yLine2);
 
   // ── TABELA DE ITENS ─────────────────────────────────────────────────────────
-  // Calcular totais
+  let yTable = yLine2 + 10;
+  doc.setFont("courier", "bold");
+  doc.text("DESCRIPCIÓN DE LOS PRODUCTOS / SERVICIOS", 15, yTable);
+
+  yTable += 5;
+
   let subtotal = 0;
   const rows = po.itens.map((item) => {
     const comDesc = item.valorUnitario * (1 - item.desconto / 100);
     const total = comDesc * item.qty;
     subtotal += total;
     return [
-      item.codigo,
+      "",
       item.descricao,
-      item.categoria,
-      item.classe,
-      item.tipo,
       String(item.qty),
-      item.unidade,
-      item.desconto > 0 ? `${item.desconto}%` : "—",
       fmtMoeda(comDesc),
       fmtMoeda(total),
     ];
   });
 
-  const impostoVal = subtotal * (po.imposto / 100);
-  const totalGeral = subtotal + impostoVal;
-
   autoTable(doc, {
-    startY: y,
-    head: [["Cod.", "Descricao", "Cat.", "Classe", "Tipo", "Qtd", "Un.", "Desc.", "Unit.", "Total"]],
+    startY: yTable,
+    head: [["ÍTEM", "DESCRIPCIÓN", "CANTIDAD", "PRECIO\nUNITARIO\n(€)", "TOTAL(€)"]],
     body: rows,
-    margin: { left: 10, right: 10 },
+    margin: { left: 15, right: 15 },
+    theme: "plain",
     styles: {
-      fontSize: 7,
-      cellPadding: { top: 2.5, bottom: 2.5, left: 3, right: 3 },
-      textColor: [30, 30, 30],
-      lineColor: [220, 222, 226],
-      lineWidth: 0.2,
+      font: "courier",
+      fontSize: 9,
+      textColor: PRETO,
+      lineColor: PRETO,
+      lineWidth: 0.3,
+      valign: "middle",
+      halign: "center",
     },
     headStyles: {
-      fillColor: AZUL_ESCURO,
-      textColor: BRANCO,
       fontStyle: "bold",
-      fontSize: 7,
+      halign: "center",
+      valign: "middle",
     },
-    alternateRowStyles: { fillColor: [248, 249, 252] },
     columnStyles: {
-      0: { cellWidth: 14, fontStyle: "bold" },
-      1: { cellWidth: 48 },
-      2: { cellWidth: 18 },
-      3: { cellWidth: 18 },
-      4: { cellWidth: 12, halign: "center" },
-      5: { cellWidth: 10, halign: "center" },
-      6: { cellWidth: 10, halign: "center" },
-      7: { cellWidth: 12, halign: "center" },
-      8: { cellWidth: 20, halign: "right" },
-      9: { cellWidth: 20, halign: "right", fontStyle: "bold" },
+      0: { cellWidth: 15 },
+      1: { cellWidth: "auto", halign: "center" },
+      2: { cellWidth: 25, fontStyle: "bold" },
+      3: { cellWidth: 30 },
+      4: { cellWidth: 30 },
     },
   });
 
-  // ── TOTAIS ──────────────────────────────────────────────────────────────────
-  // Totais alinhados com a coluna Total da tabela (margem direita = 10mm)
-  const yFinal = (doc as any).lastAutoTable.finalY + 6;
-  const xLabel = W - 52;  // início dos labels
-  const xValor = W - 10;  // fim dos valores (alinhado com col Total)
+  // ── FOOTER ──────────────────────────────────────────────────────────────────
+  const yFooterLine = (doc as any).lastAutoTable.finalY + 10;
+  
+  doc.setDrawColor(150, 150, 150);
+  doc.setLineWidth(0.5);
+  doc.line(15, yFooterLine, W - 15, yFooterLine);
 
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(8);
-  doc.setTextColor(...CINZA);
-  doc.text("Subtotal:", xLabel, yFinal);
-  doc.setTextColor(30, 30, 30);
-  doc.text(fmtMoeda(subtotal), xValor, yFinal, { align: "right" });
+  let yFooter = yFooterLine + 10;
+  doc.setFont("courier", "bold");
+  doc.text("CONDICIONES", 15, yFooter);
 
-  doc.setTextColor(...CINZA);
-  doc.text(`Impostos IVA (${po.imposto}%):`, xLabel, yFinal + 6);
-  doc.setTextColor(30, 30, 30);
-  doc.text(fmtMoeda(impostoVal), xValor, yFinal + 6, { align: "right" });
+  yFooter += 8;
+  doc.text("Condiciones de Pago:", 15, yFooter);
+  doc.setFont("courier", "normal");
+  doc.text("(Ex.: 30 días / transferencia bancaria)", 65, yFooter);
 
-  // Linha separadora com mais espaço
-  doc.setDrawColor(...AZUL_ESCURO);
-  doc.setLineWidth(0.4);
-  doc.line(xLabel, yFinal + 11, xValor, yFinal + 11);
+  yFooter += 8;
+  doc.setFont("courier", "bold");
+  doc.text("Plazo de Entrega:", 15, yFooter);
+  doc.setFont("courier", "normal");
+  doc.text("(Fecha)", 55, yFooter);
 
-  // Total
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
-  doc.setTextColor(...AZUL_ESCURO);
-  doc.text("TOTAL:", xLabel, yFinal + 18);
-  doc.text(fmtMoeda(totalGeral), xValor, yFinal + 18, { align: "right" });
+  yFooter += 8;
+  doc.setFont("courier", "bold");
+  doc.text("Moneda:", 15, yFooter);
+  doc.setFont("courier", "normal");
+  doc.text("EUR", 35, yFooter);
 
-  // ── OBSERVAÇÕES ─────────────────────────────────────────────────────────────
-  if (po.observacoes?.trim()) {
-    const yObs = yFinal + 20;
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(7);
-    doc.setTextColor(...CINZA);
-    doc.text("OBSERVACOES", 10, yObs);
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(8);
-    doc.setTextColor(50, 50, 50);
-    const obsLines = doc.splitTextToSize(po.observacoes.trim(), W - 20);
-    doc.text(obsLines, 10, yObs + 5);
-  }
+  yFooter += 8;
+  doc.setFont("courier", "bold");
+  doc.text("Impuestos:", 15, yFooter);
+  doc.setFont("courier", "normal");
+  const impostoVal = subtotal * (po.imposto / 100);
+  const totalGeral = subtotal + impostoVal;
+  doc.text(`${fmtMoeda(subtotal)}+${fmtMoeda(impostoVal)} = ${fmtMoeda(totalGeral)})`, 45, yFooter);
 
-  // ── RODAPÉ ──────────────────────────────────────────────────────────────────
-  const totalPaginas = (doc.internal as any).getNumberOfPages();
-  for (let i = 1; i <= totalPaginas; i++) {
-    doc.setPage(i);
-    doc.setDrawColor(200, 210, 230);
-    doc.setLineWidth(0.3);
-    doc.line(10, H - 12, W - 10, H - 12);
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(7);
-    doc.setTextColor(...CINZA);
-    doc.text(
-      `Kessler Group · ${po.numeroPO} · ${po.numeroRC} · Emitido em ${fmtData(po.criadoEm)}`,
-      10, H - 7
-    );
-    doc.text(`Pagina ${i} / ${totalPaginas}`, W - 10, H - 7, { align: "right" });
-  }
+  yFooter += 10;
+  doc.setDrawColor(150, 150, 150);
+  doc.setLineWidth(0.5);
+  doc.line(15, yFooter, W - 15, yFooter);
 
+  return doc;
+}
+
+export function gerarPDFPO(po: POData) {
+  const doc = criarDocPO(po);
   doc.save(`${po.numeroPO}.pdf`);
 }
 
-// Retorna o PDF como blob (para uso no mailto e visualização)
 export function gerarBlobPO(po: POData): string {
-  const doc = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-  // Reutiliza a mesma lógica mas retorna dataURL
-  gerarPDFPO(po); // salva
+  const doc = criarDocPO(po);
   return doc.output("datauristring");
 }
