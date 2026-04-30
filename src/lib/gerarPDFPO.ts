@@ -234,7 +234,7 @@ export function criarDocPO(po: POData): jsPDF {
   doc.setFont("courier", "normal");
   const impostoVal = subtotal * (po.imposto / 100);
   const totalGeral = subtotal + impostoVal;
-  doc.text(`${fmtMoeda(subtotal)}+${fmtMoeda(impostoVal)} = ${fmtMoeda(totalGeral)})`, 45, yFooter);
+  doc.text(`${fmtMoeda(impostoVal)} EUR`, 45, yFooter);
 
   yFooter += 10;
   doc.setDrawColor(150, 150, 150);
