@@ -70,7 +70,7 @@ export function criarDocPO(po: POData): jsPDF {
 
   doc.setFont("courier", "bold");
   doc.setFontSize(11);
-  doc.text(`PO# ${po.numeroPO}`, W - 15, 29, { align: "right" });
+  doc.text(po.numeroPO, W - 15, 29, { align: "right" });
 
   doc.setFont("courier", "bold");
   doc.setFontSize(10);
