@@ -26,12 +26,14 @@ export interface POItem {
 }
 
 export interface POData {
-  numeroPO: string;         // PO#7025-01
-  numeroRC: string;         // RC-2024-7025
+  numeroPO: string;
+  numeroRC: string;
   numeroProjeto: string;
   cliente: string;
   fornecedor: string;
+  cnpj: string;
   solicitante: string;
+  aprovador: string;
   enderecoEntrega: string;
   modoEntrega: string;
   imposto: number;
@@ -96,29 +98,22 @@ export function criarDocPO(po: POData): jsPDF {
   const colRight = W / 2 + 5;
 
   doc.setFont("courier", "bold");
-  doc.text("PURCHASE ORDER", colLeft, yBlock1);
-  
-  doc.text("PO N°:", colLeft, yBlock1 + 10);
-  doc.setFont("courier", "normal");
-  doc.text(po.numeroPO || "PO-0003", colLeft + 18, yBlock1 + 10);
+  doc.text("PURCHASE ORDER DETAILS", colLeft, yBlock1);
 
   doc.setFont("courier", "bold");
-  doc.text("Fecha de Emisión:", colLeft, yBlock1 + 17);
+  doc.text("Fecha de Emisión:", colLeft, yBlock1 + 10);
   doc.setFont("courier", "normal");
-  doc.text(fmtData(po.criadoEm), colLeft + 42, yBlock1 + 17);
+  doc.text(fmtData(po.criadoEm), colLeft + 42, yBlock1 + 10);
 
   doc.setFont("courier", "bold");
-  doc.text("Solicitante:", colLeft, yBlock1 + 24);
+  doc.text("Solicitante:", colLeft, yBlock1 + 18);
   doc.setFont("courier", "normal");
-  doc.text(po.solicitante || "Tagory", colLeft + 30, yBlock1 + 24);
+  doc.text(po.solicitante || "", colLeft + 30, yBlock1 + 18);
 
   doc.setFont("courier", "bold");
-  doc.text("Aprovado por:", colLeft, yBlock1 + 31);
+  doc.text("Aprovado por:", colLeft, yBlock1 + 26);
   doc.setFont("courier", "normal");
-  doc.text("Marc", colLeft + 32, yBlock1 + 31);
-
-  doc.setFont("courier", "bold");
-  doc.text("DATOS DEL PROVEEDOR", colLeft, yBlock1 + 42);
+  doc.text(po.aprovador || "", colLeft + 32, yBlock1 + 26);
 
   doc.setFont("courier", "bold");
   doc.text("Proveedor:", colRight, yBlock1);
@@ -138,7 +133,7 @@ export function criarDocPO(po: POData): jsPDF {
   doc.setFont("courier", "bold");
   doc.text("CIF/NIF:", colRight, yRight);
   doc.setFont("courier", "normal");
-  doc.text("C.I.F: B 72341928", colRight + 25, yRight);
+  doc.text(po.cnpj || "—", colRight + 20, yRight);
 
   yRight += 7;
   doc.setFont("courier", "bold");

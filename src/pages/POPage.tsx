@@ -43,6 +43,8 @@ function rcParaPO(rc: PurchaseRequest): POData {
     cliente: rc.projectClient,
     fornecedor: rc.supplier?.name ?? '—',
     solicitante: rc.requester?.name ?? '—',
+    aprovador: rc.approver?.name ?? '—',
+    cnpj: rc.supplier?.cnpj ?? '',
     enderecoEntrega: rc.deliveryAddress ?? '—',
     modoEntrega: modoEntregaTexto(rc),
     imposto: rc.tax ?? 0,
