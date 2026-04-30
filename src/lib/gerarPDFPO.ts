@@ -145,7 +145,8 @@ export function criarDocPO(po: POData): jsPDF {
   doc.setFont("courier", "normal");
   doc.text("856 21 18 34", colRight + 25, yRight);
 
-  const yLine2 = Math.max(yBlock1 + 48, yRight + 8);
+  const yLeftEnd = yBlock1 + 34;
+  const yLine2 = Math.max(yLeftEnd, yRight + 8);
   doc.setDrawColor(150, 150, 150);
   doc.setLineWidth(0.5);
   doc.line(15, yLine2, W - 15, yLine2);
