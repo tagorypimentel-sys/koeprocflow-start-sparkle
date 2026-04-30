@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { User, Item, Supplier, PurchaseRequest } from '@/types';
 import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
-import { generatePOPdf } from '@/lib/generatePO';
+import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { gerarNumeroPO } from '@/lib/numeracaoRC';
 
 interface AppContextType {
@@ -80,15 +80,34 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (!rc) return;
     const poNumber = gerarNumeroPO(rc.projectNumber, rcs);
     const approvedAt = new Date().toISOString().split('T')[0];
-    const updatedRC: PurchaseRequest = {
-      ...rc,
-      status: 'aguardando_confirmacao_entrega',
-      poNumber,
-      approvedAt,
-    };
     updateRC(id, { status: 'aguardando_confirmacao_entrega', poNumber, approvedAt });
     try {
-      generatePOPdf(updatedRC, calcRC(updatedRC));
+      const { subtotal, taxAmt } = calcRC(rc);
+      const poData: POData = {
+        numeroPO: poNumber,
+        numeroRC: rc.id,
+        numeroProjeto: rc.projectNumber,
+        cliente: rc.projectClient || '',
+        fornecedor: rc.supplier.name,
+        solicitante: rc.requester.name,
+        enderecoEntrega: rc.deliveryAddress || '',
+        modoEntrega: rc.deliveryMode || '',
+        imposto: rc.tax,
+        observacoes: rc.notes || '',
+        criadoEm: approvedAt,
+        itens: rc.lineItems.map((li) => ({
+          codigo: li.item.codigo,
+          descricao: li.item.descricao,
+          categoria: li.item.categoria || '',
+          classe: li.item.classe || '',
+          tipo: li.item.tipo || '',
+          unidade: li.item.unidade || 'un',
+          qty: li.qty,
+          valorUnitario: li.unitPrice,
+          desconto: li.discount,
+        })),
+      };
+      gerarPDFPO(poData);
     } catch (e) {
       console.error('Erro ao gerar PDF do PO:', e);
     }
