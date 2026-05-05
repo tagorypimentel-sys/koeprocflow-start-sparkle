@@ -9,7 +9,7 @@ import { Search, Mail, ChevronDown, ChevronUp, Eye, FileText, Receipt } from 'lu
 import { gerarPDFRFQ } from '@/lib/gerarPDFRFQ';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { toast } from 'sonner';
-import { PurchaseRequest } from '@/types';
+import { PurchaseRequest, LineItem } from '@/types';
 import { VisualizarRC, VisualizarPO } from '@/components/VisualizarDocumento';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -326,13 +326,15 @@ function ProjetoCard({
 // ── Página principal ──────────────────────────────────────────────────────────
 
 export function ConsultaPage() {
-  const { rcs } = useApp();
+  const { rcs, currentUser, updateRC } = useApp();
   const { clientes } = useClientes();
   const { rfqs } = useRFQ();
   const [busca, setBusca] = useState('');
   const [filtroCliente, setFiltroCliente] = useState('all');
   const [verRC, setVerRC] = useState<PurchaseRequest | null>(null);
   const [verPO, setVerPO] = useState<PurchaseRequest | null>(null);
+
+  const isAprovador = currentUser?.role === 'aprovador';
 
   function getNomeCliente(rc: PurchaseRequest): string {
     const projClient = rc.projectClient;
@@ -516,6 +518,14 @@ export function ConsultaPage() {
         onClose={() => setVerPO(null)}
         onGerarPDF={() => { if (verPO) handlePDFPO(verPO); }}
         onEmail={() => { if (verPO) handleEmailPO(verPO); }}
+        isAprovador={isAprovador}
+        onSaveLineItems={(novasLinhas: LineItem[]) => {
+          if (!verPO) return;
+          updateRC(verPO.id, { lineItems: novasLinhas });
+          // Atualiza o estado local para refletir os novos itens no modal
+          setVerPO((prev) => prev ? { ...prev, lineItems: novasLinhas } : null);
+          toast.success('Itens da PO atualizados com sucesso!');
+        }}
       />
     </div>
   );
