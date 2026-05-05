@@ -70,6 +70,8 @@ export interface LineItem {
   qty: number;
   unitPrice: number;
   discount: number;
+  /** true quando a linha é um serviço inserido manualmente (sem vínculo com estoque) */
+  isServico?: boolean;
 }
 
 // Novo fluxo unificado

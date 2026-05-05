@@ -5,6 +5,7 @@ import { LineItem, PurchaseRequest } from '@/types';
 import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
 import { gerarNumeroRC, validarNumeroProjeto, normalizarProjeto } from '@/lib/numeracaoRC';
 import SeletorItens from '@/components/SeletorItens';
+import SeletorServicos from '@/components/SeletorServicos';
 import CartaoConsolidadoProjeto from '@/components/CartaoConsolidadoProjeto';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
@@ -27,6 +28,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
   const [deliveryAddress, setDeliveryAddress] = useState('');
   const [lineItems, setLineItems] = useState<LineItem[]>([]);
   const [seletorAberto, setSeletorAberto] = useState(false);
+  const [servicosAberto, setServicosAberto] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const upd = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
@@ -260,7 +262,17 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-6">
         <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
           <h2 className="text-sm font-bold text-blue-900">Itens da Requisição</h2>
-          <Button variant="ghost" size="sm" onClick={() => setSeletorAberto(true)}>+ Adicionar Item</Button>
+          <div className="flex gap-2">
+            <Button variant="ghost" size="sm" onClick={() => setSeletorAberto(true)}>+ Adicionar Item</Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setServicosAberto(true)}
+              className="text-violet-700 hover:text-violet-900 hover:bg-violet-50"
+            >
+              🛠️ Compra de Serviços
+            </Button>
+          </div>
         </div>
 
         {errors.items && (
@@ -275,6 +287,18 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
             <SeletorItens
               onConfirmar={handleAdicionarItens}
               onCancelar={() => setSeletorAberto(false)}
+            />
+          </DialogContent>
+        </Dialog>
+
+        <Dialog open={servicosAberto} onOpenChange={setServicosAberto}>
+          <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Compra de Serviços</DialogTitle>
+            </DialogHeader>
+            <SeletorServicos
+              onConfirmar={handleAdicionarItens}
+              onCancelar={() => setServicosAberto(false)}
             />
           </DialogContent>
         </Dialog>
@@ -294,16 +318,31 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
               {lineItems.map((li) => {
                 const unitWithDiscount = li.unitPrice * (1 - li.discount / 100);
                 const lineTotal = unitWithDiscount * li.qty;
+                const isServico = !!li.isServico;
                 return (
-                  <tr key={li.id} className="border-b border-gray-50">
-                    <td className="px-3 py-2.5 text-gray-400 font-mono text-xs">{li.item.codigo}</td>
+                  <tr key={li.id} className={`border-b border-gray-50 ${isServico ? 'bg-violet-50/30' : ''}`}>
+                    <td className="px-3 py-2.5 text-gray-400 font-mono text-xs">
+                      {isServico ? <span className="text-violet-400">SVC</span> : li.item.codigo}
+                    </td>
                     <td className="px-3 py-2.5 font-medium">{li.item.descricao}</td>
                     <td className="px-3 py-2.5">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{li.item.categoria}</span>
+                      {isServico ? (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-violet-50 text-violet-700 border border-violet-200">
+                          🛠️ Serviços
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{li.item.categoria}</span>
+                      )}
                     </td>
-                    <td className="px-3 py-2.5 text-xs text-gray-600">{li.item.classe}</td>
+                    <td className="px-3 py-2.5 text-xs text-gray-600">
+                      {isServico ? '—' : li.item.classe}
+                    </td>
                     <td className="px-3 py-2.5">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700">{li.item.tipo}</span>
+                      {isServico ? (
+                        <span className="text-xs text-gray-400">—</span>
+                      ) : (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700">{li.item.tipo}</span>
+                      )}
                     </td>
                     <td className="px-3 py-2.5 text-center">{li.qty}</td>
                     <td className="px-3 py-2.5">
@@ -316,7 +355,9 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                         className="w-24 px-2 py-1 text-sm text-right border border-gray-200 rounded focus:outline-none focus:border-blue-500"
                       />
                     </td>
-                    <td className="px-3 py-2.5 text-green-700 font-semibold">{li.discount > 0 ? `${li.discount}%` : '—'}</td>
+                    <td className="px-3 py-2.5 text-green-700 font-semibold">
+                      {isServico ? '—' : (li.discount > 0 ? `${li.discount}%` : '—')}
+                    </td>
                     <td className="px-3 py-2.5">€ {fmt(unitWithDiscount)}</td>
                     <td className="px-3 py-2.5 font-bold">€ {fmt(lineTotal)}</td>
                     <td className="px-3 py-2.5">
