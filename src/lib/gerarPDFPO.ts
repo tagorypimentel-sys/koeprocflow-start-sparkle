@@ -10,7 +10,11 @@ function fmtData(iso: string): string {
 }
 
 function fmtMoeda(v: number): string {
-  return v.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // Formatação manual para garantir separador de milhar (.) e decimal (,)
+  // independente do ambiente do navegador/jsPDF
+  const parts = v.toFixed(2).split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return parts.join(",");
 }
 
 export interface POItem {
