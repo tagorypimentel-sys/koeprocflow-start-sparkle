@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
+import { useAuth } from '@/context/AuthContext';
+import { useLanguage } from '@/context/LanguageContext';
+import { TranslationKey } from '@/i18n';
 import { ROLE_LABELS } from '@/lib/constants';
 import { Avatar } from '@/components/ui-pf';
+import { Bell } from 'lucide-react';
 
 type Page =
   | 'dashboard' | 'rcs' | 'nova_rc' | 'rfq' | 'po' | 'consulta'
@@ -15,19 +19,19 @@ interface LayoutProps {
 }
 
 const NAV_ITEMS = [
-  { id: 'dashboard', label: 'Dashboard', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'rfq', label: 'RFQ', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'rcs', label: 'Requisições', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'consulta', label: 'Consulta', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'dashboard', tKey: 'dashboard', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'rfq', tKey: 'rfq', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'rcs', tKey: 'rcs', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'consulta', tKey: 'consulta', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
 
-  { id: 'aprovacoes', label: 'Aprovações', roles: ['aprovador'] },
-  { id: 'conferencia', label: 'Conferência', roles: ['conferente'] },
-  { id: 'financeiro', label: 'Financeiro', roles: ['financeiro'] },
+  { id: 'aprovacoes', tKey: 'aprovacoes', roles: ['aprovador'] },
+  { id: 'conferencia', tKey: 'conferencia', roles: ['conferente'] },
+  { id: 'financeiro', tKey: 'financeiro', roles: ['financeiro'] },
   { id: 'divider' },
-  { id: 'items', label: 'Itens', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'suppliers', label: 'Fornecedores', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'clientes', label: 'Clientes', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
-  { id: 'usuarios', label: 'Usuários', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'items', tKey: 'items', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'suppliers', tKey: 'suppliers', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'clientes', tKey: 'clientes', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
+  { id: 'usuarios', tKey: 'usuarios', roles: ['solicitante', 'aprovador', 'conferente', 'financeiro'] },
 ] as const;
 
 const ICONS: Record<string, string> = {
@@ -47,7 +51,9 @@ const ICONS: Record<string, string> = {
 };
 
 export function Layout({ currentPage, setPage, children }: LayoutProps) {
-  const { currentUser, setCurrentUser, users } = useApp();
+  const { currentUser } = useApp();
+  const { user, signOut } = useAuth();
+  const { lang, setLang, t } = useLanguage();
 
   const visibleNav = NAV_ITEMS.filter(
     (n) => n.id === 'divider' || (n.roles as readonly string[]).includes(currentUser.role)
@@ -66,12 +72,12 @@ export function Layout({ currentPage, setPage, children }: LayoutProps) {
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 10a4 4 0 01-8 0" />
             </svg>
           </div>
-          <span className="font-bold text-blue-900 text-base tracking-tight">DRAFT KOE Procurement Flow</span>
+          <span className="font-bold text-blue-900 text-base tracking-tight">KOE ProcFlow</span>
         </div>
 
         {/* Nav */}
         <nav className="flex-1 py-3 px-2 overflow-y-auto">
-          <p className="px-3 mb-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Menu</p>
+          <p className="px-3 mb-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('menu')}</p>
           {visibleNav.map((item, i) => {
             if (item.id === 'divider') {
               return <div key={`div-${i}`} className="my-2 mx-3 border-t border-gray-100" />;
@@ -90,7 +96,7 @@ export function Layout({ currentPage, setPage, children }: LayoutProps) {
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                   <path d={ICONS[item.id]} />
                 </svg>
-                {item.label}
+                {'tKey' in item ? t(item.tKey as TranslationKey) : ''}
               </button>
             );
           })}
@@ -98,34 +104,64 @@ export function Layout({ currentPage, setPage, children }: LayoutProps) {
 
         {/* User */}
         <div className="border-t border-gray-100 p-3">
-          <div className="flex items-center gap-2 mb-2">
-            <Avatar initials={currentUser.avatar} size={28} colorIndex={currentUser.id} />
+          <div className="flex items-center gap-2 mb-3">
+            <Avatar initials={user?.email?.charAt(0).toUpperCase() || 'U'} size={28} colorIndex={5} />
             <div className="min-w-0">
-              <p className="text-xs font-semibold text-gray-800 truncate">{currentUser.name}</p>
-              <p className="text-[10px] text-gray-400">{ROLE_LABELS[currentUser.role]}</p>
+              <p className="text-xs font-semibold text-gray-800 truncate" title={user?.email || ''}>
+                {user?.email ? user.email.split('@')[0] : 'Usuário'}
+              </p>
+              <p className="text-[10px] text-gray-400">{t(`role_${currentUser.role}` as TranslationKey)}</p>
             </div>
           </div>
-          <select
-            value={currentUser.id}
-            onChange={(e) => {
-              const u = users.find((x) => x.id === parseInt(e.target.value));
-              if (u) setCurrentUser(u);
-            }}
-            className="w-full text-xs border border-gray-200 rounded-md px-2 py-1.5 bg-gray-50 text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          <button
+            onClick={signOut}
+            className="w-full text-xs border border-gray-200 hover:border-red-200 hover:bg-red-50 hover:text-red-600 text-gray-600 rounded-md px-2 py-1.5 transition-colors focus:outline-none focus:ring-1 focus:ring-red-500 font-medium"
           >
-            {users.map((u) => (
-              <option key={u.id} value={u.id}>
-                {u.name} ({ROLE_LABELS[u.role]})
-              </option>
-            ))}
-          </select>
-          <p className="text-[9px] text-gray-400 mt-1 text-center">Trocar usuário (demo)</p>
+            {t('logout')}
+          </button>
         </div>
       </aside>
 
       {/* Main */}
-      <main className="flex-1 overflow-y-auto">
-        {children}
+      <main className="flex-1 flex flex-col overflow-hidden bg-gray-50/50">
+        {/* Top Header */}
+        <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-end px-6 gap-6 flex-shrink-0">
+          
+          {/* Bell Icon */}
+          <button className="relative text-gray-500 hover:text-gray-800 transition">
+            <Bell size={20} strokeWidth={2} />
+            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#0ea5e9] text-[9px] font-bold text-white">
+              3
+            </span>
+          </button>
+
+          {/* Language Toggle */}
+          <div className="flex items-center border border-gray-200 rounded-lg p-0.5 bg-white shadow-sm">
+            <button
+              onClick={() => setLang('EN')}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                lang === 'EN' ? 'bg-gray-100 text-[#1a2b6d]' : 'text-gray-400 hover:text-gray-600'
+              }`}
+            >
+              <span className="text-[9px] uppercase tracking-wider opacity-60">US</span> EN
+            </button>
+            <div className="w-[1px] h-3 bg-gray-200 mx-0.5" />
+            <button
+              onClick={() => setLang('PT')}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
+                lang === 'PT' ? 'bg-gray-100 text-[#1a2b6d]' : 'text-gray-400 hover:text-gray-600'
+              }`}
+            >
+              <span className="text-[9px] uppercase tracking-wider opacity-60">BR</span> PT
+            </button>
+          </div>
+
+        </header>
+
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto">
+          {children}
+        </div>
       </main>
     </div>
   );

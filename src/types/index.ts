@@ -56,7 +56,7 @@ export interface Item {
 }
 
 export interface Supplier {
-  id: number;
+  id: string;
   name: string;
   cnpj: string;
   contact: string;

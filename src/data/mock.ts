@@ -28,17 +28,17 @@ export const MOCK_ITEMS: Item[] = (itensSeed as Array<{
 
 export const MOCK_SUPPLIERS: Supplier[] = [
   {
-    id: 1, name: 'TechSolutions Ltda', cnpj: '12.345.678/0001-90',
+    id: '1', name: 'TechSolutions Ltda', cnpj: '12.345.678/0001-90',
     contact: 'contato@techsolutions.com.br', phone: '(11) 3344-5566',
     address: 'Av. Paulista, 1000 — São Paulo/SP',
   },
   {
-    id: 2, name: 'Office Supply S.A.', cnpj: '98.765.432/0001-10',
+    id: '2', name: 'Office Supply S.A.', cnpj: '98.765.432/0001-10',
     contact: 'vendas@officesupply.com.br', phone: '(11) 2233-4455',
     address: 'Rua das Flores, 200 — São Paulo/SP',
   },
   {
-    id: 3, name: 'InfoParts Distribuidora', cnpj: '11.222.333/0001-44',
+    id: '3', name: 'InfoParts Distribuidora', cnpj: '11.222.333/0001-44',
     contact: 'pedidos@infoparts.com.br', phone: '(11) 4455-6677',
     address: 'Av. Industrial, 500 — Guarulhos/SP',
   },

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { z } from 'zod';
 import { useApp } from '@/context/AppContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { User, UserRole } from '@/types';
 import { ROLE_LABELS } from '@/lib/constants';
 import {
@@ -10,29 +11,32 @@ import {
 
 const ROLES: UserRole[] = ['solicitante', 'aprovador', 'conferente', 'financeiro'];
 
-const userSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, { message: 'Nome deve ter ao menos 2 caracteres' })
-    .max(100, { message: 'Nome deve ter no máximo 100 caracteres' }),
-  email: z
-    .string()
-    .trim()
-    .email({ message: 'E-mail inválido' })
-    .max(255, { message: 'E-mail muito longo' }),
-  role: z.enum(['solicitante', 'aprovador', 'conferente', 'financeiro']),
-});
+// schema moved to inside component to use t()
 
 type FormState = { name: string; email: string; role: UserRole };
 const EMPTY: FormState = { name: '', email: '', role: 'solicitante' };
 
 export function UsuariosPage() {
   const { users, addUser, updateUser, deleteUser, currentUser } = useApp();
+  const { t } = useLanguage();
   const [form, setForm] = useState<FormState>(EMPTY);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [filterRole, setFilterRole] = useState<UserRole | 'all'>('all');
+
+  const userSchema = z.object({
+    name: z
+      .string()
+      .trim()
+      .min(2, { message: t('error_name_min') })
+      .max(100, { message: t('error_name_max') }),
+    email: z
+      .string()
+      .trim()
+      .email({ message: t('error_email_invalid') })
+      .max(255, { message: t('error_email_max') }),
+    role: z.enum(['solicitante', 'aprovador', 'conferente', 'financeiro']),
+  });
 
   const filtered = filterRole === 'all' ? users : users.filter((u) => u.role === filterRole);
 
@@ -61,7 +65,7 @@ export function UsuariosPage() {
       (u) => u.email.toLowerCase() === emailLower && u.id !== editingId
     );
     if (dup) {
-      setErrors({ email: 'Já existe um usuário com este e-mail' });
+      setErrors({ email: t('error_email_exists') });
       return;
     }
 
@@ -82,10 +86,10 @@ export function UsuariosPage() {
 
   const handleDelete = (u: User) => {
     if (u.id === currentUser.id) {
-      alert('Você não pode excluir o usuário que está em uso.');
+      alert(t('error_delete_current_user'));
       return;
     }
-    if (confirm(`Excluir o usuário "${u.name}"?`)) {
+    if (confirm(`${t('confirm_delete_user')} "${u.name}"?`)) {
       deleteUser(u.id);
       if (editingId === u.id) resetForm();
     }
@@ -94,28 +98,28 @@ export function UsuariosPage() {
   return (
     <div className="p-6 max-w-6xl">
       <SectionHeader
-        title="Usuários"
-        subtitle="Cadastre solicitantes, aprovadores, conferentes e financeiro para testes operacionais"
+        title={t('users_title')}
+        subtitle={t('users_subtitle')}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Form */}
         <Card className="p-5 lg:col-span-1 h-fit">
           <h2 className="text-sm font-bold text-gray-800 mb-4">
-            {editingId ? 'Editar Usuário' : 'Novo Usuário'}
+            {editingId ? t('edit_user') : t('new_user')}
           </h2>
           <form onSubmit={handleSubmit} className="space-y-3" noValidate>
-            <FormField label="Nome" required>
+            <FormField label={t('name')} required>
               <Input
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 maxLength={100}
-                placeholder="Ex: João da Silva"
+                placeholder={t('placeholder_user_name')}
               />
               {errors.name && <p className="text-[11px] text-red-600 mt-1">{errors.name}</p>}
             </FormField>
 
-            <FormField label="E-mail" required>
+            <FormField label={t('email')} required>
               <Input
                 type="email"
                 value={form.email}
@@ -126,7 +130,7 @@ export function UsuariosPage() {
               {errors.email && <p className="text-[11px] text-red-600 mt-1">{errors.email}</p>}
             </FormField>
 
-            <FormField label="Cargo" required>
+            <FormField label={t('role')} required>
               <Select
                 value={form.role}
                 onChange={(e) => setForm({ ...form, role: e.target.value as UserRole })}
@@ -140,11 +144,11 @@ export function UsuariosPage() {
 
             <div className="flex gap-2 pt-2">
               <Button type="submit" variant="primary" size="md" className="flex-1">
-                {editingId ? 'Salvar Alterações' : '+ Adicionar'}
+                {editingId ? t('save_changes') : t('add_button')}
               </Button>
               {editingId && (
                 <Button type="button" variant="secondary" size="md" onClick={resetForm}>
-                  Cancelar
+                  {t('cancel')}
                 </Button>
               )}
             </div>
@@ -155,14 +159,14 @@ export function UsuariosPage() {
         <Card className="lg:col-span-2 overflow-hidden">
           <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
             <h2 className="text-sm font-bold text-gray-800">
-              {filtered.length} usuário{filtered.length === 1 ? '' : 's'}
+              {filtered.length} {t('user')}{filtered.length === 1 ? '' : 's'}
             </h2>
             <Select
               value={filterRole}
               onChange={(e) => setFilterRole(e.target.value as UserRole | 'all')}
               className="w-auto"
             >
-              <option value="all">Todos os cargos</option>
+              <option value="all">{t('all_roles')}</option>
               {ROLES.map((r) => (
                 <option key={r} value={r}>{ROLE_LABELS[r]}</option>
               ))}
@@ -170,9 +174,9 @@ export function UsuariosPage() {
           </div>
 
           {filtered.length === 0 ? (
-            <EmptyState message="Nenhum usuário encontrado" icon="👤" />
+            <EmptyState message={t('no_user_found')} icon="👤" />
           ) : (
-            <Table headers={['Usuário', 'E-mail', 'Cargo', 'Ações']}>
+            <Table headers={[t('user'), t('email'), t('role'), t('actions')]}>
               {filtered.map((u) => (
                 <tr key={u.id} className="border-b border-gray-50 hover:bg-gray-50/50">
                   <td className="px-4 py-3">
@@ -183,7 +187,7 @@ export function UsuariosPage() {
                           {u.name}
                           {u.id === currentUser.id && (
                             <span className="ml-2 text-[10px] bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-semibold">
-                              você
+                              {t('you_badge')}
                             </span>
                           )}
                         </p>
@@ -195,7 +199,7 @@ export function UsuariosPage() {
                   <td className="px-4 py-3">
                     <div className="flex gap-2">
                       <Button size="sm" variant="secondary" onClick={() => handleEdit(u)}>
-                        Editar
+                        {t('edit')}
                       </Button>
                       <Button
                         size="sm"
@@ -203,7 +207,7 @@ export function UsuariosPage() {
                         onClick={() => handleDelete(u)}
                         disabled={u.id === currentUser.id}
                       >
-                        Excluir
+                        {t('delete')}
                       </Button>
                     </div>
                   </td>

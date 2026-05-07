@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { supabase } from '@/lib/supabase';
 import { User, Item, Supplier, PurchaseRequest } from '@/types';
 import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
@@ -34,8 +35,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User>(MOCK_USERS[0]);
   const [users, setUsers] = useState<User[]>(MOCK_USERS);
   const [items, setItems] = useState<Item[]>(MOCK_ITEMS);
-  const [suppliers, setSuppliers] = useState<Supplier[]>(MOCK_SUPPLIERS);
+  const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [rcs, setRcs] = useState<PurchaseRequest[]>(MOCK_RCS);
+
+  useEffect(() => {
+    supabase.from('suppliers').select('*').order('name').then(({ data, error }) => {
+      if (!error && data) {
+        setSuppliers(data as Supplier[]);
+      }
+    });
+  }, []);
   const [selectedRC, setSelectedRC] = useState<PurchaseRequest | null>(null);
 
   const addUser: AppContextType['addUser'] = (u) => {
