@@ -1,7 +1,7 @@
 export type UserRole = 'solicitante' | 'aprovador' | 'conferente' | 'financeiro';
 
 export interface User {
-  id: number;
+  id: string;
   name: string;
   email: string;
   role: UserRole;

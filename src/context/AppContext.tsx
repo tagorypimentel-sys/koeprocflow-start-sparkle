@@ -10,9 +10,9 @@ interface AppContextType {
   setCurrentUser: (u: User) => void;
   users: User[];
   setUsers: (users: User[]) => void;
-  addUser: (u: { name: string; email: string; role: User['role']; avatar?: string }) => User;
-  updateUser: (id: number, updates: Partial<User>) => void;
-  deleteUser: (id: number) => void;
+  addUser: (u: { name: string; email: string; role: User['role']; avatar?: string }) => Promise<User>;
+  updateUser: (id: string, updates: Partial<User>) => Promise<void>;
+  deleteUser: (id: string) => Promise<void>;
   items: Item[];
   setItems: (items: Item[]) => void;
   suppliers: Supplier[];
@@ -33,7 +33,7 @@ const AppContext = createContext<AppContextType | null>(null);
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User>(MOCK_USERS[0]);
-  const [users, setUsers] = useState<User[]>(MOCK_USERS);
+  const [users, setUsers] = useState<User[]>([]);
   const [items, setItems] = useState<Item[]>(MOCK_ITEMS);
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [rcs, setRcs] = useState<PurchaseRequest[]>(MOCK_RCS);
@@ -44,27 +44,43 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setSuppliers(data as Supplier[]);
       }
     });
+    
+    supabase.from('profiles').select('*').order('name').then(({ data, error }) => {
+      if (!error && data && data.length > 0) {
+        setUsers(data as User[]);
+        setCurrentUser(data[0] as User);
+      } else {
+        setUsers(MOCK_USERS);
+      }
+    });
   }, []);
   const [selectedRC, setSelectedRC] = useState<PurchaseRequest | null>(null);
 
-  const addUser: AppContextType['addUser'] = (u) => {
-    const id = users.reduce((m, x) => Math.max(m, x.id), 0) + 1;
+  const addUser: AppContextType['addUser'] = async (u) => {
     const avatar =
       (u.avatar && u.avatar.trim()) ||
       u.name.trim().split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase() ||
       '??';
-    const newUser: User = { id, name: u.name, email: u.email, role: u.role, avatar };
-    setUsers((prev) => [...prev, newUser]);
-    return newUser;
+    const newUser = { name: u.name, email: u.email, role: u.role, avatar };
+    const { data, error } = await supabase.from('profiles').insert([newUser]).select().single();
+    if (error) throw error;
+    setUsers((prev) => [...prev, data]);
+    return data;
   };
 
-  const updateUser = (id: number, updates: Partial<User>) => {
-    setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, ...updates } : u)));
-    setCurrentUser((prev) => (prev.id === id ? { ...prev, ...updates } : prev));
+  const updateUser = async (id: string, updates: Partial<User>) => {
+    const { error } = await supabase.from('profiles').update(updates).eq('id', id);
+    if (!error) {
+      setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, ...updates } : u)));
+      setCurrentUser((prev) => (prev.id === id ? { ...prev, ...updates } : prev));
+    }
   };
 
-  const deleteUser = (id: number) => {
-    setUsers((prev) => prev.filter((u) => u.id !== id));
+  const deleteUser = async (id: string) => {
+    const { error } = await supabase.from('profiles').delete().eq('id', id);
+    if (!error) {
+      setUsers((prev) => prev.filter((u) => u.id !== id));
+    }
   };
 
   const updateRC = (id: string, updates: Partial<PurchaseRequest>) => {

@@ -67,14 +67,14 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
 
   const handleSubmit = () => {
     if (!validate()) return;
-    const cliente = clientes.find((c) => c.id === parseInt(form.clienteId));
+    const cliente = clientes.find((c) => c.id === form.clienteId);
     const projeto = normalizarProjeto(form.projectNumber);
     const rc: PurchaseRequest = {
       id: gerarNumeroRC(projeto, rcs),
       projectNumber: projeto,
       projectClient: cliente?.nome ?? '',
-      supplier: suppliers.find((s) => s.id === parseInt(form.supplierId))!,
-      approver: users.find((u) => u.id === parseInt(form.approverId))!,
+      supplier: suppliers.find((s) => s.id === form.supplierId)!,
+      approver: users.find((u) => u.id === form.approverId)!,
       requester: currentUser,
       status: 'aguardando_aprovacao',
       createdAt: new Date().toISOString().split('T')[0],

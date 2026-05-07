@@ -2,11 +2,11 @@ import { User, Item, Supplier, PurchaseRequest, Categoria, Classe, Tipo } from '
 import itensSeed from './itens_seed.json';
 
 export const MOCK_USERS: User[] = [
-  { id: 1, name: 'Carlos Silva', email: 'carlos@empresa.com', role: 'solicitante', avatar: 'CS' },
-  { id: 2, name: 'Ana Gerente', email: 'ana@empresa.com', role: 'aprovador', avatar: 'AG' },
-  { id: 3, name: 'Pedro Diretor', email: 'pedro@empresa.com', role: 'aprovador', avatar: 'PD' },
-  { id: 4, name: 'Maria Conferente', email: 'maria@empresa.com', role: 'conferente', avatar: 'MC' },
-  { id: 5, name: 'João Financeiro', email: 'joao@empresa.com', role: 'financeiro', avatar: 'JF' },
+  { id: '1', name: 'Carlos Silva', email: 'carlos@empresa.com', role: 'solicitante', avatar: 'CS' },
+  { id: '2', name: 'Ana Gerente', email: 'ana@empresa.com', role: 'aprovador', avatar: 'AG' },
+  { id: '3', name: 'Pedro Diretor', email: 'pedro@empresa.com', role: 'aprovador', avatar: 'PD' },
+  { id: '4', name: 'Maria Conferente', email: 'maria@empresa.com', role: 'conferente', avatar: 'MC' },
+  { id: '5', name: 'João Financeiro', email: 'joao@empresa.com', role: 'financeiro', avatar: 'JF' },
 ];
 
 export const MOCK_ITEMS: Item[] = (itensSeed as Array<{

@@ -20,7 +20,7 @@ export function UsuariosPage() {
   const { users, addUser, updateUser, deleteUser, currentUser } = useApp();
   const { t } = useLanguage();
   const [form, setForm] = useState<FormState>(EMPTY);
-  const [editingId, setEditingId] = useState<number | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [filterRole, setFilterRole] = useState<UserRole | 'all'>('all');
 
@@ -46,7 +46,7 @@ export function UsuariosPage() {
     setErrors({});
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = userSchema.safeParse(form);
     if (!result.success) {
@@ -70,12 +70,17 @@ export function UsuariosPage() {
     }
 
     const data = result.data as FormState;
-    if (editingId) {
-      updateUser(editingId, data);
-    } else {
-      addUser(data);
+    try {
+      if (editingId) {
+        await updateUser(editingId, data);
+      } else {
+        await addUser(data);
+      }
+      resetForm();
+    } catch (err: any) {
+      console.error(err);
+      alert(t('error_save_db') + ' ' + err.message);
     }
-    resetForm();
   };
 
   const handleEdit = (u: User) => {
@@ -84,14 +89,19 @@ export function UsuariosPage() {
     setErrors({});
   };
 
-  const handleDelete = (u: User) => {
+  const handleDelete = async (u: User) => {
     if (u.id === currentUser.id) {
       alert(t('error_delete_current_user'));
       return;
     }
     if (confirm(`${t('confirm_delete_user')} "${u.name}"?`)) {
-      deleteUser(u.id);
-      if (editingId === u.id) resetForm();
+      try {
+        await deleteUser(u.id);
+        if (editingId === u.id) resetForm();
+      } catch (err: any) {
+        console.error(err);
+        alert(t('error_delete_db') + ' ' + err.message);
+      }
     }
   };
 
