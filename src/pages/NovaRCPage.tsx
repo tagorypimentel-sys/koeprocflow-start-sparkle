@@ -263,14 +263,21 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
         <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
           <h2 className="text-sm font-bold text-blue-900">Itens da Requisição</h2>
           <div className="flex gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setSeletorAberto(true)}>+ Adicionar Item</Button>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => setSeletorAberto(true)}
+              className="text-blue-700 hover:text-blue-900 hover:bg-blue-50"
+            >
+              📦 Material
+            </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setServicosAberto(true)}
               className="text-violet-700 hover:text-violet-900 hover:bg-violet-50"
             >
-              🛠️ Compra de Serviços
+              🛠️ Serviços
             </Button>
           </div>
         </div>
