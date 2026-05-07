@@ -334,7 +334,7 @@ export function ConsultaPage() {
   const [verRC, setVerRC] = useState<PurchaseRequest | null>(null);
   const [verPO, setVerPO] = useState<PurchaseRequest | null>(null);
 
-  const isAprovador = currentUser?.role === 'aprovador';
+  const isAprovador = currentUser?.role.includes('aprovador');
 
   function getNomeCliente(rc: PurchaseRequest): string {
     const projClient = rc.projectClient;

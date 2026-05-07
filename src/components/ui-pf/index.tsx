@@ -16,15 +16,24 @@ export function StatusBadge({ status }: { status: RCStatus }) {
 }
 
 // ─── Role Badge ───────────────────────────────────────────────────────────────
-export function RoleBadge({ role }: { role: UserRole }) {
-  const color = ROLE_COLORS[role];
+export function RoleBadge({ role }: { role: string }) {
+  if (!role) return null;
+  const roles = role.split(',').filter(Boolean) as UserRole[];
   return (
-    <span
-      className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold"
-      style={{ color, background: `${color}15`, border: `1px solid ${color}30` }}
-    >
-      {ROLE_LABELS[role]}
-    </span>
+    <div className="flex flex-wrap gap-1">
+      {roles.map((r) => {
+        const color = ROLE_COLORS[r] || '#6b7280';
+        return (
+          <span
+            key={r}
+            className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold"
+            style={{ color, background: `${color}15`, border: `1px solid ${color}30` }}
+          >
+            {ROLE_LABELS[r] || r}
+          </span>
+        );
+      })}
+    </div>
   );
 }
 

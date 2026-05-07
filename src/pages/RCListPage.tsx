@@ -34,7 +34,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
           <h1 className="text-2xl font-bold text-gray-900">Requisições de Compra</h1>
           <p className="text-sm text-gray-500 mt-1">{rcs.length} requisições cadastradas</p>
         </div>
-        {currentUser.role === 'solicitante' && (
+        {currentUser.role.includes('solicitante') && (
           <Button variant="primary" onClick={onNewRC}>+ Nova RC</Button>
         )}
       </div>

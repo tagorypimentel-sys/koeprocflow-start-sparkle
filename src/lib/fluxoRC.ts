@@ -90,9 +90,8 @@ export const STATUS_STYLE: Record<StatusRC, string> = {
 };
 
 /** Mapeia o papel do usuário do app (UserRole) para o Responsavel do fluxo. */
-export function responsavelDoUsuario(role: UserRole): Responsavel {
-  if (role === 'solicitante') return 'Solicitante';
-  if (role === 'aprovador') return 'Aprovador';
-  // conferente e financeiro são ambos "Fiscal" no fluxo unificado
+export function responsavelDoUsuario(role: string): Responsavel {
+  if (role.includes('aprovador')) return 'Aprovador';
+  if (role.includes('solicitante')) return 'Solicitante';
   return 'Fiscal';
 }

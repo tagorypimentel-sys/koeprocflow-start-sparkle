@@ -17,7 +17,7 @@ interface Props {
 export function NovaRCPage({ onSave, onCancel }: Props) {
   const { items, suppliers, users, currentUser, addRC, rcs } = useApp();
   const { clientes } = useClientes();
-  const approvers = users.filter((u) => u.role === 'aprovador');
+  const approvers = users.filter((u) => u.role.includes('aprovador'));
 
   const [form, setForm] = useState({
     projectNumber: '', clienteId: '', supplierId: '',

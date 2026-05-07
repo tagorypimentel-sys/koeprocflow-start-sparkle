@@ -96,7 +96,7 @@ export function DashboardPage({ onSelectRC }: Props) {
   const [drillTipo, setDrillTipo] = useState<'OPEX' | 'CAPEX' | null>(null);
 
   const requisicoes = useMemo(
-    () => (currentUser.role === 'solicitante' ? rcs.filter((r) => r.requester.id === currentUser.id) : rcs),
+    () => (currentUser.role.includes('solicitante') && !currentUser.role.includes('aprovador') ? rcs.filter((r) => r.requester.id === currentUser.id) : rcs),
     [rcs, currentUser]
   );
 

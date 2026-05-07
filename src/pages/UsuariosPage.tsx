@@ -13,7 +13,7 @@ const ROLES: UserRole[] = ['solicitante', 'aprovador', 'conferente', 'financeiro
 
 // schema moved to inside component to use t()
 
-type FormState = { name: string; email: string; role: UserRole };
+type FormState = { name: string; email: string; role: string };
 const EMPTY: FormState = { name: '', email: '', role: 'solicitante' };
 
 export function UsuariosPage() {
@@ -35,10 +35,10 @@ export function UsuariosPage() {
       .trim()
       .email({ message: t('error_email_invalid') })
       .max(255, { message: t('error_email_max') }),
-    role: z.enum(['solicitante', 'aprovador', 'conferente', 'financeiro']),
+    role: z.string().min(1, { message: t('error_role_required') || 'Selecione pelo menos um cargo' }),
   });
 
-  const filtered = filterRole === 'all' ? users : users.filter((u) => u.role === filterRole);
+  const filtered = filterRole === 'all' ? users : users.filter((u) => u.role.split(',').includes(filterRole));
 
   const resetForm = () => {
     setForm(EMPTY);
@@ -141,14 +141,29 @@ export function UsuariosPage() {
             </FormField>
 
             <FormField label={t('role')} required>
-              <Select
-                value={form.role}
-                onChange={(e) => setForm({ ...form, role: e.target.value as UserRole })}
-              >
-                {ROLES.map((r) => (
-                  <option key={r} value={r}>{ROLE_LABELS[r]}</option>
-                ))}
-              </Select>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                {ROLES.map((r) => {
+                  const isChecked = form.role.split(',').includes(r);
+                  return (
+                    <label key={r} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={(e) => {
+                          const current = form.role.split(',').filter(Boolean);
+                          if (e.target.checked) {
+                            setForm({ ...form, role: [...current, r].join(',') });
+                          } else {
+                            setForm({ ...form, role: current.filter(x => x !== r).join(',') });
+                          }
+                        }}
+                        className="rounded border-gray-300 text-blue-900 focus:ring-blue-500"
+                      />
+                      {ROLE_LABELS[r]}
+                    </label>
+                  );
+                })}
+              </div>
               {errors.role && <p className="text-[11px] text-red-600 mt-1">{errors.role}</p>}
             </FormField>
 
