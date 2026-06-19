@@ -85,12 +85,13 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
             <tbody>
               {filtered.map((rc) => {
                 const { total } = calcRC(rc);
-                const isAdmin = currentUser.role?.includes('admin');
-                const isRequester = currentUser.id === rc.requester?.id;
-                const isSolicitante = currentUser.role?.includes('solicitante');
+                const roles = currentUser.role ?? '';
+                const isAdmin = roles.includes('admin');
+                const isRequester = !!currentUser.id && currentUser.id === rc.requester?.id;
+                const isSolicitanteRequester = roles.includes('solicitante') && isRequester;
                 const canReceive =
-                  rc.status === 'aprovada' &&
-                  (isAdmin || isRequester || isSolicitante);
+                  (rc.status === 'aprovada' || rc.status === 'aguardando_confirmacao_entrega') &&
+                  (isAdmin || isSolicitanteRequester);
                 return (
                   <tr
                     key={rc.id}
