@@ -12,9 +12,9 @@ export interface Cliente {
 
 interface ClientesContextType {
   clientes: Cliente[];
-  addCliente: (c: Omit<Cliente, 'id'>) => Cliente;
-  updateCliente: (c: Cliente) => void;
-  deleteCliente: (id: string) => void;
+  addCliente: (c: Omit<Cliente, 'id'>) => Promise<Cliente>;
+  updateCliente: (c: Cliente) => Promise<void>;
+  deleteCliente: (id: string) => Promise<void>;
 }
 
 const ClientesContext = createContext<ClientesContextType | null>(null);
