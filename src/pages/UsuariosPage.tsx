@@ -35,7 +35,7 @@ export function UsuariosPage() {
       .trim()
       .email({ message: t('error_email_invalid') })
       .max(255, { message: t('error_email_max') }),
-    role: z.string().min(1, { message: t('error_role_required') || 'Selecione pelo menos um cargo' }),
+    role: z.string().min(1, { message: 'Selecione pelo menos um cargo' }),
   });
 
   const filtered = filterRole === 'all' ? users : users.filter((u) => u.role.split(',').includes(filterRole));
@@ -206,7 +206,7 @@ export function UsuariosPage() {
                 <tr key={u.id} className="border-b border-gray-50 hover:bg-gray-50/50">
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2.5">
-                      <Avatar initials={u.avatar} size={32} colorIndex={u.id} />
+                      <Avatar initials={u.avatar} size={32} colorIndex={u.id.charCodeAt(0)} />
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-gray-800 truncate">
                           {u.name}

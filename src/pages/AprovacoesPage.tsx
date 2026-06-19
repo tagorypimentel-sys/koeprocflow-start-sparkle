@@ -15,8 +15,8 @@ export function AprovacoesPage({ onSelectRC }: Props) {
   const [rejectingId, setRejectingId] = useState<string | null>(null);
   const [rejectReason, setRejectReason] = useState('');
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [localQty, setLocalQty] = useState<Record<string, Record<string, number>>>({});
-  const [deletedItems, setDeletedItems] = useState<Record<string, Set<string>>>({});
+  const [localQty, setLocalQty] = useState<Record<string, Record<number, number>>>({});
+  const [deletedItems, setDeletedItems] = useState<Record<string, Set<number>>>({});
 
   const pending = rcs.filter((r) => r.status === 'aguardando_aprovacao');
   const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
@@ -28,16 +28,16 @@ export function AprovacoesPage({ onSelectRC }: Props) {
   };
 
   const startEdit = (rc: PurchaseRequest) => {
-    const qtyMap: Record<string, number> = {};
+    const qtyMap: Record<number, number> = {};
     rc.lineItems.forEach((li) => { qtyMap[li.id] = li.qty; });
     setLocalQty((prev) => ({ ...prev, [rc.id]: qtyMap }));
-    setDeletedItems((prev) => ({ ...prev, [rc.id]: new Set() }));
+    setDeletedItems((prev) => ({ ...prev, [rc.id]: new Set<number>() }));
     setEditingId(rc.id);
   };
 
   const saveEdit = (rc: PurchaseRequest) => {
     const qtyMap = localQty[rc.id] || {};
-    const deleted = deletedItems[rc.id] || new Set<string>();
+    const deleted = deletedItems[rc.id] || new Set<number>();
     const newItems = rc.lineItems
       .filter((li) => !deleted.has(li.id))
       .map((li) => ({ ...li, qty: qtyMap[li.id] ?? li.qty }));
@@ -60,7 +60,7 @@ export function AprovacoesPage({ onSelectRC }: Props) {
         pending.map((rc) => {
           const isEditing = editingId === rc.id;
           const qtyMap = localQty[rc.id] || {};
-          const deleted = deletedItems[rc.id] || new Set<string>();
+          const deleted = deletedItems[rc.id] || new Set<number>();
 
           const visibleItems = rc.lineItems.filter((li) => !deleted.has(li.id));
           const previewSubtotal = visibleItems.reduce((s, li) => {
