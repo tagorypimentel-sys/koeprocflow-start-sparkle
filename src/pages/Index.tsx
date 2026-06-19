@@ -3,7 +3,7 @@ import { AppProvider, useApp } from '@/context/AppContext';
 import { ClientesProvider } from '@/context/ClientesContext';
 import { ItensProvider } from '@/context/ItensContext';
 import { RFQProvider } from '@/context/RFQContext';
-import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/AuthContext';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 import { Layout } from '@/components/layout/Layout';
@@ -21,7 +21,7 @@ import { SuppliersPage } from '@/pages/SuppliersPage';
 import { ClientesPage } from '@/pages/ClientesPage';
 import { UsuariosPage } from '@/pages/UsuariosPage';
 import { ConsultaPage } from '@/pages/ConsultaPage';
-import { LoginPage } from '@/pages/LoginPage';
+
 
 import { PurchaseRequest } from '@/types';
 
@@ -65,34 +65,19 @@ function AppInner() {
   );
 }
 
-function AuthWrapper() {
-  const { session } = useAuth();
-  
-  // Se não houver sessão ativa, mostra a tela de login
-  if (!session) {
-    return <LoginPage />;
-  }
-
-  // Se houver sessão, carrega o sistema
-  return (
-    <AppProvider>
-      <ItensProvider>
-        <ClientesProvider>
-          <RFQProvider>
-            <AppInner />
-          </RFQProvider>
-        </ClientesProvider>
-      </ItensProvider>
-    </AppProvider>
-  );
-}
-
 export default function Index() {
   return (
     <LanguageProvider>
-      <AuthProvider>
-        <AuthWrapper />
-      </AuthProvider>
+      <AppProvider>
+        <ItensProvider>
+          <ClientesProvider>
+            <RFQProvider>
+              <AppInner />
+            </RFQProvider>
+          </ClientesProvider>
+        </ItensProvider>
+      </AppProvider>
     </LanguageProvider>
   );
 }
+
