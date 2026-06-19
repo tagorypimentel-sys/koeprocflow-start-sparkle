@@ -109,9 +109,9 @@ export default function ResetPasswordPage() {
         }
 
         // 2) Implicit flow: #access_token=...&refresh_token=...&type=recovery
-        const accessToken = hash.get('access_token');
-        const refreshToken = hash.get('refresh_token');
-        const type = hash.get('type');
+        const accessToken = hash.get('access_token') || search.get('access_token');
+        const refreshToken = hash.get('refresh_token') || search.get('refresh_token');
+        const type = hash.get('type') || search.get('type');
         if (accessToken && refreshToken && (type === 'recovery' || !type)) {
           const { error } = await supabase.auth.setSession({
             access_token: accessToken,

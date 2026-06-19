@@ -22,15 +22,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Busca a sessão atual ao iniciar
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    // Escuta mudanças na autenticação antes de buscar a sessão para não perder
+    // eventos disparados automaticamente ao abrir links de recuperação de senha.
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
     });
 
-    // Escuta mudanças na autenticação (login, logout, token refresh)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    // Busca a sessão atual ao iniciar
+    supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
@@ -45,7 +46,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider value={{ session, user, loading, signOut }}>
-      {!loading && children}
+      {(!loading || window.location.pathname === '/reset-password') && children}
     </AuthContext.Provider>
   );
 }
