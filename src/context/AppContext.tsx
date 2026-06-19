@@ -71,14 +71,43 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [rcs, setRcs] = useState<PurchaseRequest[]>([]);
   const [selectedRC, setSelectedRC] = useState<PurchaseRequest | null>(null);
 
+  const ensureCurrentUser = async (list: User[]) => {
+    if (!authUser) return;
+    let me = list.find((u) => u.id === authUser.id);
+    if (!me) {
+      // Profile missing - create one and fetch roles directly
+      const name =
+        (authUser.user_metadata as any)?.name ||
+        authUser.email?.split('@')[0] ||
+        'Usuário';
+      const email = authUser.email || '';
+      const avatar = deriveAvatar(name);
+      try {
+        await supabase
+          .from('profiles')
+          .upsert({ id: authUser.id, name, email, avatar }, { onConflict: 'id' });
+      } catch (e) {
+        console.error('Erro ao criar profile:', e);
+      }
+      const { data: rolesData } = await (supabase.from('user_roles') as any)
+        .select('role')
+        .eq('user_id', authUser.id);
+      const roles = ((rolesData as any[]) ?? []).map((r: any) => r.role);
+      if (roles.length === 0) roles.push('solicitante');
+      me = { id: authUser.id, name, email, avatar, role: roles.join(',') };
+      setUsers((prev) => {
+        if (prev.some((u) => u.id === me!.id)) return prev;
+        return [...prev, me!].sort((a, b) => a.name.localeCompare(b.name));
+      });
+    }
+    setCurrentUser(me);
+  };
+
   const reloadUsers = async () => {
     try {
       const list = await fetchUsers();
       setUsers(list);
-      if (authUser) {
-        const me = list.find((u) => u.id === authUser.id);
-        if (me) setCurrentUser(me);
-      }
+      await ensureCurrentUser(list);
     } catch (e) {
       console.error('Erro carregando usuários:', e);
     }
