@@ -55,8 +55,13 @@ export function Layout({ currentPage, setPage, children }: LayoutProps) {
   const { user, signOut } = useAuth();
   const { lang, setLang, t } = useLanguage();
 
+  const userRoles = (currentUser.role || '').split(',').map((r) => r.trim()).filter(Boolean);
+  const isAdmin = userRoles.includes('admin');
   const visibleNav = NAV_ITEMS.filter(
-    (n) => n.id === 'divider' || (n.roles as readonly string[]).includes(currentUser.role)
+    (n) =>
+      n.id === 'divider' ||
+      isAdmin ||
+      (n.roles as readonly string[]).some((r) => userRoles.includes(r))
   );
 
   return (
