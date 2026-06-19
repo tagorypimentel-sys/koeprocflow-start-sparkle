@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRFQ, RFQItem } from '@/context/RFQContext';
 import { useItens } from '@/context/ItensContext';
+import { useClientes } from '@/context/ClientesContext';
 import { CATEGORIAS, CLASSES } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
