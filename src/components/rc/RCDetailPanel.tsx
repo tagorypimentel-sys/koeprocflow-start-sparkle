@@ -25,17 +25,27 @@ export function RCDetailPanel({ rc, onClose }: Props) {
 
   const status = rc.status as StatusRC;
   const papel = responsavelDoUsuario(currentUser.role);
+  const isAdmin = currentUser.role?.includes('admin') ?? false;
+  const isRequester = currentUser.id === rc.requester?.id;
   const proximo = proximoStatus(status);
   const responsavel = responsavelProximaAcao(status);
 
-  // "aguardando_aprovacao → aprovada" é avançado pelo botão de Aprovar na AprovacoesPage,
-  // não pelo botão genérico daqui (precisa gerar PO + PDF).
-  const podeAvancar =
-    responsavel === papel &&
-    proximo !== null &&
-    status !== 'aguardando_aprovacao';
+  // Solicitante (ou admin/requester original) confirma recebimento direto de 'aprovada' → 'entrega_confirmada',
+  // pulando o passo intermediário 'aguardando_confirmacao_entrega'.
+  const podeConfirmarRecebimento =
+    (status === 'aprovada' || status === 'aguardando_confirmacao_entrega') &&
+    (isAdmin || isRequester || papel === 'Solicitante');
 
-  const podeReenviar = papel === 'Solicitante' && status === 'devolvida';
+  // Avanço genérico para demais etapas (Fiscal etc.).
+  // "aguardando_aprovacao → aprovada" é avançado pelo botão de Aprovar na AprovacoesPage.
+  const podeAvancar =
+    !podeConfirmarRecebimento &&
+    (isAdmin || responsavel === papel) &&
+    proximo !== null &&
+    status !== 'aguardando_aprovacao' &&
+    status !== 'aprovada';
+
+  const podeReenviar = (papel === 'Solicitante' || isAdmin || isRequester) && status === 'devolvida';
 
   const handleAvancar = () => {
     if (!proximo) return;
@@ -46,6 +56,11 @@ export function RCDetailPanel({ rc, onClose }: Props) {
     }
     updateRC(rc.id, updates);
   };
+
+  const handleConfirmarRecebimento = () => {
+    updateRC(rc.id, { status: 'entrega_confirmada' });
+  };
+
 
   return (
     <div className="w-[440px] bg-white border-l border-gray-200 flex flex-col flex-shrink-0 h-full">
@@ -79,6 +94,17 @@ export function RCDetailPanel({ rc, onClose }: Props) {
           </div>
         )}
 
+        {/* Confirmar Recebimento (Solicitante / Admin / Requisitante original) */}
+        {podeConfirmarRecebimento && (
+          <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-xs font-bold text-blue-700 mb-2">📦 Material recebido?</p>
+            <p className="text-[11px] text-blue-700 mb-2">Ao confirmar, a entrega seguirá para o Fiscal registrar a Nota Fiscal.</p>
+            <Button variant="primary" className="w-full" onClick={handleConfirmarRecebimento}>
+              Confirmar Recebimento
+            </Button>
+          </div>
+        )}
+
         {/* Botão de avanço (responsável pela próxima etapa) */}
         {podeAvancar && proximo && (
           <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
@@ -88,6 +114,7 @@ export function RCDetailPanel({ rc, onClose }: Props) {
             </Button>
           </div>
         )}
+
 
         {/* Info Grid */}
         <div className="p-4 border border-gray-100 rounded-lg space-y-3">
