@@ -64,12 +64,13 @@ export function responsavelProximaAcao(status: StatusRC): Responsavel | null {
 
 export const LABEL_BOTAO_AVANCO: Partial<Record<StatusRC, string>> = {
   rascunho: 'Enviar para Aprovação',
-  aprovada: 'Confirmar Entrega',
-  aguardando_confirmacao_entrega: 'Confirmar Entrega',
+  aprovada: 'Confirmar Recebimento',
+  aguardando_confirmacao_entrega: 'Confirmar Recebimento',
   entrega_confirmada: 'Registrar Nota Fiscal',
   nota_fiscal_recebida: 'Confirmar Pagamento',
   pagamento_realizado: 'Enviar ao Contador',
 };
+
 
 export const RESPONSAVEL_STYLE: Record<Responsavel, string> = {
   Solicitante: 'bg-blue-50 text-blue-700 border-blue-200',
