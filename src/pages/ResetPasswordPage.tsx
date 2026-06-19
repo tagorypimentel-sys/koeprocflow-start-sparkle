@@ -58,7 +58,7 @@ export default function ResetPasswordPage() {
       if (errCode) {
         if (!cancelled) {
           setLinkError(
-            errDesc?.replaceAll('+', ' ') ||
+            errDesc?.split('+').join(' ') ||
               'O link de recuperação expirou ou é inválido. Solicite um novo e-mail.'
           );
           setValidLink(false);
