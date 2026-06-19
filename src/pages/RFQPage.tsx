@@ -387,8 +387,24 @@ export function RFQPage() {
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Nome do Cliente</Label>
-              <Input placeholder="Ex: Petrobras" value={nomeProjeto}
-                onChange={(e) => setNomeProjeto(e.target.value)} />
+              <Select value={nomeProjeto} onValueChange={setNomeProjeto}>
+                <SelectTrigger>
+                  <SelectValue
+                    placeholder={
+                      clientes.length === 0
+                        ? 'Nenhum cliente cadastrado'
+                        : 'Selecione um cliente'
+                    }
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  {clientes.map((c) => (
+                    <SelectItem key={c.id} value={c.nome}>
+                      {c.nome}{c.doc ? ` — ${c.doc}` : ''}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Data de Emissão</Label>
