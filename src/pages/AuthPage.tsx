@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { z } from 'zod';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/context/AuthContext';
 import { Button, Input, FormField } from '@/components/ui-pf';
 
-type Mode = 'login' | 'signup';
+type Mode = 'login' | 'signup' | 'forgot';
 
+const emailSchema = z.string().trim().email('E-mail inválido').max(255);
 const loginSchema = z.object({
-  email: z.string().trim().email('E-mail inválido').max(255),
+  email: emailSchema,
   password: z.string().min(6, 'Mínimo de 6 caracteres').max(128),
 });
-
 const signupSchema = loginSchema.extend({
   name: z.string().trim().min(2, 'Informe seu nome').max(100),
 });
+const forgotSchema = z.object({ email: emailSchema });
 
 export default function AuthPage() {
   const { session, loading } = useAuth();
@@ -31,8 +32,10 @@ export default function AuthPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    if (!loading && session) navigate(redirectTo, { replace: true });
-  }, [loading, session, navigate, redirectTo]);
+    if (!loading && session && mode !== 'forgot') {
+      navigate(redirectTo, { replace: true });
+    }
+  }, [loading, session, navigate, redirectTo, mode]);
 
   const switchMode = (m: Mode) => {
     setMode(m);
@@ -45,10 +48,10 @@ export default function AuthPage() {
     setError(null);
     setInfo(null);
 
-    const parsed =
-      mode === 'login'
-        ? loginSchema.safeParse({ email, password })
-        : signupSchema.safeParse({ name, email, password });
+    let parsed;
+    if (mode === 'login') parsed = loginSchema.safeParse({ email, password });
+    else if (mode === 'signup') parsed = signupSchema.safeParse({ name, email, password });
+    else parsed = forgotSchema.safeParse({ email });
 
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? 'Dados inválidos');
@@ -66,7 +69,7 @@ export default function AuthPage() {
               : error.message
           );
         }
-      } else {
+      } else if (mode === 'signup') {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
@@ -82,16 +85,31 @@ export default function AuthPage() {
               : error.message
           );
         } else if (data.session) {
-          // auto-confirm ligado → sessão já vem ativa
           navigate(redirectTo, { replace: true });
         } else {
           setInfo('Conta criada. Verifique seu e-mail para confirmar o cadastro.');
+        }
+      } else {
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/reset-password`,
+        });
+        if (error) {
+          setError(error.message);
+        } else {
+          setInfo(
+            'Se este e-mail estiver cadastrado, enviamos um link para redefinir sua senha. Verifique sua caixa de entrada.'
+          );
         }
       }
     } finally {
       setSubmitting(false);
     }
   };
+
+  const title =
+    mode === 'login' ? 'Acesse sua conta'
+    : mode === 'signup' ? 'Crie sua conta'
+    : 'Recuperar senha';
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -105,31 +123,31 @@ export default function AuthPage() {
             </svg>
           </div>
           <h1 className="text-2xl font-bold text-gray-900">Koeprocflow</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            {mode === 'login' ? 'Acesse sua conta' : 'Crie sua conta'}
-          </p>
+          <p className="text-sm text-gray-500 mt-1">{title}</p>
         </div>
 
-        <div className="flex bg-gray-100 rounded-lg p-1 mb-6">
-          <button
-            type="button"
-            onClick={() => switchMode('login')}
-            className={`flex-1 py-2 text-sm font-semibold rounded-md transition ${
-              mode === 'login' ? 'bg-white shadow text-blue-900' : 'text-gray-500'
-            }`}
-          >
-            Entrar
-          </button>
-          <button
-            type="button"
-            onClick={() => switchMode('signup')}
-            className={`flex-1 py-2 text-sm font-semibold rounded-md transition ${
-              mode === 'signup' ? 'bg-white shadow text-blue-900' : 'text-gray-500'
-            }`}
-          >
-            Cadastrar
-          </button>
-        </div>
+        {mode !== 'forgot' && (
+          <div className="flex bg-gray-100 rounded-lg p-1 mb-6">
+            <button
+              type="button"
+              onClick={() => switchMode('login')}
+              className={`flex-1 py-2 text-sm font-semibold rounded-md transition ${
+                mode === 'login' ? 'bg-white shadow text-blue-900' : 'text-gray-500'
+              }`}
+            >
+              Entrar
+            </button>
+            <button
+              type="button"
+              onClick={() => switchMode('signup')}
+              className={`flex-1 py-2 text-sm font-semibold rounded-md transition ${
+                mode === 'signup' ? 'bg-white shadow text-blue-900' : 'text-gray-500'
+              }`}
+            >
+              Cadastrar
+            </button>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-4" noValidate>
           {error && (
@@ -166,16 +184,30 @@ export default function AuthPage() {
             />
           </FormField>
 
-          <FormField label="Senha">
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-              required
-            />
-          </FormField>
+          {mode !== 'forgot' && (
+            <FormField label="Senha">
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+                required
+              />
+            </FormField>
+          )}
+
+          {mode === 'login' && (
+            <div className="flex justify-end -mt-2">
+              <button
+                type="button"
+                onClick={() => switchMode('forgot')}
+                className="text-xs text-blue-700 font-medium hover:underline"
+              >
+                Esqueci minha senha
+              </button>
+            </div>
+          )}
 
           <Button
             variant="primary"
@@ -183,24 +215,36 @@ export default function AuthPage() {
             className="w-full py-2.5 shadow-md"
             disabled={submitting}
           >
-            {submitting ? 'Aguarde...' : mode === 'login' ? 'Entrar' : 'Criar conta'}
+            {submitting
+              ? 'Aguarde...'
+              : mode === 'login'
+              ? 'Entrar'
+              : mode === 'signup'
+              ? 'Criar conta'
+              : 'Enviar link de recuperação'}
           </Button>
 
           <p className="text-center text-xs text-gray-500">
-            {mode === 'login' ? (
+            {mode === 'login' && (
               <>
                 Não tem conta?{' '}
                 <button type="button" onClick={() => switchMode('signup')} className="text-blue-700 font-medium hover:underline">
                   Cadastre-se
                 </button>
               </>
-            ) : (
+            )}
+            {mode === 'signup' && (
               <>
                 Já tem conta?{' '}
                 <button type="button" onClick={() => switchMode('login')} className="text-blue-700 font-medium hover:underline">
                   Entrar
                 </button>
               </>
+            )}
+            {mode === 'forgot' && (
+              <button type="button" onClick={() => switchMode('login')} className="text-blue-700 font-medium hover:underline">
+                ← Voltar para o login
+              </button>
             )}
           </p>
         </form>
