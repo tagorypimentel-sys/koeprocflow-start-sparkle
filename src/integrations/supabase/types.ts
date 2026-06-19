@@ -125,7 +125,15 @@ export type Database = {
           discount: number
           id: string
           is_servico: boolean
+          item_categoria: string | null
+          item_classe: string | null
+          item_codigo: string | null
+          item_descricao: string | null
           item_id: string | null
+          item_link_referencia: string | null
+          item_marca: string | null
+          item_tipo: string | null
+          item_unidade: string | null
           purchase_request_id: string
           qty: number
           servico_descricao: string | null
@@ -136,7 +144,15 @@ export type Database = {
           discount?: number
           id?: string
           is_servico?: boolean
+          item_categoria?: string | null
+          item_classe?: string | null
+          item_codigo?: string | null
+          item_descricao?: string | null
           item_id?: string | null
+          item_link_referencia?: string | null
+          item_marca?: string | null
+          item_tipo?: string | null
+          item_unidade?: string | null
           purchase_request_id: string
           qty?: number
           servico_descricao?: string | null
@@ -147,7 +163,15 @@ export type Database = {
           discount?: number
           id?: string
           is_servico?: boolean
+          item_categoria?: string | null
+          item_classe?: string | null
+          item_codigo?: string | null
+          item_descricao?: string | null
           item_id?: string | null
+          item_link_referencia?: string | null
+          item_marca?: string | null
+          item_tipo?: string | null
+          item_unidade?: string | null
           purchase_request_id?: string
           qty?: number
           servico_descricao?: string | null
@@ -266,6 +290,96 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      rfq_items: {
+        Row: {
+          codigo: string
+          created_at: string
+          descricao: string
+          id: string
+          item_id: string | null
+          qty: number
+          referencia: string | null
+          rfq_id: string
+          unidade: string
+        }
+        Insert: {
+          codigo: string
+          created_at?: string
+          descricao: string
+          id?: string
+          item_id?: string | null
+          qty?: number
+          referencia?: string | null
+          rfq_id: string
+          unidade?: string
+        }
+        Update: {
+          codigo?: string
+          created_at?: string
+          descricao?: string
+          id?: string
+          item_id?: string | null
+          qty?: number
+          referencia?: string | null
+          rfq_id?: string
+          unidade?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rfq_items_item_id_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "rfq_items_rfq_id_fkey"
+            columns: ["rfq_id"]
+            isOneToOne: false
+            referencedRelation: "rfqs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rfqs: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          data_emissao: string
+          data_limite_entrega: string | null
+          id: string
+          nome_projeto: string
+          numero_projeto: string
+          numero_rfq: string
+          observacoes: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          data_emissao?: string
+          data_limite_entrega?: string | null
+          id: string
+          nome_projeto?: string
+          numero_projeto: string
+          numero_rfq: string
+          observacoes?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          data_emissao?: string
+          data_limite_entrega?: string | null
+          id?: string
+          nome_projeto?: string
+          numero_projeto?: string
+          numero_rfq?: string
+          observacoes?: string | null
+          updated_at?: string
+        }
+        Relationships: []
       }
       suppliers: {
         Row: {
