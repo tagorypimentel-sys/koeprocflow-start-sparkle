@@ -200,7 +200,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
       <div className="flex flex-col items-center justify-center py-12 gap-4">
         <CheckCircle className="text-green-500" size={48} />
         <p className="text-lg font-medium text-gray-800">Importação concluída!</p>
-        <p className="text-sm text-gray-500">{validos} item(s) adicionados.</p>
+        <p className="text-sm text-gray-500">{importedCount} item(s) adicionados.</p>
         <Button onClick={onClose}>Fechar</Button>
       </div>
     );
