@@ -115,7 +115,7 @@ export function Layout({ currentPage, setPage, children }: LayoutProps) {
               <p className="text-xs font-semibold text-gray-800 truncate" title={user?.email || ''}>
                 {user?.email ? user.email.split('@')[0] : 'Usuário'}
               </p>
-              <p className="text-[10px] text-gray-400">{t(`role_${currentUser.role}` as TranslationKey)}</p>
+              <p className="text-[10px] text-gray-400">{userRoles[0] ? t(`role_${userRoles[0]}` as TranslationKey) : '—'}</p>
             </div>
           </div>
           <button
