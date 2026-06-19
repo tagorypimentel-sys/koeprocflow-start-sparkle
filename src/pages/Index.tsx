@@ -3,7 +3,7 @@ import { AppProvider, useApp } from '@/context/AppContext';
 import { ClientesProvider } from '@/context/ClientesContext';
 import { ItensProvider } from '@/context/ItensContext';
 import { RFQProvider } from '@/context/RFQContext';
-import { useAuth } from '@/context/AuthContext';
+
 import { LanguageProvider } from '@/context/LanguageContext';
 
 import { Layout } from '@/components/layout/Layout';
