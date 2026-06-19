@@ -262,7 +262,7 @@ export function RFQPage() {
     setDataLimiteEntrega(''); setObservacoes(''); setSelecionados({}); setEtapa(1);
   }
 
-  function handleCriar() {
+  async function handleCriar() {
     if (!projetoValido) { toast.error('O número do projeto deve ter 4 dígitos.'); return; }
     if (totalSel === 0) { toast.error('Selecione ao menos um item.'); return; }
     if (!dataLimiteEntrega) { toast.error('Informe a data limite de entrega.'); return; }
@@ -279,19 +279,23 @@ export function RFQPage() {
       };
     });
 
-    const nova = addRFQ({
-      numeroProjeto: numeroProjeto.trim(),
-      nomeProjeto: nomeProjeto.trim(),
-      dataEmissao: hoje,
-      dataLimiteEntrega,
-      observacoes,
-      itens: rfqItens,
-    });
+    try {
+      const nova = await addRFQ({
+        numeroProjeto: numeroProjeto.trim(),
+        nomeProjeto: nomeProjeto.trim(),
+        dataEmissao: hoje,
+        dataLimiteEntrega,
+        observacoes,
+        itens: rfqItens,
+      });
 
-    toast.success(`${nova.numeroRFQ} criada!`);
-    setModalAberto(false);
-    resetForm();
-    setTimeout(() => gerarPDFRFQ(nova), 300);
+      toast.success(`${nova.numeroRFQ} criada!`);
+      setModalAberto(false);
+      resetForm();
+      setTimeout(() => gerarPDFRFQ(nova), 300);
+    } catch (e: any) {
+      toast.error('Erro ao salvar RFQ: ' + (e?.message ?? e));
+    }
   }
 
   return (
