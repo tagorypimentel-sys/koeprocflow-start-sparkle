@@ -6,7 +6,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
-import { Search, Mail, ChevronDown, ChevronUp, Eye, FileText, Receipt } from 'lucide-react';
+import { Search, Mail, ChevronDown, ChevronUp, Eye, FileText, Receipt, PackageCheck } from 'lucide-react';
 import { gerarPDFRFQ } from '@/lib/gerarPDFRFQ';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { toast } from 'sonner';
@@ -123,6 +123,9 @@ function ProjetoCard({
   onVerRC,
   onVerPO,
   onEmailPO,
+  onConfirmarRecebimento,
+  currentUserId,
+  currentUserRole,
   labels,
 }: {
   numeroProjeto: string;
@@ -133,6 +136,9 @@ function ProjetoCard({
   onVerRC: (rc: PurchaseRequest) => void;
   onVerPO: (rc: PurchaseRequest) => void;
   onEmailPO: (rc: PurchaseRequest) => void;
+  onConfirmarRecebimento: (rc: PurchaseRequest) => void;
+  currentUserId: string;
+  currentUserRole: string;
   labels: {
     project: string; client: string; totalRCs: string;
     rfqsSection: string; rcsPosSection: string;
@@ -245,7 +251,13 @@ function ProjetoCard({
                   </tr>
                 </thead>
                 <tbody>
-                  {rcs.map((rc) => (
+                  {rcs.map((rc) => {
+                    const isRequester = !!currentUserId && currentUserId === rc.requester?.id;
+                    const canReceive =
+                      (rc.status === 'aprovada' || rc.status === 'aguardando_confirmacao_entrega') &&
+                      (currentUserRole.includes('admin') || (currentUserRole.includes('solicitante') && isRequester));
+
+                    return (
                     <tr key={rc.id} className="border-b border-gray-50 last:border-0">
                       <td className="py-2 pr-3 font-semibold text-gray-700">{rc.id}</td>
                       <td className="py-2 pr-3">
@@ -299,6 +311,16 @@ function ProjetoCard({
                             disabled
                             onClick={() => {}}
                           />
+                          {canReceive && (
+                            <button
+                              onClick={() => onConfirmarRecebimento(rc)}
+                              title="Confirmar recebimento da mercadoria"
+                              className="inline-flex items-center gap-1 px-2 py-1 rounded border border-green-200 text-green-700 hover:bg-green-50 text-xs font-medium transition-colors whitespace-nowrap"
+                            >
+                              <PackageCheck size={11} />
+                              Receber Mercadoria
+                            </button>
+                          )}
                           {/* Email — só quando PO gerada */}
                           {rc.poNumber && (
                             <button
@@ -312,7 +334,8 @@ function ProjetoCard({
                         </div>
                       </td>
                     </tr>
-                  ))}
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
