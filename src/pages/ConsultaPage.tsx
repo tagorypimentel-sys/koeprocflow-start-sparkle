@@ -423,6 +423,11 @@ export function ConsultaPage() {
     }, 400);
   }
 
+  function handleConfirmarRecebimento(rc: PurchaseRequest) {
+    updateRC(rc.id, { status: 'entrega_confirmada' });
+    toast.success(`Recebimento da ${rc.id} confirmado!`);
+  }
+
   const projetos = useMemo(() => {
     const q = busca.toLowerCase().trim();
 
@@ -535,6 +540,9 @@ export function ConsultaPage() {
             onVerRC={(rc) => setVerRC(rc)}
             onVerPO={(rc) => setVerPO(rc)}
             onEmailPO={handleEmailPO}
+            onConfirmarRecebimento={handleConfirmarRecebimento}
+            currentUserId={currentUser.id}
+            currentUserRole={currentUser.role ?? ''}
             labels={{
               project: t('project_label'),
               client: t('col_client'),
