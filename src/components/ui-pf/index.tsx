@@ -3,14 +3,14 @@ import { RCStatus, UserRole } from '../../types';
 import { STATUS_CONFIG, ROLE_LABELS, ROLE_COLORS, AVATAR_COLORS } from '../../lib/constants';
 
 // ─── Badge ───────────────────────────────────────────────────────────────────
-export function StatusBadge({ status }: { status: RCStatus }) {
+export function StatusBadge({ status, label }: { status: RCStatus; label?: string }) {
   const cfg = STATUS_CONFIG[status];
   return (
     <span
       className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold border"
       style={{ color: cfg.color, background: cfg.bg, borderColor: cfg.border }}
     >
-      {cfg.label}
+      {label ?? cfg.label}
     </span>
   );
 }
@@ -197,16 +197,22 @@ export function Table({ headers, children }: { headers: string[]; children: Reac
 // ─── Totals Box ───────────────────────────────────────────────────────────────
 export function TotalsBox({
   subtotal, tax, taxRate, total,
+  labelSubtotal = 'Subtotal',
+  labelTax = 'Impostos',
+  labelTotal = 'Total',
 }: {
   subtotal: number; tax: number; taxRate: number; total: number;
+  labelSubtotal?: string;
+  labelTax?: string;
+  labelTotal?: string;
 }) {
   const fmt = (n: number) => n.toLocaleString('de-DE', { minimumFractionDigits: 2 });
   return (
     <div className="mt-4 p-4 bg-gray-50 rounded-lg text-right text-sm space-y-1">
-      <div className="text-gray-500">Subtotal: <span className="font-semibold text-gray-800">€ {fmt(subtotal)}</span></div>
-      <div className="text-gray-500">Impostos ({taxRate}%): <span className="font-semibold text-gray-800">€ {fmt(tax)}</span></div>
+      <div className="text-gray-500">{labelSubtotal}: <span className="font-semibold text-gray-800">€ {fmt(subtotal)}</span></div>
+      <div className="text-gray-500">{labelTax} ({taxRate}%): <span className="font-semibold text-gray-800">€ {fmt(tax)}</span></div>
       <div className="pt-2 border-t border-gray-200 text-lg font-bold text-blue-900">
-        Total: € {fmt(total)}
+        {labelTotal}: € {fmt(total)}
       </div>
     </div>
   );

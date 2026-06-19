@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { useClientes } from '@/context/ClientesContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { LineItem, PurchaseRequest } from '@/types';
 import { FormField, Input, Select, Textarea, Button, TotalsBox } from '@/components/ui-pf';
 import { gerarNumeroRC, validarNumeroProjeto, normalizarProjeto } from '@/lib/numeracaoRC';
@@ -17,6 +18,7 @@ interface Props {
 export function NovaRCPage({ onSave, onCancel }: Props) {
   const { items, suppliers, users, currentUser, addRC, rcs } = useApp();
   const { clientes } = useClientes();
+  const { t } = useLanguage();
   const approvers = users.filter((u) => u.role.includes('aprovador'));
 
   const [form, setForm] = useState({
@@ -38,7 +40,6 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
     setSeletorAberto(false);
   };
 
-
   const updateLineUnitPrice = (id: number, value: string) => {
     const v = parseFloat(value);
     setLineItems((prev) => prev.map((l) => (l.id === id ? { ...l, unitPrice: isNaN(v) ? 0 : v } : l)));
@@ -54,13 +55,13 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (!form.projectNumber) e.projectNumber = 'Obrigatório';
-    else if (!validarNumeroProjeto(form.projectNumber)) e.projectNumber = 'Deve ter 4 dígitos numéricos';
-    if (!form.clienteId) e.clienteId = 'Selecione um cliente';
-    if (!form.supplierId) e.supplierId = 'Obrigatório';
-    if (!form.approverId) e.approverId = 'Obrigatório';
-    if (lineItems.length === 0) e.items = 'Adicione pelo menos um item';
-    if (deliveryMode === 'entrega' && !deliveryAddress.trim()) e.deliveryAddress = 'Informe o endereço de entrega';
+    if (!form.projectNumber) e.projectNumber = t('err_required');
+    else if (!validarNumeroProjeto(form.projectNumber)) e.projectNumber = t('err_project_digits');
+    if (!form.clienteId) e.clienteId = t('err_select_client');
+    if (!form.supplierId) e.supplierId = t('err_required');
+    if (!form.approverId) e.approverId = t('err_required');
+    if (lineItems.length === 0) e.items = t('err_add_item');
+    if (deliveryMode === 'entrega' && !deliveryAddress.trim()) e.deliveryAddress = t('err_delivery_address');
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -102,12 +103,11 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
           </svg>
         </button>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Nova Requisição de Compra</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Preencha os dados para criar e enviar para aprovação</p>
+          <h1 className="text-2xl font-bold text-gray-900">{t('nova_rc_title')}</h1>
+          <p className="text-sm text-gray-500 mt-0.5">{t('nova_rc_subtitle')}</p>
         </div>
       </div>
 
-      {/* Consolidado do Projeto (aparece após informar o número do projeto) */}
       {form.projectNumber.trim() && (
         <CartaoConsolidadoProjeto
           numeroProjeto={form.projectNumber.trim()}
@@ -117,9 +117,9 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
 
       {/* Project Info */}
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-4">
-        <h2 className="text-sm font-bold text-blue-900 mb-4 pb-3 border-b border-gray-100">Informações do Projeto</h2>
+        <h2 className="text-sm font-bold text-blue-900 mb-4 pb-3 border-b border-gray-100">{t('project_info')}</h2>
         <div className="grid grid-cols-2 gap-4">
-          <FormField label="Número do Projeto" required>
+          <FormField label={t('label_project_number')} required>
             <Input
               value={form.projectNumber}
               onChange={(e) => upd('projectNumber', e.target.value.replace(/\D/g, '').slice(0, 4))}
@@ -130,21 +130,21 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
             />
             {validarNumeroProjeto(form.projectNumber) && (
               <p className="text-xs text-gray-400 mt-1">
-                Nr da RC: <span className="font-medium text-gray-600">
+                {t('rc_number_preview')} <span className="font-medium text-gray-600">
                   {gerarNumeroRC(form.projectNumber, rcs)}
                 </span>
               </p>
             )}
             {errors.projectNumber && <p className="text-xs text-red-500 mt-1">{errors.projectNumber}</p>}
           </FormField>
-          <FormField label="Cliente do Projeto" required>
+          <FormField label={t('label_project_client')} required>
             <Select
               value={form.clienteId}
               onChange={(e) => upd('clienteId', e.target.value)}
               className={errors.clienteId ? 'border-red-400' : ''}
             >
               <option value="">
-                {clientes.length === 0 ? 'Nenhum cliente cadastrado — cadastre em "Clientes"' : 'Selecione o cliente...'}
+                {clientes.length === 0 ? t('no_client_to_select') : t('select_client')}
               </option>
               {clientes.map((c) => (
                 <option key={c.id} value={c.id}>
@@ -154,33 +154,33 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
             </Select>
             {errors.clienteId && <p className="text-xs text-red-500 mt-1">{errors.clienteId}</p>}
           </FormField>
-          <FormField label="Fornecedor" required>
+          <FormField label={t('label_supplier')} required>
             <Select
               value={form.supplierId}
               onChange={(e) => upd('supplierId', e.target.value)}
               className={errors.supplierId ? 'border-red-400' : ''}
             >
-              <option value="">Selecione o fornecedor...</option>
+              <option value="">{t('select_supplier')}</option>
               {suppliers.map((s) => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}
             </Select>
             {errors.supplierId && <p className="text-xs text-red-500 mt-1">{errors.supplierId}</p>}
           </FormField>
-          <FormField label="Aprovador" required>
+          <FormField label={t('label_approver')} required>
             <Select
               value={form.approverId}
               onChange={(e) => upd('approverId', e.target.value)}
               className={errors.approverId ? 'border-red-400' : ''}
             >
-              <option value="">Selecione o aprovador...</option>
+              <option value="">{t('select_approver')}</option>
               {approvers.map((u) => (
                 <option key={u.id} value={u.id}>{u.name}</option>
               ))}
             </Select>
             {errors.approverId && <p className="text-xs text-red-500 mt-1">{errors.approverId}</p>}
           </FormField>
-          <FormField label="Imposto % (sobre subtotal)">
+          <FormField label={t('label_tax_pct')}>
             <Input
               type="number" min="0" max="100" step="0.1"
               value={form.tax}
@@ -188,22 +188,22 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
               placeholder="0"
             />
           </FormField>
-          <FormField label="Observações">
+          <FormField label={t('label_notes')}>
             <Textarea
               value={form.notes}
               onChange={(e) => upd('notes', e.target.value)}
-              placeholder="Informações adicionais..."
+              placeholder={t('placeholder_notes')}
             />
           </FormField>
         </div>
 
-        {/* Modo de Entrega */}
+        {/* Delivery Mode */}
         <div className="mt-4 pt-4 border-t border-gray-100">
-          <p className="text-xs font-bold text-gray-500 mb-2">Modo de Entrega</p>
+          <p className="text-xs font-bold text-gray-500 mb-2">{t('delivery_mode')}</p>
           <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
             {([
-              { v: 'entrega', l: '🚚 Entrega' },
-              { v: 'retirada', l: '🏬 Retirada na loja' },
+              { v: 'entrega', l: t('delivery_option_delivery') },
+              { v: 'retirada', l: t('delivery_option_pickup') },
             ] as const).map((opt) => (
               <button
                 key={opt.v}
@@ -220,11 +220,11 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
 
           {deliveryMode === 'entrega' && (
             <div className="mt-3">
-              <p className="text-xs font-bold text-gray-500 mb-2">Quem realizará a entrega?</p>
+              <p className="text-xs font-bold text-gray-500 mb-2">{t('delivery_carrier_question')}</p>
               <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
                 {([
-                  { v: 'fornecedor', l: 'Fornecedor entrega' },
-                  { v: 'transportadora', l: 'Transportadora' },
+                  { v: 'fornecedor', l: t('carrier_supplier') },
+                  { v: 'transportadora', l: t('carrier_transport') },
                 ] as const).map((opt) => (
                   <button
                     key={opt.v}
@@ -241,12 +241,12 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
 
               <div className="mt-3 max-w-2xl">
                 <label className="block text-xs font-bold text-gray-500 mb-1">
-                  Endereço de Entrega <span className="text-red-500">*</span>
+                  {t('delivery_address_label')} <span className="text-red-500">*</span>
                 </label>
                 <Textarea
                   value={deliveryAddress}
                   onChange={(e) => setDeliveryAddress(e.target.value)}
-                  placeholder="Rua, número, complemento, bairro, cidade/UF, CEP"
+                  placeholder={t('delivery_address_placeholder')}
                   className={errors.deliveryAddress ? 'border-red-400' : ''}
                 />
                 {errors.deliveryAddress && (
@@ -261,15 +261,15 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
       {/* Line Items */}
       <div className="bg-white rounded-xl border border-gray-200 p-5 mb-6">
         <div className="flex justify-between items-center mb-4 pb-3 border-b border-gray-100">
-          <h2 className="text-sm font-bold text-blue-900">Itens da Requisição</h2>
+          <h2 className="text-sm font-bold text-blue-900">{t('rc_items_title')}</h2>
           <div className="flex gap-2">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => setSeletorAberto(true)}
               className="text-blue-700 hover:text-blue-900 hover:bg-blue-50"
             >
-              📦 Material
+              {t('btn_material')}
             </Button>
             <Button
               variant="ghost"
@@ -277,7 +277,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
               onClick={() => setServicosAberto(true)}
               className="text-violet-700 hover:text-violet-900 hover:bg-violet-50"
             >
-              🛠️ Serviços
+              {t('btn_services')}
             </Button>
           </div>
         </div>
@@ -289,7 +289,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
         <Dialog open={seletorAberto} onOpenChange={setSeletorAberto}>
           <DialogContent className="sm:max-w-5xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Selecionar itens</DialogTitle>
+              <DialogTitle>{t('btn_material')}</DialogTitle>
             </DialogHeader>
             <SeletorItens
               onConfirmar={handleAdicionarItens}
@@ -301,7 +301,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
         <Dialog open={servicosAberto} onOpenChange={setServicosAberto}>
           <DialogContent className="sm:max-w-3xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>Compra de Serviços</DialogTitle>
+              <DialogTitle>{t('btn_services')}</DialogTitle>
             </DialogHeader>
             <SeletorServicos
               onConfirmar={handleAdicionarItens}
@@ -310,13 +310,12 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
           </DialogContent>
         </Dialog>
 
-
         {/* Items Table */}
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="border-b border-gray-100">
-                {['Código', 'Descrição', 'Categoria', 'Classe', 'Tipo', 'Qtd', 'Valor Unit. (€)', 'Desconto', 'Com Desconto (€)', 'Total (€)', ''].map((h) => (
+                {[t('col_code'), t('col_desc'), t('col_category'), t('col_class'), t('col_type'), t('col_qty'), t('col_unit_price_eur'), t('col_discount'), t('col_with_discount'), t('col_total_eur'), ''].map((h) => (
                   <th key={h} className="px-3 py-2 text-left text-xs font-semibold text-gray-400">{h}</th>
                 ))}
               </tr>
@@ -335,7 +334,7 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
                     <td className="px-3 py-2.5">
                       {isServico ? (
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-violet-50 text-violet-700 border border-violet-200">
-                          🛠️ Serviços
+                          {t('btn_services')}
                         </span>
                       ) : (
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">{li.item.categoria}</span>
@@ -376,19 +375,27 @@ export function NovaRCPage({ onSave, onCancel }: Props) {
             </tbody>
           </table>
           {lineItems.length === 0 && (
-            <div className="py-10 text-center text-gray-400 text-sm">Nenhum item adicionado</div>
+            <div className="py-10 text-center text-gray-400 text-sm">{t('no_items_added')}</div>
           )}
         </div>
 
         {lineItems.length > 0 && (
-          <TotalsBox subtotal={subtotal} tax={taxAmt} taxRate={tax} total={total} />
+          <TotalsBox
+            subtotal={subtotal}
+            tax={taxAmt}
+            taxRate={tax}
+            total={total}
+            labelSubtotal="Subtotal"
+            labelTax={t('col_tax')}
+            labelTotal={t('total')}
+          />
         )}
       </div>
 
       {/* Actions */}
       <div className="flex gap-3 justify-end">
-        <Button variant="secondary" onClick={onCancel}>Cancelar</Button>
-        <Button variant="primary" onClick={handleSubmit}>Enviar para Aprovação →</Button>
+        <Button variant="secondary" onClick={onCancel}>{t('cancel')}</Button>
+        <Button variant="primary" onClick={handleSubmit}>{t('btn_send_approval')}</Button>
       </div>
     </div>
   );

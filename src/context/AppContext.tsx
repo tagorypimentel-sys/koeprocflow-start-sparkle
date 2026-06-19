@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { supabase } from '@/lib/supabase';
 import { User, Item, Supplier, PurchaseRequest } from '@/types';
-import { MOCK_USERS, MOCK_ITEMS, MOCK_SUPPLIERS, MOCK_RCS } from '@/data/mock';
+import { MOCK_USERS } from '@/data/mock';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { gerarNumeroPO } from '@/lib/numeracaoRC';
 
@@ -34,9 +34,9 @@ const AppContext = createContext<AppContextType | null>(null);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [currentUser, setCurrentUser] = useState<User>(MOCK_USERS[0]);
   const [users, setUsers] = useState<User[]>([]);
-  const [items, setItems] = useState<Item[]>(MOCK_ITEMS);
+  const [items, setItems] = useState<Item[]>([]);
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
-  const [rcs, setRcs] = useState<PurchaseRequest[]>(MOCK_RCS);
+  const [rcs, setRcs] = useState<PurchaseRequest[]>([]);
 
   useEffect(() => {
     supabase.from('suppliers').select('*').order('name').then(({ data, error }) => {

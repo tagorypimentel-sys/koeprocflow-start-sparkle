@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useApp } from '@/context/AppContext';
+import { useLanguage } from '@/context/LanguageContext';
 import {
   Chart as ChartJS,
   CategoryScale, LinearScale, BarElement,
@@ -17,19 +18,8 @@ interface Props {
   onSelectRC: (rc: PurchaseRequest) => void;
 }
 
-const MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-
-const STATUS_LABELS: Record<string, string> = {
-  rascunho:                       'Rascunho',
-  aguardando_aprovacao:           'Ag. Aprovação',
-  aprovada:                       'Aprovada',
-  aguardando_confirmacao_entrega: 'Ag. Entrega',
-  entrega_confirmada:             'Entregue',
-  nota_fiscal_recebida:           'NF Recebida',
-  pagamento_realizado:            'Pago',
-  nota_enviada_contador:          'Concluído',
-  devolvida:                      'Devolvida',
-};
+const MESES_PT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const MESES_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 const STATUS_COLORS: Record<string, string> = {
   rascunho:                       '#B4B2A9',
@@ -76,7 +66,6 @@ function calcByTipo(rc: PurchaseRequest, tipo: 'OPEX' | 'CAPEX'): number {
 
 function parseDate(s?: string): Date {
   if (!s) return new Date(0);
-  // suporta 'YYYY-MM-DD' e ISO
   const d = new Date(s);
   return isNaN(d.getTime()) ? new Date(0) : d;
 }
@@ -93,7 +82,22 @@ function MetricCard({ label, value, sub, subColor }: { label: string; value: str
 
 export function DashboardPage({ onSelectRC }: Props) {
   const { rcs, currentUser } = useApp();
+  const { t, lang } = useLanguage();
   const [drillTipo, setDrillTipo] = useState<'OPEX' | 'CAPEX' | null>(null);
+
+  const MESES = lang === 'EN' ? MESES_EN : MESES_PT;
+
+  const STATUS_SHORT_LABELS: Record<string, string> = {
+    rascunho: t('status_short_rascunho'),
+    aguardando_aprovacao: t('status_short_aguardando_aprovacao'),
+    aprovada: t('status_short_aprovada'),
+    aguardando_confirmacao_entrega: t('status_short_aguardando_confirmacao_entrega'),
+    entrega_confirmada: t('status_short_entrega_confirmada'),
+    nota_fiscal_recebida: t('status_short_nota_fiscal_recebida'),
+    pagamento_realizado: t('status_short_pagamento_realizado'),
+    nota_enviada_contador: t('status_short_nota_enviada_contador'),
+    devolvida: t('status_short_devolvida'),
+  };
 
   const requisicoes = useMemo(
     () => (currentUser.role.includes('solicitante') && !currentUser.role.includes('aprovador') ? rcs.filter((r) => r.requester.id === currentUser.id) : rcs),
@@ -173,18 +177,18 @@ export function DashboardPage({ onSelectRC }: Props) {
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-4">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-sm text-gray-500 mt-1">Visão geral do sistema de compras</p>
+        <h1 className="text-2xl font-bold text-gray-900">{t('dashboard')}</h1>
+        <p className="text-sm text-gray-500 mt-1">{t('dashboard_subtitle')}</p>
       </div>
 
       {/* Modal drill-down */}
       <Dialog open={!!drillTipo} onOpenChange={(v) => { if (!v) setDrillTipo(null); }}>
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
-            <DialogTitle>{drillTipo} — Gastos por categoria</DialogTitle>
+            <DialogTitle>{drillTipo} — {t('spend_by_category')}</DialogTitle>
           </DialogHeader>
           {drillData && drillData.length === 0 ? (
-            <p className="text-sm text-gray-400 py-6 text-center">Nenhum dado disponível para {drillTipo}.</p>
+            <p className="text-sm text-gray-400 py-6 text-center">{t('no_data_for')} {drillTipo}.</p>
           ) : drillData && (
             <div className="pt-2">
               <div className="flex gap-6 items-center">
@@ -234,26 +238,26 @@ export function DashboardPage({ onSelectRC }: Props) {
       {/* KPIs */}
       <div className="grid grid-cols-4 gap-3">
         <MetricCard
-          label="Comprometido este mês"
+          label={t('committed_month')}
           value={fmt(stats.totalMes)}
-          sub={stats.varPct !== null ? `${Number(stats.varPct) >= 0 ? '+' : ''}${stats.varPct}% vs mês anterior` : 'Sem dados anteriores'}
+          sub={stats.varPct !== null ? `${Number(stats.varPct) >= 0 ? '+' : ''}${stats.varPct}% ${t('vs_prev_month')}` : t('no_prev_data')}
           subColor={stats.varPct !== null && Number(stats.varPct) >= 0 ? '#1D9E75' : '#E24B4A'}
         />
         <MetricCard
-          label="Total acumulado (ano)"
+          label={t('total_year')}
           value={fmt(stats.totalAno)}
-          sub={`${requisicoes.length} RC(s) no total`}
+          sub={`${requisicoes.length} ${t('rcs_total')}`}
         />
         <MetricCard
-          label="OPEX (ano)"
+          label={t('opex_year')}
           value={fmt(stats.totalOpex)}
-          sub={`${opexPct}% do total comprometido`}
+          sub={`${opexPct}% ${t('pct_total')}`}
           subColor="#1D9E75"
         />
         <MetricCard
-          label="CAPEX (ano)"
+          label={t('capex_year')}
           value={fmt(stats.totalCapex)}
-          sub={`${capexPct}% do total comprometido`}
+          sub={`${capexPct}% ${t('pct_total')}`}
           subColor="#7F77DD"
         />
       </div>
@@ -261,13 +265,13 @@ export function DashboardPage({ onSelectRC }: Props) {
       {/* Financeiro + OPEX vs CAPEX */}
       <div className="grid grid-cols-2 gap-4">
         <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Comprometido por mês</p>
+          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">{t('committed_by_month')}</p>
           <div className="flex gap-4 mb-3">
             <span className="flex items-center gap-1.5 text-xs text-gray-500">
-              <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{background:'#1a2b6d'}}/>Ano atual
+              <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{background:'#1a2b6d'}}/>{t('current_year')}
             </span>
             <span className="flex items-center gap-1.5 text-xs text-gray-500">
-              <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{background:'#B5D4F4'}}/>Ano anterior
+              <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{background:'#B5D4F4'}}/>{t('prev_year')}
             </span>
           </div>
           <div style={{height:180}}>
@@ -275,8 +279,8 @@ export function DashboardPage({ onSelectRC }: Props) {
               data={{
                 labels: MESES,
                 datasets: [
-                  { label: 'Ano atual',    data: stats.porMes,    backgroundColor: '#1a2b6d', borderRadius: 3 },
-                  { label: 'Ano anterior', data: stats.porMesAnt, backgroundColor: '#B5D4F4', borderRadius: 3 },
+                  { label: t('current_year'), data: stats.porMes,    backgroundColor: '#1a2b6d', borderRadius: 3 },
+                  { label: t('prev_year'),    data: stats.porMesAnt, backgroundColor: '#B5D4F4', borderRadius: 3 },
                 ],
               }}
               options={{
@@ -292,8 +296,8 @@ export function DashboardPage({ onSelectRC }: Props) {
         </div>
 
         <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">OPEX vs CAPEX</p>
-          <p className="text-xs text-gray-400 mb-3">Clique em OPEX ou CAPEX para ver por categoria</p>
+          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">{t('opex_vs_capex')}</p>
+          <p className="text-xs text-gray-400 mb-3">{t('click_drill')}</p>
           <div className="flex items-center gap-6">
             <div style={{width:140,height:140,flexShrink:0,position:'relative'}}>
               <Doughnut
@@ -313,7 +317,7 @@ export function DashboardPage({ onSelectRC }: Props) {
                 style={{cursor:'pointer'}}
               />
               <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)',textAlign:'center',pointerEvents:'none'}}>
-                <p style={{fontSize:10,color:'#888'}}>Total</p>
+                <p style={{fontSize:10,color:'#888'}}>{t('total')}</p>
                 <p style={{fontSize:12,fontWeight:500,color:'#111'}}>{fmt(stats.totalAno)}</p>
               </div>
             </div>
@@ -330,7 +334,7 @@ export function DashboardPage({ onSelectRC }: Props) {
                   <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                     <div className="h-full rounded-full transition-all" style={{width:`${item.pct}%`,background:item.color}}/>
                   </div>
-                  <p className="text-xs text-gray-400 mt-0.5">{item.pct}% do total</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{item.pct}% {t('pct_total').replace('% ', '')}</p>
                 </div>
               ))}
             </div>
@@ -341,7 +345,7 @@ export function DashboardPage({ onSelectRC }: Props) {
       {/* Gargalos + Projetos + Fornecedores */}
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Em processo</p>
+          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">{t('in_process')}</p>
           <div className="space-y-3">
             {GARGALO_STATUS.map(s => {
               const n = stats.statusCount[s] ?? 0;
@@ -350,7 +354,7 @@ export function DashboardPage({ onSelectRC }: Props) {
               return (
                 <div key={s}>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-xs text-gray-500">{STATUS_LABELS[s]}</span>
+                    <span className="text-xs text-gray-500">{STATUS_SHORT_LABELS[s]}</span>
                     <span className="text-base font-medium" style={{color:cor}}>{n}</span>
                   </div>
                   <div className="h-1 bg-gray-100 rounded-full overflow-hidden">
@@ -361,14 +365,14 @@ export function DashboardPage({ onSelectRC }: Props) {
             })}
           </div>
           {requisicoes.length === 0 && (
-            <p className="text-xs text-gray-400 text-center mt-4">Nenhuma RC criada ainda</p>
+            <p className="text-xs text-gray-400 text-center mt-4">{t('no_rc_yet')}</p>
           )}
         </div>
 
         <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Top projetos por valor</p>
+          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">{t('top_projects')}</p>
           {stats.topProjetos.length === 0 ? (
-            <p className="text-xs text-gray-400 text-center mt-8">Nenhum projeto encontrado</p>
+            <p className="text-xs text-gray-400 text-center mt-8">{t('no_project_found')}</p>
           ) : (
             <div className="space-y-3">
               {stats.topProjetos.map(([proj, val]) => (
@@ -385,9 +389,9 @@ export function DashboardPage({ onSelectRC }: Props) {
         </div>
 
         <div className="bg-white rounded-xl border border-gray-200 p-4">
-          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">Gastos por fornecedor</p>
+          <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-3">{t('spend_by_supplier')}</p>
           {stats.topFornecedores.length === 0 ? (
-            <p className="text-xs text-gray-400 text-center mt-8">Nenhum fornecedor encontrado</p>
+            <p className="text-xs text-gray-400 text-center mt-8">{t('no_supplier_data')}</p>
           ) : (
             <div className="space-y-3">
               {stats.topFornecedores.map(([nome, val]) => {
@@ -415,7 +419,7 @@ export function DashboardPage({ onSelectRC }: Props) {
       {stats.recent.length > 0 && (
         <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
           <div className="px-5 py-3 border-b border-gray-100">
-            <h2 className="font-semibold text-sm text-gray-800">Requisições Recentes</h2>
+            <h2 className="font-semibold text-sm text-gray-800">{t('recent_rcs')}</h2>
           </div>
           {stats.recent.map((rc) => (
             <div
@@ -433,7 +437,7 @@ export function DashboardPage({ onSelectRC }: Props) {
                 className="text-xs px-2 py-0.5 rounded-full"
                 style={{ background: STATUS_COLORS[rc.status] + '20', color: STATUS_COLORS[rc.status] }}
               >
-                {STATUS_LABELS[rc.status]}
+                {STATUS_SHORT_LABELS[rc.status]}
               </span>
             </div>
           ))}

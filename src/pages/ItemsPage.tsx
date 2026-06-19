@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useItens } from '@/context/ItensContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { Item, CATEGORIAS, CLASSES, TIPOS, Categoria, Classe, Tipo } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -51,6 +52,7 @@ function safeHostname(url: string): string {
 
 export function ItemsPage() {
   const { itens, addItem, updateItem, deleteItem } = useItens();
+  const { t } = useLanguage();
   const [open, setOpen] = useState(false);
   const [importOpen, setImportOpen] = useState(false);
   const [editing, setEditing] = useState<Item | null>(null);
@@ -80,10 +82,10 @@ export function ItemsPage() {
   }
 
   function handleSave() {
-    if (!form.descricao.trim()) { toast.error('Informe a descrição do item.'); return; }
-    if (!form.categoria) { toast.error('Selecione a categoria.'); return; }
-    if (!form.classe) { toast.error('Selecione a classe.'); return; }
-    if (!form.tipo) { toast.error('Selecione o tipo.'); return; }
+    if (!form.descricao.trim()) { toast.error(t('label_descricao').replace(' *', '')); return; }
+    if (!form.categoria) { toast.error(t('label_categoria').replace(' *', '')); return; }
+    if (!form.classe) { toast.error(t('label_classe').replace(' *', '')); return; }
+    if (!form.tipo) { toast.error(t('label_tipo').replace(' *', '')); return; }
 
     const data = {
       codigo: form.codigo.trim(),
@@ -131,8 +133,8 @@ export function ItemsPage() {
       {/* Topbar */}
       <div className="bg-white border-b border-gray-100 px-5 py-3 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-2">
-          <h1 className="text-base font-semibold text-gray-900">Itens</h1>
-          <span className="text-sm text-gray-400">{itens.length} cadastrados</span>
+          <h1 className="text-base font-semibold text-gray-900">{t('items_title')}</h1>
+          <span className="text-sm text-gray-400">{itens.length} {t('items_registered')}</span>
         </div>
         <div className="flex items-center gap-2">
           <button
@@ -140,14 +142,14 @@ export function ItemsPage() {
             className="flex items-center gap-1.5 px-3 py-1.5 border border-gray-200 rounded-lg text-sm text-gray-700 bg-white hover:bg-gray-50 transition-colors"
           >
             <Upload size={13} />
-            Importar Excel
+            {t('btn_import_excel')}
           </button>
           <button
             onClick={openNew}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-white bg-gray-900 hover:bg-gray-800 transition-colors"
           >
             <PackagePlus size={13} />
-            Novo Item
+            {t('btn_new_item')}
           </button>
         </div>
       </div>
@@ -160,7 +162,7 @@ export function ItemsPage() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar por descrição, código, classe ou marca..."
+            placeholder={t('search_items')}
             className="w-full pl-8 pr-3 py-2 border border-gray-200 rounded-lg text-sm bg-gray-50 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:bg-white transition-colors"
           />
         </div>
@@ -171,15 +173,15 @@ export function ItemsPage() {
         <table className="w-full border-collapse text-sm" style={{ minWidth: 900 }}>
           <thead>
             <tr className="bg-white border-b border-gray-100 sticky top-0 z-10">
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">Código</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 min-w-[200px]">Descrição</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-32">Marca</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">Categoria</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">Classe</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">Tipo</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">Unidade</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">Preço Unit. (EUR)</th>
-              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-40">Link Referência</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">{t('label_codigo')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 min-w-[200px]">{t('label_descricao').replace(' *','')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-32">{t('col_brand')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">{t('label_categoria').replace(' *','')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">{t('label_classe').replace(' *','')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">{t('label_tipo').replace(' *','')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-20">{t('label_unidade')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-28">{t('col_unit_price_eur_header')}</th>
+              <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 w-40">{t('col_ref_link')}</th>
               <th className="w-10 px-2 py-3"></th>
             </tr>
           </thead>
@@ -272,7 +274,7 @@ export function ItemsPage() {
           <div className="flex flex-col items-center justify-center py-20 text-gray-400">
             <Search size={20} />
             <p className="mt-2 text-sm">
-              {itens.length === 0 ? 'Nenhum item cadastrado' : 'Nenhum resultado para a busca'}
+              {itens.length === 0 ? t('no_items_registered') : t('no_items_search')}
             </p>
           </div>
         )}
@@ -282,31 +284,31 @@ export function ItemsPage() {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle>{editing ? 'Editar item' : 'Novo item'}</DialogTitle>
+            <DialogTitle>{editing ? t('dialog_edit_item') : t('dialog_new_item')}</DialogTitle>
           </DialogHeader>
 
           <div className="grid grid-cols-2 gap-4 py-2">
             <div className="flex flex-col gap-1.5">
-              <Label>Código</Label>
+              <Label>{t('label_codigo')}</Label>
               <Input placeholder="Ex: IT-001" value={form.codigo} onChange={(e) => setField('codigo', e.target.value)} />
             </div>
             <div className="flex flex-col gap-1.5">
-              <Label>Unidade</Label>
+              <Label>{t('label_unidade')}</Label>
               <Input placeholder="Ex: UN, CX, KG" value={form.unidade} onChange={(e) => setField('unidade', e.target.value)} />
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Descrição *</Label>
+              <Label>{t('label_descricao')}</Label>
               <Input placeholder="Descrição do item" value={form.descricao} onChange={(e) => setField('descricao', e.target.value)} />
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Marca</Label>
+              <Label>{t('label_marca')}</Label>
               <Input placeholder="Ex: Petzl, Bosch (opcional)" value={form.marca} onChange={(e) => setField('marca', e.target.value)} />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <Label>Categoria *</Label>
+              <Label>{t('label_categoria')}</Label>
               <Select value={form.categoria} onValueChange={(v) => setField('categoria', v as Categoria)}>
                 <SelectTrigger><SelectValue placeholder="Selecione..." /></SelectTrigger>
                 <SelectContent>
@@ -316,17 +318,17 @@ export function ItemsPage() {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <Label>Tipo *</Label>
+              <Label>{t('label_tipo')}</Label>
               <Select value={form.tipo} onValueChange={(v) => setField('tipo', v as Tipo)}>
                 <SelectTrigger><SelectValue placeholder="Selecione..." /></SelectTrigger>
                 <SelectContent>
-                  {TIPOS.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
+                  {TIPOS.map((t2) => <SelectItem key={t2} value={t2}>{t2}</SelectItem>)}
                 </SelectContent>
               </Select>
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Classe *</Label>
+              <Label>{t('label_classe')}</Label>
               <Select value={form.classe} onValueChange={(v) => setField('classe', v as Classe)}>
                 <SelectTrigger><SelectValue placeholder="Selecione..." /></SelectTrigger>
                 <SelectContent>
@@ -336,7 +338,7 @@ export function ItemsPage() {
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Preço Unitário (EUR)</Label>
+              <Label>{t('label_preco')}</Label>
               <Input
                 type="number" min={0} step={0.01} placeholder="0.00"
                 value={form.precoUnitario}
@@ -345,7 +347,7 @@ export function ItemsPage() {
             </div>
 
             <div className="col-span-2 flex flex-col gap-1.5">
-              <Label>Link de Referência</Label>
+              <Label>{t('label_link')}</Label>
               <div className="flex items-center gap-2">
                 <Input
                   type="url" placeholder="https://fornecedor.com/produto"
@@ -363,13 +365,13 @@ export function ItemsPage() {
                   </a>
                 )}
               </div>
-              <p className="text-xs text-gray-400">URL de referência para o fornecedor</p>
+              <p className="text-xs text-gray-400">{t('supplier_ref_url')}</p>
             </div>
           </div>
 
           <DialogFooter>
-            <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave}>Salvar item</Button>
+            <Button variant="outline" onClick={() => setOpen(false)}>{t('cancel')}</Button>
+            <Button onClick={handleSave}>{t('btn_save_item')}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -378,7 +380,7 @@ export function ItemsPage() {
       <Dialog open={importOpen} onOpenChange={setImportOpen}>
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
-            <DialogTitle>Importar itens</DialogTitle>
+            <DialogTitle>{t('btn_import_excel')}</DialogTitle>
           </DialogHeader>
           <ImportarItens onClose={() => setImportOpen(false)} />
         </DialogContent>

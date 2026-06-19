@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
+import { useLanguage } from '@/context/LanguageContext';
 import { StatusBadge, Button, EmptyState } from '@/components/ui-pf';
 import { STATUS_CONFIG } from '@/lib/constants';
 import { PurchaseRequest, RCStatus } from '@/types';
@@ -11,6 +12,7 @@ interface Props {
 
 export function RCListPage({ onSelectRC, onNewRC }: Props) {
   const { rcs, calcRC, currentUser } = useApp();
+  const { t } = useLanguage();
   const [filter, setFilter] = useState<RCStatus | 'todos'>('todos');
   const [search, setSearch] = useState('');
 
@@ -31,11 +33,11 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
     <div className="p-6">
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Requisições de Compra</h1>
-          <p className="text-sm text-gray-500 mt-1">{rcs.length} requisições cadastradas</p>
+          <h1 className="text-2xl font-bold text-gray-900">{t('rc_list_title')}</h1>
+          <p className="text-sm text-gray-500 mt-1">{rcs.length} {t('rc_registered')}</p>
         </div>
         {currentUser.role.includes('solicitante') && (
-          <Button variant="primary" onClick={onNewRC}>+ Nova RC</Button>
+          <Button variant="primary" onClick={onNewRC}>{t('btn_new_rc')}</Button>
         )}
       </div>
 
@@ -44,13 +46,15 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
         <input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Buscar por RC, projeto, cliente ou fornecedor..."
+          placeholder={t('search_rc')}
           className="w-full max-w-md px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <div className="flex gap-2 flex-wrap">
           {(['todos', ...Object.keys(STATUS_CONFIG)] as Array<RCStatus | 'todos'>).map((s) => {
             const count = s === 'todos' ? rcs.length : rcs.filter((r) => r.status === s).length;
             const active = filter === s;
+            const statusLabelKey = s === 'todos' ? null : `status_${s}` as const;
+            const label = s === 'todos' ? t('filter_all') : (statusLabelKey ? t(statusLabelKey) : s);
             return (
               <button
                 key={s}
@@ -59,7 +63,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
                   active ? 'bg-blue-900 text-white border-blue-900' : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
                 }`}
               >
-                {s === 'todos' ? 'Todos' : STATUS_CONFIG[s as RCStatus].label} ({count})
+                {label} ({count})
               </button>
             );
           })}
@@ -72,7 +76,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-gray-50 border-b border-gray-200">
-                {['RC', 'Projeto', 'Cliente', 'Fornecedor', 'Solicitante', 'Data', 'Valor Total', 'Status', ''].map((h) => (
+                {[t('col_rc'), t('col_project'), t('col_client'), t('col_supplier'), t('col_requester'), t('col_date'), t('col_total'), t('col_status'), ''].map((h) => (
                   <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">{h}</th>
                 ))}
               </tr>
@@ -99,7 +103,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
                         onClick={(e) => { e.stopPropagation(); onSelectRC(rc); }}
                         className="text-xs text-blue-600 border border-blue-200 bg-blue-50 px-3 py-1 rounded-lg hover:bg-blue-100 transition font-medium"
                       >
-                        Ver
+                        {t('btn_view')}
                       </button>
                     </td>
                   </tr>
@@ -109,7 +113,7 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
           </table>
         </div>
         {filtered.length === 0 && (
-          <EmptyState message="Nenhuma requisição encontrada" icon="🔍" />
+          <EmptyState message={t('no_rc_found')} icon="🔍" />
         )}
       </div>
     </div>

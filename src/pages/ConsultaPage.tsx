@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { useApp } from '@/context/AppContext';
 import { useClientes } from '@/context/ClientesContext';
 import { useRFQ, RFQ } from '@/context/RFQContext';
+import { useLanguage } from '@/context/LanguageContext';
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from '@/components/ui/select';
@@ -66,17 +67,7 @@ function rcParaPO(rc: PurchaseRequest, clienteNome: string): POData {
 
 // ── Badges ────────────────────────────────────────────────────────────────────
 
-const RC_STATUS_LABEL: Record<string, string> = {
-  rascunho: 'Rascunho',
-  aguardando_aprovacao: 'Ag. Aprovação',
-  aprovada: 'Aprovada',
-  aguardando_confirmacao_entrega: 'Ag. Entrega',
-  entrega_confirmada: 'Entregue',
-  nota_fiscal_recebida: 'NF Recebida',
-  pagamento_realizado: 'Pago',
-  nota_enviada_contador: 'Concluído',
-  devolvida: 'Devolvida',
-};
+// RC_STATUS_LABEL is now built dynamically via t() inside the component
 
 const RC_STATUS_STYLE: Record<string, string> = {
   rascunho: 'bg-gray-50 text-gray-500 border-gray-200',
@@ -132,6 +123,7 @@ function ProjetoCard({
   onVerRC,
   onVerPO,
   onEmailPO,
+  labels,
 }: {
   numeroProjeto: string;
   clienteNome: string;
@@ -141,6 +133,14 @@ function ProjetoCard({
   onVerRC: (rc: PurchaseRequest) => void;
   onVerPO: (rc: PurchaseRequest) => void;
   onEmailPO: (rc: PurchaseRequest) => void;
+  labels: {
+    project: string; client: string; totalRCs: string;
+    rfqsSection: string; rcsPosSection: string;
+    colRC: string; colPO: string; colSupplier: string; colRequester: string;
+    colValue: string; colStatus: string; colDate: string; colDocs: string;
+    delivery: string; issued: string;
+    getStatusLabel: (status: string) => string;
+  };
 }) {
   const [aberto, setAberto] = useState(true);
 
@@ -155,12 +155,12 @@ function ProjetoCard({
       >
         <div className="flex items-center gap-4">
           <div className="text-left">
-            <p className="text-xs text-gray-400 uppercase tracking-wide">Projeto</p>
+            <p className="text-xs text-gray-400 uppercase tracking-wide">{labels.project}</p>
             <p className="text-base font-semibold text-gray-900">{numeroProjeto}</p>
           </div>
           {clienteNome && clienteNome !== '—' && (
             <div className="text-left border-l border-gray-200 pl-4">
-              <p className="text-xs text-gray-400 uppercase tracking-wide">Cliente</p>
+              <p className="text-xs text-gray-400 uppercase tracking-wide">{labels.client}</p>
               <p className="text-sm font-medium text-gray-700">{clienteNome}</p>
             </div>
           )}
@@ -180,7 +180,7 @@ function ProjetoCard({
         </div>
         <div className="flex items-center gap-4">
           <div className="text-right">
-            <p className="text-xs text-gray-400">Total RCs</p>
+            <p className="text-xs text-gray-400">{labels.totalRCs}</p>
             <p className="text-sm font-semibold text-gray-900">{fmtMoeda(totalRCs)}</p>
           </div>
           {aberto ? (
@@ -196,7 +196,7 @@ function ProjetoCard({
           {/* RFQs */}
           {rfqs.length > 0 && (
             <div className="px-5 py-3">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">RFQs</p>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{labels.rfqsSection}</p>
               <div className="space-y-1.5">
                 {rfqs.map((rfq) => (
                   <div
@@ -207,12 +207,12 @@ function ProjetoCard({
                       <span className="font-semibold text-blue-700 text-sm">{rfq.numeroRFQ}</span>
                       <span className="text-xs text-gray-500">{rfq.itens?.length ?? 0} item(s)</span>
                       <span className="text-xs text-gray-400">
-                        Entrega:{' '}
+                        {labels.delivery}{' '}
                         {rfq.dataLimiteEntrega
                           ? new Date(rfq.dataLimiteEntrega + 'T00:00:00').toLocaleDateString('pt-BR')
                           : '—'}
                       </span>
-                      <span className="text-xs text-gray-400">Emitido: {fmtData(rfq.criadoEm)}</span>
+                      <span className="text-xs text-gray-400">{labels.issued} {fmtData(rfq.criadoEm)}</span>
                     </div>
                     <DocBtn
                       label="RFQ"
@@ -230,18 +230,18 @@ function ProjetoCard({
           {/* RCs e POs */}
           {rcs.length > 0 && (
             <div className="px-5 py-3">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">RCs / POs</p>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">{labels.rcsPosSection}</p>
               <table className="w-full text-xs">
                 <thead>
                   <tr className="text-gray-400 border-b border-gray-100">
-                    <th className="text-left py-1.5 pr-3 font-normal">RC</th>
-                    <th className="text-left py-1.5 pr-3 font-normal">PO</th>
-                    <th className="text-left py-1.5 pr-3 font-normal">Fornecedor</th>
-                    <th className="text-left py-1.5 pr-3 font-normal">Solicitante</th>
-                    <th className="text-right py-1.5 pr-3 font-normal">Valor</th>
-                    <th className="text-left py-1.5 pr-3 font-normal">Status RC</th>
-                    <th className="text-left py-1.5 pr-3 font-normal">Data</th>
-                    <th className="py-1.5 text-right font-normal">Documentos</th>
+                    <th className="text-left py-1.5 pr-3 font-normal">{labels.colRC}</th>
+                    <th className="text-left py-1.5 pr-3 font-normal">{labels.colPO}</th>
+                    <th className="text-left py-1.5 pr-3 font-normal">{labels.colSupplier}</th>
+                    <th className="text-left py-1.5 pr-3 font-normal">{labels.colRequester}</th>
+                    <th className="text-right py-1.5 pr-3 font-normal">{labels.colValue}</th>
+                    <th className="text-left py-1.5 pr-3 font-normal">{labels.colStatus}</th>
+                    <th className="text-left py-1.5 pr-3 font-normal">{labels.colDate}</th>
+                    <th className="py-1.5 text-right font-normal">{labels.colDocs}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -268,7 +268,7 @@ function ProjetoCard({
                             RC_STATUS_STYLE[rc.status] ?? 'bg-gray-50 text-gray-500 border-gray-200'
                           }`}
                         >
-                          {RC_STATUS_LABEL[rc.status] ?? rc.status}
+                          {labels.getStatusLabel(rc.status)}
                         </span>
                       </td>
                       <td className="py-2 pr-3 text-gray-400">{fmtData(rc.createdAt)}</td>
@@ -329,10 +329,23 @@ export function ConsultaPage() {
   const { rcs, currentUser, updateRC } = useApp();
   const { clientes } = useClientes();
   const { rfqs } = useRFQ();
+  const { t } = useLanguage();
   const [busca, setBusca] = useState('');
   const [filtroCliente, setFiltroCliente] = useState('all');
   const [verRC, setVerRC] = useState<PurchaseRequest | null>(null);
   const [verPO, setVerPO] = useState<PurchaseRequest | null>(null);
+
+  const RC_STATUS_LABEL: Record<string, string> = {
+    rascunho: t('status_short_rascunho'),
+    aguardando_aprovacao: t('status_short_aguardando_aprovacao'),
+    aprovada: t('status_short_aprovada'),
+    aguardando_confirmacao_entrega: t('status_short_aguardando_confirmacao_entrega'),
+    entrega_confirmada: t('status_short_entrega_confirmada'),
+    nota_fiscal_recebida: t('status_short_nota_fiscal_recebida'),
+    pagamento_realizado: t('status_short_pagamento_realizado'),
+    nota_enviada_contador: t('status_short_nota_enviada_contador'),
+    devolvida: t('status_short_devolvida'),
+  };
 
   const isAprovador = currentUser?.role.includes('aprovador');
 
@@ -435,8 +448,8 @@ export function ConsultaPage() {
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <div className="mb-5">
-        <h1 className="text-xl font-medium text-gray-900">Consulta</h1>
-        <p className="text-sm text-gray-400">Visão unificada de RFQs, RCs e POs por projeto</p>
+        <h1 className="text-xl font-medium text-gray-900">{t('consulta_title')}</h1>
+        <p className="text-sm text-gray-400">{t('consulta_subtitle')}</p>
       </div>
 
       {/* Filtros */}
@@ -445,17 +458,17 @@ export function ConsultaPage() {
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             className="w-full pl-9 pr-3 h-9 text-sm border border-gray-200 rounded-lg bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-200"
-            placeholder="Buscar por projeto, RC, PO ou RFQ..."
+            placeholder={t('search_consulta')}
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
           />
         </div>
         <Select value={filtroCliente} onValueChange={setFiltroCliente}>
           <SelectTrigger className="w-56 h-9 text-sm">
-            <SelectValue placeholder="Filtrar por cliente" />
+            <SelectValue placeholder={t('filter_client')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">Todos os clientes</SelectItem>
+            <SelectItem value="all">{t('all_clients')}</SelectItem>
             {clientesComDados.map((nome) => (
               <SelectItem key={nome} value={nome}>{nome}</SelectItem>
             ))}
@@ -466,25 +479,25 @@ export function ConsultaPage() {
             className="text-xs text-gray-400 hover:text-gray-600 px-2"
             onClick={() => { setBusca(''); setFiltroCliente('all'); }}
           >
-            Limpar filtros
+            {t('clear_filters')}
           </button>
         )}
       </div>
 
       {/* Legenda dos botões de documento */}
       <div className="flex items-center gap-4 mb-3 px-1">
-        <span className="text-xs text-gray-400">Documentos:</span>
-        <span className="flex items-center gap-1 text-xs text-gray-500"><FileText size={11}/> RC — Requisição de Compra</span>
-        <span className="flex items-center gap-1 text-xs text-green-600"><Eye size={11}/> PO — Pedido de Compra</span>
-        <span className="flex items-center gap-1 text-xs text-gray-300"><Receipt size={11}/> NF — Nota Fiscal (em breve)</span>
+        <span className="text-xs text-gray-400">{t('docs_label')}</span>
+        <span className="flex items-center gap-1 text-xs text-gray-500"><FileText size={11}/> {t('doc_rc')}</span>
+        <span className="flex items-center gap-1 text-xs text-green-600"><Eye size={11}/> {t('doc_po')}</span>
+        <span className="flex items-center gap-1 text-xs text-gray-300"><Receipt size={11}/> {t('doc_nf')}</span>
       </div>
 
       {projetos.length === 0 ? (
         <div className="rounded-xl border border-gray-200 bg-white py-16 text-center">
           <p className="text-gray-400 text-sm">
             {busca || filtroCliente !== 'all'
-              ? 'Nenhum resultado encontrado.'
-              : 'Nenhum projeto encontrado. Crie uma RFQ ou RC para começar.'}
+              ? t('no_results')
+              : t('no_project_start')}
           </p>
         </div>
       ) : (
@@ -499,6 +512,24 @@ export function ConsultaPage() {
             onVerRC={(rc) => setVerRC(rc)}
             onVerPO={(rc) => setVerPO(rc)}
             onEmailPO={handleEmailPO}
+            labels={{
+              project: t('project_label'),
+              client: t('col_client'),
+              totalRCs: t('total_rcs_label'),
+              rfqsSection: t('rfqs_section'),
+              rcsPosSection: t('rcs_pos_section'),
+              colRC: t('col_rc'),
+              colPO: 'PO',
+              colSupplier: t('col_supplier'),
+              colRequester: t('col_requester'),
+              colValue: t('col_total'),
+              colStatus: t('col_rc_status'),
+              colDate: t('col_date'),
+              colDocs: t('col_docs'),
+              delivery: t('delivery_label'),
+              issued: t('issued_label'),
+              getStatusLabel: (status: string) => RC_STATUS_LABEL[status] ?? status,
+            }}
           />
         ))
       )}
