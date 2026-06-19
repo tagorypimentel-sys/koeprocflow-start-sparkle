@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/context/AuthContext';
 import { User, Item, Supplier, PurchaseRequest } from '@/types';
-import { MOCK_USERS } from '@/data/mock';
 import { gerarPDFPO, POData } from '@/lib/gerarPDFPO';
 import { gerarNumeroPO } from '@/lib/numeracaoRC';
 
@@ -10,9 +10,10 @@ interface AppContextType {
   setCurrentUser: (u: User) => void;
   users: User[];
   setUsers: (users: User[]) => void;
-  addUser: (u: { name: string; email: string; role: User['role']; avatar?: string }) => Promise<User>;
+  addUser: (u: { name: string; email: string; role: string; avatar?: string }) => Promise<User>;
   updateUser: (id: string, updates: Partial<User>) => Promise<void>;
   deleteUser: (id: string) => Promise<void>;
+  reloadUsers: () => Promise<void>;
   items: Item[];
   setItems: (items: Item[]) => void;
   suppliers: Supplier[];
@@ -31,56 +32,111 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | null>(null);
 
+const EMPTY_USER: User = { id: '', name: '', email: '', role: '', avatar: '' };
+
+function deriveAvatar(name: string): string {
+  return (
+    name.trim().split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase() || '??'
+  );
+}
+
+async function fetchUsers(): Promise<User[]> {
+  const [{ data: profiles, error: pErr }, { data: roles, error: rErr }] = await Promise.all([
+    supabase.from('profiles').select('id, name, email, avatar').order('name'),
+    (supabase.from('user_roles') as any).select('user_id, role'),
+  ]);
+  if (pErr) throw pErr;
+  if (rErr) throw rErr;
+  const roleMap = new Map<string, string[]>();
+  ((roles as any[]) ?? []).forEach((r: any) => {
+    const arr = roleMap.get(r.user_id) ?? [];
+    arr.push(r.role);
+    roleMap.set(r.user_id, arr);
+  });
+  return ((profiles as any[]) ?? []).map((p: any) => ({
+    id: p.id,
+    name: p.name,
+    email: p.email,
+    avatar: p.avatar ?? deriveAvatar(p.name),
+    role: (roleMap.get(p.id) ?? []).join(','),
+  }));
+}
+
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [currentUser, setCurrentUser] = useState<User>(MOCK_USERS[0]);
+  const { user: authUser } = useAuth();
+  const [currentUser, setCurrentUser] = useState<User>(EMPTY_USER);
   const [users, setUsers] = useState<User[]>([]);
   const [items, setItems] = useState<Item[]>([]);
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [rcs, setRcs] = useState<PurchaseRequest[]>([]);
+  const [selectedRC, setSelectedRC] = useState<PurchaseRequest | null>(null);
+
+  const reloadUsers = async () => {
+    try {
+      const list = await fetchUsers();
+      setUsers(list);
+      if (authUser) {
+        const me = list.find((u) => u.id === authUser.id);
+        if (me) setCurrentUser(me);
+      }
+    } catch (e) {
+      console.error('Erro carregando usuários:', e);
+    }
+  };
 
   useEffect(() => {
     supabase.from('suppliers').select('*').order('name').then(({ data, error }) => {
-      if (!error && data) {
-        setSuppliers(data as Supplier[]);
-      }
-    });
-    
-    supabase.from('profiles').select('*').order('name').then(({ data, error }) => {
-      if (!error && data && data.length > 0) {
-        setUsers(data as unknown as User[]);
-        setCurrentUser(data[0] as unknown as User);
-      } else {
-        setUsers(MOCK_USERS);
-      }
+      if (!error && data) setSuppliers(data as Supplier[]);
     });
   }, []);
-  const [selectedRC, setSelectedRC] = useState<PurchaseRequest | null>(null);
+
+  useEffect(() => {
+    if (!authUser) {
+      setUsers([]);
+      setCurrentUser(EMPTY_USER);
+      return;
+    }
+    reloadUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authUser?.id]);
 
   const addUser: AppContextType['addUser'] = async (u) => {
-    const avatar =
-      (u.avatar && u.avatar.trim()) ||
-      u.name.trim().split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase() ||
-      '??';
-    const newUser = { name: u.name, email: u.email, role: u.role, avatar };
-    const { data, error } = await supabase.from('profiles').insert([newUser as any]).select().single();
-    if (error) throw error;
-    setUsers((prev) => [...prev, data as unknown as User]);
-    return data as unknown as User;
+    const roles = u.role.split(',').map((r) => r.trim()).filter(Boolean);
+    const avatar = (u.avatar && u.avatar.trim()) || deriveAvatar(u.name);
+    const { data, error } = await supabase.functions.invoke('admin-users', {
+      body: { action: 'create', name: u.name, email: u.email, avatar, roles },
+    });
+    if (error) throw new Error(error.message || 'Erro ao criar usuário');
+    if (data?.error) throw new Error(data.error);
+    await reloadUsers();
+    const created: User = {
+      id: data?.id ?? '',
+      name: u.name,
+      email: u.email,
+      role: roles.join(','),
+      avatar,
+    };
+    return created;
   };
 
   const updateUser = async (id: string, updates: Partial<User>) => {
-    const { error } = await supabase.from('profiles').update(updates as any).eq('id', id);
-    if (!error) {
-      setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, ...updates } : u)));
-      setCurrentUser((prev) => (prev.id === id ? { ...prev, ...updates } : prev));
-    }
+    const payload: any = { action: 'set_roles', id };
+    if (updates.name !== undefined) payload.name = updates.name;
+    if (updates.avatar !== undefined) payload.avatar = updates.avatar;
+    payload.roles = (updates.role ?? '').split(',').map((r) => r.trim()).filter(Boolean);
+    const { data, error } = await supabase.functions.invoke('admin-users', { body: payload });
+    if (error) throw new Error(error.message || 'Erro ao atualizar');
+    if (data?.error) throw new Error(data.error);
+    await reloadUsers();
   };
 
   const deleteUser = async (id: string) => {
-    const { error } = await supabase.from('profiles').delete().eq('id', id);
-    if (!error) {
-      setUsers((prev) => prev.filter((u) => u.id !== id));
-    }
+    const { data, error } = await supabase.functions.invoke('admin-users', {
+      body: { action: 'delete', id },
+    });
+    if (error) throw new Error(error.message || 'Erro ao excluir');
+    if (data?.error) throw new Error(data.error);
+    setUsers((prev) => prev.filter((u) => u.id !== id));
   };
 
   const updateRC = (id: string, updates: Partial<PurchaseRequest>) => {
@@ -162,7 +218,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     <AppContext.Provider
       value={{
         currentUser, setCurrentUser, users, setUsers,
-        addUser, updateUser, deleteUser,
+        addUser, updateUser, deleteUser, reloadUsers,
         items, setItems, suppliers, setSuppliers, rcs, setRcs, updateRC, addRC,
         calcRC, approveRC, returnRC, resubmitRC, selectedRC, setSelectedRC,
       }}
