@@ -11,7 +11,8 @@ interface Props {
 }
 
 export function RCListPage({ onSelectRC, onNewRC }: Props) {
-  const { rcs, calcRC, currentUser } = useApp();
+  const { rcs, calcRC, currentUser, updateRC } = useApp();
+
   const { t } = useLanguage();
   const [filter, setFilter] = useState<RCStatus | 'todos'>('todos');
   const [search, setSearch] = useState('');
@@ -84,6 +85,12 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
             <tbody>
               {filtered.map((rc) => {
                 const { total } = calcRC(rc);
+                const isAdmin = currentUser.role?.includes('admin');
+                const isRequester = currentUser.id === rc.requester?.id;
+                const isSolicitante = currentUser.role?.includes('solicitante');
+                const canReceive =
+                  rc.status === 'aprovada' &&
+                  (isAdmin || isRequester || isSolicitante);
                 return (
                   <tr
                     key={rc.id}
@@ -99,16 +106,30 @@ export function RCListPage({ onSelectRC, onNewRC }: Props) {
                     <td className="px-4 py-3 font-bold text-xs">€ {fmt(total)}</td>
                     <td className="px-4 py-3"><StatusBadge status={rc.status} /></td>
                     <td className="px-4 py-3">
-                      <button
-                        onClick={(e) => { e.stopPropagation(); onSelectRC(rc); }}
-                        className="text-xs text-blue-600 border border-blue-200 bg-blue-50 px-3 py-1 rounded-lg hover:bg-blue-100 transition font-medium"
-                      >
-                        {t('btn_view')}
-                      </button>
+                      <div className="flex gap-2 justify-end">
+                        {canReceive && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              updateRC(rc.id, { status: 'entrega_confirmada' });
+                            }}
+                            className="text-xs text-green-700 border border-green-200 bg-green-50 px-3 py-1 rounded-lg hover:bg-green-100 transition font-medium whitespace-nowrap"
+                          >
+                            📦 Confirmar Recebimento
+                          </button>
+                        )}
+                        <button
+                          onClick={(e) => { e.stopPropagation(); onSelectRC(rc); }}
+                          className="text-xs text-blue-600 border border-blue-200 bg-blue-50 px-3 py-1 rounded-lg hover:bg-blue-100 transition font-medium"
+                        >
+                          {t('btn_view')}
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 );
               })}
+
             </tbody>
           </table>
         </div>
