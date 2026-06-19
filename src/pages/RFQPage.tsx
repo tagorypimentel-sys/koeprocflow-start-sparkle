@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRFQ, RFQItem } from '@/context/RFQContext';
 import { useItens } from '@/context/ItensContext';
+import { useClientes } from '@/context/ClientesContext';
 import { CATEGORIAS, CLASSES } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -244,6 +245,7 @@ function DefinirQuantidades({
 export function RFQPage() {
   const { rfqs, addRFQ, deleteRFQ } = useRFQ();
   const { itens } = useItens();
+  const { clientes } = useClientes();
 
   const [modalAberto, setModalAberto] = useState(false);
   const [etapa, setEtapa] = useState<1 | 2>(1);
@@ -385,8 +387,24 @@ export function RFQPage() {
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Nome do Cliente</Label>
-              <Input placeholder="Ex: Petrobras" value={nomeProjeto}
-                onChange={(e) => setNomeProjeto(e.target.value)} />
+              <Select value={nomeProjeto} onValueChange={setNomeProjeto}>
+                <SelectTrigger>
+                  <SelectValue
+                    placeholder={
+                      clientes.length === 0
+                        ? 'Nenhum cliente cadastrado'
+                        : 'Selecione um cliente'
+                    }
+                  />
+                </SelectTrigger>
+                <SelectContent>
+                  {clientes.map((c) => (
+                    <SelectItem key={c.id} value={c.nome}>
+                      {c.nome}{c.doc ? ` — ${c.doc}` : ''}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Data de Emissão</Label>
