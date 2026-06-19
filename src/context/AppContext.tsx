@@ -47,8 +47,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     
     supabase.from('profiles').select('*').order('name').then(({ data, error }) => {
       if (!error && data && data.length > 0) {
-        setUsers(data as User[]);
-        setCurrentUser(data[0] as User);
+        setUsers(data as unknown as User[]);
+        setCurrentUser(data[0] as unknown as User);
       } else {
         setUsers(MOCK_USERS);
       }
@@ -62,14 +62,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
       u.name.trim().split(/\s+/).map((p) => p[0]).slice(0, 2).join('').toUpperCase() ||
       '??';
     const newUser = { name: u.name, email: u.email, role: u.role, avatar };
-    const { data, error } = await supabase.from('profiles').insert([newUser]).select().single();
+    const { data, error } = await supabase.from('profiles').insert([newUser as any]).select().single();
     if (error) throw error;
-    setUsers((prev) => [...prev, data]);
-    return data;
+    setUsers((prev) => [...prev, data as unknown as User]);
+    return data as unknown as User;
   };
 
   const updateUser = async (id: string, updates: Partial<User>) => {
-    const { error } = await supabase.from('profiles').update(updates).eq('id', id);
+    const { error } = await supabase.from('profiles').update(updates as any).eq('id', id);
     if (!error) {
       setUsers((prev) => prev.map((u) => (u.id === id ? { ...u, ...updates } : u)));
       setCurrentUser((prev) => (prev.id === id ? { ...prev, ...updates } : prev));

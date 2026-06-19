@@ -25,22 +25,23 @@ export function ClientesProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     supabase.from('clients').select('*').order('nome').then(({ data, error }) => {
       if (!error && data) {
-        setClientes(data as Cliente[]);
+        setClientes(data as unknown as Cliente[]);
       }
     });
   }, []);
 
   async function addCliente(data: Omit<Cliente, 'id'>) {
-    const { data: inserted, error } = await supabase.from('clients').insert([data]).select().single();
+    const { data: inserted, error } = await supabase.from('clients').insert([data as any]).select().single();
     if (!error && inserted) {
-      setClientes((prev) => [...prev, inserted]);
-      return inserted;
+      const row = inserted as unknown as Cliente;
+      setClientes((prev) => [...prev, row]);
+      return row;
     }
     throw error;
   }
 
   async function updateCliente(updated: Cliente) {
-    const { error } = await supabase.from('clients').update(updated).eq('id', updated.id);
+    const { error } = await supabase.from('clients').update(updated as any).eq('id', updated.id);
     if (!error) {
       setClientes((prev) => prev.map((c) => (c.id === updated.id ? updated : c)));
     }
