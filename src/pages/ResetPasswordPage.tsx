@@ -39,6 +39,41 @@ export default function ResetPasswordPage() {
       }
     };
 
+    const markValid = () => {
+      cleanUrl();
+      if (!cancelled) {
+        setLinkError(null);
+        setValidLink(true);
+        setReady(true);
+      }
+    };
+
+    const markInvalid = (message?: string) => {
+      if (!cancelled) {
+        setLinkError(message || 'Link inválido ou expirado. Solicite um novo e-mail de recuperação.');
+        setValidLink(false);
+        setReady(true);
+      }
+    };
+
+    const waitForSession = async () => {
+      for (let attempt = 0; attempt < 12 && !cancelled; attempt += 1) {
+        const { data } = await supabase.auth.getSession();
+        if (data.session) {
+          markValid();
+          return true;
+        }
+        await new Promise((resolve) => setTimeout(resolve, 250));
+      }
+      return false;
+    };
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session && (event === 'PASSWORD_RECOVERY' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+        markValid();
+      }
+    });
+
     const init = async () => {
       const href = window.location.href;
       const url = new URL(href);
@@ -56,26 +91,14 @@ export default function ResetPasswordPage() {
       const errDesc =
         search.get('error_description') || hash.get('error_description');
       if (errCode) {
-        if (!cancelled) {
-          setLinkError(
-            errDesc?.split('+').join(' ') ||
-              'O link de recuperação expirou ou é inválido. Solicite um novo e-mail.'
-          );
-          setValidLink(false);
-          setReady(true);
-        }
+        markInvalid(
+          errDesc?.split('+').join(' ') ||
+            'O link de recuperação expirou ou é inválido. Solicite um novo e-mail.'
+        );
         return;
       }
 
       try {
-        const markValid = () => {
-          cleanUrl();
-          if (!cancelled) {
-            setValidLink(true);
-            setReady(true);
-          }
-        };
-
         // 1) PKCE flow: ?code=...
         const code = search.get('code');
         if (code) {
@@ -116,24 +139,14 @@ export default function ResetPasswordPage() {
         }
 
         // 4) Fallback: maybe the client already processed the link and we have a session
-        const { data } = await supabase.auth.getSession();
-        const isRecoveryUrl = search.get('type') === 'recovery' || hash.get('type') === 'recovery';
-        if (!cancelled) {
-          if (data.session || isRecoveryUrl) {
-            setValidLink(true);
-          } else {
-            setLinkError(
-              'Link inválido ou expirado. Solicite um novo e-mail de recuperação.'
-            );
-            setValidLink(false);
-          }
-          setReady(true);
+        const foundSession = await waitForSession();
+        if (!foundSession) {
+          markInvalid();
         }
       } catch (e: any) {
-        if (!cancelled) {
-          setLinkError(e?.message || 'Não foi possível validar o link de recuperação.');
-          setValidLink(false);
-          setReady(true);
+        const foundSession = await waitForSession();
+        if (!foundSession) {
+          markInvalid(e?.message || 'Não foi possível validar o link de recuperação.');
         }
       }
     };
@@ -141,6 +154,7 @@ export default function ResetPasswordPage() {
     init();
     return () => {
       cancelled = true;
+      subscription.unsubscribe();
     };
   }, []);
 
