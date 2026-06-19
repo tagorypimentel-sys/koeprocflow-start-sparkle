@@ -18,6 +18,7 @@ export default function ResetPasswordPage() {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
   const [validLink, setValidLink] = useState(false);
+  const [linkError, setLinkError] = useState<string | null>(null);
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -25,24 +26,125 @@ export default function ResetPasswordPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    // Supabase appends the recovery token in the URL hash (#access_token=...&type=recovery)
-    // and the client auto-processes it, firing a PASSWORD_RECOVERY event.
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'PASSWORD_RECOVERY' || (event === 'SIGNED_IN' && session)) {
-        setValidLink(true);
-        setReady(true);
+    let cancelled = false;
+
+    const cleanUrl = () => {
+      try {
+        const url = new URL(window.location.href);
+        url.hash = '';
+        url.search = '';
+        window.history.replaceState({}, document.title, url.toString());
+      } catch {
+        /* noop */
       }
-    });
+    };
 
-    // Fallback: check if there is already an active session from the link
-    supabase.auth.getSession().then(({ data }) => {
-      const hash = window.location.hash;
-      const isRecovery = hash.includes('type=recovery') || hash.includes('access_token=');
-      if (data.session || isRecovery) setValidLink(true);
-      setReady(true);
-    });
+    const init = async () => {
+      const href = window.location.href;
+      const url = new URL(href);
+      const search = url.searchParams;
+      const hash = new URLSearchParams(
+        window.location.hash.startsWith('#') ? window.location.hash.slice(1) : window.location.hash
+      );
 
-    return () => subscription.unsubscribe();
+      // Errors returned by Supabase (e.g. otp_expired)
+      const errCode =
+        search.get('error_code') ||
+        search.get('error') ||
+        hash.get('error_code') ||
+        hash.get('error');
+      const errDesc =
+        search.get('error_description') || hash.get('error_description');
+      if (errCode) {
+        if (!cancelled) {
+          setLinkError(
+            errDesc?.split('+').join(' ') ||
+              'O link de recuperação expirou ou é inválido. Solicite um novo e-mail.'
+          );
+          setValidLink(false);
+          setReady(true);
+        }
+        return;
+      }
+
+      try {
+        // 1) PKCE flow: ?code=...
+        const code = search.get('code');
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(code);
+          if (error) throw error;
+          cleanUrl();
+          if (!cancelled) {
+            setValidLink(true);
+            setReady(true);
+          }
+          return;
+        }
+
+        // 2) Implicit flow: #access_token=...&refresh_token=...&type=recovery
+        const accessToken = hash.get('access_token');
+        const refreshToken = hash.get('refresh_token');
+        const type = hash.get('type');
+        if (accessToken && refreshToken && (type === 'recovery' || !type)) {
+          const { error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          if (error) throw error;
+          cleanUrl();
+          if (!cancelled) {
+            setValidLink(true);
+            setReady(true);
+          }
+          return;
+        }
+
+        // 3) Some flows: ?token_hash=...&type=recovery
+        const tokenHash = search.get('token_hash') || hash.get('token_hash');
+        const verifyType = (search.get('type') || hash.get('type')) as
+          | 'recovery'
+          | 'email'
+          | null;
+        if (tokenHash && verifyType) {
+          const { error } = await supabase.auth.verifyOtp({
+            token_hash: tokenHash,
+            type: verifyType,
+          });
+          if (error) throw error;
+          cleanUrl();
+          if (!cancelled) {
+            setValidLink(true);
+            setReady(true);
+          }
+          return;
+        }
+
+        // 4) Fallback: maybe the client already processed the link and we have a session
+        const { data } = await supabase.auth.getSession();
+        if (!cancelled) {
+          if (data.session) {
+            setValidLink(true);
+          } else {
+            setLinkError(
+              'Link inválido ou expirado. Solicite um novo e-mail de recuperação.'
+            );
+            setValidLink(false);
+          }
+          setReady(true);
+        }
+      } catch (e: any) {
+        if (!cancelled) {
+          setLinkError(e?.message || 'Não foi possível validar o link de recuperação.');
+          setValidLink(false);
+          setReady(true);
+        }
+      }
+    };
+
+    init();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -69,7 +171,13 @@ export default function ResetPasswordPage() {
     }
   };
 
-  if (!ready) return null;
+  if (!ready) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <p className="text-sm text-gray-500">Validando link…</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -82,7 +190,7 @@ export default function ResetPasswordPage() {
         {!validLink ? (
           <div className="space-y-4">
             <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg">
-              Link inválido ou expirado. Solicite um novo e-mail de recuperação.
+              {linkError ?? 'Link inválido ou expirado. Solicite um novo e-mail de recuperação.'}
             </div>
             <Button variant="primary" className="w-full" onClick={() => navigate('/auth')}>
               Voltar para o login
