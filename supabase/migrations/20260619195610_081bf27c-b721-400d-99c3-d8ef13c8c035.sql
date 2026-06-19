@@ -1,0 +1,1 @@
+ALTER TYPE public.rc_status ADD VALUE 'aguardando_confirmacao_entrega';
