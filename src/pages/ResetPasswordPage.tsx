@@ -68,16 +68,20 @@ export default function ResetPasswordPage() {
       }
 
       try {
-        // 1) PKCE flow: ?code=...
-        const code = search.get('code');
-        if (code) {
-          const { error } = await supabase.auth.exchangeCodeForSession(code);
-          if (error) throw error;
+        const markValid = () => {
           cleanUrl();
           if (!cancelled) {
             setValidLink(true);
             setReady(true);
           }
+        };
+
+        // 1) PKCE flow: ?code=...
+        const code = search.get('code');
+        if (code) {
+          const { error } = await supabase.auth.exchangeCodeForSession(code);
+          if (error) throw error;
+          markValid();
           return;
         }
 
@@ -91,11 +95,7 @@ export default function ResetPasswordPage() {
             refresh_token: refreshToken,
           });
           if (error) throw error;
-          cleanUrl();
-          if (!cancelled) {
-            setValidLink(true);
-            setReady(true);
-          }
+          markValid();
           return;
         }
 
@@ -111,18 +111,15 @@ export default function ResetPasswordPage() {
             type: verifyType,
           });
           if (error) throw error;
-          cleanUrl();
-          if (!cancelled) {
-            setValidLink(true);
-            setReady(true);
-          }
+          markValid();
           return;
         }
 
         // 4) Fallback: maybe the client already processed the link and we have a session
         const { data } = await supabase.auth.getSession();
+        const isRecoveryUrl = search.get('type') === 'recovery' || hash.get('type') === 'recovery';
         if (!cancelled) {
-          if (data.session) {
+          if (data.session || isRecoveryUrl) {
             setValidLink(true);
           } else {
             setLinkError(
