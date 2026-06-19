@@ -17,7 +17,6 @@ const VALID_CATEGORIAS = CATEGORIAS as readonly string[];
 const VALID_CLASSES = CLASSES as readonly string[];
 
 interface PreviewItem {
-  id: number;
   codigo: string;
   descricao: string;
   marca?: string;
@@ -32,10 +31,11 @@ interface PreviewItem {
 }
 
 export default function ImportarItens({ onClose }: { onClose?: () => void }) {
-  const { addItem, itens } = useItens();
+  const { addItems, itens } = useItens();
   const [preview, setPreview] = useState<PreviewItem[] | null>(null);
   const [importing, setImporting] = useState(false);
   const [done, setDone] = useState(false);
+  const [importedCount, setImportedCount] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function normalize(raw: any): PreviewItem {
@@ -48,8 +48,8 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
     const marca = String(raw.marca ?? '').trim();
     const unidade = String(raw.unidade ?? '').trim() || 'UN';
     const preco = Number(raw.precoUnitario ?? 0) || 0;
-    const id = Number(raw.id) || 0;
-    const codigo = String(raw.codigo ?? (id ? `IT-${String(id).padStart(3, '0')}` : '')).trim();
+    const idHint = Number(raw.id) || 0;
+    const codigo = String(raw.codigo ?? (idHint ? `IT-${String(idHint).padStart(3, '0')}` : '')).trim();
     const link = String(raw.linkReferencia ?? '').trim();
 
     if (!desc) errors.push('Descrição vazia');
@@ -57,7 +57,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
     if (!VALID_CLASSES.includes(classe)) errors.push(`Classe inválida: "${classeRaw}"`);
 
     return {
-      id, codigo, descricao: desc,
+      codigo, descricao: desc,
       marca: marca && marca !== 'Not Applicable' ? marca : undefined,
       unidade, precoUnitario: Math.round(preco * 100) / 100,
       categoria, classe, tipo,
@@ -160,15 +160,15 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
     if (f) parseFile(f);
   }
 
-  function handleImport() {
+  async function handleImport() {
     if (!preview) return;
     setImporting(true);
     const existingCodes = new Set(itens.map((i) => i.codigo));
     const validos = preview.filter((p) => p.valid && !existingCodes.has(p.codigo));
     const duplicados = preview.filter((p) => p.valid && existingCodes.has(p.codigo));
 
-    validos.forEach((p) => {
-      addItem({
+    try {
+      const payload = validos.map((p) => ({
         codigo: p.codigo,
         descricao: p.descricao,
         marca: p.marca,
@@ -178,13 +178,18 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
         classe: p.classe as any,
         tipo: p.tipo,
         linkReferencia: p.linkReferencia,
-      });
-    });
-
-    setImporting(false);
-    setDone(true);
-    if (validos.length > 0) toast.success(`${validos.length} item(s) importado(s)!`);
-    if (duplicados.length > 0) toast.warning(`${duplicados.length} ignorado(s) por código duplicado.`);
+      }));
+      await addItems(payload);
+      setImportedCount(validos.length);
+      if (validos.length > 0) toast.success(`${validos.length} item(s) importado(s)!`);
+      if (duplicados.length > 0) toast.warning(`${duplicados.length} ignorado(s) por código duplicado.`);
+      setDone(true);
+    } catch (err: any) {
+      console.error(err);
+      toast.error(`Erro ao importar: ${err?.message ?? 'falha desconhecida'}`);
+    } finally {
+      setImporting(false);
+    }
   }
 
   const validos = preview?.filter((p) => p.valid).length ?? 0;
@@ -195,7 +200,7 @@ export default function ImportarItens({ onClose }: { onClose?: () => void }) {
       <div className="flex flex-col items-center justify-center py-12 gap-4">
         <CheckCircle className="text-green-500" size={48} />
         <p className="text-lg font-medium text-gray-800">Importação concluída!</p>
-        <p className="text-sm text-gray-500">{validos} item(s) adicionados.</p>
+        <p className="text-sm text-gray-500">{importedCount} item(s) adicionados.</p>
         <Button onClick={onClose}>Fechar</Button>
       </div>
     );

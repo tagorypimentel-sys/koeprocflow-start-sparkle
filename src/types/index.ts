@@ -43,7 +43,7 @@ export type Classe = (typeof CLASSES)[number];
 export type Tipo = (typeof TIPOS)[number];
 
 export interface Item {
-  id: number;
+  id: string;
   codigo: string;
   descricao: string;
   marca?: string;

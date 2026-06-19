@@ -109,7 +109,7 @@ export function ItemsPage() {
     setOpen(false);
   }
 
-  function handleDelete(id: number) {
+  function handleDelete(id: string) {
     if (!window.confirm('Deseja excluir este item?')) return;
     deleteItem(id);
     toast.success('Item removido.');
