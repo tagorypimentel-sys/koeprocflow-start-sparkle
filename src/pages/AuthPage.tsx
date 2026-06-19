@@ -17,6 +17,19 @@ const signupSchema = loginSchema.extend({
 });
 const forgotSchema = z.object({ email: emailSchema });
 
+const getPasswordResetRedirectUrl = () => {
+  const { hostname, origin } = window.location;
+  const previewProjectId = hostname.endsWith('.lovableproject.com')
+    ? hostname.split('.')[0]
+    : null;
+
+  if (previewProjectId) {
+    return `https://id-preview--${previewProjectId}.lovable.app/reset-password`;
+  }
+
+  return `${origin}/reset-password`;
+};
+
 export default function AuthPage() {
   const { session, loading } = useAuth();
   const navigate = useNavigate();
@@ -91,7 +104,7 @@ export default function AuthPage() {
         }
       } else {
         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-          redirectTo: `${window.location.origin}/reset-password`,
+          redirectTo: getPasswordResetRedirectUrl(),
         });
         if (error) {
           setError(error.message);
