@@ -1,0 +1,1 @@
+ALTER TYPE public.rc_status ADD VALUE IF NOT EXISTS 'entrega_confirmada';
