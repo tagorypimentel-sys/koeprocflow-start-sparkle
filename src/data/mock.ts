@@ -14,7 +14,7 @@ export const MOCK_ITEMS: Item[] = (itensSeed as Array<{
   precoUnitario: number; categoria: string; classe: string; tipo: string;
   linkReferencia?: string;
 }>).map((i) => ({
-  id: i.id,
+  id: String(i.id),
   codigo: i.codigo,
   descricao: i.descricao,
   marca: i.marca && i.marca !== 'Not Applicable' ? i.marca : undefined,

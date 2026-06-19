@@ -21,7 +21,7 @@ const SERVICO_CATEGORIA = "Serviços" as const;
 /** Cria um Item "virtual" para representar um serviço */
 function criarItemServico(descricao: string): Item {
   return {
-    id: Date.now(),
+    id: `svc-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     codigo: "SVC",
     descricao: descricao || "Serviço",
     unidade: "un",
