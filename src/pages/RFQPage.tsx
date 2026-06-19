@@ -245,6 +245,7 @@ function DefinirQuantidades({
 export function RFQPage() {
   const { rfqs, addRFQ, deleteRFQ } = useRFQ();
   const { itens } = useItens();
+  const { clientes } = useClientes();
 
   const [modalAberto, setModalAberto] = useState(false);
   const [etapa, setEtapa] = useState<1 | 2>(1);
