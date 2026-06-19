@@ -14,16 +14,335 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      clients: {
+        Row: {
+          created_at: string
+          doc: string | null
+          id: string
+          nome: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          doc?: string | null
+          id?: string
+          nome: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          doc?: string | null
+          id?: string
+          nome?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      items: {
+        Row: {
+          categoria: string
+          classe: string
+          codigo: string
+          created_at: string
+          descricao: string
+          id: string
+          link_referencia: string | null
+          marca: string | null
+          preco_unitario: number
+          tipo: string
+          unidade: string
+          updated_at: string
+        }
+        Insert: {
+          categoria: string
+          classe: string
+          codigo: string
+          created_at?: string
+          descricao: string
+          id?: string
+          link_referencia?: string | null
+          marca?: string | null
+          preco_unitario?: number
+          tipo: string
+          unidade?: string
+          updated_at?: string
+        }
+        Update: {
+          categoria?: string
+          classe?: string
+          codigo?: string
+          created_at?: string
+          descricao?: string
+          id?: string
+          link_referencia?: string | null
+          marca?: string | null
+          preco_unitario?: number
+          tipo?: string
+          unidade?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          avatar?: string | null
+          created_at?: string
+          email: string
+          id: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          avatar?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      purchase_request_items: {
+        Row: {
+          created_at: string
+          discount: number
+          id: string
+          is_servico: boolean
+          item_id: string | null
+          purchase_request_id: string
+          qty: number
+          servico_descricao: string | null
+          unit_price: number
+        }
+        Insert: {
+          created_at?: string
+          discount?: number
+          id?: string
+          is_servico?: boolean
+          item_id?: string | null
+          purchase_request_id: string
+          qty?: number
+          servico_descricao?: string | null
+          unit_price?: number
+        }
+        Update: {
+          created_at?: string
+          discount?: number
+          id?: string
+          is_servico?: boolean
+          item_id?: string | null
+          purchase_request_id?: string
+          qty?: number
+          servico_descricao?: string | null
+          unit_price?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "purchase_request_items_item_id_fkey"
+            columns: ["item_id"]
+            isOneToOne: false
+            referencedRelation: "items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_request_items_purchase_request_id_fkey"
+            columns: ["purchase_request_id"]
+            isOneToOne: false
+            referencedRelation: "purchase_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      purchase_requests: {
+        Row: {
+          approved_at: string | null
+          approver_id: string | null
+          created_at: string
+          delivery_address: string | null
+          delivery_carrier: string | null
+          delivery_mode: string
+          discount: number
+          id: string
+          invoice_data: Json | null
+          notes: string | null
+          paid: boolean
+          paid_at: string | null
+          po_number: string | null
+          project_client: string
+          project_number: string
+          rejected_at: string | null
+          rejection_reason: string | null
+          requester_id: string
+          status: Database["public"]["Enums"]["rc_status"]
+          supplier_id: string | null
+          tax: number
+          updated_at: string
+        }
+        Insert: {
+          approved_at?: string | null
+          approver_id?: string | null
+          created_at?: string
+          delivery_address?: string | null
+          delivery_carrier?: string | null
+          delivery_mode?: string
+          discount?: number
+          id: string
+          invoice_data?: Json | null
+          notes?: string | null
+          paid?: boolean
+          paid_at?: string | null
+          po_number?: string | null
+          project_client: string
+          project_number: string
+          rejected_at?: string | null
+          rejection_reason?: string | null
+          requester_id: string
+          status?: Database["public"]["Enums"]["rc_status"]
+          supplier_id?: string | null
+          tax?: number
+          updated_at?: string
+        }
+        Update: {
+          approved_at?: string | null
+          approver_id?: string | null
+          created_at?: string
+          delivery_address?: string | null
+          delivery_carrier?: string | null
+          delivery_mode?: string
+          discount?: number
+          id?: string
+          invoice_data?: Json | null
+          notes?: string | null
+          paid?: boolean
+          paid_at?: string | null
+          po_number?: string | null
+          project_client?: string
+          project_number?: string
+          rejected_at?: string | null
+          rejection_reason?: string | null
+          requester_id?: string
+          status?: Database["public"]["Enums"]["rc_status"]
+          supplier_id?: string | null
+          tax?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "purchase_requests_approver_id_fkey"
+            columns: ["approver_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_requests_requester_id_fkey"
+            columns: ["requester_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchase_requests_supplier_id_fkey"
+            columns: ["supplier_id"]
+            isOneToOne: false
+            referencedRelation: "suppliers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      suppliers: {
+        Row: {
+          address: string | null
+          cnpj: string
+          contact: string
+          created_at: string
+          id: string
+          name: string
+          phone: string
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          cnpj: string
+          contact: string
+          created_at?: string
+          id?: string
+          name: string
+          phone: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          cnpj?: string
+          contact?: string
+          created_at?: string
+          id?: string
+          name?: string
+          phone?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role:
+        | "admin"
+        | "solicitante"
+        | "aprovador"
+        | "conferente"
+        | "financeiro"
+      rc_status:
+        | "rascunho"
+        | "aguardando_aprovacao"
+        | "aprovado"
+        | "rejeitado"
+        | "em_cotacao"
+        | "po_emitido"
+        | "em_conferencia"
+        | "conferido"
+        | "pago"
+        | "cancelado"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +469,26 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: [
+        "admin",
+        "solicitante",
+        "aprovador",
+        "conferente",
+        "financeiro",
+      ],
+      rc_status: [
+        "rascunho",
+        "aguardando_aprovacao",
+        "aprovado",
+        "rejeitado",
+        "em_cotacao",
+        "po_emitido",
+        "em_conferencia",
+        "conferido",
+        "pago",
+        "cancelado",
+      ],
+    },
   },
 } as const
